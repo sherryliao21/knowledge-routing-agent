@@ -211,6 +211,31 @@
     }
     .review-banner.flag .review-action:hover { background: #9f1239; }
 
+    /* ── Review banner 3-state pass-with-notes ───────────────────── */
+    .review-banner.pass-with-notes {
+      background: rgba(180,83,9,.04);
+      border-color: rgba(180,83,9,.2);
+    }
+    .review-banner.pass-with-notes .review-icon {
+      background: rgba(180,83,9,.1);
+      color: var(--amber);
+    }
+    .review-banner.pass-with-notes .review-action {
+      color: var(--amber); border-color: rgba(180,83,9,.25);
+    }
+    .review-banner.pass-with-notes .review-action:hover {
+      background: rgba(180,83,9,.07);
+    }
+
+    /* Chevron rotation for native details element */
+    .decision-history-details[open] summary i {
+      transform: rotate(90deg);
+    }
+    .decision-history-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+
     /* Security warning banners */
     .security-banner {
       display: flex;
@@ -818,33 +843,41 @@
   </div>
 
   <!-- Review status banner -->
-  {% if review.status == "PASS" %}
+  {% if review.status == "PASS" and review.issues|length == 0 %}
     <div class="review-banner pass">
       <div class="review-left">
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer: APPROVED</div>
-          <div class="review-note">{{ review.reviewer_notes }}</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved</div>
+          <div class="review-note">No issues found.</div>
         </div>
       </div>
-      {% if review.issues %}
-        <button class="review-action" onclick="openModal()">View logs ({{ review.issues|length }})</button>
-      {% else %}
-        <button class="review-action" disabled>No issues flagged</button>
-      {% endif %}
+      <button class="review-action" disabled>No issues flagged</button>
+    </div>
+  {% elif review.status == "PASS" and review.issues|length > 0 %}
+    <div class="review-banner pass-with-notes">
+      <div class="review-left">
+        <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
+        <div>
+          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — {{ review.issues|length }} note(s)</div>
+          <div class="review-note">Non-blocking review suggestions: {{ review.reviewer_notes }}</div>
+        </div>
+      </div>
+      <button class="review-action" onclick="openModal()">View logs ({{ review.issues|length }})</button>
     </div>
   {% else %}
     <div class="review-banner flag">
       <div class="review-left">
         <div class="review-icon"><i class="ri-error-warning-line"></i></div>
         <div>
-          <div class="review-label">Reviewer: FLAG NEEDED</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
           <div class="review-note">{{ review.reviewer_notes }}</div>
         </div>
       </div>
       <button class="review-action" onclick="openModal()">Inspect ({{ review.issues|length }})</button>
     </div>
   {% endif %}
+
 
   <!-- Security warnings -->
   {% if review.prompt_injection_warnings %}
@@ -996,15 +1029,44 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Technical Constraints</div>
+      <div class="sub-header">Constraints</div>
       <div class="item-list">
-        {% for item in roles.engineer.technical_constraints %}
+        {% for item in roles.engineer.constraints %}
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">
+            {{ item.text }}
+            {% if item.decision_ids %}
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                {% for did in item.decision_ids %}
+                  <span class="did-pill" onclick="goDecision('{{ did }}')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">{{ did }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </span>
         </div>
         {% endfor %}
       </div>
+
+      <div class="sub-header">Architectural Decisions</div>
+      <div class="item-list">
+        {% for item in roles.engineer.architectural_decisions %}
+        <div class="item">
+          <i class="ri-shield-line icon-cyan"></i>
+          <span class="item-text">
+            {{ item.text }}
+            {% if item.decision_ids %}
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                {% for did in item.decision_ids %}
+                  <span class="did-pill" onclick="goDecision('{{ did }}')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">{{ did }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+
 
       <div class="sub-header">Open Technical Questions</div>
       <div class="item-list">
@@ -1079,25 +1141,17 @@
       <div class="panel-title"><i class="ri-briefcase-line icon-pm"></i> Project Management</div>
       <p class="panel-desc">Delivery timeline, dependencies, risks, alignment gaps, milestones, and open PM questions.</p>
 
-      <div class="sub-header">Decision History</div>
+      {% if roles.pm.milestones %}
+      <div class="sub-header">Milestones &amp; Deadlines</div>
       <div class="item-list">
-        {% for item in roles.pm.decision_history %}
+        {% for item in roles.pm.milestones %}
         <div class="item">
-          <i class="ri-history-line icon-pm"></i>
+          <i class="ri-flag-line icon-pm"></i>
           <span class="item-text">{{ item }}</span>
         </div>
         {% endfor %}
       </div>
-
-      <div class="sub-header">Dependencies</div>
-      <div class="item-list">
-        {% for item in roles.pm.dependencies %}
-        <div class="item">
-          <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">{{ item }}</span>
-        </div>
-        {% endfor %}
-      </div>
+      {% endif %}
 
       <div class="sub-header">Risks</div>
       <div class="item-list">
@@ -1129,17 +1183,31 @@
         {% endfor %}
       </div>
 
-      {% if roles.pm.milestones %}
-      <div class="sub-header">Milestones &amp; Deadlines</div>
+      <div class="sub-header">Dependencies</div>
       <div class="item-list">
-        {% for item in roles.pm.milestones %}
+        {% for item in roles.pm.dependencies %}
         <div class="item">
-          <i class="ri-flag-line icon-pm"></i>
+          <i class="ri-git-merge-line icon-pm"></i>
           <span class="item-text">{{ item }}</span>
         </div>
         {% endfor %}
       </div>
-      {% endif %}
+
+      <details class="decision-history-details" style="margin-top: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">
+        <summary class="sub-header" style="cursor: pointer; display: flex; align-items: center; gap: 0.35rem; margin: 0; padding: 0 0 0.5rem 0; border: none; outline: none; list-style: none; -webkit-details-marker: none;">
+          <i class="ri-arrow-right-s-line" style="transition: transform var(--dur) var(--ease-out); font-size: 0.9rem;"></i>
+          <span>View Full Decision History</span>
+        </summary>
+        <div class="item-list" style="margin-top: 0.75rem;">
+          {% for item in roles.pm.decision_history %}
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">{{ item }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </details>
+
     </div>
   </div>
 
@@ -1179,15 +1247,44 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Constraints &amp; Assumptions</div>
+      <div class="sub-header">Constraints</div>
       <div class="item-list">
-        {% for item in roles.sa.constraints_and_assumptions %}
+        {% for item in roles.sa.constraints %}
         <div class="item">
-          <i class="ri-lock-line icon-engineer"></i>
-          <span class="item-text">{{ item }}</span>
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            {{ item.text }}
+            {% if item.decision_ids %}
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                {% for did in item.decision_ids %}
+                  <span class="did-pill" onclick="goDecision('{{ did }}')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">{{ did }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </span>
         </div>
         {% endfor %}
       </div>
+
+      <div class="sub-header">Architectural Decisions</div>
+      <div class="item-list">
+        {% for item in roles.sa.architectural_decisions %}
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            {{ item.text }}
+            {% if item.decision_ids %}
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                {% for did in item.decision_ids %}
+                  <span class="did-pill" onclick="goDecision('{{ did }}')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">{{ did }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+
 
       <div class="sub-header">Open Analysis Questions</div>
       <div class="item-list">

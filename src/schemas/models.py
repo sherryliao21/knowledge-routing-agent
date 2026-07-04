@@ -38,6 +38,16 @@ class SourceEvidence(BaseModel):
     )
 
 
+class CitedItem(BaseModel):
+    """An item associated with specific decision IDs for traceability."""
+
+    text: str = Field(description="The content text of the item.")
+    decision_ids: list[str] = Field(
+        default_factory=list,
+        description="Decision IDs (e.g. 'D001', 'D002') that support or are relevant to this item."
+    )
+
+
 # ---------------------------------------------------------------------------
 # Extracted Decisions & Claims
 # ---------------------------------------------------------------------------
@@ -124,8 +134,21 @@ class EngineerView(BaseModel):
     implementation_scope: list[str] = Field(
         description="Concrete features or components to build."
     )
-    technical_constraints: list[str] = Field(
-        description="Technical limitations, stack decisions, or non-negotiables."
+    constraints: list[CitedItem] = Field(
+        description=(
+            "True external limitations imposed on the project: deadlines, "
+            "performance targets, budget caps, mandatory integrations, or "
+            "compliance requirements. These are boundaries the team did not "
+            "choose and cannot change."
+        )
+    )
+    architectural_decisions: list[CitedItem] = Field(
+        description=(
+            "Technology or architecture choices actively made by the team "
+            "(e.g. framework, language, database, deployment platform). "
+            "These are decisions, not imposed limitations, even though they "
+            "must be respected going forward."
+        )
     )
     relevant_decisions: list[str] = Field(
         description="Decision IDs relevant to engineering work."
@@ -188,12 +211,16 @@ class SAView(BaseModel):
     interface_contracts: list[str] = Field(
         description="API contracts, input/output specs, or interface agreements that need formal definition."
     )
-    constraints_and_assumptions: list[str] = Field(
-        description="Technical constraints, architectural assumptions, or non-negotiable design decisions the SA must document."
+    constraints: list[CitedItem] = Field(
+        description="True external limitations (same definition as EngineerView.constraints)."
+    )
+    architectural_decisions: list[CitedItem] = Field(
+        description="Technology/architecture choices already made (same definition as EngineerView.architectural_decisions)."
     )
     open_analysis_questions: list[str] = Field(
         description="Questions the SA needs answered to complete the system specification — gaps in the requirements."
     )
+
 
 
 class StakeholderView(BaseModel):
