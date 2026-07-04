@@ -1,0 +1,4387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illegal Excavation AI — Knowledge Route Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-raised: #fafafa;
+      --border: #e4e4e7;
+      --border-strong: #d1d1d6;
+
+      --text-primary: #09090b;
+      --text-secondary: #52525b;
+      --text-tertiary: #a1a1aa;
+
+      --accent: #18181b;
+      --accent-fg: #ffffff;
+
+      --teal:    #0d9488;
+      --teal-bg: rgba(13,148,136,.06);
+      --amber:   #b45309;
+      --amber-bg:rgba(180,83,9,.06);
+      --emerald: #059669;
+      --emerald-bg:rgba(5,150,105,.06);
+      --violet:  #6d28d9;
+      --violet-bg:rgba(109,40,217,.06);
+      --slate:   #475569;
+      --slate-bg:rgba(71,85,105,.06);
+      --rose:    #be123c;
+      --rose-bg: rgba(190,18,60,.06);
+      --cyan:    #0e7490;
+      --cyan-bg: rgba(14,116,144,.06);
+
+      --radius: 10px;
+      --radius-sm: 6px;
+      --radius-lg: 14px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --dur: 260ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Geist', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ──────────────────────────────────────────────────── */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* ── Back button ─────────────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: color var(--dur) var(--ease-out),
+                  border-color var(--dur) var(--ease-out);
+      margin-bottom: 2.5rem;
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--border-strong); }
+
+    /* ── Header ──────────────────────────────────────────────────── */
+    .header { margin-bottom: 2rem; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      background: var(--teal-bg);
+      border: 1px solid rgba(13,148,136,.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .header-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .meta-cell {
+      padding: 0.75rem 1.25rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      flex: 1 1 auto;
+      min-width: 140px;
+    }
+    .meta-cell:last-child { border-right: none; }
+    .meta-key {
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+    }
+    .meta-val {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .meta-val.mono {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Review status banner ────────────────────────────────────── */
+    .review-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid;
+      margin-bottom: 1rem;
+    }
+    .review-banner.pass {
+      background: rgba(5,150,105,.04);
+      border-color: rgba(5,150,105,.2);
+    }
+    .review-banner.flag {
+      background: rgba(190,18,60,.04);
+      border-color: rgba(190,18,60,.2);
+    }
+    .review-left { display: flex; align-items: center; gap: 0.75rem; }
+    .review-icon {
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .review-banner.pass .review-icon { background: rgba(5,150,105,.1); color: var(--emerald); }
+    .review-banner.flag .review-icon { background: rgba(190,18,60,.1); color: var(--rose); }
+    .review-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+    }
+    .review-note { font-size: 0.8125rem; color: var(--text-secondary); }
+    .review-action {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--dur) var(--ease-out);
+      white-space: nowrap;
+    }
+    .review-banner.pass .review-action {
+      color: var(--emerald); border-color: rgba(5,150,105,.25);
+    }
+    .review-banner.pass .review-action:hover { background: rgba(5,150,105,.07); }
+    .review-banner.flag .review-action {
+      color: var(--surface); background: var(--rose); border-color: var(--rose);
+    }
+    .review-banner.flag .review-action:hover { background: #9f1239; }
+
+    /* ── Review banner 3-state pass-with-notes ───────────────────── */
+    .review-banner.pass-with-notes {
+      background: rgba(180,83,9,.04);
+      border-color: rgba(180,83,9,.2);
+    }
+    .review-banner.pass-with-notes .review-icon {
+      background: rgba(180,83,9,.1);
+      color: var(--amber);
+    }
+    .review-banner.pass-with-notes .review-action {
+      color: var(--amber); border-color: rgba(180,83,9,.25);
+    }
+    .review-banner.pass-with-notes .review-action:hover {
+      background: rgba(180,83,9,.07);
+    }
+
+    /* Chevron rotation for native details element */
+    .decision-history-details[open] summary i {
+      transform: rotate(90deg);
+    }
+    .decision-history-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+
+    /* Security warning banners */
+    .security-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid;
+      margin-bottom: 0.75rem;
+    }
+    .security-banner.injection {
+      background: rgba(190,18,60,.04);
+      border-color: rgba(190,18,60,.2);
+    }
+    .security-banner.sensitive {
+      background: rgba(180,83,9,.04);
+      border-color: rgba(180,83,9,.2);
+    }
+    .security-banner i { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .security-banner.injection i { color: var(--rose); }
+    .security-banner.sensitive i { color: var(--amber); }
+    .security-banner-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+    .security-banner.injection .security-banner-label { color: var(--rose); }
+    .security-banner.sensitive .security-banner-label { color: var(--amber); }
+    .security-banner ul {
+      margin: 0; padding-left: 1.1rem;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+
+    /* ── Character card row ──────────────────────────────────────── */
+    .char-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      margin-bottom: 1.75rem;
+    }
+    .char-row-wrap::-webkit-scrollbar { display: none; }
+
+    .char-row {
+      display: flex;
+      flex-direction: row;
+      gap: 0.75rem;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    .char-card {
+      scroll-snap-align: start;
+      flex: 1 0 0;
+      min-width: 140px;
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 1.125rem 0.875rem 0.875rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+      text-align: center;
+      transition: border-color var(--dur) var(--ease-out),
+                  box-shadow var(--dur) var(--ease-out),
+                  transform var(--dur) var(--ease-out);
+      box-shadow: var(--shadow-sm);
+    }
+    .char-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Avatar ring */
+    .char-avatar-ring {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      padding: 2px;
+      background: var(--border);
+      transition: background var(--dur) var(--ease-out);
+    }
+    .char-avatar-ring img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(255,255,255,.8);
+      display: block;
+    }
+
+    .char-name {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .char-role {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      line-height: 1.3;
+    }
+
+    /* Active states — one accent per card */
+    .char-card.active[data-role="stakeholder"] {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(180,83,9,.08), var(--shadow-md);
+    }
+    .char-card.active[data-role="stakeholder"] .char-avatar-ring {
+      background: var(--amber);
+    }
+    .char-card.active[data-role="engineer"] {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="engineer"] .char-avatar-ring {
+      background: var(--teal);
+    }
+    .char-card.active[data-role="qa"] {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px var(--emerald-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="qa"] .char-avatar-ring {
+      background: var(--emerald);
+    }
+    .char-card.active[data-role="pm"] {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 3px var(--violet-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="pm"] .char-avatar-ring {
+      background: var(--violet);
+    }
+    .char-card.active[data-role="sa"] {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px var(--rose-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="sa"] .char-avatar-ring {
+      background: var(--rose);
+    }
+    .char-card.active[data-role="decisions"] {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px var(--cyan-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="decisions"] .char-avatar-ring {
+      background: var(--cyan);
+    }
+    .char-card.active[data-role="notes"] {
+      border-color: var(--slate);
+      box-shadow: 0 0 0 3px var(--slate-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="notes"] .char-avatar-ring {
+      background: var(--slate);
+    }
+
+    /* ── Report utility links ────────────────────────────────────── */
+    .report-utility-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .utility-link, .ledger-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.875rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--dur) var(--ease-out);
+      font-family: inherit;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+    .utility-link:hover, .ledger-link:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .utility-link.active[data-role="notes"] {
+      color: var(--teal);
+      border-color: var(--teal);
+      background: var(--teal-bg);
+      box-shadow: 0 0 0 3px var(--teal-bg);
+    }
+
+
+
+
+    /* ── Tab panels ──────────────────────────────────────────────── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── Card shell ──────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .panel-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.375rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+    }
+    .panel-title i { font-size: 1.1rem; }
+
+    .panel-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 72ch;
+    }
+
+    /* ── Section sub-headers ─────────────────────────────────────── */
+    .sub-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      margin: 1.75rem 0 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-header:first-of-type { margin-top: 0; }
+
+    /* ── List items ──────────────────────────────────────────────── */
+    .item-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1.1rem 1fr;
+      gap: 0.625rem;
+      align-items: start;
+      padding: 0.75rem 0.875rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: var(--surface-raised);
+      transition: border-color var(--dur) var(--ease-out),
+                  background var(--dur) var(--ease-out);
+    }
+    .item:hover { background: #f4f4f5; border-color: var(--border); }
+    .item i { font-size: 0.875rem; margin-top: 0.15rem; }
+    .item-text { font-size: 0.875rem; color: var(--text-primary); font-weight: 500; line-height: 1.5; }
+
+    /* Business summary block */
+    .summary-block {
+      padding: 1.125rem 1.25rem;
+      border-radius: var(--radius);
+      background: var(--amber-bg);
+      border: 1px solid rgba(180,83,9,.15);
+      margin-bottom: 1.5rem;
+    }
+    .summary-block-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .summary-block p {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+
+    /* Role-tinted icons */
+    .icon-stakeholder { color: var(--amber); }
+    .icon-engineer { color: var(--teal); }
+    .icon-qa { color: var(--emerald); }
+    .icon-pm { color: var(--violet); }
+    .icon-rose { color: var(--rose); }
+    .icon-danger { color: var(--rose); }
+    .icon-cyan { color: var(--cyan); }
+
+    /* Decision ID pill link */
+    .did-pill {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+    }
+    .did-pill:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── Decisions ledger ────────────────────────────────────────── */
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap i {
+      position: absolute;
+      left: 0.875rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+    .search-input, .filter-select {
+      font-family: inherit;
+      font-size: 0.875rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      transition: border-color var(--dur) var(--ease-out),
+                  box-shadow var(--dur) var(--ease-out);
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.625rem 1rem 0.625rem 2.375rem;
+    }
+    .filter-select {
+      padding: 0.625rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .search-input:focus, .filter-select:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg);
+    }
+
+    .decision-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1.25rem 1.375rem;
+      margin-bottom: 0.75rem;
+      transition: border-color var(--dur) var(--ease-out);
+    }
+    .decision-card:hover { border-color: var(--border-strong); }
+
+    .decision-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.625rem;
+    }
+    .decision-id-title { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
+
+    .decision-id {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    .decision-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .badge-row { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.175rem 0.525rem;
+      border-radius: 9999px;
+      border: 1px solid;
+    }
+    .badge-cat {
+      background: var(--surface-raised);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    .badge-confirmed {
+      background: var(--emerald-bg);
+      border-color: rgba(5,150,105,.2);
+      color: var(--emerald);
+    }
+    .badge-inferred {
+      background: var(--amber-bg);
+      border-color: rgba(180,83,9,.2);
+      color: var(--amber);
+    }
+
+    .decision-detail {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .evidence-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--dur) var(--ease-out);
+    }
+    .evidence-toggle:hover { color: var(--teal); }
+    .evidence-toggle i { transition: transform 0.25s var(--ease-out); }
+    .evidence-toggle.open i { transform: rotate(180deg); }
+
+    .evidence-body {
+      display: none;
+      margin-top: 0.875rem;
+      padding: 1rem 1.125rem;
+      border-left: 2px solid var(--teal);
+      background: #f8fafc;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .evidence-quote {
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 0.375rem;
+    }
+    .evidence-loc {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ── Raw transcript panel ────────────────────────────────────── */
+    .transcript-block {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      white-space: pre-wrap;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.825rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+
+    /* ── Review detail modal ─────────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(9,9,11,.3);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      background: none; border: none;
+      font-size: 1.25rem; color: var(--text-tertiary);
+      cursor: pointer;
+      transition: color var(--dur) var(--ease-out);
+    }
+    .modal-close:hover { color: var(--text-primary); }
+    .modal-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.375rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .modal-subtitle {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .issue-item {
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      margin-bottom: 0.75rem;
+    }
+    .issue-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .issue-loc {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    .issue-sev {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      border: 1px solid;
+    }
+    .sev-critical { background: var(--rose-bg); border-color: rgba(190,18,60,.2); color: var(--rose); }
+    .sev-warning  { background: var(--amber-bg); border-color: rgba(180,83,9,.2); color: var(--amber); }
+    .sev-info     { background: var(--cyan-bg); border-color: rgba(14,116,144,.2); color: var(--cyan); }
+    .issue-desc { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .issue-suggestion {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      padding: 0.625rem 0.875rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border-strong);
+      background: var(--surface);
+    }
+    .suggestion-label {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    .report-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+    .report-footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--dur) var(--ease-out);
+    }
+    .report-footer a:hover { color: var(--text-primary); }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page { padding: 1.5rem 1rem 3rem; }
+      .meta-bar { flex-direction: column; }
+      .meta-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .meta-cell:last-child { border-bottom: none; }
+      .search-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Back -->
+  <a href="../../index.html" class="back-link">
+    <i class="ri-arrow-left-s-line"></i> Knowledge Hub
+  </a>
+
+  <!-- Header -->
+  <div class="header">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+      <div>
+        <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
+        <h1 class="header-title" style="margin:0;">Illegal Excavation AI</h1>
+      </div>
+      <button class="ledger-link" onclick="openLedgerModal()" style="margin:0; flex-shrink:0;">
+        <i class="ri-file-list-3-line"></i> View full decision ledger
+      </button>
+    </div>
+    <div class="meta-bar">
+      <div class="meta-cell">
+        <span class="meta-key">Date</span>
+        <span class="meta-val">2026-05-04</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Run ID</span>
+        <span class="meta-val mono">2026-05-04-illegal-excavation-ai</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Source</span>
+        <span class="meta-val mono">2026-05-04-illegal-excavation-ai.md</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Generated</span>
+        <span class="meta-val mono">2026-07-04T19:06:00.610867Z</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Review status banner -->
+  
+    <div class="review-banner pass-with-notes">
+      <div class="review-left">
+        <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
+        <div>
+          <div class="review-label">AI Reviewer Agent<i class="ri-information-line" title="Checks the other agents' outputs against the source evidence." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — 3 note(s)</div>
+          <div class="review-note">Non-blocking review suggestions: All role outputs are well-structured and accurately reflect the extracted decisions. Hallucination checks passed, with minor 'info' level observations where the QA view inferred logical but unstated test cases. Quality checks show the outputs are useful and ready for their audience. No prompt injection attempts or sensitive content were detected. The minor issues do not block publishing.</div>
+        </div>
+      </div>
+      <button class="review-action" onclick="openModal()">View logs (3)</button>
+    </div>
+  
+
+
+
+
+  <!-- Security warnings -->
+  
+  
+  <!-- Reference document utility links -->
+  
+  <div class="report-utility-links">
+    <button class="utility-link" data-target="panel-notes" data-role="notes">
+      <i class="ri-file-text-line"></i> View source transcript
+    </button>
+  </div>
+  
+
+
+  <!-- Character card row — horizontal, vertical cards -->
+  <div class="char-row-wrap">
+    <div class="char-row">
+
+      <button class="char-card active" data-target="panel-stakeholder" data-role="stakeholder">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-stakeholder.jpg" alt="Dave (Client)">
+        </div>
+        <div class="char-name">Dave</div>
+        <div class="char-role">Stakeholder Brief</div>
+      </button>
+
+      <button class="char-card" data-target="panel-engineer" data-role="engineer">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-engineer.jpg" alt="John (Engineer)">
+        </div>
+        <div class="char-name">John</div>
+        <div class="char-role">Engineer Spec</div>
+      </button>
+
+      <button class="char-card" data-target="panel-qa" data-role="qa">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-qa.jpg" alt="Emma (QA)">
+        </div>
+        <div class="char-name">Emma</div>
+        <div class="char-role">QA Test Params</div>
+      </button>
+
+      <button class="char-card" data-target="panel-pm" data-role="pm">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-pm.jpg" alt="Sarah (PM)">
+        </div>
+        <div class="char-name">Sarah</div>
+        <div class="char-role">Project Manager</div>
+      </button>
+
+      <button class="char-card" data-target="panel-sa" data-role="sa">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-sa.jpg" alt="Alex (SA)">
+        </div>
+        <div class="char-name">Alex</div>
+        <div class="char-role">System Analyst</div>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Panel content -->
+
+  <!-- STAKEHOLDER -->
+  <div class="panel active" id="panel-stakeholder">
+    <div class="card">
+      <div class="panel-title"><i class="ri-user-star-line icon-stakeholder"></i> Stakeholder Executive Briefing</div>
+      <p class="panel-desc">Business-focused summary: impact, alignment decisions, and top open questions.</p>
+
+      <div class="summary-block">
+        <div class="summary-block-label">Business Summary</div>
+        <p>We are developing a new system to automatically identify and monitor changes using artificial intelligence (AI) on imagery. This system will improve our ability to track potential issues and enhance overall data security by upgrading our old file management system. We anticipate the project officially starting in mid-May.</p>
+      </div>
+
+      <div class="sub-header">Key Business Outcomes</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Users will gain a powerful tool to quickly identify potential issues from images using AI analysis.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">The new system will provide better tools for monitoring identified points and managing follow-up actions.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Critical business data will be more secure and compliant through the migration of our outdated file management system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Analysts will have enhanced map viewing capabilities to review historical imagery and compare different periods more effectively.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Decisions Requiring Alignment</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">Confirmation is needed on the specific method for notifying users when AI image analysis tasks are completed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">We need to decide if detected points should be organized (or 'split') by county or city within the system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">Final approval is required on the detailed interface design for the migration of the legacy file management system.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Open Questions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What are the exact details for how users will be notified when AI image analysis tasks are finished?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Should the detected points be grouped by county or city for better organization and reporting?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What are the final design specifics for the new interface of the migrated file management system?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Who should receive follow-up notifications and on what schedule?</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGINEER -->
+  <div class="panel" id="panel-engineer">
+    <div class="card">
+      <div class="panel-title"><i class="ri-terminal-box-line icon-engineer"></i> Engineering Specification</div>
+      <p class="panel-desc">Implementation scope, hard constraints, and unresolved technical questions.</p>
+
+      <div class="sub-header">Implementation Scope</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement AI interpretation task creation as a background task in a task list, similar to the CC platform (D001).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop a notification mechanism for AI interpretation task completion (D001).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Integrate support for two image sources for AI interpretation: large-scale batch from Vendor A and individual user uploads (D003).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop user interface and backend logic for confirming suspected points (yes/no) after AI interpretation (D004).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop user interface and backend logic for placing suspected points under watch/monitoring (D004).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement functionality to capture a reason and upload a polygon when placing a point under monitoring (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement automatic filtering for overly small polygons during monitoring point creation (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop a mechanism to prevent duplicate image uploads, accounting for large file sizes (D006).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Adjust the two-period image comparison feature to support manual annotation by users (D007).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement map viewer capabilities to load historically uploaded imagery (D010).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement filtering for map viewer imagery by date and image-name keyword (satellite, aerial photo, drone) (D010).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Display points on the map viewer based on imagery (D010).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop a 'locate' button for points, which automatically zooms the map to the point's location (D011).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement automatic imagery reversion to point display when the map is zoomed out past a certain scale (D012).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement comparison mode for the map viewer, including locking the map view, disabling panning, and providing a 'release drag mode' button (D013).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Enable users to adjust image transparency within the map viewer (D014).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement project organization by year for suspected points (D016).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Enable creation of suspected points within a project (D016).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement requirement for uploading a polygon for suspected points (no image upload) (D018).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Organize suspected points into yearly layers (D019).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Add a 'New Survey Point Data' interface with fields: survey serial number, drawing number, key-monitoring-zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location (D020).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Migrate the original MS file management system to the new system, redesigning the interface while retaining core functionality (D021).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Integrate selection of suspected points into the new system's follow-up module (D025).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop a schedule-tracking interface (e.g., showing days remaining) within the follow-up module (D026).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop a follow-up dispatch interface (D027).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement connection from the follow-up module to survey-report management, including recording time, description, action taken, and uploaded images (D028).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Prepare a data-flow document explaining data movement after AI interpretation, including sources and computation locations (D029).</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Constraints</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            An on-site workstation will be used for model execution; images are sent to the client's Access Point (AP), which then calls the workstation to run the model (D008).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            The base map must be provided by GIS Provider B via GeoServer (D009).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D009')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D009</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            The map viewer's design must reference the existing Forest Land Disaster Prevention System (D015).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D015')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D015</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            The legacy MIS system migration must meet information-security compliance requirements (D022).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D022')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D022</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            The AI interpretation data flow architecture is fixed: image source -> interpretation task execution (workstation) -> result output -> monitoring database (D030).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D030')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D030</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Architectural Decisions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-shield-line icon-cyan"></i>
+          <span class="item-text">
+            The two-period image comparison feature will no longer pull from the image library; users will annotate this manually instead (D007).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-cyan"></i>
+          <span class="item-text">
+            The original MS file management system will be migrated to the new system, with its interface redesigned but core functionality remaining unchanged (D021).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D021')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D021</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+      </div>
+
+
+      <div class="sub-header">Open Technical Questions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the specific details of the AI interpretation task completion notification mechanism? (D002)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">Should suspected point layers be split by county/city? (D017)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the interface design details for the MIS migration? (D023)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the pending system architecture decisions that need to be discussed? (D037)</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Referenced Decisions</div>
+      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
+        
+          <span class="did-pill" onclick="goDecision('D001')">D001</span>
+        
+          <span class="did-pill" onclick="goDecision('D002')">D002</span>
+        
+          <span class="did-pill" onclick="goDecision('D003')">D003</span>
+        
+          <span class="did-pill" onclick="goDecision('D004')">D004</span>
+        
+          <span class="did-pill" onclick="goDecision('D005')">D005</span>
+        
+          <span class="did-pill" onclick="goDecision('D006')">D006</span>
+        
+          <span class="did-pill" onclick="goDecision('D007')">D007</span>
+        
+          <span class="did-pill" onclick="goDecision('D008')">D008</span>
+        
+          <span class="did-pill" onclick="goDecision('D009')">D009</span>
+        
+          <span class="did-pill" onclick="goDecision('D010')">D010</span>
+        
+          <span class="did-pill" onclick="goDecision('D011')">D011</span>
+        
+          <span class="did-pill" onclick="goDecision('D012')">D012</span>
+        
+          <span class="did-pill" onclick="goDecision('D013')">D013</span>
+        
+          <span class="did-pill" onclick="goDecision('D014')">D014</span>
+        
+          <span class="did-pill" onclick="goDecision('D015')">D015</span>
+        
+          <span class="did-pill" onclick="goDecision('D016')">D016</span>
+        
+          <span class="did-pill" onclick="goDecision('D017')">D017</span>
+        
+          <span class="did-pill" onclick="goDecision('D018')">D018</span>
+        
+          <span class="did-pill" onclick="goDecision('D019')">D019</span>
+        
+          <span class="did-pill" onclick="goDecision('D020')">D020</span>
+        
+          <span class="did-pill" onclick="goDecision('D021')">D021</span>
+        
+          <span class="did-pill" onclick="goDecision('D022')">D022</span>
+        
+          <span class="did-pill" onclick="goDecision('D023')">D023</span>
+        
+          <span class="did-pill" onclick="goDecision('D024')">D024</span>
+        
+          <span class="did-pill" onclick="goDecision('D025')">D025</span>
+        
+          <span class="did-pill" onclick="goDecision('D026')">D026</span>
+        
+          <span class="did-pill" onclick="goDecision('D027')">D027</span>
+        
+          <span class="did-pill" onclick="goDecision('D028')">D028</span>
+        
+          <span class="did-pill" onclick="goDecision('D029')">D029</span>
+        
+          <span class="did-pill" onclick="goDecision('D030')">D030</span>
+        
+          <span class="did-pill" onclick="goDecision('D037')">D037</span>
+        
+          <span class="did-pill" onclick="goDecision('D040')">D040</span>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- QA -->
+  <div class="panel" id="panel-qa">
+    <div class="card">
+      <div class="panel-title"><i class="ri-shield-check-line icon-qa"></i> Quality Assurance</div>
+      <p class="panel-desc">Acceptance criteria, test scenarios, edge cases, and untestable behaviours.</p>
+
+      <div class="sub-header">Acceptance Criteria</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an AI interpretation run is initiated, When the run starts, Then a background task is created in the task list.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an AI interpretation run is completed successfully, When the run finishes, Then a notification is sent upon completion.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user wants to initiate an AI interpretation, When selecting image sources, Then the system allows selection of 'Vendor A nationwide batch'.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user wants to initiate an AI interpretation, When selecting image sources, Then the system allows selection of 'individual images uploaded by the user'.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an AI interpretation has completed and generated a list of suspected points, When a user views a suspected point, Then they can choose to confirm it ('Yes').</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an AI interpretation has completed and generated a list of suspected points, When a user views a suspected point, Then they can choose to reject it ('No').</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user has confirmed a suspected point, When they decide to monitor it, Then the system allows placing the point under watch/monitoring.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user attempts to place a suspected point under monitoring, When they submit the monitoring request, Then a 'reason' must be provided.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user attempts to place a suspected point under monitoring, When they submit the monitoring request, Then a polygon must be uploaded.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user attempts to place a suspected point under monitoring and uploads a large-area polygon, When the system processes the polygon, Then the polygon is accepted.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user attempts to place a suspected point under monitoring and uploads an overly small-area polygon, When the system processes the polygon, Then the polygon is automatically filtered out.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an image file has been previously uploaded, When the user attempts to upload the exact same image file again, Then the system prevents the duplicate upload.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When historical imagery exists, Then the map viewer loads and displays historically uploaded imagery.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying a list of imagery, When the user filters by date, Then the list of imagery updates to show only images within the specified date range.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying a list of imagery, When the user filters by image-name keyword, Then the list of imagery updates to show only images matching the keyword.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When images have associated points, Then these points are displayed on the map.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When the user filters by image type 'satellite', Then only satellite images are displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When the user filters by image type 'aerial photo', Then only aerial photo images are displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When the user filters by image type 'drone', Then only drone images are displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a suspected point is opened in the system, When the point details are displayed, Then a 'locate' button is visible.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user clicks the 'locate' button for an opened point, When the map viewer is active, Then the map automatically zooms to the location of that point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When the user zooms out past a defined scale threshold, Then the displayed imagery automatically reverts to point display.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is in comparison mode, When a user attempts to pan or drag the map, Then the map view is locked and panning is disabled.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is in comparison mode, When the user views the interface, Then a 'release drag mode' button is visible.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is in comparison mode, When the user clicks the 'release drag mode' button, Then panning is re-enabled.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the map viewer is displaying imagery, When a user accesses transparency controls, Then they can adjust the transparency of the images.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user adjusts image transparency, When the adjustment is applied, Then the displayed imagery visually reflects the new transparency level.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user is managing suspected points, When creating a new project, Then the project must be associated with a specific year.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a project exists, When a user creates a suspected point, Then the suspected point is created within that project.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user creates a suspected point, When submitting the point, Then a polygon must be uploaded.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user creates a suspected point, When submitting the point, Then no image upload is required or allowed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given suspected points exist for multiple years, When viewing layers of suspected points, Then each year's suspected points form a distinct layer.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user navigates to the 'New Survey Point Data' interface, When the interface loads, Then it displays fields for: drawing number, key-monitoring-zone, survey serial number, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the migrated MIS system, When a user performs any core functionality, Then the outcome of that functionality is identical to the legacy system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given the migrated MIS system, When a user interacts with the interface, Then the interface design is updated.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a list of suspected points, When a user selects one or more points for follow-up, Then the selected points are successfully integrated into the new system's follow-up module.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user views the follow-up module, When items are present for follow-up, Then a schedule-tracking interface is displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an item is in the follow-up module with a defined due date, When viewing the schedule-tracking interface, Then it displays tracking information (e.g., 'days remaining') for that item.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user needs to manage follow-up tasks, When navigating to the follow-up section, Then a follow-up dispatch interface is accessible.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a follow-up task is completed, When the user records the follow-up action, Then the system connects to survey-report management.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a follow-up action is recorded in survey-report management, When viewing the report, Then it includes fields for time, description, action taken, and uploaded images.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Test Scenarios</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a task appears in the task list immediately after initiating an AI interpretation run.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a completion notification is received after an AI interpretation finishes successfully.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a failure notification is received if an AI interpretation fails.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can successfully initiate an AI interpretation using the 'Vendor A nationwide batch' source.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can successfully initiate an AI interpretation by uploading individual images.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can confirm a suspected point and place it under monitoring.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can reject a suspected point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user cannot place a point under monitoring without providing a reason.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user cannot place a point under monitoring without uploading a polygon.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can successfully place a point under monitoring with a valid reason and a large-area polygon.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify uploading the same image file twice results in a duplicate prevention message or action.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify uploading two different image files (even with similar names) is successful.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can manually annotate comparison areas in the two-period image comparison feature.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the 'pull from image library' option is absent or disabled in the two-period image comparison feature.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the map viewer loads historical imagery correctly.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify filtering imagery by a specific date range works as expected.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify filtering imagery by keywords works.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify points associated with loaded imagery are correctly displayed on the map.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify filtering imagery by each image type (satellite, aerial photo, drone) works independently.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify clicking 'locate' on a point zooms the map to its coordinates.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify zooming out past the predefined scale threshold switches the display from imagery to points.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify zooming in past the predefined scale threshold switches the display from points back to imagery.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify panning is disabled when comparison mode is active.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify clicking 'release drag mode' re-enables panning.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify adjusting image transparency from 0% to 100% and observing the visual change.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify projects can only be created with a year association.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify suspected points can be created successfully within an existing project.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user cannot create a suspected point without uploading a polygon.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a user can successfully create a suspected point by uploading a polygon and no image.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the interface does not prompt for image upload when creating a suspected point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify that points created in different years appear in distinct layers in the relevant management interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify all specified fields are present and correctly labeled in the 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify data can be entered and saved for each field in the 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Perform a comprehensive set of actions in the new MIS interface and compare results against the legacy system's core functionality.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the visual appearance and layout of the MIS interface are redesigned compared to the legacy system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify all data records from the legacy system are successfully migrated and accessible in the new system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify a single suspected point can be selected and added to the follow-up module.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify multiple suspected points can be selected and added to the follow-up module.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the schedule-tracking interface is visible in the follow-up module.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify 'days remaining' (or equivalent) is correctly calculated and displayed for follow-up items with due dates.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify the 'follow-up dispatch interface' can be accessed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify that completing a follow-up task correctly initiates the connection to survey-report management.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify that a survey report generated from a follow-up task contains fields for time, description, action taken, and uploaded images.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify images can be uploaded and successfully associated with a survey report.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Edge Cases</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test initiating multiple AI interpretation runs concurrently and observe task list behavior.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test AI interpretation runs that take an extremely long time or complete very quickly.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test initiating AI interpretation with a very large number of individual images.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test initiating AI interpretation with invalid image file types (for user uploads).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test confirming/rejecting all points in a very large list of suspected points.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test confirming/rejecting points with varying data complexities (e.g., missing data, malformed data).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test various polygon sizes for monitoring points, including just above/below the 'overly small' threshold.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test with different valid reasons for monitoring points (long, short, special characters).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test with invalid polygon formats/data (if the system allows upload before validation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test attempting to submit monitoring points with an empty reason or empty polygon file.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test duplicate image prevention with very large image files.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test duplicate image prevention with images that have minor metadata changes but identical pixel data, or identical pixel data but different file names.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test concurrent uploads of the same image by different users (if multi-user system).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test manual annotation with complex shapes, very small/large areas, and interactions with map zooming/panning.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test filtering imagery with invalid date ranges (e.g., end date before start date).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test filtering imagery with keywords that yield no results, very long keywords, or special character keywords.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test filtering by multiple image types concurrently.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test 'locate' on points with coordinates far away from the current map view, or with invalid/missing coordinate data.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test rapidly zooming in and out across the imagery/point display threshold.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test switching in and out of map comparison mode multiple times.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test attempting to pan using various input methods (mouse, touch) while comparison mode is locked.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test image transparency adjustment with multiple layers of imagery (if applicable) or with very dark/light imagery.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test creating projects for past, current, and future years.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test creating a very large number of suspected points within one project.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test creating suspected points with empty or invalid polygon file uploads.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test with maximum length inputs for text fields in 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test with invalid date formats, non-numeric values for numeric fields (volume, area, coordinates) in 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test entering coordinates that are outside of expected ranges in 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test any known edge cases or rare workflows from the legacy MIS system after migration.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test selecting an already followed-up point for follow-up.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test selecting all suspected points for follow-up, or points from different projects/years.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test schedule-tracking with follow-up items due today, tomorrow, next week, and overdue, or without a defined due date.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test follow-up report creation with very long descriptions or action taken notes.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test with multiple image uploads for a single follow-up report.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test attempting to save a follow-up report with missing required fields (if any).</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Unresolved Behaviours</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">Details of the AI interpretation task completion notification mechanism (e.g., delivery method, content, recipient) need to be confirmed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What defines an 'overly small area' for a polygon when placing a point under monitoring? (e.g., minimum square meters/pixels, criteria for filtering)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What is the specific 'certain scale' threshold at which map imagery reverts to point display?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What is the expected range of image transparency adjustment (e.g., 0-100%) and the granularity of control (e.g., slider, numeric input)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">Needs confirmation on whether suspected-point layers should be split by county/city. If so, what are the specific criteria for splitting and how is this reflected in the UI?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">Specific interface design details for the MIS migration and a clear definition of 'core functionality' that must remain unchanged need to be confirmed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What specific schedule-tracking metrics (e.g., 'days remaining', status, progress) should be displayed in the follow-up module, and how are due dates defined for follow-up items?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What are the specific functionalities and expected behaviors of the 'follow-up dispatch interface'?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">Who are the intended recipients for follow-up notifications, and what is the schedule/frequency for these notifications?</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- PM -->
+  <div class="panel" id="panel-pm">
+    <div class="card">
+      <div class="panel-title"><i class="ri-briefcase-line icon-pm"></i> Project Management</div>
+      <p class="panel-desc">Delivery timeline, dependencies, risks, alignment gaps, milestones, and open PM questions.</p>
+
+      
+      <div class="sub-header">Milestones &amp; Deadlines</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">Project expected to kick off in mid-May (if bidding proceeds smoothly).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">Sherry to finish the 'add suspected point' data interface (referencing figure 2.13) by 2026-05-18.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">Sherry to prepare the data-flow document (image source, compute node, data direction) for A-Bao to review by 2026-05-18.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">Next meeting scheduled for 2026-05-15, planned topic: Discuss system architecture.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">Sherry to organize existing interfaces (including Shao-Chien's parts) for use in the requirements interview by 2026-05-20.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">First requirements interview scheduled for 2026-05-20.</span>
+        </div>
+        
+      </div>
+      
+
+      <div class="sub-header">Risks</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">Immediate Requirements Interview Post-Bid Award: There is a risk that a requirements interview and interface confirmation may need to happen immediately on the afternoon the bid is awarded. This implies a compressed timeline for preparation and stakeholder availability. (Likelihood: Medium, Impact: High on initial project setup and planning).</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Alignment Gaps</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">Specific details of the AI interpretation task completion notification mechanism are pending confirmation in a requirements interview, indicating a potential gap in stakeholder expectations or detailed requirements.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">The decision on whether to split suspected point layers by county/city is pending confirmation, representing a potential divergence in data organization expectations.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">Interface design details for the legacy MIS system migration are pending confirmation, which could lead to rework if not aligned early.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">Who receives follow-up notifications and on what schedule needs confirmation, which could impact user experience and compliance if not clearly defined and agreed upon.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Open Questions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What are the specific details of the AI interpretation task completion notification mechanism? (Owned by PM/QA)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Should suspected-point layers be split by county/city for data organization? (Owned by PM/QA)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What are the specific interface design details for the legacy MIS system migration? (Owned by PM/QA)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Who will receive follow-up notifications and on what schedule? (Owned by PM/QA)</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Dependencies</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">AI model execution relies on an on-site workstation set up and called by the client's Access Point (AP).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">Base map functionality relies on GIS Provider B providing data via GeoServer.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">Map viewer design will reference the existing Forest Land Disaster Prevention System.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">The requirements interview (scheduled for 2026-05-20) is dependent on preparation work by Sherry: consolidating existing interfaces, preparing a system architecture diagram, and a data flow diagram.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">A-Bao's review of the AI interpretation data flow is dependent on Sherry preparing the data-flow document (image source, compute node, data direction) by 2026-05-18.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">MIS migration interface design details are pending and will impact the design and development teams.</span>
+        </div>
+        
+      </div>
+
+      <details class="decision-history-details" style="margin-top: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">
+        <summary class="sub-header" style="cursor: pointer; display: flex; align-items: center; gap: 0.35rem; margin: 0; padding: 0 0 0.5rem 0; border: none; outline: none; list-style: none; -webkit-details-marker: none;">
+          <i class="ri-arrow-right-s-line" style="transition: transform var(--dur) var(--ease-out); font-size: 0.9rem;"></i>
+          <span>View Full Decision History</span>
+        </summary>
+        <div class="item-list" style="margin-top: 0.75rem;">
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">It was decided that each AI interpretation run must create a background task in the task list (similar to the CC platform) and send a notification upon completion.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">The system must support two image sources for AI interpretation: a one-time large-scale nationwide batch from Vendor A, and individual user uploads.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">After AI interpretation, a list of suspected points is generated, which users can confirm (yes/no) and decide to place under watch/monitoring.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">When placing a point under monitoring, users must provide a reason and upload a polygon, with large-area polygons being valid and overly small areas filtered out.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">A mechanism is required to prevent duplicate image uploads due to their large file sizes.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">The two-period image comparison feature will no longer pull from the image library; instead, users will annotate this manually.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">The map viewer must be able to load historically uploaded imagery, filter by date and image-name keyword (satellite, aerial photo, drone), and display points on the map.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">A 'locate' button should display when a point is opened, automatically zooming the map to that location.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">When the map is zoomed out past a certain scale, imagery must automatically revert to point display.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">In comparison mode, the map view must be locked with panning disabled; a 'release drag mode' button will restore panning.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Users must be able to adjust image transparency, which is critical for orthophoto analysis.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Projects are organized by year, allowing suspected points to be created within a project, with each year forming one layer for suspected points.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Suspected points require an uploaded polygon, but no image upload is needed.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">A 'New Survey Point Data' interface must be added, including fields like drawing number, key-monitoring-zone, survey serial number, village, monitoring date, monitoring method, volume, area, section, lot number, coordinates (X/Y, longitude/latitude), and approximate location.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">The original MS file management system will be migrated to the new system, with its interface redesigned but core functionality remaining unchanged. This migration is primarily to meet information-security compliance requirements.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">The new system will integrate a follow-up module where items can be selected from suspected points. It must include a schedule-tracking interface (e.g., days remaining) and a dispatch interface (Shao-Chien has a draft).</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Post-follow-up, the system must connect to survey-report management, recording time, description, action taken, and uploaded images, leveraging the legacy system's email-based follow-up/reminder functionality.</span>
+          </div>
+          
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- SA -->
+  <div class="panel" id="panel-sa">
+    <div class="card">
+      <div class="panel-title"><i class="ri-flow-chart icon-rose"></i> System Analysis</div>
+      <p class="panel-desc">Formal requirements, data flows, interface contracts, and architectural constraints derived from the meeting decisions.</p>
+
+      <div class="sub-header">System Requirements</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL create a background task for each AI interpretation run within the task list, similar to the CC platform.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL send a notification upon the completion of an AI interpretation task.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL support image ingestion from a one-time large-scale nationwide batch provided by Vendor A for AI interpretation.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL support individual user-uploaded images as a source for AI interpretation.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL implement a mechanism to prevent duplicate image uploads, accounting for large file sizes.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL generate a list of suspected points upon completion of AI interpretation.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL allow users to confirm or reject suspected points from the generated list.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL allow users to designate confirmed suspected points for watch/monitoring.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL require a reason to be provided by the user when placing a suspected point under monitoring.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL require a polygon to be uploaded by the user when placing a suspected point under monitoring.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL accept large-area polygons for monitoring points.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL automatically filter out overly small polygons provided for monitoring points.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL load historically uploaded imagery.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL support filtering of imagery by date.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL support filtering of imagery by image-name keyword.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL support filtering of imagery by type (satellite, aerial photo, drone).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL display identified points on the map.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL display a 'locate' button when a point is opened.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL automatically zoom to the location of an opened point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL automatically revert from imagery display to point display when zoomed out beyond a predefined scale.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">In comparison mode, the map viewer SHALL lock the map view and disable panning.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL provide a 'release drag mode' button to restore panning functionality when in comparison mode.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The map viewer SHALL allow users to adjust image transparency.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL organize suspected points within projects, where projects are organized by year.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL allow creation of suspected points within an existing project.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL represent suspected points for each year as a distinct layer.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL require an uploaded polygon for the creation of a suspected point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system MUST NOT require an image upload for the creation of a suspected point.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL provide a 'New Survey Point Data' interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The core functionality of the migrated MS file management system SHALL remain unchanged in the new system.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The user interface for the migrated MS file management system SHALL be redesigned as part of the new system development.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The new system, including the migrated MIS functionality, SHALL comply with relevant information security requirements (inferred - needs confirmation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The new system SHALL allow users to select suspected points for inclusion in the follow-up module.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The new system's follow-up module SHALL include a schedule-tracking interface, displaying metrics such as days remaining.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The new system SHALL include a follow-up dispatch interface.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL integrate follow-up actions with survey-report management.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The integration with survey-report management SHALL include recording of follow-up time, description, action taken, and associated uploaded images.</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Data Flows &amp; Integrations</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Images -> Client's Access Point (AP) -> On-site Workstation (for AI model execution) (D008, D030)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Base Map Data (GIS Provider B) -> GeoServer -> Map Viewer (inferred from D009)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Image Source -> AI Interpretation Task Execution (On-site Workstation) -> AI Result Output -> Monitoring Database (D030)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Follow-up Module -> Survey-Report Management (data: time, description, action taken, uploaded images) (D028)</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Interface Contracts</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">The 'New Survey Point Data' interface SHALL include the following fields: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (enum: precise coordinates, aerial survey, rapid monitoring, unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location. (D020)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">The follow-up dispatch interface design SHALL leverage the existing first draft provided by Shao-Chien. (D027)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">The 'add suspected point' data interface SHALL be completed by 2026-05-18, referencing manual figure 2.13. (D033)</span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Constraints</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The AI interpretation model execution SHALL occur on an on-site workstation.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The base map SHALL be sourced from GIS Provider B via GeoServer.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D009')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D009</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The map viewer's user interface and experience design SHALL reference the existing Forest Land Disaster Prevention System.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D015')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D015</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The migration of the legacy MIS system is mandated to achieve information-security compliance requirements.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D022')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D022</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The AI interpretation data flow SHALL adhere to the sequence: image source -> interpretation task execution (on workstation) -> result output -> monitoring database.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D030')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D030</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            A requirements interview and interface confirmation may need to occur immediately on the day the project bid is awarded, implying a tight turnaround for initial SA deliverables.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D032')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D032</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+      </div>
+
+      <div class="sub-header">Architectural Decisions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            The two-period image comparison feature SHALL rely on manual user annotation instead of pulling from the system's image library.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            The legacy MS file management system SHALL be migrated to the new system.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D021')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D021</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+      </div>
+
+
+      <div class="sub-header">Open Analysis Questions</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">Clarify the specific details and technical mechanism of the AI interpretation task completion notification, including protocols, data payload, and target endpoints.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">Determine whether suspected point data layers SHALL be logically or physically partitioned by county/city, and the implications for data access and querying.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">Confirm the detailed interface design specifications and migration strategy for the legacy MIS system to the new platform.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">Define the system's capabilities for configurable recipients and schedules for follow-up notifications, including the underlying data model to support this functionality.</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- TRANSCRIPT (opt-in only) -->
+  
+  <div class="panel" id="panel-notes">
+    <div class="card">
+      <div class="panel-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</div>
+      <p class="panel-desc">Raw meeting notes fed into the pipeline. Published via <code>--include-transcript</code>.</p>
+      <div class="transcript-block"># Work Meeting Minutes
+
+**Project:** Illegal Excavation AI — Work Item Discussion
+**Date:** 2026-05-04
+**Attendees:** A-Bao, Ming-Xian, Sherry
+**Minutes by:** Sherry
+
+## Topics for This Session
+
+- Confirming the functional scope of each Illegal-Excavation-AI work item
+- Migration plan for the legacy MIS system
+- AI interpretation task workflow and data flow explanation
+- Map viewer features and image-comparison mode discussion
+- Follow-up/reminder module planning
+
+## Decisions
+
+### [AI Interpretation Work Item]
+
+- Each AI interpretation run creates one task, which runs in the background in the task list (similar to how the CC platform operates); a notification is sent when it completes
+- Notification mechanism details are pending confirmation in the requirements interview
+- Two image sources: a one-time large-scale nationwide batch of imagery obtained from Vendor A, or individual images uploaded by the user
+- After interpretation completes, a list is generated; the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring
+- When placing a point under monitoring, the reason must be filled in and a polygon uploaded (large-area polygons are valid; overly small areas are automatically filtered out)
+- Images must not be uploaded more than once (image files are large, so a duplicate-prevention mechanism is needed)
+
+### [Image Comparison Feature Adjustment]
+
+- Two-period image comparison will no longer pull from the image library — the user will annotate this manually instead
+- A workstation will be set up on-site; images are sent to the client's AP, which then calls the workstation to run the model
+- The base map will be provided by GIS Provider B via GeoServer
+
+### [Map Viewer Features]
+
+- The map viewer can load historically uploaded imagery, supports filtering the list by date and image-name keyword (type: satellite / aerial photo / drone), and displays points on the map
+- Opening a point shows a "locate" button; the map automatically zooms to that location
+- When the map is zoomed out past a certain scale, imagery automatically reverts to point display
+- In comparison mode, the map view is locked and cannot be panned; a "release drag mode" button is provided to restore panning
+- Users can adjust image transparency (an important feature for orthophoto analysis)
+- The map viewer's design references the existing Forest Land Disaster Prevention System
+
+### [Suspected Point Management]
+
+- Projects are organized by year; suspected points can be created within a project
+- Whether to split layers by county/city is pending confirmation in the requirements interview
+- Suspected points require an uploaded polygon; no image upload is needed
+- Each year forms one layer
+- **Need to add a "New Survey Point Data" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)**
+
+  *[Screenshot: "New Survey Point Data" form, before/after clicking "Edit" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]*
+
+### [Legacy MIS System Migration]
+
+- The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged
+- The main reason for migration is information-security compliance requirements
+- Migration details are pending confirmation in the requirements interview
+
+### [Follow-up/Reminder Feature]
+
+- The legacy system already has a follow-up/reminder feature, primarily via email notification
+- Planning for the new system's follow-up feature:
+  - Items to follow up on can be selected from suspected points and integrated into the follow-up module
+  - Add a schedule-tracking interface (e.g. showing days remaining)
+  - Follow-up dispatch interface (Shao-Chien already has a first draft)
+  - After follow-up, this connects to survey-report management: including time, description, action taken, and uploaded images
+
+### [Data Flow Documentation (requested by A-Bao)]
+
+- A-Bao needs a data-flow document explaining how data moves after AI interpretation completes — where the data is pulled from, and where computation happens
+- Data flow covers: image source → interpretation task execution (workstation) → result output → monitoring database
+
+### [Project Timeline]
+
+- The project is currently in the bidding process; if things go smoothly, it's expected to kick off in mid-May
+- On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately
+
+## Action Items
+
+| Owner | Task | Due |
+|---|---|---|
+| Sherry | Finish the "add suspected point" data interface (refer to figure 2.13) | Before 5/18 |
+| Sherry | Organize existing interfaces (including the parts Shao-Chien owns) for use in the requirements interview | Before 5/20 |
+| Sherry | Prepare the data-flow document (image source, compute node, data direction) for A-Bao to review | Before 5/18 |
+
+## Next Meeting
+
+**Time:** 2026-05-15
+**Planned topic:** Discuss system architecture
+
+## Requirements Interview
+
+**Time:** 2026-05-20
+**Planned topic:** First requirements interview
+**Prep needed:** Consolidate existing interfaces, system architecture diagram, data flow diagram
+
+**Open items to confirm:**
+- Details of the AI interpretation task completion notification mechanism
+- Whether the suspected-point layer should be split by county/city
+- Interface design details for the MIS migration
+- Who receives follow-up notifications and on what schedule</div>
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer class="report-footer">
+    <span>Knowledge Routing Agent v0.1.0</span>
+    <a href="https://github.com/sherryliao21/sherry-lab" target="_blank">
+      <i class="ri-github-line"></i> GitHub
+    </a>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- Review modal -->
+<div class="modal-backdrop" id="reviewModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()"><i class="ri-close-line"></i></button>
+    <div class="modal-title"><i class="ri-bug-line" style="color:var(--teal)"></i> Pipeline Review Log</div>
+    <p class="modal-subtitle">Issues flagged by the Reviewer Agent. Address any critical items before sharing.</p>
+    <div>
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">QA View</span>
+          <span class="issue-sev sev-info">info</span>
+        </div>
+        <p class="issue-desc">The test scenario 'Verify a failure notification is received if an AI interpretation fails.' is a reasonable addition but extends beyond the explicit detail in D001, which only states 'a notification is sent when it completes' (implying successful completion).</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          Consider adding a source note for implied scenarios or ensure the acceptance criteria explicitly covers failure notifications if required.
+        </div>
+      </div>
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">QA View</span>
+          <span class="issue-sev sev-info">info</span>
+        </div>
+        <p class="issue-desc">The test scenario 'Verify zooming in past the predefined scale threshold switches the display from points back to imagery.' is an inferred behavior, as D012 explicitly states imagery reverts to point display when zoomed *out* past a certain scale, but the reverse action is not explicitly mentioned.</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          Consider adding a source note for implied scenarios or verify if the reverse behavior (zooming in) is an explicit requirement from stakeholders.
+        </div>
+      </div>
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">PM View, Stakeholder View</span>
+          <span class="issue-sev sev-info">info</span>
+        </div>
+        <p class="issue-desc">Decision D037, 'Next Meeting Topic: System Architecture', is categorized as an 'open_question' in the extracted decisions and included in the Engineer's 'open_technical_questions', but it is not explicitly listed in the PM's 'open_questions' or the Stakeholder's 'major_unresolved_questions'. While it's a discussion topic rather than a requirement detail, its absence from the higher-level open questions might be an oversight if it's considered a significant architectural decision still to be made.</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          Consider including D037 in the PM and Stakeholder views' open questions or alignment gaps, perhaps rephrased to reflect its nature as a pending architectural discussion that needs resolution.
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Ledger modal -->
+<div class="modal-backdrop" id="ledgerModal">
+  <div class="modal-box" style="max-width: 900px; max-height: 85vh; overflow-y: auto;">
+    <button class="modal-close" onclick="closeLedgerModal()"><i class="ri-close-line"></i></button>
+    <div class="modal-title"><i class="ri-node-tree icon-cyan"></i> Sourced Decision Ledger</div>
+    <p class="modal-subtitle">All extracted items with source citations. Filter by category or search by keyword.</p>
+
+    <div class="search-row">
+      <div class="search-wrap">
+        <i class="ri-search-line"></i>
+        <input id="searchInput" class="search-input" type="text" placeholder="Search decisions…" oninput="filterDecisions()">
+      </div>
+      <select id="catFilter" class="filter-select" onchange="filterDecisions()">
+        <option value="all">All categories</option>
+        <option value="key_decision">Key decisions</option>
+        <option value="business_requirement">Business requirements</option>
+        <option value="functional_requirement">Functional requirements</option>
+        <option value="technical_constraint">Technical constraints</option>
+        <option value="deadline_or_milestone">Deadlines &amp; milestones</option>
+        <option value="dependency">Dependencies</option>
+        <option value="risk">Risks</option>
+        <option value="open_question">Open questions</option>
+      </select>
+    </div>
+
+    <div id="decisionsList">
+      
+      <div class="decision-card" id="d-D001" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D001</span>
+            <span class="decision-title">AI Interpretation Task Creation and Notification</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Each AI interpretation run must create a background task in the task list, similar to the CC platform, and send a notification upon completion.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D001', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D001">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Each AI interpretation run creates one task, which runs in the background in the task list (similar to how the CC platform operates); a notification is sent when it completes"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D002" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D002</span>
+            <span class="decision-title">AI Interpretation Notification Mechanism Details Pending</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The specific details of the AI interpretation task completion notification mechanism are pending confirmation in a requirements interview.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D002">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Notification mechanism details are pending confirmation in the requirements interview"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D003" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D003</span>
+            <span class="decision-title">AI Interpretation Image Sources</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The system must support two image sources for AI interpretation: a one-time large-scale nationwide batch from Vendor A, or individual images uploaded by the user.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D003">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Two image sources: a one-time large-scale nationwide batch of imagery obtained from Vendor A, or individual images uploaded by the user"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D004" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D004</span>
+            <span class="decision-title">Suspected Point Confirmation and Monitoring</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">After AI interpretation completes, a list of suspected points is generated. Users can confirm these points (yes/no) and decide whether to place them under watch/monitoring.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D004">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"After interpretation completes, a list is generated; the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D005" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D005</span>
+            <span class="decision-title">Monitoring Point Requirements: Reason and Polygon Upload</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">When placing a point under monitoring, the user must provide a reason and upload a polygon. Large-area polygons are valid, while overly small areas will be automatically filtered out.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D005">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"When placing a point under monitoring, the reason must be filled in and a polygon uploaded (large-area polygons are valid; overly small areas are automatically filtered out)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D006" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D006</span>
+            <span class="decision-title">Image Upload Duplicate Prevention</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A mechanism is required to prevent duplicate image uploads due to large file sizes.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D006">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Images must not be uploaded more than once (image files are large, so a duplicate-prevention mechanism is needed)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [AI Interpretation Work Item]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D007" data-category="key_decision" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D007</span>
+            <span class="decision-title">Image Comparison Feature: Manual Annotation</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">key decision</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The two-period image comparison feature will no longer pull from the image library; users will annotate this manually instead.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D007">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Two-period image comparison will no longer pull from the image library — the user will annotate this manually instead"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Image Comparison Feature Adjustment]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D008" data-category="technical_constraint" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D008</span>
+            <span class="decision-title">On-site Workstation for Model Execution</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">technical constraint</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A workstation will be set up on-site, and images will be sent to the client's Access Point (AP), which will then call the workstation to run the model.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D008">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"A workstation will be set up on-site; images are sent to the client's AP, which then calls the workstation to run the model"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Image Comparison Feature Adjustment]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D009" data-category="technical_constraint" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D009</span>
+            <span class="decision-title">GIS Provider for Base Map</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">technical constraint</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The base map will be provided by GIS Provider B via GeoServer.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D009">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The base map will be provided by GIS Provider B via GeoServer"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Image Comparison Feature Adjustment]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D010" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D010</span>
+            <span class="decision-title">Map Viewer Imagery and Filtering Capabilities</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The map viewer must be able to load historically uploaded imagery and support filtering by date and image-name keyword (types: satellite, aerial photo, drone), displaying points on the map.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D010', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D010">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The map viewer can load historically uploaded imagery, supports filtering the list by date and image-name keyword (type: satellite / aerial photo / drone), and displays points on the map"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D011" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D011</span>
+            <span class="decision-title">Map Viewer 'Locate' Button and Zoom</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">When a point is opened, a 'locate' button should be displayed, and the map must automatically zoom to that location.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D011', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D011">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Opening a point shows a "locate" button; the map automatically zooms to that location"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D012" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D012</span>
+            <span class="decision-title">Map Viewer Imagery Reversion to Point Display</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">When the map is zoomed out past a certain scale, imagery must automatically revert to point display.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D012', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D012">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"When the map is zoomed out past a certain scale, imagery automatically reverts to point display"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D013" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D013</span>
+            <span class="decision-title">Map Comparison Mode Lock and Release</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">In comparison mode, the map view must be locked and panning disabled. A 'release drag mode' button must be provided to restore panning.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D013', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D013">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"In comparison mode, the map view is locked and cannot be panned; a "release drag mode" button is provided to restore panning"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D014" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D014</span>
+            <span class="decision-title">Map Viewer Image Transparency Adjustment</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Users must be able to adjust image transparency, which is an important feature for orthophoto analysis.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D014', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D014">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Users can adjust image transparency (an important feature for orthophoto analysis)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D015" data-category="technical_constraint" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D015</span>
+            <span class="decision-title">Map Viewer Design Reference</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">technical constraint</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The map viewer's design will reference the existing Forest Land Disaster Prevention System.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D015', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D015">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The map viewer's design references the existing Forest Land Disaster Prevention System"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Map Viewer Features]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D016" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D016</span>
+            <span class="decision-title">Suspected Point Project Organization by Year</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Projects are organized by year, and suspected points can be created within a project.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D016', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D016">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Projects are organized by year; suspected points can be created within a project"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D017" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D017</span>
+            <span class="decision-title">Suspected Point Layer Split by County/City Pending</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The decision on whether to split suspected point layers by county/city is pending confirmation in the requirements interview.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D017', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D017">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Whether to split layers by county/city is pending confirmation in the requirements interview"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D018" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D018</span>
+            <span class="decision-title">Suspected Point Polygon Requirement</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Suspected points require an uploaded polygon, but no image upload is needed.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D018', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D018">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Suspected points require an uploaded polygon; no image upload is needed"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D019" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D019</span>
+            <span class="decision-title">Suspected Point Layers Organized by Year</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Each year forms one layer for suspected points.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D019', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D019">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Each year forms one layer"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D020" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D020</span>
+            <span class="decision-title">New Survey Point Data Interface Requirement</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A 'New Survey Point Data' interface must be added. It should include fields for drawing number and key-monitoring-zone, referencing manual figure 2.13. Other fields include: survey serial number, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D020', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D020">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Need to add a "New Survey Point Data" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"[Screenshot: "New Survey Point Data" form, before/after clicking "Edit" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Suspected Point Management]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D021" data-category="key_decision" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D021</span>
+            <span class="decision-title">Legacy MIS System Migration and Redesign</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">key decision</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The original MS file management system will be migrated to the new system. The interface will be redesigned, but its core functionality must remain unchanged.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D021', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D021">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Legacy MIS System Migration]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D022" data-category="business_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D022</span>
+            <span class="decision-title">MIS Migration for Information Security Compliance</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">business requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The primary reason for migrating the legacy MIS system is to meet information-security compliance requirements.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D022', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D022">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The main reason for migration is information-security compliance requirements"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Legacy MIS System Migration]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D023" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D023</span>
+            <span class="decision-title">MIS Migration Details Pending Confirmation</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Details regarding the legacy MIS system migration are pending confirmation in the requirements interview.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D023', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D023">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Migration details are pending confirmation in the requirements interview"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Legacy MIS System Migration]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D024" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D024</span>
+            <span class="decision-title">Legacy System Follow-up/Reminder Feature</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The legacy system already includes a follow-up/reminder feature, primarily using email notifications.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D024', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D024">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The legacy system already has a follow-up/reminder feature, primarily via email notification"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Follow-up/Reminder Feature]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D025" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D025</span>
+            <span class="decision-title">New System Follow-up Module Integration</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Items for follow-up can be selected from suspected points and integrated into the new system's follow-up module.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D025', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D025">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Items to follow up on can be selected from suspected points and integrated into the follow-up module"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Follow-up/Reminder Feature]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D026" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D026</span>
+            <span class="decision-title">New System Schedule-Tracking Interface</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The new system's follow-up feature must include a schedule-tracking interface (e.g., showing days remaining).</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D026', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D026">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Add a schedule-tracking interface (e.g. showing days remaining)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Follow-up/Reminder Feature]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D027" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D027</span>
+            <span class="decision-title">New System Follow-up Dispatch Interface</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A follow-up dispatch interface is required, for which Shao-Chien already has a first draft.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D027', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D027">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Follow-up dispatch interface (Shao-Chien already has a first draft)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Follow-up/Reminder Feature]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D028" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D028</span>
+            <span class="decision-title">Follow-up Connection to Survey Report Management</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">After follow-up, the system must connect to survey-report management, including recording time, description, action taken, and uploaded images.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D028', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D028">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"After follow-up, this connects to survey-report management: including time, description, action taken, and uploaded images"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Follow-up/Reminder Feature]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D029" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D029</span>
+            <span class="decision-title">Data Flow Document Requirement</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A-Bao requires a data-flow document explaining the movement of data after AI interpretation, including data sources and where computations occur.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D029', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D029">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"A-Bao needs a data-flow document explaining how data moves after AI interpretation completes — where the data is pulled from, and where computation happens"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Data Flow Documentation (requested by A-Bao)]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D030" data-category="technical_constraint" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D030</span>
+            <span class="decision-title">AI Interpretation Data Flow Architecture</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">technical constraint</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The data flow for AI interpretation covers: image source -> interpretation task execution (workstation) -> result output -> monitoring database.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D030', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D030">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Data flow covers: image source → interpretation task execution (workstation) → result output → monitoring database"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Data Flow Documentation (requested by A-Bao)]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D031" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D031</span>
+            <span class="decision-title">Project Kick-off Expectation</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The project is currently in the bidding process and is expected to kick off in mid-May if things proceed smoothly.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D031', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D031">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"The project is currently in the bidding process; if things go smoothly, it's expected to kick off in mid-May"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Project Timeline]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D032" data-category="risk" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D032</span>
+            <span class="decision-title">Immediate Requirements Interview Post-Bid Award</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">risk</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D032', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D032">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: [Project Timeline]</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D033" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D033</span>
+            <span class="decision-title">Action Item: Finish 'add suspected point' data interface</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Sherry is tasked with finishing the 'add suspected point' data interface, referring to figure 2.13, by May 18th.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D033', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D033">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Sherry | Finish the "add suspected point" data interface (refer to figure 2.13) | Before 5/18"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Action Items</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D034" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D034</span>
+            <span class="decision-title">Action Item: Organize existing interfaces</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Sherry is tasked with organizing existing interfaces (including those owned by Shao-Chien) for use in the requirements interview by May 20th.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D034', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D034">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Sherry | Organize existing interfaces (including the parts Shao-Chien owns) for use in the requirements interview | Before 5/20"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Action Items</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D035" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D035</span>
+            <span class="decision-title">Action Item: Prepare data-flow document</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Sherry is tasked with preparing the data-flow document (image source, compute node, data direction) for A-Bao to review by May 18th.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D035', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D035">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Sherry | Prepare the data-flow document (image source, compute node, data direction) for A-Bao to review | Before 5/18"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Action Items</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D036" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D036</span>
+            <span class="decision-title">Next Meeting Scheduled</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The next meeting is scheduled for 2026-05-15.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D036', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D036">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Time: 2026-05-15"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Next Meeting</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D037" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D037</span>
+            <span class="decision-title">Next Meeting Topic: System Architecture</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The planned topic for the next meeting (2026-05-15) is to discuss system architecture.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D037', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D037">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Planned topic: Discuss system architecture"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Next Meeting</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D038" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D038</span>
+            <span class="decision-title">Requirements Interview Scheduled</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The first requirements interview is scheduled for 2026-05-20.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D038', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D038">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Time: 2026-05-20"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Requirements Interview</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D039" data-category="deadline_or_milestone" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D039</span>
+            <span class="decision-title">Requirements Interview Topic</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">deadline or milestone</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">The planned topic for the requirements interview on 2026-05-20 is the first requirements interview.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D039', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D039">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Planned topic: First requirements interview"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Requirements Interview</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D040" data-category="dependency" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D040</span>
+            <span class="decision-title">Requirements Interview Preparation</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">dependency</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Preparation for the requirements interview includes consolidating existing interfaces, preparing a system architecture diagram, and a data flow diagram.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D040', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D040">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Prep needed: Consolidate existing interfaces, system architecture diagram, data flow diagram"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Requirements Interview</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D041" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D041</span>
+            <span class="decision-title">Open Question: AI Interpretation Notification Details</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Details of the AI interpretation task completion notification mechanism need to be confirmed.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D041', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D041">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Details of the AI interpretation task completion notification mechanism"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Open items to confirm</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D042" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D042</span>
+            <span class="decision-title">Open Question: Suspected-Point Layer Split by County/City</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">It needs to be confirmed whether the suspected-point layer should be split by county/city.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D042', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D042">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Whether the suspected-point layer should be split by county/city"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Open items to confirm</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D043" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D043</span>
+            <span class="decision-title">Open Question: MIS Migration Interface Design Details</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Interface design details for the MIS migration need to be confirmed.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D043', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D043">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Interface design details for the MIS migration"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Open items to confirm</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D044" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D044</span>
+            <span class="decision-title">Open Question: Follow-up Notification Recipients and Schedule</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">open question</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">It needs to be confirmed who receives follow-up notifications and on what schedule.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D044', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D044">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Who receives follow-up notifications and on what schedule"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Under heading: Open items to confirm</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // --- Tab switching ---
+  const cards = document.querySelectorAll('.char-card, .utility-link');
+  const panels = document.querySelectorAll('.panel');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      card.classList.add('active');
+      document.getElementById(card.dataset.target).classList.add('active');
+    });
+  });
+
+  // --- Evidence toggle ---
+  function toggleEvidence(id, btn) {
+    const body = document.getElementById('ev-' + id);
+    const open = body.style.display === 'block';
+    body.style.display = open ? 'none' : 'block';
+    btn.classList.toggle('open', !open);
+  }
+
+  // --- Jump to decision ---
+  function goDecision(id) {
+    openLedgerModal();
+
+    setTimeout(() => {
+      const el = document.getElementById('d-' + id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.outline = '2px solid var(--teal)';
+      setTimeout(() => el.style.outline = '', 1800);
+    }, 200);
+  }
+
+  // --- Decisions filter ---
+  function filterDecisions() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const cat = document.getElementById('catFilter').value;
+    document.querySelectorAll('.decision-card').forEach(c => {
+      const match = c.textContent.toLowerCase().includes(q);
+      const catMatch = cat === 'all' || c.dataset.category === cat;
+      c.style.display = match && catMatch ? '' : 'none';
+    });
+  }
+
+  // --- Modal ---
+  function openModal() { document.getElementById('reviewModal').classList.add('open'); }
+  function closeModal() { document.getElementById('reviewModal').classList.remove('open'); }
+  document.getElementById('reviewModal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  // --- Ledger Modal ---
+  function openLedgerModal() { document.getElementById('ledgerModal').classList.add('open'); }
+  function closeLedgerModal() { document.getElementById('ledgerModal').classList.remove('open'); }
+  document.getElementById('ledgerModal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeLedgerModal();
+  });
+
+</script>
+</body>
+</html>
