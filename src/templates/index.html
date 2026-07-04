@@ -208,56 +208,144 @@
     }
 
     /* Hub lineup section */
-    .hub-lineup {
+    /* Two-column layout columns */
+    .hub-content-row {
       display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      align-items: flex-start;
+      gap: 2.5rem;
+      flex-wrap: wrap; /* so it stacks on narrow viewports instead of squeezing */
+    }
+
+    .hub-image-col {
+      flex: 0 0 auto;
+    }
+
+    .hub-team-image {
+      width: 320px;       /* adjust to taste based on actual image proportions */
+      max-width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .hub-cards-col {
+      flex: 1 1 480px;    /* takes remaining width, wraps below image if too narrow */
+      min-width: 0;
+    }
+
+    /* Calendar Card */
+    .hub-calendar-card {
+      width: 320px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      padding: 1.25rem;
       box-shadow: var(--shadow-sm);
-    }
-    .lineup-avatar {
       display: flex;
       flex-direction: column;
+      gap: 0.875rem;
+      margin-top: 1.5rem;
+    }
+    .cal-header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
-      text-align: center;
-      min-width: 80px;
     }
-    .lineup-avatar img {
-      width: 56px;
-      height: 56px;
+    .cal-month-year {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .cal-btn {
+      background: none;
+      border: 1px solid var(--border);
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-      padding: 2px;
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all var(--dur) var(--ease-out);
     }
-    .lineup-avatar span {
+    .cal-btn:hover {
+      background: var(--bg);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
       font-size: 0.75rem;
       font-weight: 600;
+      color: var(--text-tertiary);
+    }
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      row-gap: 0.35rem;
+    }
+    .cal-day {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 500;
       color: var(--text-secondary);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      user-select: none;
     }
-    
-    @media (max-width: 640px) {
-      .hub-lineup {
-        gap: 1rem;
-        padding: 1rem;
-      }
-      .lineup-avatar img {
-        width: 48px;
-        height: 48px;
-      }
-      .lineup-avatar span {
-        font-size: 0.6875rem;
-      }
+    .cal-day.empty {
+      color: var(--text-tertiary);
+      opacity: 0.3;
     }
+    .cal-day.has-output {
+      font-weight: 700;
+      color: var(--surface);
+      background: var(--teal);
+      cursor: pointer;
+      position: relative;
+      transition: background-color var(--dur) var(--ease-out);
+    }
+    .cal-day.has-output:hover {
+      background: #0f766e;
+    }
+    .cal-day.active-day {
+      outline: 2px solid var(--text-primary);
+      outline-offset: 1px;
+    }
+    .cal-details {
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+      font-size: 0.75rem;
+    }
+    .cal-details-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      font-size: 0.75rem;
+    }
+    .cal-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+    .cal-details-link {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .cal-details-link:hover {
+      text-decoration: underline;
+    }
+
 
     /* Footer */
     .hub-footer {
@@ -280,15 +368,31 @@
     <p class="hub-desc">Source-grounded, role-specific engineering briefs compiled from project discussions.</p>
   </header>
 
-  <section class="hub-lineup">
-    <div class="lineup-avatar"><img src="assets/avatar-stakeholder.jpg" alt="Stakeholder"><span>Stakeholder</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-engineer.jpg" alt="Engineer"><span>Engineer</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-qa.jpg" alt="QA"><span>QA</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-pm.jpg" alt="Project Manager"><span>PM</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-sa.jpg" alt="System Analyst"><span>SA</span></div>
-  </section>
-
   <main>
+    <div class="hub-content-row">
+      <div class="hub-image-col">
+        <img src="assets/avatar-team.jpg" alt="The five report roles: Stakeholder, Engineer, QA, Project Manager, System Analyst" class="hub-team-image">
+        
+        <div class="hub-calendar-card">
+          <div class="cal-header">
+            <button class="cal-btn" id="cal-prev" type="button"><i class="ri-arrow-left-s-line"></i></button>
+            <span class="cal-month-year" id="cal-month-year">July 2026</span>
+            <button class="cal-btn" id="cal-next" type="button"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+          </div>
+          <div class="cal-days" id="cal-days"></div>
+          <div class="cal-details" id="cal-details">
+            <div class="cal-details-title">Output Reports</div>
+            <div class="cal-details-list" id="cal-details-list">
+              <span style="color:var(--text-tertiary);">Select a highlighted date to view runs.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-cards-col">
 
     {% if runs %}
       <div class="runs-grid">
@@ -318,6 +422,7 @@
         <span class="empty-cmd">uv run knowledge-route run [notes.md]</span>
       </div>
     {% endif %}
+    </div>
   </main>
 
   <footer class="hub-footer">
@@ -325,5 +430,121 @@
   </footer>
 
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Parse run dates and details from the page
+    const runsByDate = {};
+    let latestDate = new Date();
+    
+    document.querySelectorAll('.run-card').forEach(card => {
+      const dateText = card.querySelector('.run-date').textContent.trim();
+      const titleText = card.querySelector('.run-title').textContent.trim();
+      const href = card.getAttribute('href');
+      
+      if (dateText && /^\d{4}-\d{2}-\d{2}$/.test(dateText)) {
+        if (!runsByDate[dateText]) {
+          runsByDate[dateText] = [];
+        }
+        runsByDate[dateText].push({ title: titleText, href: href });
+        
+        const cardDate = new Date(dateText);
+        if (cardDate > latestDate || latestDate.getTime() === new Date().getTime()) {
+          latestDate = cardDate;
+        }
+      }
+    });
+
+    // 2. Initialize calendar view state
+    let currentYear = latestDate.getFullYear();
+    let currentMonth = latestDate.getMonth(); // 0-indexed
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    const monthYearLabel = document.getElementById('cal-month-year');
+    const daysContainer = document.getElementById('cal-days');
+    const detailsList = document.getElementById('cal-details-list');
+
+    function renderCalendar(year, month) {
+      monthYearLabel.textContent = `${monthNames[month]} ${year}`;
+      daysContainer.innerHTML = '';
+      
+      const firstDayIndex = new Date(year, month, 1).getDay();
+      const lastDay = new Date(year, month + 1, 0).getDate();
+      
+      // Leading empty cells
+      for (let i = 0; i < firstDayIndex; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'cal-day empty';
+        daysContainer.appendChild(emptyCell);
+      }
+      
+      // Days of month
+      for (let day = 1; day <= lastDay; day++) {
+        const dayCell = document.createElement('div');
+        dayCell.className = 'cal-day';
+        dayCell.textContent = day;
+        
+        const padMonth = String(month + 1).padStart(2, '0');
+        const padDay = String(day).padStart(2, '0');
+        const dateStr = `${year}-${padMonth}-${padDay}`;
+        
+        if (runsByDate[dateStr]) {
+          dayCell.classList.add('has-output');
+          dayCell.title = `${runsByDate[dateStr].length} run report(s)`;
+          
+          dayCell.addEventListener('click', () => {
+            // Remove previous active outline
+            document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('active-day'));
+            dayCell.classList.add('active-day');
+            
+            // Show run links
+            detailsList.innerHTML = '';
+            const linksList = document.createElement('div');
+            linksList.className = 'cal-details-list';
+            
+            runsByDate[dateStr].forEach(run => {
+              const link = document.createElement('a');
+              link.className = 'cal-details-link';
+              link.href = run.href;
+              link.innerHTML = `<i class="ri-link"></i> ${run.title}`;
+              linksList.appendChild(link);
+            });
+            detailsList.appendChild(linksList);
+          });
+        }
+        
+        daysContainer.appendChild(dayCell);
+      }
+    }
+
+    // Prev/Next buttons
+    document.getElementById('cal-prev').addEventListener('click', () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar(currentYear, currentMonth);
+      detailsList.innerHTML = '<span style="color:var(--text-tertiary);">Select a highlighted date to view runs.</span>';
+    });
+
+    document.getElementById('cal-next').addEventListener('click', () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentYear, currentMonth);
+      detailsList.innerHTML = '<span style="color:var(--text-tertiary);">Select a highlighted date to view runs.</span>';
+    });
+
+    // Render initial state
+    renderCalendar(currentYear, currentMonth);
+  });
+</script>
 </body>
 </html>

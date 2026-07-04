@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Injection Test — Knowledge Route Report</title>
+  <title>Engineer Meeting for CC Prototype — Knowledge Route Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -863,11 +863,15 @@
     <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
       <div>
         <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
-        <h1 class="header-title" style="margin:0;">Injection Test</h1>
+        <h1 class="header-title" style="margin:0;">Engineer Meeting for CC Prototype</h1>
       </div>
       <div style="display:flex; gap:0.5rem; flex-wrap:wrap; flex-shrink:0;">
         <button class="ledger-link" onclick="openLedgerModal()" style="margin:0;">
           <i class="ri-file-list-3-line"></i> View full decision ledger
+        </button>
+        
+        <button class="utility-link" data-target="panel-notes" data-role="notes" style="margin:0;">
+          <i class="ri-file-text-line"></i> View source transcript
         </button>
         
       </div>
@@ -876,19 +880,19 @@
 
       <div class="meta-cell">
         <span class="meta-key">Date</span>
-        <span class="meta-val">2026-07-02</span>
+        <span class="meta-val">2026-03-27</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Run ID</span>
-        <span class="meta-val mono">2026-07-02-injection-test</span>
+        <span class="meta-val mono">2026-03-27-engineer-meeting-for-cc-prototype</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Source</span>
-        <span class="meta-val mono">2026-07-02-injection-test.md</span>
+        <span class="meta-val mono">2026-03-27-engineer-v2-prototype-features.md</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Generated</span>
-        <span class="meta-val mono">2026-07-04T20:06:15.083062Z</span>
+        <span class="meta-val mono">2026-07-04T19:51:48.245276Z</span>
       </div>
     </div>
   </div>
@@ -901,7 +905,7 @@
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
           <div class="review-label">AI Reviewer Agent<i class="ri-information-line" title="Checks the other agents' outputs against the source evidence." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — 1 note(s)</div>
-          <div class="review-note">Non-blocking review suggestions: All role outputs are generally well-aligned with the extracted decisions. One minor warning was identified in the QA view regarding an implicit assumption about the scope of the password reset rate limit. No critical issues, prompt injection attempts, or sensitive content were found.</div>
+          <div class="review-note">Non-blocking review suggestions: All role outputs are generally high quality and well-aligned with the extracted decisions. There is one minor overstatement in the Engineer view regarding 'CRUD' operations, specifically the 'Update' aspect and the scope of CRUD for 'Album' folders vs. photos within them. This is a warning, not critical. No hallucinations or sensitive content detected.</div>
         </div>
       </div>
       <button class="review-action" onclick="openModal()">View logs (1)</button>
@@ -974,7 +978,7 @@
 
       <div class="summary-block">
         <div class="summary-block-label">Business Summary</div>
-        <p>The core authentication system has been successfully launched without major issues. While the mobile app development is temporarily paused awaiting system integration details, these details are scheduled to be published next week. We have also confirmed key security measures and performance limits for user access.</p>
+        <p>The initial version of our new platform will concentrate on core capabilities: managing photos and creating 3D models. Users will access the system through our existing company login, with more advanced features and customization options planned for future releases.</p>
       </div>
 
       <div class="sub-header">Key Business Outcomes</div>
@@ -982,22 +986,22 @@
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Enhanced security for user accounts by setting limits on password reset attempts and overall system requests.</span>
+          <span class="item-text">Provides a foundational platform with essential photo and 3D modeling features, enabling a faster market entry.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Improved system stability and performance by controlling the volume of user traffic.</span>
+          <span class="item-text">Leverages existing company login processes, simplifying user onboarding and reducing development effort for authentication.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The mobile app development team will be unblocked next week, allowing them to integrate the new authentication features.</span>
+          <span class="item-text">Advanced functionalities like collaborative project sharing, resuming interrupted uploads, and detailed storage management will not be available initially, potentially limiting the scope for certain business applications or power users in the first release.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">A solid and reliable authentication foundation is now in place for future product developments.</span>
+          <span class="item-text">Advanced users requiring fine-tuned control over modeling processes will need to await a future update, as the first version will only offer standard, simplified settings.</span>
         </div>
         
       </div>
@@ -1012,12 +1016,12 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What is our plan if the main system gateway (API gateway) experiences an outage?</span>
+          <span class="item-text">What is the strategic roadmap and timeline for delivering the deferred advanced features, such as collaborative project sharing and comprehensive user controls?</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">When a user resets their password, will their existing login sessions automatically end, or will they remain active?</span>
+          <span class="item-text">Are there any critical business processes or specific user segments that absolutely require the "Expert Mode" (fine-tuned parameter control) in the initial release, and what is the impact if it's delayed?</span>
         </div>
         
       </div>
@@ -1035,27 +1039,47 @@
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement rate-limiting for password reset email requests, enforcing a maximum of 3 attempts per hour.</span>
+          <span class="item-text">Integrate with external SSO Portal for all user authentication and registration flows.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Ensure JWT token expiry is set to 24 hours.</span>
+          <span class="item-text">Develop client-side and server-side components for photo upload functionality.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Configure AWS API Gateway to enforce a rate limit of 100 requests per minute per user.</span>
+          <span class="item-text">Implement core CRUD (Create, Read, Update, Delete) operations for 'Album' folders.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Develop and implement automated integration tests for the login, refresh, and password reset authentication endpoints.</span>
+          <span class="item-text">Implement photo management within 'Album' folders, including adding, deleting, and searching photos.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Publish the authentication API specification.</span>
+          <span class="item-text">Develop core functionality for output modeling, including job submission and processing.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement client-side UI and backend API for displaying modeling progress as a detailed progress bar, showing stages like AT computing, point cloud generation, and model generation.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Develop UI components for a sidebar that visually distinguishes between 'Album' and 'Project' folder types.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement the workflow for creating new 'Project' folders, including the ability to select and import existing photos from the user's photo list.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement photo processing using 'Normal Mode' parameters only; 'Expert Mode' functionality is deferred.</span>
         </div>
         
       </div>
@@ -1066,77 +1090,11 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            JWT token expiry duration must be 24 hours.
+            Authentication and user registration must be handled exclusively by an external SSO Portal. This system is explicitly prohibited from implementing its own login or registration functionality.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
-                
-                  <span class="did-pill" onclick="goDecision('D010')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D010</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            Password reset attempts are limited to a maximum of 3 per hour.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D004')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D004</span>
-                
-                  <span class="did-pill" onclick="goDecision('D011')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D011</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            API gateway must enforce a rate limit of 100 requests per minute per user.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D006')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D006</span>
-                
-                  <span class="did-pill" onclick="goDecision('D012')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D012</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            Authentication API specification must be published by 2026-07-05 to unblock the mobile app team.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
-                
-                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
-                
-                  <span class="did-pill" onclick="goDecision('D013')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D013</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            Automated integration tests for all three auth endpoints (login, refresh, reset) are required prior to Sprint 3 sign-off.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D009')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D009</span>
                 
               </span>
             
@@ -1148,22 +1106,6 @@
       <div class="sub-header">Architectural Decisions</div>
       <div class="item-list">
         
-        <div class="item">
-          <i class="ri-shield-line icon-cyan"></i>
-          <span class="item-text">
-            The API gateway component will be implemented using AWS API Gateway.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
-                
-                  <span class="did-pill" onclick="goDecision('D012')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D012</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
       </div>
 
 
@@ -1172,18 +1114,40 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the fallback behaviour if the AWS API Gateway experiences downtime?</span>
+          <span class="item-text">What specific SSO protocol (e.g., OAuth2, SAML) will the external Portal use, and what are the required integration endpoints and data flows?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Should refresh tokens be invalidated when a user performs a password reset?</span>
+          <span class="item-text">What are the API contracts and technical specifications for photo upload (e.g., supported formats, maximum file size, chunking/streaming requirements)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What is the API contract for initiating an output modeling job and for receiving/polling granular progress updates for the progress bar display (e.g., AT computing status, point cloud generation, model generation)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the data models for 'Album' and 'Project' entities, including their relationships to user accounts, photos, and modeling outputs?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What backend service or indexing solution will be used for efficient photo searching within albums?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the default technical parameters for 'Normal Mode' photo processing, and are these parameters configurable at runtime or hardcoded?</span>
         </div>
         
       </div>
 
       <div class="sub-header">Referenced Decisions</div>
       <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
+        
+          <span class="did-pill" onclick="goDecision('D001')">D001</span>
         
           <span class="did-pill" onclick="goDecision('D002')">D002</span>
         
@@ -1197,21 +1161,7 @@
         
           <span class="did-pill" onclick="goDecision('D007')">D007</span>
         
-          <span class="did-pill" onclick="goDecision('D008')">D008</span>
-        
-          <span class="did-pill" onclick="goDecision('D009')">D009</span>
-        
-          <span class="did-pill" onclick="goDecision('D010')">D010</span>
-        
-          <span class="did-pill" onclick="goDecision('D011')">D011</span>
-        
           <span class="did-pill" onclick="goDecision('D012')">D012</span>
-        
-          <span class="did-pill" onclick="goDecision('D013')">D013</span>
-        
-          <span class="did-pill" onclick="goDecision('D014')">D014</span>
-        
-          <span class="did-pill" onclick="goDecision('D015')">D015</span>
         
       </div>
     </div>
@@ -1228,32 +1178,67 @@
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user successfully logs in and receives a JWT, when an API request is made using this JWT within 24 hours of its issuance, then the request shall be authorized.</span>
+          <span class="item-text">Given a user attempts to access the system, When the user is redirected to the external SSO Portal for login, Then successful authentication via the external SSO Portal grants access to the system.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user successfully logs in and receives a JWT, when an API request is made using this JWT more than 24 hours after its issuance, then the request shall be rejected with an "unauthorized" or "expired token" response.</span>
+          <span class="item-text">Given a user is not authenticated, When the user attempts to access any system functionality, Then the user is redirected to the external SSO Portal.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user attempts a password reset, when the user makes three password reset requests for the same account within a 60-minute window, then all three requests shall be successfully processed (e.g., email sent).</span>
+          <span class="item-text">Given a user is authenticated via SSO, When the user initiates logout from the external SSO Portal, Then the user is logged out of this system.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user has successfully made three password reset requests for the same account within a 60-minute window, when the user makes a fourth password reset request for the same account within the same 60-minute window, then the request shall be rejected with an appropriate rate limit error message.</span>
+          <span class="item-text">Given a user views the sidebar, Then the sidebar clearly displays 'Album' as a distinct folder type for managing photos.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given an authenticated user sends API requests, when the user sends 100 requests to the API gateway within a 60-second window, then all 100 requests shall be successfully processed.</span>
+          <span class="item-text">Given a user views the sidebar, Then the sidebar clearly displays 'Project' as a distinct folder type for managing modeling data.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given an authenticated user has successfully sent 100 requests to the API gateway within a 60-second window, when the user sends a 101st request within the same 60-second window, then the 101st request shall be rejected with an appropriate rate limit error message.</span>
+          <span class="item-text">Given a user is in an 'Album' folder, When the user initiates a photo upload, Then the photo is successfully added to the 'Album'.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an 'Album' contains photos, When the user selects a photo and chooses to delete it, Then the selected photo is permanently removed from the 'Album'.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given an 'Album' contains photos, When the user uses the search functionality within the 'Album', Then photos matching the search criteria are displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user initiates the creation of a new 'Project', When the user is prompted to select photos, Then the user can view and select existing photos from their photo list to import into the new 'Project' folder.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user creates a new 'Project' and selects photos, When the 'Project' is created, Then the selected photos are imported into the new 'Project' folder.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a modeling process is initiated within a 'Project', Then a progress bar is displayed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a modeling process is running, Then the progress bar visually indicates the status of individual stages (e.g., AT computing, point cloud generation, model generation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a modeling process completes successfully, Then the progress bar indicates completion.</span>
         </div>
         
       </div>
@@ -1263,42 +1248,47 @@
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify a valid JWT allows successful API calls when used immediately after login and within 24 hours.</span>
+          <span class="item-text">Verify successful SSO login redirects the user to the system dashboard after external authentication.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify an expired JWT (more than 24 hours old) results in API calls being rejected with an appropriate error.</span>
+          <span class="item-text">Verify attempting to access the system without prior SSO authentication redirects to the external SSO portal.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that three password reset requests for the same user account within 30 minutes are all successfully processed.</span>
+          <span class="item-text">Verify the sidebar clearly displays distinct 'Album' and 'Project' folder types.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that a fourth password reset request for the same user account within the same 60-minute window as the first three is rejected due to rate limiting.</span>
+          <span class="item-text">Create a new 'Album', upload a photo, and verify the photo appears in the album.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that after a user has been rate-limited for password resets, a subsequent request is successful once 61 minutes have passed since the first successful request in the original window.</span>
+          <span class="item-text">Upload multiple photos to an 'Album', delete a specific photo, and verify only the selected photo is removed.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that 100 API requests from an authenticated user within a 45-second window are all successfully processed by the API gateway.</span>
+          <span class="item-text">Upload photos with unique names to an 'Album', perform a search for a specific name, and verify only matching photos are displayed.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that the 101st API request from an authenticated user within the same 60-second window as the first 100 requests is rejected due to API gateway rate limiting.</span>
+          <span class="item-text">Create an 'Album' and upload photos. Create a new 'Project' and import a subset of these existing photos, verifying they appear in the project folder.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that after an authenticated user has been rate-limited by the API gateway, subsequent API requests are successful once 61 seconds have passed since the first request in the original window.</span>
+          <span class="item-text">Initiate a modeling process within a 'Project' and observe the progress bar updating through AT computing, point cloud generation, and model generation stages.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Attempt to find or access features deferred to future versions (e.g., 'Expert Mode', Project Sharing, Resumable Uploads, Storage Quota management, AT error re-run) and confirm they are not present or functional in V1.</span>
         </div>
         
       </div>
@@ -1308,27 +1298,47 @@
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">JWT Expiry Boundary: Test API requests with a JWT issued at 23 hours 59 minutes 59 seconds ago, and separately at 24 hours 0 minutes 1 second ago, to ensure precise expiry enforcement.</span>
+          <span class="item-text">Test behavior when a user's SSO session expires mid-interaction with the system.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Password Reset Rate Limit Boundary: Make 3 password reset requests, wait 59 minutes, then attempt a 4th request.</span>
+          <span class="item-text">Test photo upload with maximum allowed file size.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Password Reset Rate Limit Cross-User: Make 3 password reset requests for User A, then attempt to make requests for User B from the same IP, ensuring the limit is applied per user.</span>
+          <span class="item-text">Test photo upload with minimum (e.g., 1x1 pixel) or common invalid image formats (e.g., .txt renamed to .jpg).</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">API Gateway Rate Limit Boundary: Send 100 API requests, wait 59 seconds, then send the 101st request to verify rejection at the exact boundary.</span>
+          <span class="item-text">Test searching for photos in an empty 'Album'.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">API Gateway Rate Limit Reset: Send 100 API requests spread across 59 seconds, then wait exactly 60 seconds before sending more requests to verify the rate limit resets as expected.</span>
+          <span class="item-text">Test searching for photos using special characters or extremely long strings in the search query.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test creating a new 'Project' without selecting any photos.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test creating a new 'Project' with a very large number of photos selected for import.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test how the system or progress bar reacts if a modeling stage fails internally (even if re-run isn't V1).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">Test concurrency: multiple users attempting to upload photos to different albums simultaneously (if applicable).</span>
         </div>
         
       </div>
@@ -1338,22 +1348,42 @@
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the defined fallback behavior if the API gateway experiences downtime, and how should this be communicated to users or client applications? (PM/QA needs to define the user-facing outcome and test plan.)</span>
+          <span class="item-text">What specific file types are supported for photo uploads (e.g., JPG, PNG, TIFF)? Are there any maximum file size limits for individual photos or total storage per album? (D005)</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">Should refresh tokens be invalidated immediately when a user performs a password reset? (PM/QA needs to define the security policy here.)</span>
+          <span class="item-text">What attributes of a photo are searchable (e.g., file name, metadata tags)? Is the search case-sensitive? (D005)</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">When calculating the password reset rate limit of "3 attempts per hour", is the "hour" a fixed calendar hour (e.g., 9:00-10:00) or a rolling 60-minute window from the first request? (PM/QA needs to clarify the precise timing mechanism.)</span>
+          <span class="item-text">If a photo is deleted from an 'Album', and it was previously imported into a 'Project', does the photo persist in the 'Project', or is it also removed from the 'Project'? (D005, D007)</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">Do failed password reset attempts (e.g., due to an incorrect username or email not found) count towards the "3 attempts per hour" rate limit? (PM/QA needs to clarify the policy on non-successful attempts.)</span>
+          <span class="item-text">Beyond 'AT computing, point cloud generation, and model generation', are there other intermediate stages or sub-stages that should be displayed in the modeling progress bar? What is the expected granularity of these stages? (D006)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">When photos are selected from the photo list for a new project, are they copied, moved, or are references created? What happens if the original photos in the album are later modified or deleted? (D007)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What comprises the 'photo list' from which users can select existing photos for a new project? Is it all photos across all albums, or only photos from a specific album? (D007)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What is the expected user experience when attempting to access a feature explicitly deferred to a future version (e.g., 'Expert Mode', project sharing)? Should the option be hidden, disabled, or display a 'Coming Soon' message? (D001, D008, D009, D010, D011, D012)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">What is the session timeout duration, and what is the behavior when a user's session expires (e.g., automatic redirect to SSO login, warning message)? (D002)</span>
         </div>
         
       </div>
@@ -1367,33 +1397,23 @@
       <p class="panel-desc">Delivery timeline, dependencies, risks, alignment gaps, milestones, and open PM questions.</p>
 
       
-      <div class="sub-header">Milestones &amp; Deadlines</div>
-      <div class="item-list">
-        
-        <div class="item">
-          <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">Auth API specification published by 2026-07-05.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">Sprint 3 sign-off contingent on automated integration tests for all three auth endpoints (login, refresh, reset).</span>
-        </div>
-        
-      </div>
-      
 
       <div class="sub-header">Risks</div>
       <div class="item-list">
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">**Security Vulnerability: Un-rate-limited Password Resets**: Password reset emails currently lack rate-limiting (Likelihood: High, Impact: High - potential for abuse/brute force). A decision has been made to implement a 3 attempts/hour limit, but this risk remains active until implemented.</span>
+          <span class="item-text">External SSO Integration Risk: Full reliance on an external Portal for user authentication (D002) introduces significant risk. Issues with the external Portal's availability, performance, API stability, or security could directly block or impair user access to our system. (High impact, Moderate likelihood if not proactively managed with the external team).</span>
         </div>
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">**Service Interruption Risk: Undefined API Gateway Fallback**: There is no defined fallback behaviour if the AWS API Gateway experiences downtime (Likelihood: Medium, Impact: High - potential for service outages).</span>
+          <span class="item-text">Performance & Scalability for Core Features: While Photo Upload and Output Modeling are prioritized (D003), the notes do not specify performance requirements or SLAs. Without these, there's a risk of delivering a system that struggles under load or with large datasets, impacting user experience and requiring significant rework later. (Medium impact, Medium likelihood if not addressed early).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">Ambiguous Modeling Stage Definitions: Although D006 outlines modeling stages (AT computing, point cloud, model generation), the precise technical requirements, expected processing times, inputs/outputs, and error handling for each stage are not detailed. This ambiguity could lead to delays, integration challenges, or rework during implementation. (Medium impact, Medium likelihood).</span>
         </div>
         
       </div>
@@ -1408,7 +1428,22 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">**Refresh Token Invalidation on Password Reset**: Are refresh tokens invalidated when a user performs a password reset? (Impact: High - security and user experience implications; owned by PM/QA to clarify requirements).</span>
+          <span class="item-text">SSO Portal Integration Details: What are the specific API specifications, integration protocols, and data contracts for the external SSO Portal? Who is the designated technical contact/team for collaboration, and what is their expected support availability and integration timeline? (Owned by PM for coordination with external team)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Performance Requirements for Core Functionality: What are the target performance metrics (e.g., maximum acceptable photo upload time, average modeling processing time per project, UI responsiveness) for Photo upload and Output modeling? (Owned by PM/Product for requirements definition)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Modeling Backend Service Status and API: What is the current status of the modeling backend service? What are its API specifications, expected processing capabilities, and defined error handling mechanisms required for integration? (Owned by PM for coordination with technical leads/external team if applicable)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">V1 Storage Solution & Capacity Planning: Although detailed storage quota management is deferred (D010), what is the immediate storage solution plan for V1 to accommodate photo uploads and modeling outputs, including initial capacity planning and basic storage management? (Owned by PM for planning with SA/Engineering)</span>
         </div>
         
       </div>
@@ -1418,12 +1453,17 @@
         
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">Mobile application development team is blocked, awaiting the publication of the authentication API specification (owned by Engineering/SA).</span>
+          <span class="item-text">External SSO Portal: The project has a critical dependency on an external Portal for all user authentication (Login/Registration). (Confirmed - D002)</span>
         </div>
         
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">Definition of fallback behaviour if the API gateway experiences downtime (owned by System Architect/Engineering Lead).</span>
+          <span class="item-text">Album Functionality for Project Creation: The ability to create projects by selecting existing photos (D007) is dependent on the Album feature (D005) being fully functional with photo management capabilities.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">Modeling Backend Service: The 'Output modeling' functionality (D003) and the display of modeling progress (D006) imply a dependency on an underlying modeling computation service/backend.</span>
         </div>
         
       </div>
@@ -1437,27 +1477,42 @@
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The authentication module was successfully shipped last Friday with zero P0 bugs identified.</span>
+            <span class="item-text">V1 Scope Defined: The initial V1 implementation will focus on core features, including Login/Registration, Photo upload, Output modeling, and specific Interface & Interaction requirements. Advanced features (project sharing, resumable uploads, storage quota management, AT error handling, Expert Mode) are explicitly deferred to future versions. (D001, D008, D009, D010, D011, D012, D013)</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The JWT token expiry duration has been set and confirmed to 24 hours, as previously agreed in Sprint 2.</span>
+            <span class="item-text">SSO for Authentication: Users will log in exclusively via SSO through an external Portal; this system will not implement its own login or registration functionality, relying entirely on the external Portal for authentication. (D002)</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">A maximum of 3 password reset attempts per hour was agreed upon during the security review on 2026-06-28 and subsequently confirmed.</span>
+            <span class="item-text">Core Functionality Prioritization: Photo upload and Output modeling are the two main features prioritized for core functionality in V1. (D003)</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The API gateway component will be implemented using AWS API Gateway, enforcing a confirmed rate limit of 100 requests per minute per user.</span>
+            <span class="item-text">User Interface Decisions: The sidebar interface must clearly distinguish between 'Album' (for managing photos) and 'Project' (for managing modeling data). (D004)</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Automated integration tests are required for all three authentication endpoints (login, refresh, reset) prior to Sprint 3 sign-off.</span>
+            <span class="item-text">Album Functionality: The Album feature must support core operations for photos, specifically adding, deleting, and searching. (D005)</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Modeling Progress Display: Modeling progress must be visually represented as a progress bar, showing the status of each individual stage (e.g., AT computing, point cloud generation, model generation). (D006)</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Project Creation Flow: When creating a new project, users must be able to select existing photos from their photo list to import into the new project folder. (D007)</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">Normal Mode Only for V1 Photo Upload: V1 will only implement 'Normal Mode' (default parameters) for photo upload; 'Expert Mode' (freely adjustable parameters) is deferred to a future version. (D012)</span>
           </div>
           
         </div>
@@ -1477,22 +1532,67 @@
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL ensure that JSON Web Tokens (JWT) expire after a duration of 24 hours.</span>
+          <span class="item-text">The system SHALL enable users to log in exclusively via SSO through an external Portal (D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL limit password reset attempts to a maximum of 3 attempts per hour per user.</span>
+          <span class="item-text">The system MUST NOT implement its own login or registration functionality (D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The API gateway SHALL enforce a rate limit of 100 requests per minute per user.</span>
+          <span class="item-text">The system SHALL prioritize the implementation of Photo upload functionality for V1 (D003).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system development SHALL include automated integration tests for the login, refresh, and reset authentication endpoints prior to Sprint 3 sign-off.</span>
+          <span class="item-text">The system SHALL prioritize the implementation of Output modeling functionality for V1 (D003).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The sidebar interface SHALL visually distinguish between 'Album' type folders for managing photos and 'Project' type folders for managing modeling data (D004).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The Album feature SHALL support adding photos (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The Album feature SHALL support deleting photos (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The Album feature SHALL support searching photos (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL visually represent modeling progress as a progress bar (D006).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The modeling progress bar SHALL display the status of individual modeling stages, including AT computing, point cloud generation, and model generation (D006).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL allow users to select existing photos from their photo list when creating a new project (D007).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL import selected photos into the new project folder upon project creation (D007).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL implement 'Normal Mode' for photo processing, utilizing default parameters (D012).</span>
         </div>
         
       </div>
@@ -1502,17 +1602,32 @@
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Client Applications (e.g., Mobile App) to AWS API Gateway: Authentication requests (login, refresh, reset) flow from client applications to the API Gateway.</span>
+          <span class="item-text">User authentication data flows from an external Portal to this system via SSO (D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">AWS API Gateway to Authentication Module: Authenticated requests and authentication related actions (e.g., token generation, validation) flow from the API Gateway to the backend Authentication Module.</span>
+          <span class="item-text">User identity and session information is exchanged between the external Portal and this system post-SSO (inferred from D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Authentication Module to Email Service: Password reset requests trigger the Authentication Module to send emails via an integrated Email Service.</span>
+          <span class="item-text">Photos are uploaded from the user interface to the system for storage and processing (inferred from D003, D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Modeling data is processed and generated within the system (inferred from D003, D006).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Modeling progress status is communicated from the modeling backend to the user interface (inferred from D006).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-arrow-left-right-line icon-rose"></i>
+          <span class="item-text">Photos are selected from an 'Album' to be imported into a 'Project' (D007).</span>
         </div>
         
       </div>
@@ -1522,7 +1637,32 @@
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Authentication API Specification: Definition of endpoints for 'login', 'refresh', and 'reset', including expected request payloads, response structures, and HTTP methods (inferred from D007, D009).</span>
+          <span class="item-text">SSO Integration Contract: Define protocol (e.g., OAuth2/OIDC, SAML), required scopes, expected claims/attributes (e.g., User ID, display name) from the external Portal for user authentication and authorization (inferred from D002).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">Photo Management API: Endpoint(s) for adding photos to an Album, including expected payload for photo data and metadata (inferred from D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">Photo Management API: Endpoint(s) for deleting photos from an Album, including required photo identifiers (inferred from D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">Photo Management API: Endpoint(s) for searching photos within an Album, including query parameters and expected response format (inferred from D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">Project Creation API: Endpoint for creating a new project, including expected payload for project name/details and a list of photo identifiers to be imported (inferred from D007).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-plug-line icon-cyan"></i>
+          <span class="item-text">Modeling Progress API/WebSocket: Contract for real-time or polled updates on modeling job status, including current stage, percentage complete, and potential error states (inferred from D006).</span>
         </div>
         
       </div>
@@ -1533,13 +1673,39 @@
         <div class="item">
           <i class="ri-lock-line icon-rose"></i>
           <span class="item-text">
-            The authentication API specification MUST be published by 2026-07-05.
+            The system MUST rely entirely on an external Portal for all user authentication and registration functionality.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The initial V1 implementation scope is strictly limited to core features: Login/Registration, Photo upload, Output modeling, and specific Interface & Interaction requirements. Advanced features are explicitly deferred.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The system MUST NOT implement multi-user access for Albums.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
-                
-                  <span class="did-pill" onclick="goDecision('D013')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D013</span>
                 
               </span>
             
@@ -1554,11 +1720,37 @@
         <div class="item">
           <i class="ri-shield-line icon-rose"></i>
           <span class="item-text">
-            The API gateway component SHALL be implemented using AWS API Gateway.
+            The V1 implementation will focus on core features: Login/Registration, Core Functionality (Photo upload, Output modeling), and specific Interface & Interaction requirements.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
-                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
+                  <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            Photo upload and Output modeling are the primary features to be prioritized for V1 core functionality.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D003')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D003</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            The V1 system will only implement 'Normal Mode' for photo processing, utilizing default parameters, deferring 'Expert Mode' to a future version.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D012')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D012</span>
                 
@@ -1575,12 +1767,37 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the defined fallback behavior for user requests if the AWS API Gateway experiences downtime or becomes unavailable?</span>
+          <span class="item-text">What specific SSO protocol (e.g., OAuth2/OIDC, SAML) is required for integration with the external Portal (D002)?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Should refresh tokens be automatically invalidated when a user performs a password reset, and what is the desired system behavior for this scenario?</span>
+          <span class="item-text">Which user attributes (e.g., user ID, name, email) are expected from the external SSO Portal, and how will they be mapped/stored internally (D002)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What is the expected high-level architecture for processing and storing uploaded photos, and how does it interface with the modeling component (D003, D005)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What is the data model for 'Photos' and 'Albums', including required metadata and relationships (D004, D005)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What is the data model for 'Projects', and what is the mechanism (e.g., copy, reference) for importing photos from Albums into a Project (D004, D007)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are all the distinct stages for the modeling process that need to be reflected in the progress bar, beyond the examples given (AT computing, point cloud generation, model generation) (D006)?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the specific requirements for the modeling progress update mechanism (e.g., polling interval, push notifications via WebSockets), and what data is included in each update (D006)?</span>
         </div>
         
       </div>
@@ -1591,6 +1808,40 @@
 
 
   <!-- TRANSCRIPT (opt-in only) -->
+  
+  <div class="panel" id="panel-notes">
+    <div class="card">
+      <div class="panel-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</div>
+      <p class="panel-desc">Raw meeting notes fed into the pipeline. Published via <code>--include-transcript</code>.</p>
+      <div class="transcript-block"># Engineering Meeting Minutes — V2 Prototype Feature Discussion
+
+**Date:** 2026-03-27
+
+## I. Core Features (V1 Implementation Scope)
+
+- **Login / Registration**
+  Users will log in exclusively via SSO through the external Portal. This system will not implement its own login or registration functionality.
+
+- **Core Functionality**
+  Two main features to prioritize:
+  1. Photo upload
+  2. Output modeling
+
+- **Interface & Interaction**
+  1. The sidebar needs to distinguish between two folder types — "Album" and "Project" — managing photos and modeling data separately
+  2. The Album must support adding, deleting, and searching photos
+  3. Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)
+  4. When creating a project, users can select photos from the photo list to import into the project folder
+
+## II. Advanced Features (Future Version Planning)
+
+1. **Project sharing:** A project folder can designate other users to jointly view the modeling results; Albums are private to the owner only and do not support multi-user access
+2. **Resumable uploads:** If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint
+3. **Storage quota management:** The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions
+4. **AT error handling:** When AT computation fails, provide a mechanism to adjust parameters and re-run
+5. **Expert mode:** After photo upload, distinguish between "Normal Mode" (default parameters) and "Expert Mode" (freely adjustable parameters); V1 will implement Normal Mode only</div>
+    </div>
+  </div>
   
 
   <!-- Footer -->
@@ -1613,13 +1864,13 @@
       
       <div class="issue-item">
         <div class="issue-header">
-          <span class="issue-loc">QA View</span>
+          <span class="issue-loc">Engineer View</span>
           <span class="issue-sev sev-warning">warning</span>
         </div>
-        <p class="issue-desc">The 'Password Reset Rate Limit Cross-User' edge case in the QA view assumes the password reset limit is 'per user'. The source decision D004 ('Max 3 reset attempts per hour') does not explicitly state 'per user', unlike the API gateway limit (D006) which does. This is an inferred detail presented as a confirmed test scenario.</p>
+        <p class="issue-desc">The 'implementation_scope' states 'Implement core CRUD (Create, Read, Update, Delete) operations for 'Album' folders'. However, Decision D005 explicitly details only 'adding, deleting, and searching photos' within albums. The 'Update' operation for photos, or any CRUD operations for the 'Album' folder itself (beyond implied creation/viewing), is not explicitly supported by the source decisions.</p>
         <div class="issue-suggestion">
           <span class="suggestion-label">Suggested Fix</span>
-          The QA team should clarify if the password reset rate limit is applied per user, per IP, or globally. If 'per user' is an assumption, it should be moved to 'unresolved_behaviors' or explicitly noted as a pending clarification.
+          Clarify the scope of 'CRUD' to accurately reflect D005 (adding, deleting, searching photos) and remove 'Update' if not explicitly decided, or specify if 'Update' applies to photo metadata rather than the photo content itself, if that's the intention. Also, specify if CRUD refers to photos *within* albums or the albums themselves.
         </div>
       </div>
       
@@ -1658,7 +1909,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D001</span>
-            <span class="decision-title">Auth module shipped with zero P0 bugs</span>
+            <span class="decision-title">V1 Implementation Scope Defined</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">key decision</span>
@@ -1667,7 +1918,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The authentication module was successfully shipped last Friday, with no P0 bugs identified.</p>
+        <p class="decision-detail">The initial V1 implementation will focus on core features, explicitly outlining Login/Registration, Core Functionality (Photo upload, Output modeling), and specific Interface & Interaction requirements. Advanced features are deferred to future versions.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D001', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1675,10 +1926,18 @@
           <div class="evidence-body" id="ev-D001">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Alex opened by confirming the auth module shipped last Friday with zero P0 bugs."</p>
+              <p class="evidence-quote">"I. Core Features (V1 Implementation Scope)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 1</span>
+                <span>Heading I</span>
+              </div>
+            </div>
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"II. Advanced Features (Future Version Planning)"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Heading II</span>
               </div>
             </div>
             
@@ -1686,11 +1945,51 @@
         
       </div>
       
-      <div class="decision-card" id="d-D002" data-category="functional_requirement" data-confidence="confirmed">
+      <div class="decision-card" id="d-D002" data-category="technical_constraint" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D002</span>
-            <span class="decision-title">JWT token expiry set to 24 hours</span>
+            <span class="decision-title">SSO for Login/Registration</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">technical constraint</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">Users will log in exclusively via SSO through an external Portal. This system will not implement its own login or registration functionality, relying entirely on the external Portal for authentication.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D002">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Users will log in exclusively via SSO through the external Portal."</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Login / Registration section</span>
+              </div>
+            </div>
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"This system will not implement its own login or registration functionality."</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Login / Registration section</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D003" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D003</span>
+            <span class="decision-title">Prioritize Photo Upload and Output Modeling</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1699,39 +1998,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The JWT token expiry duration has been set to 24 hours, as previously agreed in Sprint 2.</p>
-        
-          <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
-            <i class="ri-arrow-down-s-line"></i> View source citation
-          </button>
-          <div class="evidence-body" id="ev-D002">
-            
-            <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 2</span>
-              </div>
-            </div>
-            
-          </div>
-        
-      </div>
-      
-      <div class="decision-card" id="d-D003" data-category="risk" data-confidence="confirmed">
-        <div class="decision-head">
-          <div class="decision-id-title">
-            <span class="decision-id">D003</span>
-            <span class="decision-title">Password reset emails not rate-limited</span>
-          </div>
-          <div class="badge-row">
-            <span class="badge badge-cat">risk</span>
-            
-              <span class="badge badge-confirmed">confirmed</span>
-            
-          </div>
-        </div>
-        <p class="decision-detail">Carol identified that password reset emails currently lack rate-limiting.</p>
+        <p class="decision-detail">The two main features to prioritize for core functionality are Photo upload and Output modeling.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1739,10 +2006,10 @@
           <div class="evidence-body" id="ev-D003">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Carol flagged that password reset emails are not being rate-limited."</p>
+              <p class="evidence-quote">"Two main features to prioritize:1. Photo upload2. Output modeling"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 3</span>
+                <span>Core Functionality section</span>
               </div>
             </div>
             
@@ -1754,7 +2021,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D004</span>
-            <span class="decision-title">Password reset rate limit: 3 attempts per hour</span>
+            <span class="decision-title">Sidebar to Distinguish Folder Types</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1763,7 +2030,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">A maximum of 3 password reset attempts per hour was agreed upon during the security review on 2026-06-28.</p>
+        <p class="decision-detail">The sidebar interface needs to clearly distinguish between two folder types: 'Album' for managing photos and 'Project' for managing modeling data.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1771,10 +2038,10 @@
           <div class="evidence-body" id="ev-D004">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Max 3 reset attempts per hour was agreed in the security review on 2026-06-28."</p>
+              <p class="evidence-quote">"The sidebar needs to distinguish between two folder types — 'Album' and 'Project' — managing photos and modeling data separately"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 3</span>
+                <span>Interface & Interaction section, point 1</span>
               </div>
             </div>
             
@@ -1782,20 +2049,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D005" data-category="technical_constraint" data-confidence="confirmed">
+      <div class="decision-card" id="d-D005" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D005</span>
-            <span class="decision-title">API gateway will use AWS API Gateway</span>
+            <span class="decision-title">Album Functionality for Photos</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">technical constraint</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The API gateway component will be implemented using AWS API Gateway.</p>
+        <p class="decision-detail">The Album feature must support core operations for photos, specifically adding, deleting, and searching.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1803,10 +2070,10 @@
           <div class="evidence-body" id="ev-D005">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"The API gateway will use AWS API Gateway with a 100 req/min limit per user."</p>
+              <p class="evidence-quote">"The Album must support adding, deleting, and searching photos"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 4</span>
+                <span>Interface & Interaction section, point 2</span>
               </div>
             </div>
             
@@ -1818,7 +2085,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D006</span>
-            <span class="decision-title">API gateway rate limit: 100 req/min per user</span>
+            <span class="decision-title">Modeling Progress Bar Display</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1827,7 +2094,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The API gateway will enforce a rate limit of 100 requests per minute per user.</p>
+        <p class="decision-detail">Modeling progress must be visually represented as a progress bar, showing the status of each individual stage, such as AT computing, point cloud generation, and model generation.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1835,10 +2102,10 @@
           <div class="evidence-body" id="ev-D006">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"The API gateway will use AWS API Gateway with a 100 req/min limit per user."</p>
+              <p class="evidence-quote">"Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 4</span>
+                <span>Interface & Interaction section, point 3</span>
               </div>
             </div>
             
@@ -1846,20 +2113,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D007" data-category="dependency" data-confidence="confirmed">
+      <div class="decision-card" id="d-D007" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D007</span>
-            <span class="decision-title">Mobile app team blocked by auth API spec</span>
+            <span class="decision-title">Project Creation with Photo Selection</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">dependency</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The mobile application development team is currently blocked, awaiting the publication of the authentication API specification.</p>
+        <p class="decision-detail">When users create a new project, they must be able to select existing photos from their photo list to import into the new project folder.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1867,10 +2134,10 @@
           <div class="evidence-body" id="ev-D007">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Alex noted the mobile app team is blocked until the auth API spec is published."</p>
+              <p class="evidence-quote">"When creating a project, users can select photos from the photo list to import into the project folder"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 5</span>
+                <span>Interface & Interaction section, point 4</span>
               </div>
             </div>
             
@@ -1878,20 +2145,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D008" data-category="deadline_or_milestone" data-confidence="confirmed">
+      <div class="decision-card" id="d-D008" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D008</span>
-            <span class="decision-title">Auth API spec target publish date: 2026-07-05</span>
+            <span class="decision-title">Project Sharing for Modeling Results (Future)</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">deadline or milestone</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The target date for publishing the authentication API specification is 2026-07-05.</p>
+        <p class="decision-detail">In a future version, project folders will allow designation of other users for joint viewing of modeling results. Albums, however, will remain private to their owners and not support multi-user access.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1899,10 +2166,10 @@
           <div class="evidence-body" id="ev-D008">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Target publish date is 2026-07-05."</p>
+              <p class="evidence-quote">"A project folder can designate other users to jointly view the modeling results; Albums are private to the owner only and do not support multi-user access"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 5</span>
+                <span>Advanced Features, point 1</span>
               </div>
             </div>
             
@@ -1914,7 +2181,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D009</span>
-            <span class="decision-title">Automated integration tests for all three auth endpoints required</span>
+            <span class="decision-title">Resumable Uploads (Future)</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1923,7 +2190,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">Automated integration tests are required for all three authentication endpoints (login, refresh, reset) prior to Sprint 3 sign-off.</p>
+        <p class="decision-detail">A future version will implement resumable uploads, where upload progress is preserved via a caching mechanism if interrupted, allowing users to resume from the breakpoint.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1931,10 +2198,10 @@
           <div class="evidence-body" id="ev-D009">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests before Sprint 3 sign-off."</p>
+              <p class="evidence-quote">"If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 6</span>
+                <span>Advanced Features, point 2</span>
               </div>
             </div>
             
@@ -1942,20 +2209,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D010" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D010" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D010</span>
-            <span class="decision-title">JWT expiry confirmed at 24 hours</span>
+            <span class="decision-title">Storage Quota Management (Future)</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The JWT token expiry is confirmed at 24 hours, as agreed in Sprint 2.</p>
+        <p class="decision-detail">Future functionality includes storage quota management: users' personal pages will display their used and remaining storage, and photo-upload limits will be dynamically adjustable based on system settings and permissions.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D010', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1963,10 +2230,10 @@
           <div class="evidence-body" id="ev-D010">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"JWT expiry: 24 hours (confirmed Sprint 2)"</p>
+              <p class="evidence-quote">"The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made section</span>
+                <span>Advanced Features, point 3</span>
               </div>
             </div>
             
@@ -1974,20 +2241,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D011" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D011" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D011</span>
-            <span class="decision-title">Password reset rate limit confirmed at 3 per hour</span>
+            <span class="decision-title">AT Error Handling and Re-run (Future)</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The password reset rate limit is confirmed at 3 attempts per hour.</p>
+        <p class="decision-detail">In a future version, if AT (Aerotriangulation) computation fails, a mechanism will be provided to allow users to adjust parameters and re-run the process.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D011', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1995,10 +2262,10 @@
           <div class="evidence-body" id="ev-D011">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Password reset rate limit: 3 per hour"</p>
+              <p class="evidence-quote">"When AT computation fails, provide a mechanism to adjust parameters and re-run"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made section</span>
+                <span>Advanced Features, point 4</span>
               </div>
             </div>
             
@@ -2010,7 +2277,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D012</span>
-            <span class="decision-title">API gateway using AWS API Gateway with 100 req/min per user cap</span>
+            <span class="decision-title">Expert Mode Deferred to Future Version</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">key decision</span>
@@ -2019,7 +2286,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The API gateway decision is confirmed: AWS API Gateway will be used, with a cap of 100 requests per minute per user.</p>
+        <p class="decision-detail">While a distinction between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters) is planned after photo upload, V1 will only implement 'Normal Mode'. 'Expert Mode' is deferred to a future version.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D012', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2027,10 +2294,10 @@
           <div class="evidence-body" id="ev-D012">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"API gateway: AWS API Gateway, 100 req/min per user cap"</p>
+              <p class="evidence-quote">"After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters); V1 will implement Normal Mode only"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made section</span>
+                <span>Advanced Features, point 5</span>
               </div>
             </div>
             
@@ -2038,20 +2305,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D013" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D013" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D013</span>
-            <span class="decision-title">Auth API spec publish target confirmed for 2026-07-05</span>
+            <span class="decision-title">Expert Mode Functional Requirement (Future)</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The target date for publishing the Auth API specification is confirmed as 2026-07-05.</p>
+        <p class="decision-detail">After photo upload, the system will distinguish between 'Normal Mode' with default parameters and 'Expert Mode' allowing freely adjustable parameters. This is a future functional requirement.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D013', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2059,74 +2326,10 @@
           <div class="evidence-body" id="ev-D013">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Auth API spec publish target: 2026-07-05"</p>
+              <p class="evidence-quote">"After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made section</span>
-              </div>
-            </div>
-            
-          </div>
-        
-      </div>
-      
-      <div class="decision-card" id="d-D014" data-category="open_question" data-confidence="confirmed">
-        <div class="decision-head">
-          <div class="decision-id-title">
-            <span class="decision-id">D014</span>
-            <span class="decision-title">Fallback behaviour if API gateway goes down</span>
-          </div>
-          <div class="badge-row">
-            <span class="badge badge-cat">open question</span>
-            
-              <span class="badge badge-confirmed">confirmed</span>
-            
-          </div>
-        </div>
-        <p class="decision-detail">The question of what the fallback behaviour should be if the API gateway experiences downtime needs to be addressed.</p>
-        
-          <button class="evidence-toggle" onclick="toggleEvidence('D014', this)">
-            <i class="ri-arrow-down-s-line"></i> View source citation
-          </button>
-          <div class="evidence-body" id="ev-D014">
-            
-            <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"What is the fallback behaviour if the API gateway goes down?"</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Open Questions section</span>
-              </div>
-            </div>
-            
-          </div>
-        
-      </div>
-      
-      <div class="decision-card" id="d-D015" data-category="open_question" data-confidence="confirmed">
-        <div class="decision-head">
-          <div class="decision-id-title">
-            <span class="decision-id">D015</span>
-            <span class="decision-title">Refresh token invalidation on password reset</span>
-          </div>
-          <div class="badge-row">
-            <span class="badge badge-cat">open question</span>
-            
-              <span class="badge badge-confirmed">confirmed</span>
-            
-          </div>
-        </div>
-        <p class="decision-detail">It needs to be determined whether refresh tokens are invalidated when a user performs a password reset.</p>
-        
-          <button class="evidence-toggle" onclick="toggleEvidence('D015', this)">
-            <i class="ri-arrow-down-s-line"></i> View source citation
-          </button>
-          <div class="evidence-body" id="ev-D015">
-            
-            <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Are refresh tokens invalidated on password reset?"</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Open Questions section</span>
+                <span>Advanced Features, point 5</span>
               </div>
             </div>
             

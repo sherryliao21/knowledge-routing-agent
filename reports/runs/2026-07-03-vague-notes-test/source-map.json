@@ -1,23 +1,23 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "Performance concerns identified for the dashboard project",
+    "decision_title": "Performance Concerns Identified",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "there are some concerns about performance"
+      "there are some concerns about performance."
     ]
   },
   {
     "decision_id": "D002",
-    "decision_title": "Consideration for using a better database",
-    "confidence": "confirmed",
+    "decision_title": "Consider Better Database",
+    "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "Someone mentioned we should probably use a better database at some point."
     ]
   },
   {
     "decision_id": "D003",
-    "decision_title": "UI aesthetic improvement required",
+    "decision_title": "UI Design Improvement Required",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The UI needs to look nicer."
@@ -25,7 +25,7 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Current UI design is not satisfactory",
+    "decision_title": "Current UI Design is Unsatisfactory",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We all agreed the current design isn't great."
@@ -33,7 +33,7 @@
   },
   {
     "decision_id": "D005",
-    "decision_title": "Project timelines are undecided",
+    "decision_title": "Timelines Undecided",
     "confidence": "confirmed",
     "evidence_quotes": [
       "There was a discussion about timelines but nothing was firmly decided."
@@ -41,40 +41,48 @@
   },
   {
     "decision_id": "D006",
-    "decision_title": "Potential future integration with CRM system",
-    "confidence": "confirmed",
+    "decision_title": "Potential CRM System Integration",
+    "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "We might need to integrate with the CRM system eventually"
     ]
   },
   {
     "decision_id": "D007",
-    "decision_title": "Uncertainty regarding CRM integration timing and method",
+    "decision_title": "CRM Integration Details Unknown",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "we're not sure when or how."
+      "but we're not sure when or how."
     ]
   },
   {
     "decision_id": "D008",
-    "decision_title": "Budget is a concern",
+    "decision_title": "Budget is a Concern",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Budget was mentioned briefly — it's a concern but no numbers were shared."
+      "Budget was mentioned briefly — it's a concern"
     ]
   },
   {
     "decision_id": "D009",
-    "decision_title": "Requirement for more thorough testing",
+    "decision_title": "Budget Numbers Required",
     "confidence": "confirmed",
+    "evidence_quotes": [
+      "but no numbers were shared."
+    ]
+  },
+  {
+    "decision_id": "D010",
+    "decision_title": "More Thorough Testing Recommended",
+    "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "The team lead hinted that testing should be more thorough."
     ]
   },
   {
-    "decision_id": "D010",
-    "decision_title": "Need for improved documentation practices",
-    "confidence": "confirmed",
+    "decision_id": "D011",
+    "decision_title": "Improved Documentation Needed",
+    "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "We should probably document things better going forward."
     ]
