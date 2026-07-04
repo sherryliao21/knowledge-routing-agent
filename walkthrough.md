@@ -60,15 +60,18 @@ capstone/
 
 ---
 
-## 📊 v1.5 Refinements
+## 📊 v1.6 Final MVP Specifications (v1.0.0-mvp)
 
-### 1. AI Agent Directly in Headings
+### 1. Isolated Reference Document Overlay Modals
+- Removed the Decisions Ledger ("Ledger") completely from the horizontal persona card rail, maintaining a clean row focused strictly on the 5 human viewpoints (Dave, John, Emma, Sarah, Alex).
+- Repositioned the **View full decision ledger** button to the top-right corner of the main header block, in the same flex row as the badge and title.
+- Placed the entire decisions list inside a scrollable modal overlay (`id="ledgerModal"`), configured with `max-width: 900px` and independent scroll behavior (`max-height: 85vh; overflow-y: auto;`).
+- Updated the inline decision pill click handler (`goDecision(id)`): clicking any `D0XX` pill from inside the persona viewpoints now opens the modal overlay and smoothly scrolls to/highlights the exact decision entry inside.
+- If raw notes are present (opt-in with `--include-transcript`), the **View source transcript** link is rendered above the persona cards as a quiet utility link.
+
+### 2. AI Agent Directly in Headings
 - Rewrote the Reviewer status banner headers to prominently display `AI Reviewer Agent` directly in the main heading text (e.g. `AI Reviewer Agent: Approved` or `AI Reviewer Agent: Flag Needed`). 
 - Removed the separate secondary sub-caption line introduced in v1.4, preventing any confusion and making the automated nature of the reviewer immediately clear without hovering or reading fine print.
-
-### 2. Isolated Reference Document Utility Links
-- Moved the Decisions Log ("Ledger") and Original Notes ("Transcript") entirely out of the top horizontal persona card rail, maintaining a clean row focused strictly on the 5 human viewpoints (Dave/Stakeholder, John/Engineer, Emma/QA, Sarah/PM, Alex/SA).
-- Created a dedicated, visually lighter `.report-utility-links` block directly below the Reviewer banner, featuring outline text buttons with document icons to access reference material. Tab switching and click handlers remain integrated seamlessly.
 
 ### 3. Constraints vs. Architectural Decisions Split
 - Created a `CitedItem` type in `models.py` associating items with relevant decision IDs.
@@ -81,6 +84,7 @@ capstone/
 ### 5. PM Panel Reordering & Collapse
 - Rearranged the Project Manager panel to display actionable items (Milestones, Risks, Gaps, Open Questions, Dependencies) first.
 - Collapsed the long "Decision History" under a native `<details>` accordion by default to reduce daily cognitive load.
+
 
 ---
 
