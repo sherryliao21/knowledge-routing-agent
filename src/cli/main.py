@@ -230,7 +230,7 @@ def run(file_path: str, title: str | None, date: str | None):
             )
         )
 
-    # Bundle into root RunOutput (never containing parsed_doc.raw_text)
+    # Bundle into root RunOutput
     run_output = RunOutput(
         metadata=metadata,
         extraction=extraction,
@@ -242,6 +242,7 @@ def run(file_path: str, title: str | None, date: str | None):
         ),
         review=review,
         source_map=source_map,
+        raw_notes=parsed_doc.raw_text,
     )
 
     # Step 4: Write artifacts and build Hub

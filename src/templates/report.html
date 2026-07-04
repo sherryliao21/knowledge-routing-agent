@@ -316,6 +316,13 @@
     .tab-button[data-role="decisions"].active .avatar-wrapper {
       background: var(--cyan);
     }
+    .tab-button[data-role="notes"].active {
+      border-color: #64748b;
+      box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.08);
+    }
+    .tab-button[data-role="notes"].active .avatar-wrapper {
+      background: #64748b;
+    }
 
     /* Content Area */
     .content-area {
@@ -1017,6 +1024,16 @@
             <span class="tab-char-role">Decisions Log</span>
           </div>
         </button>
+        
+        <button class="tab-button" data-target="panel-notes" data-role="notes">
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-system.jpg" alt="Source Transcript" class="avatar-img" style="filter: hue-rotate(90deg);">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Source Transcript</span>
+            <span class="tab-char-role">Original Notes</span>
+          </div>
+        </button>
       </div>
 
       <!-- Main Panels Panel -->
@@ -1279,6 +1296,18 @@
                   </div>
                 {% endfor %}
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 6: Original Notes -->
+        <div class="tab-panel" id="panel-notes">
+          <div class="card-outer">
+            <div class="card-inner">
+              <h2 class="section-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</h2>
+              <p class="section-desc">Unstructured raw meeting notes fed into the pipeline for analysis.</p>
+              
+              <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; white-space: pre-wrap; font-family: inherit; font-size: 0.95rem; line-height: 1.7; color: var(--text-main); overflow-x: auto;">{{ raw_notes }}</div>
             </div>
           </div>
         </div>

@@ -316,6 +316,13 @@
     .tab-button[data-role="decisions"].active .avatar-wrapper {
       background: var(--cyan);
     }
+    .tab-button[data-role="notes"].active {
+      border-color: #64748b;
+      box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.08);
+    }
+    .tab-button[data-role="notes"].active .avatar-wrapper {
+      background: #64748b;
+    }
 
     /* Content Area */
     .content-area {
@@ -924,7 +931,7 @@
           </div>
           <div class="meta-item">
             <span class="meta-label">Processed At</span>
-            <span class="meta-value mono">2026-07-04T07:02:19.292149Z</span>
+            <span class="meta-value mono">2026-07-04T07:08:14.254172Z</span>
           </div>
         </div>
       </div>
@@ -939,11 +946,11 @@
           </div>
           <div class="review-info">
             <h3>Human-in-the-Loop Verification: APPROVED</h3>
-            <p>The overall quality of the generated outputs is high, with excellent traceability to the extracted decisions and comprehensive details provided for each role. No critical hallucinations or missing sources were identified. A minor inconsistency in the Stakeholder view regarding unresolved questions/alignment gaps was noted (warning severity), which should be addressed for a more complete and consistent report across all audiences.</p>
+            <p>All role outputs are consistent with the extracted decisions and demonstrate high quality. Key ambiguities, such as the 'super fast' performance requirement and detailed dashboard features, are appropriately flagged as unresolved questions or behaviors across relevant views (QA, PM, Stakeholder). There are no critical hallucinations or contradictions. Minor suggestions for further detail are noted as 'info' level issues.</p>
           </div>
         </div>
         
-          <button class="review-btn" onclick="openIssuesModal()">View Review Logs (1)</button>
+          <button class="review-btn" disabled>Zero Issues Flagged</button>
         
       </div>
     
@@ -1002,6 +1009,16 @@
             <span class="tab-char-role">Decisions Log</span>
           </div>
         </button>
+        
+        <button class="tab-button" data-target="panel-notes" data-role="notes">
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-system.jpg" alt="Source Transcript" class="avatar-img" style="filter: hue-rotate(90deg);">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Source Transcript</span>
+            <span class="tab-char-role">Original Notes</span>
+          </div>
+        </button>
       </div>
 
       <!-- Main Panels Panel -->
@@ -1018,7 +1035,7 @@
                 <div class="list-item" style="grid-template-cols: 1fr; gap: 0.5rem; background: rgba(217, 119, 6, 0.02); border-color: rgba(217, 119, 6, 0.1); padding: 1.5rem;">
                   <span class="meta-label" style="color: var(--amber);">Business Summary</span>
                   <p class="list-item-text" style="font-size: 1.1rem; font-weight: 600; line-height: 1.7; color: var(--text-main);">
-                    The team is focused on delivering the Phoenix Project's first version (V1) by September 1st, a hard deadline driven by an upcoming marketing campaign. This initial release will include essential user authentication, a project dashboard, and is designed for fast performance and secure operations. Key technology decisions have been made to streamline development and meet these critical business requirements.
+                    The team is on track to deliver the first version of the product (MVP) by September 1st, a critical deadline to support a marketing campaign launching shortly after. This initial release will focus on core features like user login and a project dashboard, ensuring the system is fast and secure for our business users.
                   </p>
                 </div>
                 
@@ -1026,22 +1043,27 @@
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">The product launch is firmly set for early September to align with a major marketing campaign, ensuring immediate market presence.</span>
+                    <span class="list-item-text">Ensures the product is ready to support a scheduled marketing campaign starting September 5th, which already has booked advertisements.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Users will experience a 'super fast' system with easy sign-up options via Google or email, including essential B2B registration fields like company name.</span>
+                    <span class="list-item-text">Provides a secure and performant initial product (V1) for users, including essential features like user login and a dashboard.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Critical user data and system integrity will be maintained through strong security measures, including an external authentication provider and a protected database.</span>
+                    <span class="list-item-text">Streamlines user onboarding by integrating a third-party login service (Firebase) and collecting necessary B2B information such as company name.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">The core features of user login and a project dashboard will be available from day one, providing immediate value to users.</span>
+                    <span class="list-item-text">Manages project costs and complexity for V1 by deferring less critical features like advanced session management to future versions.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-focus-3-line"></i>
+                    <span class="list-item-text">Reinforces security by ensuring the user database is not directly accessible from the public internet.</span>
                   </div>
                 
                 
@@ -1049,6 +1071,16 @@
                 
 
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Key Open Issues</h3>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What are the detailed acceptance criteria for user registration, beyond just the fields collected (email, name, role, company name)?</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What specific information and functionalities will the project dashboard display beyond active users, system status, and project lists, and what is its final design?</span>
+                  </div>
                 
               </div>
             </div>
@@ -1067,47 +1099,77 @@
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Implement user authentication functionality.</span>
+                    <span class="list-item-text">Implement user authentication (D004)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Develop a working project dashboard.</span>
+                    <span class="list-item-text">Implement a working project dashboard (D004)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Integrate Firebase Authentication supporting Google sign-in and email logins.</span>
+                    <span class="list-item-text">Integrate Firebase Authentication for V1 (D016)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Implement user registration with required fields: email, full name, role, and company name.</span>
+                    <span class="list-item-text">Configure Firebase Authentication for Google sign-in and email logins (D018)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Implement standard PostgreSQL database sessions for V1 session management.</span>
+                    <span class="list-item-text">Implement user registration flow to collect email, full name, role, and company name (D023)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Set session token expiration policy to 24 hours.</span>
+                    <span class="list-item-text">Thoroughly test the authentication flow (D030)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Develop dashboard features to display active user metrics, system status, and project lists.</span>
+                    <span class="list-item-text">Set token expiration to 24 hours for user sessions (D032)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Thoroughly test the authentication flow.</span>
+                    <span class="list-item-text">Implement project dashboard displaying active users, system status, and project lists (D034)</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Performance optimization to ensure fast system response.</span>
+                    <span class="list-item-text">Build frontend using React (D006)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Build backend services using Python (FastAPI) (D007)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Set up PostgreSQL database with a standard relational model (D010)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Implement user session management using standard PostgreSQL sessions for V1 (D013)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Deploy React frontend application on Vercel (D025)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Deploy FastAPI backend application on Cloud Run (D027)</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Configure Cloud Run to connect to PostgreSQL via Serverless VPC Access, with the database in a private VPC (D027)</span>
                   </div>
                 
                 
@@ -1115,51 +1177,51 @@
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">V1 MVP hard deadline: September 1st.</span>
+                    <span class="list-item-text">Deliver V1 MVP by September 1st (hard deadline) (D001, D002)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Frontend technology: React.</span>
+                    <span class="list-item-text">System must be 'super fast' (D005)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Backend technology: Python (FastAPI).</span>
+                    <span class="list-item-text">Frontend technology: React (D006)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Database technology: PostgreSQL with a standard relational model.</span>
+                    <span class="list-item-text">Backend technology: Python (FastAPI) (D007)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Authentication must use an external provider; Firebase Authentication for V1.</span>
+                    <span class="list-item-text">Leverage existing Python libraries for backend (D008)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">PostgreSQL database instance must be in a private VPC, connected via Serverless VPC Access, preventing public internet exposure.</span>
+                    <span class="list-item-text">Firebase Authentication chosen for V1 for quick integration, easy social logins, and pricing requirements (D017)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Backend deployment platform: Cloud Run.</span>
+                    <span class="list-item-text">PostgreSQL instance must not be exposed to the public internet (strict security constraint) (D028, D029)</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Frontend deployment platform: Vercel.</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
-                    <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Redis for session management is deferred to V2 unless performance dictates otherwise.</span>
+                    <span class="list-item-text">Firebase configuration keys are needed by July 8th (D039)</span>
                   </div>
                 
                 
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open Technical Questions</h3>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-question-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">Detailed definition of dashboard features is deferred to next sync (D035)</span>
+                  </div>
                 
 
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Referenced Decisions</h3>
@@ -1168,8 +1230,6 @@
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D001')">D001</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D002')">D002</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D003')">D003</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D004')">D004</span>
                   
@@ -1183,15 +1243,9 @@
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D010')">D010</span>
                   
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D011')">D011</span>
-                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D012')">D012</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D013')">D013</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D014')">D014</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D015')">D015</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D016')">D016</span>
                   
@@ -1199,21 +1253,33 @@
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D018')">D018</span>
                   
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D019')">D019</span>
-                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D020')">D020</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D021')">D021</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D022')">D022</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D023')">D023</span>
                   
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D024')">D024</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D026')">D026</span>
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D025')">D025</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D027')">D027</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D028')">D028</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D029')">D029</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D030')">D030</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D032')">D032</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D034')">D034</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D035')">D035</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D038')">D038</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D039')">D039</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D040')">D040</span>
                   
                 </div>
               </div>
@@ -1233,62 +1299,62 @@
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given Firebase Authentication is integrated, When a new user attempts to register, Then they must be able to register using their email and a password.</span>
+                    <span class="list-item-text">Given a user navigates to the login page, When they choose to sign in with Google, Then they shall be successfully authenticated via Firebase and granted access to the system.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given Firebase Authentication is integrated, When a new user attempts to register, Then they must be able to register using Google Sign-in.</span>
+                    <span class="list-item-text">Given a user navigates to the login page, When they provide valid email and password credentials, Then they shall be successfully authenticated via Firebase and granted access to the system.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is on the registration form, When they successfully submit the form, Then the system must collect and store their email, full name, role, and company name.</span>
+                    <span class="list-item-text">Given an authenticated user, When their session token expires, Then they shall be automatically logged out and redirected to the login page after 24 hours.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing or invalid email, Then the system must prevent registration and display an appropriate error message.</span>
+                    <span class="list-item-text">Given a new user attempts to register, When they provide a valid email, full name, role, and company name, Then their registration shall be successful, and they shall be able to log in.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing full name, Then the system must prevent registration and display an appropriate error message.</span>
+                    <span class="list-item-text">Given a new user attempts to register, When they omit the 'email' field, Then the registration shall fail, and an error message shall indicate 'email' is required.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing role, Then the system must prevent registration and display an appropriate error message.</span>
+                    <span class="list-item-text">Given a new user attempts to register, When they omit the 'full name' field, Then the registration shall fail, and an error message shall indicate 'full name' is required.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing company name, Then the system must prevent registration and display an appropriate error message.</span>
+                    <span class="list-item-text">Given a new user attempts to register, When they omit the 'role' field, Then the registration shall fail, and an error message shall indicate 'role' is required.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user has successfully logged in, When their session has been inactive for 24 hours, Then their session token must expire.</span>
+                    <span class="list-item-text">Given a new user attempts to register, When they omit the 'company name' field, Then the registration shall fail, and an error message shall indicate 'company name' is required.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user's session token has expired, When they attempt to perform an authenticated action, Then the system must require them to re-authenticate.</span>
+                    <span class="list-item-text">Given an authenticated user accesses the project dashboard, Then the dashboard shall display the count of active users.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display active user metrics.</span>
+                    <span class="list-item-text">Given an authenticated user accesses the project dashboard, Then the dashboard shall display the current system status.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display system status information.</span>
+                    <span class="list-item-text">Given an authenticated user accesses the project dashboard, Then the dashboard shall display a list of projects.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display a list of projects.</span>
+                    <span class="list-item-text">Given an external network scan, When attempting to access the PostgreSQL database instance, Then the database instance shall not be reachable from the public internet.</span>
                   </div>
                 
                 
@@ -1296,57 +1362,102 @@
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Successful user registration via email and password with all required fields (email, full name, role, company name).</span>
+                    <span class="list-item-text">Successfully log in using a valid Google account.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Successful user login with valid email and password.</span>
+                    <span class="list-item-text">Successfully log in using a valid email and password.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Successful user registration via Google Sign-in.</span>
+                    <span class="list-item-text">Attempt to log in with an incorrect email and password.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Attempt to register with an email address that is already associated with an existing account.</span>
+                    <span class="list-item-text">Attempt to log in with an unregistered email.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Attempt to log in with an incorrect password for a valid user.</span>
+                    <span class="list-item-text">Verify that a user session remains active for 24 hours after login.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Attempt to log in with an email address that does not exist in the system.</span>
+                    <span class="list-item-text">Verify that a user is logged out after 24 hours of inactivity or session token expiration.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Verify that the user is logged out or prompted for re-authentication after 24 hours of inactivity.</span>
+                    <span class="list-item-text">Verify that a user can re-authenticate after session expiration.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Verify that the Project Dashboard loads correctly for an authenticated user.</span>
+                    <span class="list-item-text">Register a new user with all required fields (email, full name, role, company name).</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Verify that the 'Active User Metrics' section is visible and contains data on the dashboard.</span>
+                    <span class="list-item-text">Attempt to register with an already existing email address.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Verify that the 'System Status' section is visible and contains data on the dashboard.</span>
+                    <span class="list-item-text">Attempt to register without providing an email address.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Scenario: Verify that the 'Project Lists' section is visible and contains data on the dashboard.</span>
+                    <span class="list-item-text">Attempt to register without providing a full name.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Attempt to register without providing a role.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Attempt to register without providing a company name.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Verify that "address" and "telephone number" fields are not present or required during registration.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Log in and navigate to the project dashboard to verify display of active users, system status, and project lists.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Verify that the displayed active user count on the dashboard is accurate.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Verify that the displayed system status on the dashboard reflects the actual system health.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Verify that the displayed project list on the dashboard is complete and accurate for the logged-in user's permissions.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Perform basic load testing on critical paths (e.g., login, dashboard loading) to ensure responsiveness.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Attempt to ping or connect to the PostgreSQL database IP address from an external, public network.</span>
                   </div>
                 
 
@@ -1354,32 +1465,57 @@
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Attempt user registration and login with maximum allowed length inputs for text fields (full name, role, company name) to check for truncation or UI overflow.</span>
+                    <span class="list-item-text">Concurrent logins from multiple devices with the same user account.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Attempt user registration with invalid email formats (e.g., missing @, missing domain, special characters in username).</span>
+                    <span class="list-item-text">Attempt to sign-in with an email address already associated with a Google account (or vice-versa).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Attempt concurrent logins for the same user account from different devices or browsers.</span>
+                    <span class="list-item-text">Rapid sign-in and sign-out actions.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Test behavior when the Firebase Authentication service is temporarily unavailable during registration or login.</span>
+                    <span class="list-item-text">Network interruptions during user login or registration processes.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Test session expiration behavior while an authenticated user is actively performing a long-running operation.</span>
+                    <span class="list-item-text">User activity occurring precisely at the 24-hour token expiration mark.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Attempt to access authenticated dashboard features immediately after session expiration.</span>
+                    <span class="list-item-text">User attempts to access a protected resource immediately after session expiration without re-authenticating.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
+                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
+                    <span class="list-item-text">Inputting excessively long strings into 'full name', 'role', or 'company name' fields.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
+                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
+                    <span class="list-item-text">Using special characters or international character sets in 'full name', 'role', or 'company name' fields during registration.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
+                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
+                    <span class="list-item-text">Attempting to register with invalid email address formats (e.g., missing '@' symbol, missing domain).</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
+                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
+                    <span class="list-item-text">Testing system performance with a high number of concurrent users accessing various features.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
+                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
+                    <span class="list-item-text">Attempting to bypass Firebase Authentication to directly access backend API endpoints.</span>
                   </div>
                 
                 
@@ -1387,32 +1523,37 @@
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What specific criteria define 'super fast' system performance (e.g., specific response times for API calls, page load times, concurrent user capacity benchmarks)? (D005)</span>
+                    <span class="list-item-text">The detailed definition and functionality of the project dashboard features beyond displaying active users, system status, and project lists are deferred and need to be defined (D035).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What specific data points or calculations are expected for 'active user metrics' on the dashboard (e.g., daily active users, peak concurrent users, average session duration)? (D023)</span>
+                    <span class="list-item-text">The term "super fast" (D005) is subjective and lacks specific, measurable performance criteria (e.g., acceptable response times, load handling capacity, error rates). This needs quantitative definition.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What specific information should be displayed as 'system status' on the dashboard (e.g., uptime, API health, database connection status, error logs summary, latency)? (D023)</span>
+                    <span class="list-item-text">While Mike is assigned to Firebase provisioning (D038) with a deadline (D039), the exact process, dependencies, and specific verification steps from a QA perspective are not detailed.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What specific details should be included for each item in the 'project lists' on the dashboard (e.g., project name, creation date, status, owner, last modified, links to project details)? Are there filtering, sorting, or search capabilities expected? (D023, D024, D028)</span>
+                    <span class="list-item-text">The exact behavior and user experience when a 24-hour token expiration occurs (e.g., whether the user is gracefully informed, automatically redirected, or if there's a silent token refresh mechanism) are not specified (D032).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">How will QA verify the strict technical constraint that the PostgreSQL database instance is placed in a private VPC and connected via Serverless VPC Access, preventing exposure to the public internet? (D020)</span>
+                    <span class="list-item-text">Beyond the specified fields (email, full name, role, company name), broader "acceptance criteria" for user registration (e.g., welcome email delivery, post-registration redirect flow, comprehensive data integrity checks) are not fully detailed (D019).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What criteria will be used to determine if standard PostgreSQL sessions become a 'performance blocker' necessitating a move to Redis for session management? (D010)</span>
+                    <span class="list-item-text">The specific criteria or threshold for when standard PostgreSQL sessions would become a "performance blocker" and necessitate the implementation of Redis for session management in V2 are undefined (D012).</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">The specific design and layout details for the project dashboard, which are to be discussed with the marketing team, are not yet defined (D040).</span>
                   </div>
                 
               </div>
@@ -1432,77 +1573,57 @@
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The main goal for V1 of the Phoenix Project is to deliver a working MVP by September 1st. This is a hard deadline due to the marketing campaign launch scheduled for September 5th.</span>
+                    <span class="list-item-text">V1 Minimum Viable Product (MVP) must be delivered by September 1st. This is a hard deadline due to a marketing campaign launching on September 5th, for which ads have already been booked.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The V1 MVP must include user authentication and a working project dashboard.</span>
+                    <span class="list-item-text">The core features for V1 include user authentication and a working project dashboard. The system must also be 'super fast'.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The system needs to be 'super fast' as a general performance requirement.</span>
+                    <span class="list-item-text">Frontend technology stack: React. Backend technology stack: Python (FastAPI), justified by existing team libraries.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The technology stack decisions are: React for the frontend, Python (FastAPI) for the backend service, and PostgreSQL for the database using a standard relational model.</span>
+                    <span class="list-item-text">Database choice: PostgreSQL, using a standard relational model.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">For session management, standard PostgreSQL database sessions will be used for V1 to keep it simple and save budget. The use of Redis is deferred to V2 unless it becomes a performance blocker.</span>
+                    <span class="list-item-text">Session management for V1 will use standard PostgreSQL sessions to save budget. Implementation of Redis for session management is deferred to V2, unless it becomes a performance blocker in V1.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The team will use an external authentication provider; Firebase Authentication will be integrated for V1 due to its speed, ease of social logins, and matching pricing requirements. It must be configured to allow Google sign-in and email logins.</span>
+                    <span class="list-item-text">User authentication will be handled by integrating Firebase Authentication for V1, rather than building it in-house. This decision was based on Firebase's speed, easy handling of social logins, and matching pricing requirements. It will be configured to support Google sign-in and email logins.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The required fields for user registration are email, full name, role, and company name (the latter added for B2B purposes).</span>
+                    <span class="list-item-text">User registration fields are confirmed as: email, full name, role, and company name (company name added as it's a B2B project).</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">Deployment platforms decided: Cloud Run for the FastAPI backend application and Vercel for the React frontend application.</span>
+                    <span class="list-item-text">Deployment strategy: Vercel for the React frontend application and Cloud Run for the FastAPI backend. For security, the PostgreSQL database instance will be placed in a private VPC, and Cloud Run will connect via Serverless VPC Access, ensuring the database is not exposed to the public internet (this is a strict technical constraint).</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">As a strict technical security constraint, the PostgreSQL database instance must be placed in a private VPC and connected via Serverless VPC Access to prevent exposure to the public internet.</span>
+                    <span class="list-item-text">Authentication flow testing needs to be thorough. User token expiration will initially be set to 24 hours, with the option for future adjustment.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The authentication flow needs to be tested thoroughly.</span>
+                    <span class="list-item-text">The project dashboard must display active user metrics, system status, and project lists. Detailed discussion and definition of other dashboard features are deferred to the next sync meeting.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">Session token expiration will initially be set to 24 hours.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-history-line"></i>
-                    <span class="list-item-text">The project dashboard must display active user metrics, system status, and project lists.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-history-line"></i>
-                    <span class="list-item-text">Further detailing of dashboard features will be handled in the next synchronization meeting.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-history-line"></i>
-                    <span class="list-item-text">Mike has been assigned the task of handling Firebase provisioning and is expected to have the configuration keys ready by July 8th.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-history-line"></i>
-                    <span class="list-item-text">A synchronization meeting with the marketing team on the dashboard design is planned for next Wednesday.</span>
+                    <span class="list-item-text">Mike has been assigned to handle Firebase provisioning, with the Firebase configuration keys due by July 8th.</span>
                   </div>
                 
                 
@@ -1510,22 +1631,17 @@
                 
                   <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">Marketing campaign launch (September 5th): The V1 MVP's hard deadline of September 1st is directly tied to this external marketing event.</span>
+                    <span class="list-item-text">Marketing team's scheduled campaign launch on September 5th and pre-booked ads necessitate the hard V1 MVP deadline of September 1st.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">Firebase provisioning (Mike): Mike must provide the Firebase configuration keys by July 8th for authentication development to proceed.</span>
+                    <span class="list-item-text">Firebase configuration keys from Mike are needed by July 8th for authentication development.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">Marketing team: A synchronization meeting is required next Wednesday to align on dashboard design details (D028).</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
-                    <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">Cloud Run & Serverless VPC Access configuration: The backend deployment on Cloud Run relies on a properly configured Serverless VPC Access to securely connect to the private PostgreSQL database (inferred from D020).</span>
+                    <span class="list-item-text">A sync meeting with the marketing team is required next Wednesday to discuss and define the dashboard design and features.</span>
                   </div>
                 
 
@@ -1533,27 +1649,32 @@
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Timeline Risk: Hard Deadline Constraint (Likelihood: Medium, Impact: High)** - The V1 MVP has a hard deadline of September 1st, dictated by a marketing campaign launch on September 5th. Any delays in development or unforeseen technical challenges could directly impact the marketing campaign and the overall project's strategic objectives.</span>
+                    <span class="list-item-text">Missing the September 1st MVP deadline: High impact due to pre-booked marketing campaign launching September 5th. Likelihood is medium given typical project complexities.</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Requirement Clarity Risk: Vague Performance Expectation (Likelihood: High, Impact: Medium)** - The requirement for the system to be 'super fast' (D005) lacks specific, measurable criteria. This ambiguity could lead to misinterpretations, scope creep if continuous optimization is pursued without clear targets, or stakeholder dissatisfaction if performance expectations are not met to an unquantified standard.</span>
+                    <span class="list-item-text">Undefined 'super fast' performance requirement: Could lead to scope creep, rework, or unmet user expectations if not quantified and agreed upon (medium impact, medium likelihood).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Performance & Rework Risk: Session Management Choice (Likelihood: Medium, Impact: Medium)** - The decision to use standard PostgreSQL sessions for V1 (D011) and defer Redis to V2 'unless it's a performance blocker' (D010) introduces a risk. If standard sessions prove insufficient for the 'super fast' requirement (D005), it could necessitate rework and a rushed integration of Redis, impacting V1 stability or delaying V2 features.</span>
+                    <span class="list-item-text">Performance issues with standard PostgreSQL sessions: Deferring Redis to V2 means if PostgreSQL sessions are not performant enough, it could impact V1 and require unplanned work (medium impact, low-medium likelihood).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Dependency Risk: Firebase Provisioning (Likelihood: Low, Impact: High)** - The development of user authentication relies on Mike providing Firebase configuration keys by July 8th (D027). A delay in this dependency could block a critical path item for V1.</span>
+                    <span class="list-item-text">Delay in Firebase configuration keys from Mike (due July 8th): This would block user authentication development, impacting the critical path for a core V1 feature (high impact, low likelihood, but requires active monitoring).</span>
                   </div>
                 
                   <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Scope Risk: Undefined Dashboard Features (Likelihood: Medium, Impact: Medium)** - While core metrics for the dashboard are identified, further detailing is deferred to the next sync meeting (D024). This delay in defining full scope could lead to late requirements, rework, or a reduced feature set if not managed diligently against the tight V1 deadline.</span>
+                    <span class="list-item-text">Security risk of PostgreSQL instance exposure: Although a solution with VPC and Serverless VPC Access is planned, any misconfiguration in adhering to the 'strict technical constraint' of not exposing PostgreSQL to the public internet would be a critical security breach (high impact, low likelihood if correctly implemented).</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">Delayed or inadequate definition of dashboard features: Deferring detailed discussion to the next sync risks delays in feature development or misalignment with stakeholder expectations, potentially impacting MVP readiness (medium impact, medium likelihood).</span>
                   </div>
                 
                 
@@ -1561,16 +1682,31 @@
                 
                   <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
                     <i class="ri-user-voice-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">**Performance Definition:** The requirement for the system to be 'super fast' (D005) is subjective and lacks concrete metrics. This could lead to differing expectations among stakeholders regarding what constitutes acceptable performance.</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
-                    <i class="ri-user-voice-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">**Dashboard Feature Scope:** While essential metrics are identified, the full detailing of dashboard features has been explicitly deferred to a future meeting (D024). This indicates that the complete scope and functionality are not yet fully aligned among all stakeholders, risking potential disagreements or changes as the deadline approaches.</span>
+                    <span class="list-item-text">There was an initial oversight regarding the necessity of collecting 'company name' during user registration for the B2B context, which was resolved during the meeting. No currently active alignment gaps were explicitly noted as unresolved.</span>
                   </div>
                 
 
                 <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open SA/PM Questions</h3>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What are the detailed acceptance criteria for user registration beyond the collected fields (email, full name, role, company name)?</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What is the specific, quantifiable definition of 'super fast' for the system's performance requirement?</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What are the specific, detailed features and design specifics for the project dashboard (beyond active users, system status, and project lists), to be discussed in the next sync?</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">Who is responsible for defining the exact metrics for 'system status' to be displayed on the dashboard?</span>
+                  </div>
                 
               </div>
             </div>
@@ -1610,7 +1746,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D001</span>
-                          <h4 class="decision-title">V1 MVP target date</h4>
+                          <h4 class="decision-title">V1 MVP deadline</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">deadline or milestone</span>
@@ -1620,7 +1756,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The main goal for V1 of the Phoenix Project is to deliver a working MVP by September 1st.</p>
+                      <p class="decision-detail">The main goal for V1 is to deliver a working Minimum Viable Product (MVP) by September 1st.</p>
                       
                       
                         <div class="evidence-container">
@@ -1633,7 +1769,7 @@
                                 <p class="evidence-quote">“The main goal for V1 is a working MVP by September 1st.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's opening statement</span>
+                                  <span>paragraph 1</span>
                                 </div>
                               </div>
                             
@@ -1648,7 +1784,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D002</span>
-                          <h4 class="decision-title">V1 deadline is a hard constraint</h4>
+                          <h4 class="decision-title">Hard deadline due to marketing campaign</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">technical constraint</span>
@@ -1658,7 +1794,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The September 1st deadline for V1 is a hard constraint due to the marketing campaign launch scheduled for September 5th.</p>
+                      <p class="decision-detail">The September 1st deadline is a hard constraint because of a marketing campaign launching on September 5th.</p>
                       
                       
                         <div class="evidence-container">
@@ -1671,7 +1807,7 @@
                                 <p class="evidence-quote">“We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's opening statement</span>
+                                  <span>paragraph 1</span>
                                 </div>
                               </div>
                             
@@ -1686,7 +1822,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D003</span>
-                          <h4 class="decision-title">V1 must include user authentication</h4>
+                          <h4 class="decision-title">Marketing ads booked</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">business requirement</span>
@@ -1696,7 +1832,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The V1 MVP must have user authentication functionality.</p>
+                      <p class="decision-detail">The marketing campaign ads for September 5th have already been booked.</p>
                       
                       
                         <div class="evidence-container">
@@ -1706,10 +1842,10 @@
                           <div class="evidence-content" id="evidence-D003">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“V1 must have user authentication and a working project dashboard.”</p>
+                                <p class="evidence-quote">“Yes, we've already booked the ads.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's first statement</span>
+                                  <span>paragraph 2</span>
                                 </div>
                               </div>
                             
@@ -1719,22 +1855,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D004" data-category="business_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D004" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D004</span>
-                          <h4 class="decision-title">V1 must include a working project dashboard</h4>
+                          <h4 class="decision-title">V1 core features: User authentication and project dashboard</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">business requirement</span>
+                          <span class="badge badge-category">functional requirement</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The V1 MVP must include a working project dashboard.</p>
+                      <p class="decision-detail">Version 1 (V1) of the project must include user authentication and a working project dashboard.</p>
                       
                       
                         <div class="evidence-container">
@@ -1747,7 +1883,7 @@
                                 <p class="evidence-quote">“V1 must have user authentication and a working project dashboard.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's first statement</span>
+                                  <span>paragraph 2</span>
                                 </div>
                               </div>
                             
@@ -1757,15 +1893,15 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D005" data-category="business_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D005" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D005</span>
-                          <h4 class="decision-title">System performance requirement</h4>
+                          <h4 class="decision-title">Performance requirement: "Super fast"</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">business requirement</span>
+                          <span class="badge badge-category">functional requirement</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
@@ -1785,7 +1921,7 @@
                                 <p class="evidence-quote">“Let's make sure it's super fast.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's first statement</span>
+                                  <span>paragraph 2</span>
                                 </div>
                               </div>
                             
@@ -1800,7 +1936,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D006</span>
-                          <h4 class="decision-title">Frontend technology decision: React</h4>
+                          <h4 class="decision-title">Frontend stack decision: React</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1823,7 +1959,7 @@
                                 <p class="evidence-quote">“For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's first statement</span>
+                                  <span>paragraph 3</span>
                                 </div>
                               </div>
                             
@@ -1838,7 +1974,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D007</span>
-                          <h4 class="decision-title">Backend technology decision: Python (FastAPI)</h4>
+                          <h4 class="decision-title">Backend stack decision: Python (FastAPI)</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1861,7 +1997,7 @@
                                 <p class="evidence-quote">“For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's first statement</span>
+                                  <span>paragraph 3</span>
                                 </div>
                               </div>
                             
@@ -1871,22 +2007,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D008" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D008" data-category="technical_constraint" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D008</span>
-                          <h4 class="decision-title">Database technology decision: PostgreSQL</h4>
+                          <h4 class="decision-title">Justification for Python backend: Existing libraries</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">key decision</span>
+                          <span class="badge badge-category">technical constraint</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">PostgreSQL will be used as the database, following a standard relational model.</p>
+                      <p class="decision-detail">The choice of Python for the backend is justified by the team's existing libraries built in Python.</p>
                       
                       
                         <div class="evidence-container">
@@ -1896,10 +2032,10 @@
                           <div class="evidence-content" id="evidence-D008">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We'll use PostgreSQL. Standard relational model is fine.”</p>
+                                <p class="evidence-quote">“I think it makes the most sense for our team since we already have libraries built in Python.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement about the database</span>
+                                  <span>paragraph 3</span>
                                 </div>
                               </div>
                             
@@ -1914,7 +2050,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D009</span>
-                          <h4 class="decision-title">Open question: Session management technology</h4>
+                          <h4 class="decision-title">Open question: Database choice</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">open question</span>
@@ -1924,7 +2060,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">A question was raised regarding the choice for session management: Redis or standard database sessions?</p>
+                      <p class="decision-detail">The choice of database is an open question.</p>
                       
                       
                         <div class="evidence-container">
@@ -1934,10 +2070,10 @@
                           <div class="evidence-content" id="evidence-D009">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“But wait, what about session management? Should we use Redis or just standard database sessions?”</p>
+                                <p class="evidence-quote">“What about the database?”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement about session management</span>
+                                  <span>paragraph 4</span>
                                 </div>
                               </div>
                             
@@ -1952,7 +2088,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D010</span>
-                          <h4 class="decision-title">Redis deferred to V2</h4>
+                          <h4 class="decision-title">Database decision: PostgreSQL with standard relational model</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1962,7 +2098,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The use of Redis for session management will be deferred to V2 unless it becomes a performance blocker.</p>
+                      <p class="decision-detail">PostgreSQL will be used as the database, adhering to a standard relational model.</p>
                       
                       
                         <div class="evidence-container">
@@ -1972,10 +2108,10 @@
                           <div class="evidence-content" id="evidence-D010">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's defer Redis to V2 unless it's a performance blocker.”</p>
+                                <p class="evidence-quote">“We'll use PostgreSQL. Standard relational model is fine.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement on session management</span>
+                                  <span>paragraph 5</span>
                                 </div>
                               </div>
                             
@@ -1985,22 +2121,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D011" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D011" data-category="open_question" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D011</span>
-                          <h4 class="decision-title">Standard PostgreSQL sessions for V1</h4>
+                          <h4 class="decision-title">Open question: Session management approach (Redis vs. DB sessions)</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">key decision</span>
+                          <span class="badge badge-category">open question</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">For V1, standard PostgreSQL database sessions will be used for session management to keep it simple and save budget.</p>
+                      <p class="decision-detail">It is an open question whether to use Redis or standard database sessions for managing user sessions.</p>
                       
                       
                         <div class="evidence-container">
@@ -2010,10 +2146,10 @@
                           <div class="evidence-content" id="evidence-D011">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's stick to standard postgres sessions for now to save budget.”</p>
+                                <p class="evidence-quote">“But wait, what about session management? Should we use Redis or just standard database sessions?”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement on session management</span>
+                                  <span>paragraph 5</span>
                                 </div>
                               </div>
                             
@@ -2023,22 +2159,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D012" data-category="business_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D012" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D012</span>
-                          <h4 class="decision-title">External authentication provider preference</h4>
+                          <h4 class="decision-title">Redis for session management deferred to V2</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">business requirement</span>
+                          <span class="badge badge-category">key decision</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The team should use an external authentication provider (e.g., Auth0 or Firebase Auth) rather than building authentication in-house.</p>
+                      <p class="decision-detail">The implementation of Redis for session management will be deferred to V2, unless it becomes a performance blocker.</p>
                       
                       
                         <div class="evidence-container">
@@ -2048,10 +2184,10 @@
                           <div class="evidence-content" id="evidence-D012">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We don't want to build it ourselves, right?”</p>
+                                <p class="evidence-quote">“Let's defer Redis to V2 unless it's a performance blocker.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement on user authentication</span>
+                                  <span>paragraph 6</span>
                                 </div>
                               </div>
                             
@@ -2066,7 +2202,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D013</span>
-                          <h4 class="decision-title">Firebase Authentication for V1</h4>
+                          <h4 class="decision-title">Session management using standard PostgreSQL sessions for V1</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -2076,7 +2212,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Firebase Authentication will be integrated for user authentication in V1 due to its speed, ease of social logins, and matching pricing requirements.</p>
+                      <p class="decision-detail">Standard PostgreSQL sessions will be used for session management in V1 to keep it simple and save budget.</p>
                       
                       
                         <div class="evidence-container">
@@ -2086,10 +2222,10 @@
                           <div class="evidence-content" id="evidence-D013">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Actually, for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements.”</p>
+                                <p class="evidence-quote">“Let's stick to standard postgres sessions for now to save budget.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement on user authentication</span>
+                                  <span>paragraph 6</span>
                                 </div>
                               </div>
                             
@@ -2099,22 +2235,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D014" data-category="functional_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D014" data-category="open_question" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D014</span>
-                          <h4 class="decision-title">Required Firebase Auth methods</h4>
+                          <h4 class="decision-title">Open question: User authentication implementation method</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">functional requirement</span>
+                          <span class="badge badge-category">open question</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Firebase Authentication must be configured to allow Google sign-in and email logins.</p>
+                      <p class="decision-detail">The specific method for implementing user authentication is an open question.</p>
                       
                       
                         <div class="evidence-container">
@@ -2124,10 +2260,10 @@
                           <div class="evidence-content" id="evidence-D014">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We will configure it to allow Google sign-in and email logins.”</p>
+                                <p class="evidence-quote">“How are we doing user auth?”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement on user authentication</span>
+                                  <span>paragraph 8</span>
                                 </div>
                               </div>
                             
@@ -2137,50 +2273,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D015" data-category="functional_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D015" data-category="business_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D015</span>
-                          <h4 class="decision-title">Initial user registration fields</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">functional requirement</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">For user registration, the system will initially collect email, full name, and role. Address or telephone number are not needed for now.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D015', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D015">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Just email, full name, and role. We don't need address or telephone number for now.”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement on user registration fields</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D016" data-category="business_requirement" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D016</span>
-                          <h4 class="decision-title">Company name required for B2B registration</h4>
+                          <h4 class="decision-title">Third-party authentication preference</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">business requirement</span>
@@ -2190,7 +2288,45 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">For B2B purposes, company name is a required field during user signup.</p>
+                      <p class="decision-detail">The team prefers to use a third-party authentication service (e.g., Auth0 or Firebase Auth) rather than building one in-house.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D015', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D015">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“We don't want to build it ourselves, right?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 9</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D016" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D016</span>
+                          <h4 class="decision-title">User authentication solution for V1: Firebase Authentication</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">key decision</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Firebase Authentication will be integrated for V1 to handle user authentication.</p>
                       
                       
                         <div class="evidence-container">
@@ -2200,10 +2336,10 @@
                           <div class="evidence-content" id="evidence-D016">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Wait, we need to collect company name too! We are B2B.”</p>
+                                <p class="evidence-quote">“Actually, for V1, let's just integrate Firebase Authentication.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's interjection on registration fields</span>
+                                  <span>paragraph 10</span>
                                 </div>
                               </div>
                             
@@ -2213,22 +2349,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D017" data-category="functional_requirement" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D017" data-category="technical_constraint" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D017</span>
-                          <h4 class="decision-title">Final user registration fields</h4>
+                          <h4 class="decision-title">Firebase Auth benefits: Quick, social logins, pricing</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">functional requirement</span>
+                          <span class="badge badge-category">technical constraint</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The required fields for user registration are email, full name, role, and company name.</p>
+                      <p class="decision-detail">Firebase Authentication was chosen for V1 because it is quick, easily handles social logins, and matches pricing requirements.</p>
                       
                       
                         <div class="evidence-container">
@@ -2238,10 +2374,10 @@
                           <div class="evidence-content" id="evidence-D017">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Email, full name, role, and company name.”</p>
+                                <p class="evidence-quote">“It's quick, handles social logins easily, and matches our pricing requirements.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's summary of registration fields</span>
+                                  <span>paragraph 10</span>
                                 </div>
                               </div>
                             
@@ -2251,134 +2387,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D018" data-category="technical_constraint" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D018" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D018</span>
-                          <h4 class="decision-title">Proposed backend deployment platform: Cloud Run</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">technical constraint</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">Cloud Run was proposed for deploying the FastAPI backend application.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D018', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D018">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“I was thinking Cloud Run for the FastAPI app”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement on deployment</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D019" data-category="technical_constraint" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D019</span>
-                          <h4 class="decision-title">Proposed frontend deployment platform: Vercel</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">technical constraint</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">Vercel was proposed for deploying the React frontend application, which was accepted.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D019', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D019">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“and Vercel for the React app.”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement on deployment</span>
-                                </div>
-                              </div>
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Vercel is fine”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement on deployment</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D020" data-category="technical_constraint" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D020</span>
-                          <h4 class="decision-title">Database security constraint: Private VPC</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">technical constraint</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">The PostgreSQL database instance must be placed in a private VPC and connected via Serverless VPC Access to prevent exposure to the public internet. This is a strict technical security constraint.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D020', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D020">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet. This is a strict technical constraint for security.”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>John's explanation of Cloud Run security</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D021" data-category="functional_requirement" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D021</span>
-                          <h4 class="decision-title">Authentication flow testing requirement</h4>
+                          <h4 class="decision-title">Firebase Auth configuration: Google sign-in and email logins</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2388,7 +2402,121 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The authentication flow needs to be tested thoroughly.</p>
+                      <p class="decision-detail">Firebase Authentication will be configured to support Google sign-in and email logins.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D018', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D018">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“We will configure it to allow Google sign-in and email logins.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 10</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D019" data-category="open_question" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D019</span>
+                          <h4 class="decision-title">Open question: User registration acceptance criteria and fields</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">open question</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">There is an open question regarding the acceptance criteria and specific fields required for user registration.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D019', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D019">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Do we have acceptance criteria for user registration? What fields do we collect?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 11</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D020" data-category="functional_requirement" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D020</span>
+                          <h4 class="decision-title">Initial user registration fields: Email, full name, role</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">functional requirement</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Initially, user registration will collect email, full name, and role. Address and telephone number are not required for now.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D020', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D020">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Just email, full name, and role. We don't need address or telephone number for now.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 12</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D021" data-category="business_requirement" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D021</span>
+                          <h4 class="decision-title">Business requirement: Company name needed for B2B</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">business requirement</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Company name is a required field during user registration because the project is B2B.</p>
                       
                       
                         <div class="evidence-container">
@@ -2398,10 +2526,10 @@
                           <div class="evidence-content" id="evidence-D021">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We need to test the auth flow thoroughly.”</p>
+                                <p class="evidence-quote">“Wait, we need to collect company name too! We are B2B.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's statement on auth flow testing</span>
+                                  <span>paragraph 13</span>
                                 </div>
                               </div>
                             
@@ -2416,7 +2544,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D022</span>
-                          <h4 class="decision-title">Token expiration policy</h4>
+                          <h4 class="decision-title">Confirmed: Company name required during signup</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2426,7 +2554,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Session token expiration will initially be set to 24 hours, with the possibility of adjustment later.</p>
+                      <p class="decision-detail">It is confirmed that company name is a required field during the user signup process.</p>
                       
                       
                         <div class="evidence-container">
@@ -2436,10 +2564,10 @@
                           <div class="evidence-content" id="evidence-D022">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's set token expiration to 24 hours.”</p>
+                                <p class="evidence-quote">“Company name is required during signup.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement on token expiration</span>
+                                  <span>paragraph 14</span>
                                 </div>
                               </div>
                             
@@ -2454,7 +2582,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D023</span>
-                          <h4 class="decision-title">Dashboard required metrics</h4>
+                          <h4 class="decision-title">Final user registration fields: Email, full name, role, company name</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2464,7 +2592,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The project dashboard must display active user metrics, system status, and project lists.</p>
+                      <p class="decision-detail">The confirmed user registration fields are email, full name, role, and company name.</p>
                       
                       
                         <div class="evidence-container">
@@ -2474,10 +2602,10 @@
                           <div class="evidence-content" id="evidence-D023">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We need active user metrics, system status, and project lists.”</p>
+                                <p class="evidence-quote">“Got it. Email, full name, role, and company name.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement on dashboard metrics</span>
+                                  <span>paragraph 15</span>
                                 </div>
                               </div>
                             
@@ -2487,50 +2615,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D024" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D024" data-category="open_question" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D024</span>
-                          <h4 class="decision-title">Detail dashboard features in next sync</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">key decision</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">Further detailing of dashboard features will be handled in the next synchronization meeting.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D024', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D024">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's detail the dashboard features in the next sync.”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's closing statement</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D025" data-category="open_question" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D025</span>
-                          <h4 class="decision-title">Open question: Firebase provisioning ownership and deadline</h4>
+                          <h4 class="decision-title">Proposed deployment strategy: Cloud Run (FastAPI) and Vercel (React)</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">open question</span>
@@ -2540,20 +2630,20 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">An open question was raised regarding who is responsible for handling Firebase provisioning, with config keys needed by next week.</p>
+                      <p class="decision-detail">A deployment strategy proposal includes using Cloud Run for the FastAPI backend and Vercel for the React frontend.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D025', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D024', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D025">
+                          <div class="evidence-content" id="evidence-D024">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“One open question: who is handling the Firebase provisioning? I need the config keys by next week.”</p>
+                                <p class="evidence-quote">“What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's open question</span>
+                                  <span>paragraph 16</span>
                                 </div>
                               </div>
                             
@@ -2563,12 +2653,506 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D026" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D025" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D025</span>
+                          <h4 class="decision-title">Vercel approved for frontend deployment</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">key decision</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Vercel is approved for deploying the React frontend application.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D025', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D025">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Vercel is fine”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 17</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D026" data-category="open_question" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D026</span>
-                          <h4 class="decision-title">Firebase provisioning assigned to Mike</h4>
+                          <h4 class="decision-title">Open question: Security of Cloud Run for backend</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">open question</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">There is an open question regarding the security aspects of using Cloud Run for the FastAPI backend.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D026', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D026">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“but for the backend, is Cloud Run secure?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 17</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D027" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D027</span>
+                          <h4 class="decision-title">Cloud Run deployment confirmed with VPC and Serverless VPC Access</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">key decision</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Cloud Run will be used for the FastAPI app, with the database placed in a private VPC and Cloud Run connected via Serverless VPC Access for security.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D027', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D027">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 18</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D028" data-category="technical_constraint" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D028</span>
+                          <h4 class="decision-title">Technical constraint: PostgreSQL instance not exposed to public internet</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">technical constraint</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The PostgreSQL instance must not be exposed to the public internet.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D028', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D028">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“That way the postgres instance is not exposed to the public internet.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 18</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D029" data-category="technical_constraint" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D029</span>
+                          <h4 class="decision-title">Strict technical constraint for security</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">technical constraint</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Ensuring the PostgreSQL instance is not exposed to the public internet is a strict technical constraint for security.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D029', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D029">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“This is a strict technical constraint for security.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 18</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D030" data-category="functional_requirement" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D030</span>
+                          <h4 class="decision-title">Requirement: Thorough authentication flow testing</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">functional requirement</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The authentication flow needs to be tested thoroughly.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D030', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D030">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“We need to test the auth flow thoroughly.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 19</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D031" data-category="open_question" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D031</span>
+                          <h4 class="decision-title">Open question: User session duration</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">open question</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The duration of a user's session after logging in is an open question.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D031', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D031">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“If a user logs in, how long does the session last?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 19</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D032" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D032</span>
+                          <h4 class="decision-title">Decision: Token expiration set to 24 hours</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">key decision</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Token expiration will initially be set to 24 hours, with the option for future adjustment.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D032', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D032">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Let's set token expiration to 24 hours.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 20</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D033" data-category="open_question" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D033</span>
+                          <h4 class="decision-title">Open question: Dashboard metrics</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">open question</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The specific metrics to be displayed on the project dashboard are an open question.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D033', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D033">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“What metrics are we displaying?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 21</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D034" data-category="functional_requirement" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D034</span>
+                          <h4 class="decision-title">Required dashboard metrics: Active users, system status, project lists</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">functional requirement</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The dashboard must display metrics for active users, system status, and project lists.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D034', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D034">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“We need active user metrics, system status, and project lists.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 22</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D035" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D035</span>
+                          <h4 class="decision-title">Dashboard feature detailing deferred to next sync</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">key decision</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Detailed discussion and definition of dashboard features will be deferred to the next sync meeting due to time constraints.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D035', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D035">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Let's detail the dashboard features in the next sync.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 23</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D036" data-category="open_question" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D036</span>
+                          <h4 class="decision-title">Open question: Firebase provisioning ownership</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">open question</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The individual responsible for handling Firebase provisioning is an open question.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D036', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D036">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“One open question: who is handling the Firebase provisioning?”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 24</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D037" data-category="dependency" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D037</span>
+                          <h4 class="decision-title">Dependency/Deadline: Firebase config keys needed by next week</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">dependency</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The Firebase configuration keys are needed by next week.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D037', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D037">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“I need the config keys by next week.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>paragraph 24</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D038" data-category="key_decision" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D038</span>
+                          <h4 class="decision-title">Decision: Firebase provisioning assigned to Mike</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -2582,16 +3166,16 @@
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D026', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D038', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D026">
+                          <div class="evidence-content" id="evidence-D038">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“I'll assign that to Mike.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's assignment for Firebase provisioning</span>
+                                  <span>paragraph 25</span>
                                 </div>
                               </div>
                             
@@ -2601,12 +3185,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D027" data-category="deadline_or_milestone" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D039" data-category="deadline_or_milestone" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D027</span>
-                          <h4 class="decision-title">Firebase config keys deadline</h4>
+                          <span class="decision-id">D039</span>
+                          <h4 class="decision-title">Deadline: Firebase config keys due by July 8th</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">deadline or milestone</span>
@@ -2616,20 +3200,20 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Mike is expected to have the Firebase configuration keys ready by July 8th.</p>
+                      <p class="decision-detail">Mike is expected to have the Firebase config keys ready by July 8th.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D027', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D039', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D027">
+                          <div class="evidence-content" id="evidence-D039">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“He should have it ready by July 8th.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's assignment for Firebase provisioning</span>
+                                  <span>paragraph 25</span>
                                 </div>
                               </div>
                             
@@ -2639,12 +3223,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D028" data-category="dependency" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D040" data-category="dependency" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D028</span>
-                          <h4 class="decision-title">Sync with marketing team on dashboard design</h4>
+                          <span class="decision-id">D040</span>
+                          <h4 class="decision-title">Dependency/Milestone: Sync with marketing on dashboard design next Wednesday</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">dependency</span>
@@ -2654,20 +3238,20 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">A synchronization meeting with the marketing team on the dashboard design is planned for next Wednesday.</p>
+                      <p class="decision-detail">A sync meeting with the marketing team to discuss dashboard design is scheduled for next Wednesday.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D028', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D040', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D028">
+                          <div class="evidence-content" id="evidence-D040">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“Let's make sure we sync with the marketing team on the dashboard design next Wednesday.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's closing remark</span>
+                                  <span>paragraph 26</span>
                                 </div>
                               </div>
                             
@@ -2678,6 +3262,74 @@
                   </div>
                 
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 6: Original Notes -->
+        <div class="tab-panel" id="panel-notes">
+          <div class="card-outer">
+            <div class="card-inner">
+              <h2 class="section-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</h2>
+              <p class="section-desc">Unstructured raw meeting notes fed into the pipeline for analysis.</p>
+              
+              <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; white-space: pre-wrap; font-family: inherit; font-size: 0.95rem; line-height: 1.7; color: var(--text-main); overflow-x: auto;"># Phoenix Project - Kickoff & Architecture Alignment Sync
+**Date:** July 1, 2026
+**Attendees:** Sarah (PM), John (Tech Lead), Emma (QA Lead), Dave (Business Sponsor)
+
+---
+
+## Meeting Notes & Discussion Transcript
+
+**Sarah:** Okay, let's get the Phoenix Project kickoff started. The main goal for V1 is a working MVP by September 1st. We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th.
+
+**Dave:** Yes, we've already booked the ads. V1 must have user authentication and a working project dashboard. Let's make sure it's super fast.
+
+**John:** For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service. I think it makes the most sense for our team since we already have libraries built in Python.
+
+**Emma:** What about the database?
+
+**John:** We'll use PostgreSQL. Standard relational model is fine. But wait, what about session management? Should we use Redis or just standard database sessions?
+
+**Sarah:** Let's defer Redis to V2 unless it's a performance blocker. Keep it simple. Let's stick to standard postgres sessions for now to save budget.
+
+**Emma:** Okay, postgres for sessions. How are we doing user auth?
+
+**Dave:** We should probably use Auth0 or Firebase Auth. We don't want to build it ourselves, right?
+
+**John:** Actually, for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements. We will configure it to allow Google sign-in and email logins.
+
+**Emma:** Do we have acceptance criteria for user registration? What fields do we collect?
+
+**Sarah:** Just email, full name, and role. We don't need address or telephone number for now.
+
+**Dave:** Wait, we need to collect company name too! We are B2B.
+
+**Sarah:** Ah, yes. Company name is required during signup. Emma, note that down.
+
+**Emma:** Got it. Email, full name, role, and company name.
+
+**John:** What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app.
+
+**Dave:** Vercel is fine, but for the backend, is Cloud Run secure?
+
+**John:** Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet. This is a strict technical constraint for security.
+
+**Emma:** We need to test the auth flow thoroughly. If a user logs in, how long does the session last?
+
+**John:** Let's set token expiration to 24 hours. We can adjust it later.
+
+**Sarah:** Okay. What about the dashboard? What metrics are we displaying?
+
+**Dave:** We need active user metrics, system status, and project lists.
+
+**Sarah:** Let's detail the dashboard features in the next sync. We are running out of time.
+
+**John:** One open question: who is handling the Firebase provisioning? I need the config keys by next week.
+
+**Sarah:** I'll assign that to Mike. He should have it ready by July 8th.
+
+**Dave:** Great. Let's make sure we sync with the marketing team on the dashboard design next Wednesday.</div>
             </div>
           </div>
         </div>
@@ -2709,18 +3361,6 @@
       </p>
 
       <div class="issue-list">
-        
-          <div class="issue-card">
-            <div class="issue-header">
-              <span class="issue-loc">Stakeholder View</span>
-              <span class="issue-sev sev-warning">warning</span>
-            </div>
-            <p class="issue-desc">The Stakeholder view's 'decisions_needing_alignment' and 'major_unresolved_questions' are empty, which contradicts the 'alignment_gaps' identified in the PM view for significant items like 'Performance Definition' (D005) and 'Dashboard Feature Scope' (D024). This understates the current level of clarity required for these critical areas for the stakeholder audience.</p>
-            <div class="issue-sug">
-              <span style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Suggested Fix</span>
-              Update the Stakeholder view to reflect that performance metrics require definition and dashboard features are still being detailed, aligning with the PM view's 'alignment_gaps'. For example, list 'Defining specific performance metrics' and 'Finalizing detailed dashboard features' under 'decisions_needing_alignment' or 'major_unresolved_questions', possibly with a high-level summary.
-            </div>
-          </div>
         
       </div>
     </div>

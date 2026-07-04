@@ -268,3 +268,7 @@ class RunOutput(BaseModel):
     source_map: list[SourceMapEntry] = Field(
         description="Decision ID → source quote mapping. Also written to source-map.json."
     )
+    raw_notes: str = Field(
+        default="",
+        description="The original unstructured meeting notes text."
+    )
