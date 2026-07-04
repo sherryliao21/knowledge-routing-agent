@@ -1,6 +1,6 @@
-# Walkthrough: Knowledge Routing Agent v1.3
+# Walkthrough: Knowledge Routing Agent v1.5
 
-We have successfully built, verified, and published **v1.3** to the `main` branch. 
+We have successfully built, verified, and published **v1.5** to the `main` branch. 
 
 ---
 
@@ -45,7 +45,7 @@ capstone/
     ├── assets/           ← Stakeholder photos and emblem assets
     └── runs/
         └── 2026-07-01-project-phoenix-kickoff/
-            ├── index.html       ← Interactive tabbed report (3-state badge, split constraints)
+            ├── index.html       ← Interactive tabbed report (v1.5 UI refinements)
             ├── output.json      ← Serialized structured data (with CitedItem structures)
             └── source-map.json  ← Decision ID -> quote mappings
 ```
@@ -60,24 +60,25 @@ capstone/
 
 ---
 
-## 📊 v1.3 Refinements
+## 📊 v1.5 Refinements
 
-### 1. Three-State Reviewer Badge
-- Replace the binary PASS/FLAG status indicator with a 3-state badge:
-  - **Clean Pass (Green):** Approved with zero issues flagged.
-  - **Approved with Notes (Amber):** Approved with non-blocking warning-level notes from the reviewer.
-  - **Flag Needed (Red):** Critical issues require human intervention.
-- Added a standard Remix info icon (`ri-information-line`) with a hover tooltip clarifying the Reviewer is an automated AI agent.
+### 1. AI Agent Directly in Headings
+- Rewrote the Reviewer status banner headers to prominently display `AI Reviewer Agent` directly in the main heading text (e.g. `AI Reviewer Agent: Approved` or `AI Reviewer Agent: Flag Needed`). 
+- Removed the separate secondary sub-caption line introduced in v1.4, preventing any confusion and making the automated nature of the reviewer immediately clear without hovering or reading fine print.
 
-### 2. Constraints vs. Architectural Decisions Split
+### 2. Isolated Reference Document Utility Links
+- Moved the Decisions Log ("Ledger") and Original Notes ("Transcript") entirely out of the top horizontal persona card rail, maintaining a clean row focused strictly on the 5 human viewpoints (Dave/Stakeholder, John/Engineer, Emma/QA, Sarah/PM, Alex/SA).
+- Created a dedicated, visually lighter `.report-utility-links` block directly below the Reviewer banner, featuring outline text buttons with document icons to access reference material. Tab switching and click handlers remain integrated seamlessly.
+
+### 3. Constraints vs. Architectural Decisions Split
 - Created a `CitedItem` type in `models.py` associating items with relevant decision IDs.
 - Separated **Constraints** (external limitations like deadlines, budget, performance targets) from **Architectural Decisions** (technology stacks chosen by the team).
-- Rendered these split lists with inline decision pill tags in both the Engineer and System Analyst panels.
+- Rendered these split lists with inline clickable decision tag pills in both the Engineer and System Analyst panels.
 
-### 3. Open Question Ownership Routing
+### 4. Open Question Ownership Routing
 - Integrated ownership rules in all role router prompts to prevent broadcasting the same open questions verbatim. Gaps are assigned to specific roles responsible for resolving them (e.g. registration acceptance criteria gaps go to PM/QA; session token/API timing details go to Engineer/SA).
 
-### 4. PM Panel Reordering & Collapse
+### 5. PM Panel Reordering & Collapse
 - Rearranged the Project Manager panel to display actionable items (Milestones, Risks, Gaps, Open Questions, Dependencies) first.
 - Collapsed the long "Decision History" under a native `<details>` accordion by default to reduce daily cognitive load.
 
