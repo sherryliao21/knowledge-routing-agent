@@ -11,22 +11,23 @@
   
   <style>
     :root {
-      --bg-dark: #050505;
-      --bg-card: rgba(18, 18, 18, 0.7);
-      --bg-card-hover: rgba(28, 28, 28, 0.85);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(45, 212, 191, 0.2);
+      /* Soft Structuralism - Light Mode */
+      --bg-dark: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --border-color: rgba(15, 23, 42, 0.08);
+      --border-highlight: rgba(13, 148, 136, 0.2);
       
-      --accent: #2dd4bf;
-      --accent-glow: rgba(45, 212, 191, 0.15);
-      --cyan: #22d3ee;
-      --emerald: #34d399;
-      --amber: #fbbf24;
-      --rose: #f43f5e;
+      --accent: #0d9488;
+      --accent-glow: rgba(13, 148, 136, 0.08);
+      --cyan: #06b6d4;
+      --emerald: #10b981;
+      --amber: #d97706;
+      --rose: #e11d48;
       
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-dark: #6b7280;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dark: #94a3b8;
       
       --radius-lg: 1.25rem;
       --radius-md: 0.75rem;
@@ -58,7 +59,7 @@
       width: 55vw;
       height: 55vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
       filter: blur(100px);
@@ -71,7 +72,7 @@
       width: 50vw;
       height: 50vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
       filter: blur(100px);
@@ -96,32 +97,31 @@
       gap: 0.5rem;
       padding: 0.35rem 0.85rem;
       border-radius: 9999px;
-      background: rgba(45, 212, 191, 0.1);
-      border: 1px solid rgba(45, 212, 191, 0.2);
+      background: rgba(13, 148, 136, 0.06);
+      border: 1px solid rgba(13, 148, 136, 0.15);
       color: var(--accent);
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       margin-bottom: 1.5rem;
     }
 
     .header-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 850;
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #ffffff 40%, #2dd4bf 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #0f172a;
     }
 
     .header-desc {
       color: var(--text-muted);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       max-width: 600px;
       margin: 0 auto;
+      font-weight: 500;
     }
 
     /* Grid of Runs */
@@ -138,10 +138,10 @@
     }
 
     .run-card-outer {
-      padding: 1px;
+      padding: 1.5px;
       border-radius: var(--radius-lg);
       background: var(--border-color);
-      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.06);
       transition: var(--transition-bezier);
       text-decoration: none;
       display: block;
@@ -149,35 +149,34 @@
     }
 
     .run-card-outer:hover {
-      background: linear-gradient(135deg, rgba(45, 212, 191, 0.3) 0%, rgba(255,255,255,0.02) 100%);
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(15, 23, 42, 0.02) 100%);
       transform: translateY(-4px);
     }
 
     .run-card-inner {
       background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1px);
+      border-radius: calc(var(--radius-lg) - 1.5px);
       padding: 2rem;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1.5rem;
-      backdrop-filter: blur(12px);
     }
 
     .run-date {
       font-family: 'Geist Mono', monospace;
       font-size: 0.8rem;
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
     .run-title {
       font-size: 1.35rem;
-      font-weight: 700;
-      color: #ffffff;
+      font-weight: 800;
+      color: #0f172a;
       line-height: 1.3;
       margin-top: 0.5rem;
       margin-bottom: 0.75rem;
@@ -191,13 +190,14 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin-bottom: 1rem;
+      font-weight: 500;
     }
 
     .run-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(15, 23, 42, 0.05);
       padding-top: 1.25rem;
     }
 
@@ -205,8 +205,9 @@
       display: flex;
       gap: 1rem;
       font-size: 0.75rem;
-      color: var(--text-dark);
+      color: var(--text-muted);
       font-family: 'Geist Mono', monospace;
+      font-weight: 600;
     }
 
     .run-stat {
@@ -225,14 +226,14 @@
     }
 
     .badge-pass {
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.2);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
       color: var(--emerald);
     }
 
     .badge-flagged {
-      background: rgba(244, 63, 94, 0.1);
-      border: 1px solid rgba(244, 63, 94, 0.2);
+      background: rgba(225, 29, 72, 0.08);
+      border: 1px solid rgba(225, 29, 72, 0.2);
       color: var(--rose);
     }
 
@@ -240,11 +241,12 @@
     .empty-state {
       text-align: center;
       padding: 5rem 2rem;
-      background: rgba(18, 18, 18, 0.4);
+      background: rgba(255, 255, 255, 0.8);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       max-width: 600px;
       margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.01);
     }
 
     .empty-icon {
@@ -269,7 +271,7 @@
       padding-top: 2rem;
       border-top: 1px solid var(--border-color);
       text-align: center;
-      color: var(--text-dark);
+      color: var(--text-muted);
       font-size: 0.8rem;
     }
   </style>
@@ -329,7 +331,7 @@
           <p>
             Feed unstructured meeting notes into the CLI pipeline to generate your first source-grounded brief.
           </p>
-          <code style="font-family: 'Geist Mono', monospace; font-size: 0.85rem; padding: 0.5rem 1rem; background: #000; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--accent);">
+          <code style="font-family: 'Geist Mono', monospace; font-size: 0.85rem; padding: 0.5rem 1rem; background: #ffffff; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--accent);">
             uv run knowledge-route run [path-to-notes.md]
           </code>
         </div>

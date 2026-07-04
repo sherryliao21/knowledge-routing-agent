@@ -13,27 +13,28 @@
   
   <style>
     :root {
-      --bg-dark: #050505;
-      --bg-card: rgba(18, 18, 18, 0.7);
-      --bg-card-hover: rgba(28, 28, 28, 0.85);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(45, 212, 191, 0.2);
+      /* Soft Structuralism - Premium Light Mode Palette */
+      --bg-dark: #f8fafc;        /* slate-50 base background */
+      --bg-card: #ffffff;        /* Solid white cards */
+      --bg-card-hover: #f1f5f9;  /* slate-100 hover state */
+      --border-color: rgba(15, 23, 42, 0.08); /* slate-900 with low opacity */
+      --border-highlight: rgba(13, 148, 136, 0.2);
       
-      --accent: #2dd4bf;       /* Teal */
-      --accent-glow: rgba(45, 212, 191, 0.15);
-      --cyan: #22d3ee;
-      --emerald: #34d399;
-      --amber: #fbbf24;
-      --rose: #f43f5e;
-      --violet: #a78bfa;
+      --accent: #0d9488;        /* Teal Main */
+      --accent-glow: rgba(13, 148, 136, 0.08);
+      --cyan: #06b6d4;          /* Cyan */
+      --emerald: #10b981;       /* Emerald */
+      --amber: #d97706;         /* Amber */
+      --rose: #e11d48;          /* Rose */
+      --violet: #7c3aed;        /* Violet */
       
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-dark: #6b7280;
+      --text-main: #0f172a;      /* slate-900 primary text */
+      --text-muted: #475569;     /* slate-600 secondary text */
+      --text-dark: #94a3b8;      /* slate-400 subtle labels */
       
-      --radius-lg: 1.25rem;    /* 20px */
-      --radius-md: 0.75rem;    /* 12px */
-      --radius-sm: 0.5rem;     /* 8px */
+      --radius-lg: 1.25rem;      /* 20px */
+      --radius-md: 0.75rem;      /* 12px */
+      --radius-sm: 0.5rem;       /* 8px */
       
       --transition-bezier: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -54,7 +55,7 @@
       position: relative;
     }
 
-    /* Ambient Background Glows */
+    /* Ambient Soft Light Glows */
     .glow-orb-1 {
       position: absolute;
       top: -10%;
@@ -62,7 +63,7 @@
       width: 50vw;
       height: 50vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
       filter: blur(80px);
@@ -75,7 +76,7 @@
       width: 45vw;
       height: 45vw;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
       filter: blur(80px);
@@ -100,21 +101,22 @@
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border-color);
       background: var(--bg-card);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
       transition: var(--transition-bezier);
     }
     .back-btn:hover {
       color: var(--accent);
-      border-color: var(--accent-glow);
+      border-color: var(--accent);
       background: var(--bg-card-hover);
       transform: translateX(-4px);
     }
 
-    /* Header Section with Double Bezel visual weight */
+    /* Header Section */
     header {
       margin-bottom: 3.5rem;
     }
@@ -125,39 +127,38 @@
       gap: 0.5rem;
       padding: 0.35rem 0.85rem;
       border-radius: 9999px;
-      background: rgba(45, 212, 191, 0.1);
-      border: 1px solid rgba(45, 212, 191, 0.2);
+      background: rgba(13, 148, 136, 0.06);
+      border: 1px solid rgba(13, 148, 136, 0.15);
       color: var(--accent);
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       margin-bottom: 1.25rem;
     }
 
     .header-title {
-      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #ffffff 30%, #a3e635 60%, #2dd4bf 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #0f172a;
     }
 
     /* Metadata Panel (Double-Bezel) */
     .meta-wrapper {
-      padding: 2px;
+      padding: 1.5px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.02) 100%);
       display: inline-block;
       width: 100%;
+      box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.03);
     }
     
     .meta-inner {
-      background: var(--bg-dark);
-      border-radius: calc(var(--radius-lg) - 2px);
+      background: var(--bg-card);
+      border-radius: calc(var(--radius-lg) - 1.5px);
       padding: 1.25rem 2rem;
       display: flex;
       flex-wrap: wrap;
@@ -171,28 +172,29 @@
     }
 
     .meta-label {
-      font-size: 0.75rem;
+      font-size: 0.725rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--text-dark);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .meta-value {
       font-size: 0.95rem;
       color: var(--text-main);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .meta-value.mono {
       font-family: 'Geist Mono', monospace;
       font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     /* Main Dashboard Layout */
     .dashboard-layout {
       display: grid;
-      grid-template-cols: 280px 1fr;
+      grid-template-cols: 320px 1fr;
       gap: 3rem;
       align-items: start;
     }
@@ -210,68 +212,110 @@
       top: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
+    /* Double Bezel Character Profile Buttons */
     .tab-button {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-md);
-      background: rgba(18, 18, 18, 0.4);
+      gap: 1rem;
+      padding: 0.75rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-muted);
       cursor: pointer;
       text-align: left;
       font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 600;
       transition: var(--transition-bezier);
       position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
-    .tab-button i {
-      font-size: 1.2rem;
+    /* Avatar picture double bezel */
+    .avatar-wrapper {
+      padding: 1.5px;
+      border-radius: 50%;
+      background: var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-bezier);
+      flex-shrink: 0;
+    }
+    
+    .avatar-img {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .tab-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .tab-char-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
       transition: var(--transition-bezier);
     }
 
-    .tab-button::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 3px;
-      background: var(--accent);
-      transform: scaleY(0);
-      transition: var(--transition-bezier);
+    .tab-char-role {
+      font-size: 0.725rem;
+      font-weight: 500;
+      color: var(--text-muted);
     }
 
     .tab-button:hover {
       background: var(--bg-card-hover);
-      color: var(--text-main);
-      border-color: rgba(255,255,255,0.15);
+      border-color: rgba(15, 23, 42, 0.15);
+      transform: translateY(-1px);
     }
 
     .tab-button.active {
-      background: var(--bg-card);
-      color: var(--text-main);
-      border-color: var(--border-highlight);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+      background: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.08), 0 4px 10px -2px rgba(0,0,0,0.02);
     }
 
-    .tab-button.active::before {
-      transform: scaleY(1);
+    /* Active Highlight States per character role */
+    .tab-button.active .avatar-wrapper {
+      background: var(--accent);
     }
-    
-    /* Unique Accent Colors for Tab Buttons */
-    .tab-button[data-role="stakeholder"].active i { color: var(--amber); }
-    .tab-button[data-role="engineer"].active i { color: var(--accent); }
-    .tab-button[data-role="qa"].active i { color: var(--emerald); }
-    .tab-button[data-role="pm"].active i { color: var(--violet); }
-    .tab-button[data-role="decisions"].active i { color: var(--cyan); }
+    .tab-button[data-role="stakeholder"].active {
+      border-color: var(--amber);
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.08);
+    }
+    .tab-button[data-role="stakeholder"].active .avatar-wrapper {
+      background: var(--amber);
+    }
+    .tab-button[data-role="qa"].active {
+      border-color: var(--emerald);
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.08);
+    }
+    .tab-button[data-role="qa"].active .avatar-wrapper {
+      background: var(--emerald);
+    }
+    .tab-button[data-role="pm"].active {
+      border-color: var(--violet);
+      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.08);
+    }
+    .tab-button[data-role="pm"].active .avatar-wrapper {
+      background: var(--violet);
+    }
+    .tab-button[data-role="decisions"].active {
+      border-color: var(--cyan);
+      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.08);
+    }
+    .tab-button[data-role="decisions"].active .avatar-wrapper {
+      background: var(--cyan);
+    }
 
     /* Content Area */
     .content-area {
@@ -281,7 +325,7 @@
     .tab-panel {
       display: none;
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(10px);
       transition: var(--transition-bezier);
     }
 
@@ -291,34 +335,33 @@
       transform: translateY(0);
     }
 
-    /* Double Bezel Cards */
+    /* Double Bezel Cards (Light Mode) */
     .card-outer {
-      padding: 1px;
+      padding: 1.5px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--border-color) 0%, rgba(255,255,255,0.01) 100%);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, var(--border-color) 0%, rgba(15, 23, 42, 0.01) 100%);
+      box-shadow: 0 15px 40px -15px rgba(15, 23, 42, 0.05);
       margin-bottom: 2rem;
       transition: var(--transition-bezier);
     }
     
     .card-outer:hover {
-      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 100%);
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(15, 23, 42, 0.02) 100%);
     }
 
     .card-inner {
       background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1px);
+      border-radius: calc(var(--radius-lg) - 1.5px);
       padding: 2.25rem;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
 
     /* Section Typography */
     .section-title {
       font-size: 1.75rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
+      color: #0f172a;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -326,7 +369,7 @@
     
     .section-desc {
       color: var(--text-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 2.5rem;
       max-width: 80ch;
     }
@@ -345,14 +388,14 @@
       align-items: start;
       padding: 1.25rem;
       border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.02);
+      background: rgba(15, 23, 42, 0.01);
       border: 1px solid var(--border-color);
       transition: var(--transition-bezier);
     }
 
     .list-item:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.1);
+      background: rgba(15, 23, 42, 0.02);
+      border-color: rgba(15, 23, 42, 0.12);
       transform: translateX(4px);
     }
 
@@ -370,9 +413,10 @@
     .list-item-text {
       color: var(--text-main);
       font-size: 0.975rem;
+      font-weight: 500;
     }
 
-    /* Decisions Ledger Layout (Bento Grid) */
+    /* Decisions Ledger Layout */
     .decisions-grid {
       display: flex;
       flex-direction: column;
@@ -387,16 +431,17 @@
     }
 
     .decision-card-outer:hover {
-      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 100%);
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(15, 23, 42, 0.02) 100%);
     }
 
     .decision-card-inner {
-      background: rgba(18, 18, 18, 0.6);
+      background: var(--bg-card);
       border-radius: calc(var(--radius-lg) - 1px);
       padding: 1.75rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
     }
 
     .decision-header {
@@ -418,7 +463,7 @@
       font-size: 0.85rem;
       font-weight: 700;
       padding: 0.25rem 0.6rem;
-      background: rgba(255,255,255,0.06);
+      background: rgba(15, 23, 42, 0.03);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       color: var(--text-main);
@@ -427,7 +472,7 @@
     .decision-title {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #0f172a;
     }
 
     .decision-badges {
@@ -446,22 +491,21 @@
       letter-spacing: 0.05em;
     }
 
-    /* Category mapping styles */
     .badge-category {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.08);
       color: var(--text-muted);
     }
 
     .badge-confidence-confirmed {
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.25);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
       color: var(--emerald);
     }
 
     .badge-confidence-inferred {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.25);
+      background: rgba(217, 119, 6, 0.08);
+      border: 1px solid rgba(217, 119, 6, 0.2);
       color: var(--amber);
     }
 
@@ -485,7 +529,7 @@
       color: var(--text-dark);
       cursor: pointer;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-family: inherit;
@@ -509,7 +553,7 @@
       margin-top: 1rem;
       padding: 1.25rem;
       border-radius: var(--radius-md);
-      background: rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
       border-left: 2px solid var(--accent);
       animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -524,7 +568,7 @@
 
     .evidence-location {
       font-size: 0.75rem;
-      color: var(--text-dark);
+      color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -543,13 +587,13 @@
     }
 
     .review-widget.pass {
-      background: linear-gradient(135deg, rgba(52, 211, 153, 0.05) 0%, rgba(52, 211, 153, 0.01) 100%);
-      border: 1px solid rgba(52, 211, 153, 0.15);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.01) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.15);
     }
 
     .review-widget.needs-improvement {
-      background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(244, 63, 94, 0.01) 100%);
-      border: 1px solid rgba(244, 63, 94, 0.15);
+      background: linear-gradient(135deg, rgba(225, 29, 72, 0.04) 0%, rgba(225, 29, 72, 0.01) 100%);
+      border: 1px solid rgba(225, 29, 72, 0.15);
     }
 
     .review-left {
@@ -569,19 +613,20 @@
     }
 
     .review-widget.pass .review-icon {
-      background: rgba(52, 211, 153, 0.1);
+      background: rgba(16, 185, 129, 0.08);
       color: var(--emerald);
     }
 
     .review-widget.needs-improvement .review-icon {
-      background: rgba(244, 63, 94, 0.1);
+      background: rgba(225, 29, 72, 0.08);
       color: var(--rose);
     }
 
     .review-info h3 {
       font-size: 1.1rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 0.25rem;
+      color: #0f172a;
     }
 
     .review-info p {
@@ -601,13 +646,13 @@
     }
 
     .review-widget.pass .review-btn {
-      background: rgba(52, 211, 153, 0.1);
+      background: rgba(16, 185, 129, 0.08);
       color: var(--emerald);
-      border: 1px solid rgba(52, 211, 153, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.15);
     }
 
     .review-widget.pass .review-btn:hover {
-      background: rgba(52, 211, 153, 0.2);
+      background: rgba(16, 185, 129, 0.15);
     }
 
     .review-widget.needs-improvement .review-btn {
@@ -616,7 +661,7 @@
     }
 
     .review-widget.needs-improvement .review-btn:hover {
-      background: #e11d48;
+      background: #be123c;
       transform: scale(1.02);
     }
 
@@ -625,7 +670,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(15, 23, 42, 0.35);
       backdrop-filter: blur(8px);
       z-index: 1000;
       align-items: center;
@@ -639,7 +684,7 @@
     }
 
     .modal-content {
-      background: #0d0d0d;
+      background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       max-width: 650px;
@@ -648,6 +693,7 @@
       overflow-y: auto;
       padding: 2.5rem;
       position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
     }
 
     .modal-close {
@@ -663,16 +709,17 @@
     }
 
     .modal-close:hover {
-      color: #ffffff;
+      color: var(--text-main);
     }
 
     .modal-title {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      color: #0f172a;
     }
 
     .issue-list {
@@ -684,7 +731,7 @@
     .issue-card {
       padding: 1.25rem;
       border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.02);
+      background: #f8fafc;
       border: 1px solid var(--border-color);
     }
 
@@ -699,7 +746,7 @@
       font-family: 'Geist Mono', monospace;
       font-size: 0.75rem;
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .issue-sev {
@@ -711,20 +758,20 @@
     }
 
     .sev-critical {
-      background: rgba(244, 63, 94, 0.1);
-      border: 1px solid rgba(244, 63, 94, 0.25);
+      background: rgba(225, 29, 72, 0.08);
+      border: 1px solid rgba(225, 29, 72, 0.2);
       color: var(--rose);
     }
 
     .sev-warning {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.25);
+      background: rgba(217, 119, 6, 0.08);
+      border: 1px solid rgba(217, 119, 6, 0.2);
       color: var(--amber);
     }
 
     .sev-info {
-      background: rgba(34, 211, 238, 0.1);
-      border: 1px solid rgba(34, 211, 238, 0.25);
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.2);
       color: var(--cyan);
     }
 
@@ -732,15 +779,18 @@
       font-size: 0.9rem;
       color: var(--text-main);
       margin-bottom: 0.75rem;
+      font-weight: 500;
     }
 
     .issue-sug {
       font-size: 0.85rem;
       color: var(--text-muted);
-      background: rgba(0,0,0,0.3);
+      background: rgba(255, 255, 255, 0.8);
       padding: 0.75rem 1rem;
       border-radius: var(--radius-sm);
-      border-left: 2px solid var(--text-dark);
+      border-left: 2px solid var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-left-width: 3px;
     }
 
     /* Animations */
@@ -762,13 +812,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--text-dark);
+      color: var(--text-muted);
       font-size: 0.8rem;
     }
 
     footer.report-footer a {
-      color: var(--text-muted);
+      color: var(--text-main);
       text-decoration: none;
+      font-weight: 600;
       transition: var(--transition-bezier);
     }
 
@@ -793,37 +844,38 @@
       left: 1.25rem;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--text-dark);
+      color: var(--text-muted);
       font-size: 1.1rem;
     }
 
     .search-input {
       width: 100%;
-      background: rgba(18, 18, 18, 0.5);
+      background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 0.85rem 1rem 0.85rem 3rem;
-      color: #ffffff;
+      color: var(--text-main);
       font-family: inherit;
       font-size: 0.95rem;
       transition: var(--transition-bezier);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
     }
 
     .search-input:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 15px var(--accent-glow);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
     }
 
     .filter-select {
-      background: rgba(18, 18, 18, 0.5);
+      background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 0 1.25rem;
       color: var(--text-muted);
       font-family: inherit;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: var(--transition-bezier);
     }
@@ -872,7 +924,7 @@
           </div>
           <div class="meta-item">
             <span class="meta-label">Processed At</span>
-            <span class="meta-value mono">2026-07-04T06:14:26.204387Z</span>
+            <span class="meta-value mono">2026-07-04T07:02:19.292149Z</span>
           </div>
         </div>
       </div>
@@ -887,11 +939,11 @@
           </div>
           <div class="review-info">
             <h3>Human-in-the-Loop Verification: APPROVED</h3>
-            <p>The overall report is of good quality, and all critical checks (hallucination, missing source) have passed. There are a few minor quality issues related to slight overstatements or unconfirmed inferences, primarily in the Stakeholder and QA views, which are listed as warnings. These issues do not block publishing but are suggested for refinement to improve precision.</p>
+            <p>The overall quality of the generated outputs is high, with excellent traceability to the extracted decisions and comprehensive details provided for each role. No critical hallucinations or missing sources were identified. A minor inconsistency in the Stakeholder view regarding unresolved questions/alignment gaps was noted (warning severity), which should be addressed for a more complete and consistent report across all audiences.</p>
           </div>
         </div>
         
-          <button class="review-btn" onclick="openIssuesModal()">View Review Logs (3)</button>
+          <button class="review-btn" onclick="openIssuesModal()">View Review Logs (1)</button>
         
       </div>
     
@@ -899,22 +951,56 @@
     <!-- Interactive Dashboard Grid -->
     <div class="dashboard-layout">
       
-      <!-- Sticky Navigation Sidebar -->
+      <!-- Sticky Navigation Sidebar (Character Avatars) -->
       <div class="sidebar">
         <button class="tab-button active" data-target="panel-stakeholder" data-role="stakeholder">
-          <i class="ri-user-star-line"></i> Stakeholder Brief
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-stakeholder.jpg" alt="Dave" class="avatar-img">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Dave (Client)</span>
+            <span class="tab-char-role">Stakeholder Brief</span>
+          </div>
         </button>
+        
         <button class="tab-button" data-target="panel-engineer" data-role="engineer">
-          <i class="ri-terminal-box-line"></i> Engineer context
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-engineer.jpg" alt="John" class="avatar-img">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">John (Lead Dev)</span>
+            <span class="tab-char-role">Engineer Spec</span>
+          </div>
         </button>
+        
         <button class="tab-button" data-target="panel-qa" data-role="qa">
-          <i class="ri-shield-check-line"></i> QA test parameters
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-qa.jpg" alt="Emma" class="avatar-img">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Emma (QA Lead)</span>
+            <span class="tab-char-role">QA Test Params</span>
+          </div>
         </button>
+        
         <button class="tab-button" data-target="panel-pm" data-role="pm">
-          <i class="ri-briefcase-line"></i> PM alignment ledger
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-pm.jpg" alt="Sarah" class="avatar-img">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Sarah (PM / SA)</span>
+            <span class="tab-char-role">Alignment Ledger</span>
+          </div>
         </button>
+        
         <button class="tab-button" data-target="panel-decisions" data-role="decisions">
-          <i class="ri-node-tree"></i> Decision Ledger
+          <div class="avatar-wrapper">
+            <img src="../../assets/avatar-system.jpg" alt="System" class="avatar-img">
+          </div>
+          <div class="tab-text-group">
+            <span class="tab-char-name">Ledger Engine</span>
+            <span class="tab-char-role">Decisions Log</span>
+          </div>
         </button>
       </div>
 
@@ -929,55 +1015,40 @@
               <p class="section-desc">Condensed summary focused strictly on business impacts, critical alignments needed, and major high-level open questions.</p>
               
               <div class="list-items">
-                <div class="list-item" style="grid-template-cols: 1fr; gap: 0.5rem; background: rgba(251, 191, 36, 0.02); border-color: rgba(251, 191, 36, 0.1); padding: 1.5rem;">
+                <div class="list-item" style="grid-template-cols: 1fr; gap: 0.5rem; background: rgba(217, 119, 6, 0.02); border-color: rgba(217, 119, 6, 0.1); padding: 1.5rem;">
                   <span class="meta-label" style="color: var(--amber);">Business Summary</span>
-                  <p class="list-item-text" style="font-size: 1.1rem; font-weight: 500; line-height: 1.7; color: #ffffff;">
-                    The team is on track to deliver the first version of the Phoenix Project by September 1st, a firm deadline driven by an upcoming marketing campaign. This initial release will include essential features like user logins and a core project dashboard, designed for speed and ease of use. Key technical decisions have been made to ensure timely delivery and a secure, performant system.
+                  <p class="list-item-text" style="font-size: 1.1rem; font-weight: 600; line-height: 1.7; color: var(--text-main);">
+                    The team is focused on delivering the Phoenix Project's first version (V1) by September 1st, a hard deadline driven by an upcoming marketing campaign. This initial release will include essential user authentication, a project dashboard, and is designed for fast performance and secure operations. Key technology decisions have been made to streamline development and meet these critical business requirements.
                   </p>
                 </div>
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Key Business Outcomes</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Key Business Outcomes</h3>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Ensures the product is ready in time for the September 5th marketing launch, maximizing market impact.</span>
+                    <span class="list-item-text">The product launch is firmly set for early September to align with a major marketing campaign, ensuring immediate market presence.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Delivers core user functionality (login, dashboard) quickly, providing immediate value to business users.</span>
+                    <span class="list-item-text">Users will experience a 'super fast' system with easy sign-up options via Google or email, including essential B2B registration fields like company name.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Prioritizes system speed and security, enhancing user experience and protecting sensitive data.</span>
+                    <span class="list-item-text">Critical user data and system integrity will be maintained through strong security measures, including an external authentication provider and a protected database.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Utilizes existing tools and external services to control costs and accelerate development.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">Requires new users to provide essential business information (company name) from the start, aligning with our B2B focus.</span>
+                    <span class="list-item-text">The core features of user login and a project dashboard will be available from day one, providing immediate value to users.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Decisions Requiring Alignment</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Decisions Requiring Alignment</h3>
                 
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Key Open Issues</h3>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">What are the specific details and features that must be included on the project dashboard to meet business needs?</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">Is the current plan for handling database security within Cloud Run sufficient for all compliance requirements?</span>
-                  </div>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Key Open Issues</h3>
                 
               </div>
             </div>
@@ -992,101 +1063,106 @@
               <p class="section-desc">Targeted technical implementation goals, rigid stack/infrastructure constraints, and unresolved development queries.</p>
               
               <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Implementation Scope</h3>
+                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Implementation Scope</h3>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Develop V1 MVP with user authentication and a project dashboard</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-code-line"></i>
-                    <span class="list-item-text">Integrate Firebase Authentication for user authentication (supporting Google sign-in and email logins)</span>
+                    <span class="list-item-text">Implement user authentication functionality.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Implement user registration with fields: email, full name, role, and company name</span>
+                    <span class="list-item-text">Develop a working project dashboard.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Configure user session token expiration to 24 hours</span>
+                    <span class="list-item-text">Integrate Firebase Authentication supporting Google sign-in and email logins.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Develop a project dashboard displaying active user metrics, system status, and project lists</span>
+                    <span class="list-item-text">Implement user registration with required fields: email, full name, role, and company name.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-code-line"></i>
-                    <span class="list-item-text">Design and implement system for 'super fast' performance</span>
+                    <span class="list-item-text">Implement standard PostgreSQL database sessions for V1 session management.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Set session token expiration policy to 24 hours.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Develop dashboard features to display active user metrics, system status, and project lists.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Thoroughly test the authentication flow.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-code-line"></i>
+                    <span class="list-item-text">Performance optimization to ensure fast system response.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Technical Constraints</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Technical Constraints</h3>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">V1 MVP hard deadline: September 1st</span>
+                    <span class="list-item-text">V1 MVP hard deadline: September 1st.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Frontend technology stack: React</span>
+                    <span class="list-item-text">Frontend technology: React.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Backend service technology stack: Python (FastAPI)</span>
+                    <span class="list-item-text">Backend technology: Python (FastAPI).</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Backend uses Python due to existing Python libraries</span>
+                    <span class="list-item-text">Database technology: PostgreSQL with a standard relational model.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Database: PostgreSQL with a standard relational model</span>
+                    <span class="list-item-text">Authentication must use an external provider; Firebase Authentication for V1.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Session management for V1: Standard PostgreSQL sessions (defer Redis to V2 unless performance bottleneck)</span>
+                    <span class="list-item-text">PostgreSQL database instance must be in a private VPC, connected via Serverless VPC Access, preventing public internet exposure.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Do not build user authentication functionality in-house</span>
+                    <span class="list-item-text">Backend deployment platform: Cloud Run.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(34, 211, 238, 0.01); border-color: rgba(34, 211, 238, 0.08);">
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
                     <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">Database must be in a private VPC and connected to Cloud Run via Serverless VPC Access to prevent public internet exposure</span>
+                    <span class="list-item-text">Frontend deployment platform: Vercel.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
+                    <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
+                    <span class="list-item-text">Redis for session management is deferred to V2 unless performance dictates otherwise.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Open Technical Questions</h3>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-question-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">Deployment strategy for FastAPI backend (Cloud Run proposed) and React frontend (Vercel proposed) needs finalization.</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-question-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">Specific metrics to be displayed on the project dashboard are not yet detailed (D025 defers to next sync).</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-question-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">Firebase provisioning owner identified as Mike (D027), but the configuration keys are required by July 8th and need to be provided to engineers for integration.</span>
-                  </div>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open Technical Questions</h3>
                 
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Referenced Decisions</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Referenced Decisions</h3>
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D001')">D001</span>
@@ -1101,13 +1177,19 @@
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D006')">D006</span>
                   
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D007')">D007</span>
+                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D008')">D008</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D010')">D010</span>
                   
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D011')">D011</span>
+                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D012')">D012</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D013')">D013</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D014')">D014</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D015')">D015</span>
                   
@@ -1115,17 +1197,23 @@
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D017')">D017</span>
                   
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D018')">D018</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D019')">D019</span>
+                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D020')">D020</span>
+                  
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D021')">D021</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D022')">D022</span>
                   
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D023')">D023</span>
+                  
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D024')">D024</span>
                   
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D025')">D025</span>
+                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D026')">D026</span>
                   
                     <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D027')">D027</span>
-                  
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('D028')">D028</span>
                   
                 </div>
               </div>
@@ -1141,165 +1229,190 @@
               <p class="section-desc">Measurable acceptance criteria, essential validation test cases, edge-case parameters, and ambiguous behaviors.</p>
               
               <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Acceptance Criteria</h3>
+                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Acceptance Criteria</h3>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a new user, when they attempt to register, then they must provide a valid email, full name, role, and company name.</span>
-                  </div>
-                
-                  <div class="list-item">
-                    <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a user provides valid registration details (email, full name, role, company name), when they complete the registration process, then their account should be successfully created.</span>
+                    <span class="list-item-text">Given Firebase Authentication is integrated, When a new user attempts to register, Then they must be able to register using their email and a password.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a registered user, when they attempt to log in using their email and password, then they should be successfully authenticated via Firebase Authentication.</span>
+                    <span class="list-item-text">Given Firebase Authentication is integrated, When a new user attempts to register, Then they must be able to register using Google Sign-in.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given a registered user, when they attempt to log in using their Google account, then they should be successfully authenticated via Firebase Authentication.</span>
+                    <span class="list-item-text">Given a user is on the registration form, When they successfully submit the form, Then the system must collect and store their email, full name, role, and company name.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given an authenticated user, when they perform actions within the system, then their session token must remain valid for 24 hours from issuance or last refresh (if applicable).</span>
+                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing or invalid email, Then the system must prevent registration and display an appropriate error message.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given an authenticated user, when 24 hours have passed since their token was issued/refreshed, then their session token must expire, requiring re-authentication.</span>
+                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing full name, Then the system must prevent registration and display an appropriate error message.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given an authenticated user accesses the Project Dashboard, then the dashboard must display 'active user metrics'.</span>
+                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing role, Then the system must prevent registration and display an appropriate error message.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given an authenticated user accesses the Project Dashboard, then the dashboard must display 'system status'.</span>
+                    <span class="list-item-text">Given a user is on the registration form, When they attempt to submit the form with a missing company name, Then the system must prevent registration and display an appropriate error message.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-task-line"></i>
-                    <span class="list-item-text">Given an authenticated user accesses the Project Dashboard, then the dashboard must display 'project lists'.</span>
-                  </div>
-                
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Test Scenarios</h3>
-                
-                  <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a new user can successfully register with valid email, full name, role, and company name.</span>
+                    <span class="list-item-text">Given a user has successfully logged in, When their session has been inactive for 24 hours, Then their session token must expire.</span>
                   </div>
                 
                   <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user cannot register with an email that is already associated with an existing account.</span>
+                    <i class="ri-task-line"></i>
+                    <span class="list-item-text">Given a user's session token has expired, When they attempt to perform an authenticated action, Then the system must require them to re-authenticate.</span>
                   </div>
                 
                   <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user cannot register if any mandatory fields (email, full name, role, company name) are left blank or invalid.</span>
+                    <i class="ri-task-line"></i>
+                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display active user metrics.</span>
                   </div>
                 
                   <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user can successfully log in using their registered email and a correct password.</span>
+                    <i class="ri-task-line"></i>
+                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display system status information.</span>
                   </div>
                 
                   <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user can successfully log in using their Google account credentials.</span>
+                    <i class="ri-task-line"></i>
+                    <span class="list-item-text">Given a user is successfully logged in, When they navigate to the Project Dashboard, Then the dashboard must display a list of projects.</span>
                   </div>
+                
+                
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Test Scenarios</h3>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user receives an error message and cannot log in when providing an incorrect password for a valid email.</span>
+                    <span class="list-item-text">Scenario: Successful user registration via email and password with all required fields (email, full name, role, company name).</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a user receives an error message and cannot log in when attempting to use an unregistered email address.</span>
+                    <span class="list-item-text">Scenario: Successful user login with valid email and password.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a logged-in user remains authenticated and can perform actions for 24 hours.</span>
+                    <span class="list-item-text">Scenario: Successful user registration via Google Sign-in.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify a logged-in user is automatically logged out after 24 hours of session token expiration.</span>
+                    <span class="list-item-text">Scenario: Attempt to register with an email address that is already associated with an existing account.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify that attempting to access a secured resource with an expired session token redirects the user to the login page or prompts for re-authentication.</span>
+                    <span class="list-item-text">Scenario: Attempt to log in with an incorrect password for a valid user.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify the Project Dashboard loads and displays placeholder or actual data for active user metrics.</span>
+                    <span class="list-item-text">Scenario: Attempt to log in with an email address that does not exist in the system.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify the Project Dashboard loads and displays placeholder or actual data for system status.</span>
+                    <span class="list-item-text">Scenario: Verify that the user is logged out or prompted for re-authentication after 24 hours of inactivity.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">Verify the Project Dashboard loads and displays placeholder or actual data for project lists.</span>
+                    <span class="list-item-text">Scenario: Verify that the Project Dashboard loads correctly for an authenticated user.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Scenario: Verify that the 'Active User Metrics' section is visible and contains data on the dashboard.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Scenario: Verify that the 'System Status' section is visible and contains data on the dashboard.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-play-list-add-line"></i>
+                    <span class="list-item-text">Scenario: Verify that the 'Project Lists' section is visible and contains data on the dashboard.</span>
                   </div>
                 
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Critical Edge Cases</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Critical Edge Cases</h3>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Test user registration and login with extremely long but valid inputs for full name and company name fields.</span>
+                    <span class="list-item-text">Attempt user registration and login with maximum allowed length inputs for text fields (full name, role, company name) to check for truncation or UI overflow.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Test user registration and login with special characters or unicode in full name, role, and company name fields.</span>
+                    <span class="list-item-text">Attempt user registration with invalid email formats (e.g., missing @, missing domain, special characters in username).</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Simultaneously attempt multiple login requests for the same user account from different devices or browsers.</span>
+                    <span class="list-item-text">Attempt concurrent logins for the same user account from different devices or browsers.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Rapidly attempt multiple registration requests with the same or similar data to check for rate limiting or duplicate entry handling.</span>
+                    <span class="list-item-text">Test behavior when the Firebase Authentication service is temporarily unavailable during registration or login.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Test the system's responsiveness and stability under high concurrent user load, especially on the Project Dashboard.</span>
+                    <span class="list-item-text">Test session expiration behavior while an authenticated user is actively performing a long-running operation.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(52, 211, 153, 0.01); border-color: rgba(52, 211, 153, 0.08);">
+                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
                     <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">Attempt to access the PostgreSQL database directly from a public internet connection, ensuring it is blocked due to the private VPC configuration.</span>
+                    <span class="list-item-text">Attempt to access authenticated dashboard features immediately after session expiration.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Unresolved Behaviors (Untestable)</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Unresolved Behaviors (Untestable)</h3>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">The definition of 'super fast' for system performance is subjective and requires quantifiable metrics (e.g., specific page load times, API response times under load) for effective testing.</span>
+                    <span class="list-item-text">What specific criteria define 'super fast' system performance (e.g., specific response times for API calls, page load times, concurrent user capacity benchmarks)? (D005)</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">The detailed features and specific content for 'active user metrics', 'system status', and 'project lists' on the dashboard are not yet defined, limiting comprehensive testing of the dashboard functionality.</span>
+                    <span class="list-item-text">What specific data points or calculations are expected for 'active user metrics' on the dashboard (e.g., daily active users, peak concurrent users, average session duration)? (D023)</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What specific information should be displayed as 'system status' on the dashboard (e.g., uptime, API health, database connection status, error logs summary, latency)? (D023)</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What specific details should be included for each item in the 'project lists' on the dashboard (e.g., project name, creation date, status, owner, last modified, links to project details)? Are there filtering, sorting, or search capabilities expected? (D023, D024, D028)</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">How will QA verify the strict technical constraint that the PostgreSQL database instance is placed in a private VPC and connected via Serverless VPC Access, preventing exposure to the public internet? (D020)</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">What criteria will be used to determine if standard PostgreSQL sessions become a 'performance blocker' necessitating a move to Redis for session management? (D010)</span>
                   </div>
                 
               </div>
@@ -1315,139 +1428,149 @@
               <p class="section-desc">High-level timeline and decision registry, system dependencies, mitigation risks, and alignment gaps.</p>
               
               <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Decision Registry Summary</h3>
+                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Decision Registry Summary</h3>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The V1 MVP delivery target is September 1st. This is a hard deadline necessitated by a marketing campaign launch on September 5th (D001, D002).</span>
+                    <span class="list-item-text">The main goal for V1 of the Phoenix Project is to deliver a working MVP by September 1st. This is a hard deadline due to the marketing campaign launch scheduled for September 5th.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">V1 of the MVP must include user authentication and a working project dashboard (D003).</span>
+                    <span class="list-item-text">The V1 MVP must include user authentication and a working project dashboard.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The system is required to be 'super fast' in performance (D004).</span>
+                    <span class="list-item-text">The system needs to be 'super fast' as a general performance requirement.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The technology stack will consist of React for the frontend and Python (FastAPI) for the backend service (D005). The Python choice leverages existing libraries (D006).</span>
+                    <span class="list-item-text">The technology stack decisions are: React for the frontend, Python (FastAPI) for the backend service, and PostgreSQL for the database using a standard relational model.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">PostgreSQL will be used as the database, following a standard relational model (D008).</span>
+                    <span class="list-item-text">For session management, standard PostgreSQL database sessions will be used for V1 to keep it simple and save budget. The use of Redis is deferred to V2 unless it becomes a performance blocker.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">For V1, standard PostgreSQL sessions will be used for session management to simplify and save budget. Redis is deferred to V2 unless it becomes a performance bottleneck (D010).</span>
+                    <span class="list-item-text">The team will use an external authentication provider; Firebase Authentication will be integrated for V1 due to its speed, ease of social logins, and matching pricing requirements. It must be configured to allow Google sign-in and email logins.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">User authentication will not be built in-house (D012). Firebase Authentication is selected for V1, configured for Google sign-in and email logins, due to its speed, ease of social logins, and pricing (D013).</span>
+                    <span class="list-item-text">The required fields for user registration are email, full name, role, and company name (the latter added for B2B purposes).</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">User registration fields will collect email, full name, role, and company name (D017). Company name was added due to the B2B nature of the project (D016).</span>
+                    <span class="list-item-text">Deployment platforms decided: Cloud Run for the FastAPI backend application and Vercel for the React frontend application.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">A strict technical security constraint dictates that the database must be placed in a private VPC and connected to Cloud Run via Serverless VPC Access to prevent public internet exposure (D020).</span>
+                    <span class="list-item-text">As a strict technical security constraint, the PostgreSQL database instance must be placed in a private VPC and connected via Serverless VPC Access to prevent exposure to the public internet.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">User session token expiration is set to 24 hours, with the possibility for future adjustment (D022).</span>
+                    <span class="list-item-text">The authentication flow needs to be tested thoroughly.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The project dashboard must display active user metrics, system status, and project lists (D024).</span>
+                    <span class="list-item-text">Session token expiration will initially be set to 24 hours.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">The detailed features for the dashboard will be discussed and finalized in the next synchronization meeting (D025).</span>
+                    <span class="list-item-text">The project dashboard must display active user metrics, system status, and project lists.</span>
                   </div>
                 
                   <div class="list-item">
                     <i class="ri-history-line"></i>
-                    <span class="list-item-text">Mike is assigned to handle Firebase provisioning and must provide the necessary configuration keys by July 8th (D027).</span>
+                    <span class="list-item-text">Further detailing of dashboard features will be handled in the next synchronization meeting.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-history-line"></i>
+                    <span class="list-item-text">Mike has been assigned the task of handling Firebase provisioning and is expected to have the configuration keys ready by July 8th.</span>
+                  </div>
+                
+                  <div class="list-item">
+                    <i class="ri-history-line"></i>
+                    <span class="list-item-text">A synchronization meeting with the marketing team on the dashboard design is planned for next Wednesday.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">System Dependencies</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">System Dependencies</h3>
                 
-                  <div class="list-item" style="background: rgba(167, 139, 250, 0.01); border-color: rgba(167, 139, 250, 0.08);">
+                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">V1 MVP delivery by September 1st (D001) is a hard dependency on the marketing team's campaign launch scheduled for September 5th (D002).</span>
+                    <span class="list-item-text">Marketing campaign launch (September 5th): The V1 MVP's hard deadline of September 1st is directly tied to this external marketing event.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(167, 139, 250, 0.01); border-color: rgba(167, 139, 250, 0.08);">
+                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">The development of user authentication (D013) is dependent on Mike provisioning Firebase and providing configuration keys by July 8th (D027).</span>
+                    <span class="list-item-text">Firebase provisioning (Mike): Mike must provide the Firebase configuration keys by July 8th for authentication development to proceed.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(167, 139, 250, 0.01); border-color: rgba(167, 139, 250, 0.08);">
+                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
                     <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">Refining the dashboard features (D025) has a cross-team dependency on a sync meeting with the marketing team to discuss dashboard design, scheduled for next Wednesday (D028).</span>
+                    <span class="list-item-text">Marketing team: A synchronization meeting is required next Wednesday to align on dashboard design details (D028).</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
+                    <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
+                    <span class="list-item-text">Cloud Run & Serverless VPC Access configuration: The backend deployment on Cloud Run relies on a properly configured Serverless VPC Access to securely connect to the private PostgreSQL database (inferred from D020).</span>
                   </div>
                 
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Mitigation Risks</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Mitigation Risks</h3>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Schedule Risk:** The V1 MVP has a hard deadline of September 1st (D001) driven by an external marketing campaign on September 5th (D002). Any delay in development could have a high business impact by missing the marketing window.</span>
+                    <span class="list-item-text">**Timeline Risk: Hard Deadline Constraint (Likelihood: Medium, Impact: High)** - The V1 MVP has a hard deadline of September 1st, dictated by a marketing campaign launch on September 5th. Any delays in development or unforeseen technical challenges could directly impact the marketing campaign and the overall project's strategic objectives.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Scope/Quality Risk:** The requirement for system performance to be 'super fast' (D004) is subjective. Without quantifiable metrics, this could lead to misalignment on expectations, scope creep for performance optimization, or delivery of a system that stakeholders perceive as not 'fast enough'. (Likelihood: Medium, Impact: High)</span>
+                    <span class="list-item-text">**Requirement Clarity Risk: Vague Performance Expectation (Likelihood: High, Impact: Medium)** - The requirement for the system to be 'super fast' (D005) lacks specific, measurable criteria. This ambiguity could lead to misinterpretations, scope creep if continuous optimization is pursued without clear targets, or stakeholder dissatisfaction if performance expectations are not met to an unquantified standard.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Performance/Rework Risk:** Deferring Redis for session management to V2 and using standard PostgreSQL sessions for V1 (D010) carries a risk. If PostgreSQL sessions prove to be a performance bottleneck, it could necessitate rework or delay V1 features to integrate Redis. (Likelihood: Medium, Impact: High)</span>
+                    <span class="list-item-text">**Performance & Rework Risk: Session Management Choice (Likelihood: Medium, Impact: Medium)** - The decision to use standard PostgreSQL sessions for V1 (D011) and defer Redis to V2 'unless it's a performance blocker' (D010) introduces a risk. If standard sessions prove insufficient for the 'super fast' requirement (D005), it could necessitate rework and a rushed integration of Redis, impacting V1 stability or delaying V2 features.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
                     <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Blocking Dependency Risk:** The successful integration of Firebase Authentication (D013) is dependent on Mike providing the necessary configuration keys by July 8th (D027). Failure to deliver these keys on time would directly block or significantly delay a core V1 feature. (Likelihood: Medium, Impact: High)</span>
+                    <span class="list-item-text">**Dependency Risk: Firebase Provisioning (Likelihood: Low, Impact: High)** - The development of user authentication relies on Mike providing Firebase configuration keys by July 8th (D027). A delay in this dependency could block a critical path item for V1.</span>
+                  </div>
+                
+                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
+                    <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
+                    <span class="list-item-text">**Scope Risk: Undefined Dashboard Features (Likelihood: Medium, Impact: Medium)** - While core metrics for the dashboard are identified, further detailing is deferred to the next sync meeting (D024). This delay in defining full scope could lead to late requirements, rework, or a reduced feature set if not managed diligently against the tight V1 deadline.</span>
                   </div>
                 
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Stakeholder Alignment Gaps</h3>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Stakeholder Alignment Gaps</h3>
                 
-                  <div class="list-item" style="background: rgba(251, 191, 36, 0.01); border-color: rgba(251, 191, 36, 0.08);">
+                  <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
                     <i class="ri-user-voice-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">The requirement that system performance must be 'super fast' (D004) lacks quantifiable metrics, creating a potential alignment gap regarding what constitutes acceptable performance among different stakeholders.</span>
+                    <span class="list-item-text">**Performance Definition:** The requirement for the system to be 'super fast' (D005) is subjective and lacks concrete metrics. This could lead to differing expectations among stakeholders regarding what constitutes acceptable performance.</span>
                   </div>
                 
-                  <div class="list-item" style="background: rgba(251, 191, 36, 0.01); border-color: rgba(251, 191, 36, 0.08);">
+                  <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
                     <i class="ri-user-voice-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">While high-level content for the project dashboard (active user metrics, system status, project lists) was identified (D024), the 'detailed dashboard features' are explicitly deferred to the next sync meeting (D025). This indicates an area where specific stakeholder expectations are not yet fully aligned or defined.</span>
+                    <span class="list-item-text">**Dashboard Feature Scope:** While essential metrics are identified, the full detailing of dashboard features has been explicitly deferred to a future meeting (D024). This indicates that the complete scope and functionality are not yet fully aligned among all stakeholders, risking potential disagreements or changes as the deadline approaches.</span>
                   </div>
                 
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 700; color: #ffffff;">Open SA/PM Questions</h3>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Deployment Strategy Formalization:** Although Cloud Run for FastAPI and Vercel for React were proposed (D018) and a security constraint for Cloud Run was addressed (D020), a formal decision confirming this exact deployment strategy for both frontend and backend was not explicitly stated. (High Impact - foundational for infrastructure and operations)</span>
-                  </div>
-                
-                  <div class="list-item" style="background: rgba(244, 63, 94, 0.01); border-color: rgba(244, 63, 94, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">**Detailed Dashboard Feature Definition:** Beyond the high-level categories (active user metrics, system status, project lists) (D024), what are the specific data points, visualizations, and functionalities required for each component of the project dashboard? (D025 explicitly defers this). (High Impact - core V1 feature definition and user experience)</span>
-                  </div>
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open SA/PM Questions</h3>
                 
               </div>
             </div>
@@ -1487,7 +1610,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D001</span>
-                          <h4 class="decision-title">V1 MVP delivery by September 1st</h4>
+                          <h4 class="decision-title">V1 MVP target date</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">deadline or milestone</span>
@@ -1497,7 +1620,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The main goal for V1 of the Phoenix Project is to deliver a working Minimum Viable Product (MVP) by September 1st.</p>
+                      <p class="decision-detail">The main goal for V1 of the Phoenix Project is to deliver a working MVP by September 1st.</p>
                       
                       
                         <div class="evidence-container">
@@ -1510,7 +1633,7 @@
                                 <p class="evidence-quote">“The main goal for V1 is a working MVP by September 1st.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's first statement</span>
+                                  <span>Sarah's opening statement</span>
                                 </div>
                               </div>
                             
@@ -1525,7 +1648,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D002</span>
-                          <h4 class="decision-title">Hard deadline due to marketing campaign</h4>
+                          <h4 class="decision-title">V1 deadline is a hard constraint</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">technical constraint</span>
@@ -1535,7 +1658,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The September 1st deadline for V1 is a hard constraint because of a marketing campaign launch scheduled for September 5th.</p>
+                      <p class="decision-detail">The September 1st deadline for V1 is a hard constraint due to the marketing campaign launch scheduled for September 5th.</p>
                       
                       
                         <div class="evidence-container">
@@ -1548,7 +1671,7 @@
                                 <p class="evidence-quote">“We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's first statement</span>
+                                  <span>Sarah's opening statement</span>
                                 </div>
                               </div>
                             
@@ -1563,7 +1686,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D003</span>
-                          <h4 class="decision-title">V1 core features: user authentication and project dashboard</h4>
+                          <h4 class="decision-title">V1 must include user authentication</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">business requirement</span>
@@ -1573,7 +1696,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">V1 of the MVP must include user authentication and a working project dashboard.</p>
+                      <p class="decision-detail">The V1 MVP must have user authentication functionality.</p>
                       
                       
                         <div class="evidence-container">
@@ -1601,7 +1724,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D004</span>
-                          <h4 class="decision-title">System performance must be 'super fast'</h4>
+                          <h4 class="decision-title">V1 must include a working project dashboard</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">business requirement</span>
@@ -1611,7 +1734,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The system must be designed and implemented to be exceptionally fast.</p>
+                      <p class="decision-detail">The V1 MVP must include a working project dashboard.</p>
                       
                       
                         <div class="evidence-container">
@@ -1619,6 +1742,44 @@
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
                           <div class="evidence-content" id="evidence-D004">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“V1 must have user authentication and a working project dashboard.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>Dave's first statement</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D005" data-category="business_requirement" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D005</span>
+                          <h4 class="decision-title">System performance requirement</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">business requirement</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">The system needs to be 'super fast'.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D005">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“Let's make sure it's super fast.”</p>
@@ -1634,12 +1795,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D005" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D006" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D005</span>
-                          <h4 class="decision-title">Technology stack decision: React and Python (FastAPI)</h4>
+                          <span class="decision-id">D006</span>
+                          <h4 class="decision-title">Frontend technology decision: React</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1649,14 +1810,14 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The frontend will use React, and the backend service will be built with Python (FastAPI).</p>
+                      <p class="decision-detail">React has been decided as the technology for the frontend.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D005">
+                          <div class="evidence-content" id="evidence-D006">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service.”</p>
@@ -1672,60 +1833,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D006" data-category="technical_constraint" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D006</span>
-                          <h4 class="decision-title">Python stack aligns with existing libraries</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">technical constraint</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">The choice of Python for the backend is practical as the team already possesses existing Python libraries.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D006">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“since we already have libraries built in Python.”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>John's first statement</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D007" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D007" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D007</span>
-                          <h4 class="decision-title">Database choice open question</h4>
+                          <h4 class="decision-title">Backend technology decision: Python (FastAPI)</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">key decision</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The specific database technology to be used needs to be determined.</p>
+                      <p class="decision-detail">Python (FastAPI) has been decided as the technology for the backend service.</p>
                       
                       
                         <div class="evidence-container">
@@ -1735,10 +1858,10 @@
                           <div class="evidence-content" id="evidence-D007">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“What about the database?”</p>
+                                <p class="evidence-quote">“For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's first statement</span>
+                                  <span>John's first statement</span>
                                 </div>
                               </div>
                             
@@ -1753,7 +1876,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D008</span>
-                          <h4 class="decision-title">Database decision: PostgreSQL with standard relational model</h4>
+                          <h4 class="decision-title">Database technology decision: PostgreSQL</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1776,7 +1899,7 @@
                                 <p class="evidence-quote">“We'll use PostgreSQL. Standard relational model is fine.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement after Emma's database question</span>
+                                  <span>John's statement about the database</span>
                                 </div>
                               </div>
                             
@@ -1791,7 +1914,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D009</span>
-                          <h4 class="decision-title">Session management approach open question</h4>
+                          <h4 class="decision-title">Open question: Session management technology</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">open question</span>
@@ -1801,7 +1924,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">A decision is required on the session management approach: Redis or standard database sessions.</p>
+                      <p class="decision-detail">A question was raised regarding the choice for session management: Redis or standard database sessions?</p>
                       
                       
                         <div class="evidence-container">
@@ -1811,7 +1934,7 @@
                           <div class="evidence-content" id="evidence-D009">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“what about session management? Should we use Redis or just standard database sessions?”</p>
+                                <p class="evidence-quote">“But wait, what about session management? Should we use Redis or just standard database sessions?”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
                                   <span>John's statement about session management</span>
@@ -1829,7 +1952,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D010</span>
-                          <h4 class="decision-title">Session management decision: Standard PostgreSQL sessions for V1</h4>
+                          <h4 class="decision-title">Redis deferred to V2</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1839,7 +1962,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Redis will be deferred to V2 unless it proves to be a performance bottleneck. For V1, standard PostgreSQL sessions will be used to keep it simple and save budget.</p>
+                      <p class="decision-detail">The use of Redis for session management will be deferred to V2 unless it becomes a performance blocker.</p>
                       
                       
                         <div class="evidence-container">
@@ -1849,10 +1972,10 @@
                           <div class="evidence-content" id="evidence-D010">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's defer Redis to V2 unless it's a performance blocker. Keep it simple. Let's stick to standard postgres sessions for now to save budget.”</p>
+                                <p class="evidence-quote">“Let's defer Redis to V2 unless it's a performance blocker.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement about session management</span>
+                                  <span>Sarah's statement on session management</span>
                                 </div>
                               </div>
                             
@@ -1862,22 +1985,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D011" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D011" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D011</span>
-                          <h4 class="decision-title">User authentication method open question</h4>
+                          <h4 class="decision-title">Standard PostgreSQL sessions for V1</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">key decision</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The method for handling user authentication needs to be determined.</p>
+                      <p class="decision-detail">For V1, standard PostgreSQL database sessions will be used for session management to keep it simple and save budget.</p>
                       
                       
                         <div class="evidence-container">
@@ -1887,10 +2010,10 @@
                           <div class="evidence-content" id="evidence-D011">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“How are we doing user auth?”</p>
+                                <p class="evidence-quote">“Let's stick to standard postgres sessions for now to save budget.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's statement after session management decision</span>
+                                  <span>Sarah's statement on session management</span>
                                 </div>
                               </div>
                             
@@ -1900,22 +2023,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D012" data-category="technical_constraint" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D012" data-category="business_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D012</span>
-                          <h4 class="decision-title">Constraint: Do not build user authentication in-house</h4>
+                          <h4 class="decision-title">External authentication provider preference</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">technical constraint</span>
+                          <span class="badge badge-category">business requirement</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The team should avoid developing user authentication functionality internally.</p>
+                      <p class="decision-detail">The team should use an external authentication provider (e.g., Auth0 or Firebase Auth) rather than building authentication in-house.</p>
                       
                       
                         <div class="evidence-container">
@@ -1925,10 +2048,10 @@
                           <div class="evidence-content" id="evidence-D012">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“We don't want to build it ourselves”</p>
+                                <p class="evidence-quote">“We don't want to build it ourselves, right?”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement about Auth0/Firebase Auth</span>
+                                  <span>Dave's statement on user authentication</span>
                                 </div>
                               </div>
                             
@@ -1943,7 +2066,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D013</span>
-                          <h4 class="decision-title">User authentication decision: Firebase Authentication for V1</h4>
+                          <h4 class="decision-title">Firebase Authentication for V1</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -1953,7 +2076,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">For V1, Firebase Authentication will be integrated to handle user authentication, supporting Google sign-in and email logins. This choice is based on its speed, ease of social logins, and pricing.</p>
+                      <p class="decision-detail">Firebase Authentication will be integrated for user authentication in V1 due to its speed, ease of social logins, and matching pricing requirements.</p>
                       
                       
                         <div class="evidence-container">
@@ -1963,10 +2086,10 @@
                           <div class="evidence-content" id="evidence-D013">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements. We will configure it to allow Google sign-in and email logins.”</p>
+                                <p class="evidence-quote">“Actually, for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement about Firebase Auth</span>
+                                  <span>John's statement on user authentication</span>
                                 </div>
                               </div>
                             
@@ -1976,22 +2099,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D014" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D014" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D014</span>
-                          <h4 class="decision-title">User registration fields open question</h4>
+                          <h4 class="decision-title">Required Firebase Auth methods</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">functional requirement</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The specific data fields to be collected during user registration need to be finalized.</p>
+                      <p class="decision-detail">Firebase Authentication must be configured to allow Google sign-in and email logins.</p>
                       
                       
                         <div class="evidence-container">
@@ -2001,10 +2124,10 @@
                           <div class="evidence-content" id="evidence-D014">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“What fields do we collect?”</p>
+                                <p class="evidence-quote">“We will configure it to allow Google sign-in and email logins.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's question about user registration</span>
+                                  <span>John's statement on user authentication</span>
                                 </div>
                               </div>
                             
@@ -2019,7 +2142,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D015</span>
-                          <h4 class="decision-title">Initial user registration fields: email, full name, role</h4>
+                          <h4 class="decision-title">Initial user registration fields</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2029,7 +2152,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Initially, user registration will collect email, full name, and role. Address and telephone number are not required at this time.</p>
+                      <p class="decision-detail">For user registration, the system will initially collect email, full name, and role. Address or telephone number are not needed for now.</p>
                       
                       
                         <div class="evidence-container">
@@ -2042,7 +2165,7 @@
                                 <p class="evidence-quote">“Just email, full name, and role. We don't need address or telephone number for now.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement about registration fields</span>
+                                  <span>Sarah's statement on user registration fields</span>
                                 </div>
                               </div>
                             
@@ -2057,7 +2180,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D016</span>
-                          <h4 class="decision-title">Business requirement: Company name for B2B registration</h4>
+                          <h4 class="decision-title">Company name required for B2B registration</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">business requirement</span>
@@ -2067,7 +2190,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Company name is a mandatory field during user signup, given the B2B nature of the project.</p>
+                      <p class="decision-detail">For B2B purposes, company name is a required field during user signup.</p>
                       
                       
                         <div class="evidence-container">
@@ -2077,10 +2200,10 @@
                           <div class="evidence-content" id="evidence-D016">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“we need to collect company name too! We are B2B.”</p>
+                                <p class="evidence-quote">“Wait, we need to collect company name too! We are B2B.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement about company name</span>
+                                  <span>Dave's interjection on registration fields</span>
                                 </div>
                               </div>
                             
@@ -2095,7 +2218,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D017</span>
-                          <h4 class="decision-title">Final user registration fields: email, full name, role, company name</h4>
+                          <h4 class="decision-title">Final user registration fields</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2118,7 +2241,7 @@
                                 <p class="evidence-quote">“Email, full name, role, and company name.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's confirmation of registration fields</span>
+                                  <span>Emma's summary of registration fields</span>
                                 </div>
                               </div>
                             
@@ -2128,22 +2251,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D018" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D018" data-category="technical_constraint" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D018</span>
-                          <h4 class="decision-title">Deployment strategy open question with proposal</h4>
+                          <h4 class="decision-title">Proposed backend deployment platform: Cloud Run</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">technical constraint</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The deployment strategy for the FastAPI backend and React frontend is an open question, with a proposal to use Cloud Run for FastAPI and Vercel for React.</p>
+                      <p class="decision-detail">Cloud Run was proposed for deploying the FastAPI backend application.</p>
                       
                       
                         <div class="evidence-container">
@@ -2153,10 +2276,10 @@
                           <div class="evidence-content" id="evidence-D018">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app.”</p>
+                                <p class="evidence-quote">“I was thinking Cloud Run for the FastAPI app”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's question about deployment</span>
+                                  <span>John's statement on deployment</span>
                                 </div>
                               </div>
                             
@@ -2166,22 +2289,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D019" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D019" data-category="technical_constraint" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D019</span>
-                          <h4 class="decision-title">Security concern: Cloud Run for backend</h4>
+                          <h4 class="decision-title">Proposed frontend deployment platform: Vercel</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">technical constraint</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">A question was raised regarding the security of using Cloud Run for the backend deployment.</p>
+                      <p class="decision-detail">Vercel was proposed for deploying the React frontend application, which was accepted.</p>
                       
                       
                         <div class="evidence-container">
@@ -2191,10 +2314,18 @@
                           <div class="evidence-content" id="evidence-D019">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“for the backend, is Cloud Run secure?”</p>
+                                <p class="evidence-quote">“and Vercel for the React app.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's question about Cloud Run security</span>
+                                  <span>John's statement on deployment</span>
+                                </div>
+                              </div>
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“Vercel is fine”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>Dave's statement on deployment</span>
                                 </div>
                               </div>
                             
@@ -2209,7 +2340,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D020</span>
-                          <h4 class="decision-title">Technical constraint: Database in private VPC with Serverless VPC Access</h4>
+                          <h4 class="decision-title">Database security constraint: Private VPC</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">technical constraint</span>
@@ -2219,7 +2350,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The database must be placed in a private VPC and connected to Cloud Run via Serverless VPC Access to prevent exposure to the public internet. This is a strict technical security constraint.</p>
+                      <p class="decision-detail">The PostgreSQL database instance must be placed in a private VPC and connected via Serverless VPC Access to prevent exposure to the public internet. This is a strict technical security constraint.</p>
                       
                       
                         <div class="evidence-container">
@@ -2229,7 +2360,7 @@
                           <div class="evidence-content" id="evidence-D020">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet. This is a strict technical constraint for security.”</p>
+                                <p class="evidence-quote">“Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet. This is a strict technical constraint for security.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
                                   <span>John's explanation of Cloud Run security</span>
@@ -2242,22 +2373,22 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D021" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D021" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D021</span>
-                          <h4 class="decision-title">Session duration (token expiration) open question</h4>
+                          <h4 class="decision-title">Authentication flow testing requirement</h4>
                         </div>
                         <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
+                          <span class="badge badge-category">functional requirement</span>
                           
                             <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
                           
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The duration for user sessions or token expiration needs to be determined.</p>
+                      <p class="decision-detail">The authentication flow needs to be tested thoroughly.</p>
                       
                       
                         <div class="evidence-container">
@@ -2267,10 +2398,10 @@
                           <div class="evidence-content" id="evidence-D021">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“how long does the session last?”</p>
+                                <p class="evidence-quote">“We need to test the auth flow thoroughly.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Emma's question about session duration</span>
+                                  <span>Emma's statement on auth flow testing</span>
                                 </div>
                               </div>
                             
@@ -2285,7 +2416,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D022</span>
-                          <h4 class="decision-title">Token expiration set to 24 hours</h4>
+                          <h4 class="decision-title">Token expiration policy</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2295,7 +2426,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Token expiration for user sessions will be initially set to 24 hours, with the possibility of adjustment later.</p>
+                      <p class="decision-detail">Session token expiration will initially be set to 24 hours, with the possibility of adjustment later.</p>
                       
                       
                         <div class="evidence-container">
@@ -2305,10 +2436,10 @@
                           <div class="evidence-content" id="evidence-D022">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“Let's set token expiration to 24 hours. We can adjust it later.”</p>
+                                <p class="evidence-quote">“Let's set token expiration to 24 hours.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's statement about token expiration</span>
+                                  <span>John's statement on token expiration</span>
                                 </div>
                               </div>
                             
@@ -2318,50 +2449,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D023" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D023" data-category="functional_requirement" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D023</span>
-                          <h4 class="decision-title">Dashboard metrics open question</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">open question</span>
-                          
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">The specific metrics to be displayed on the project dashboard need to be identified.</p>
-                      
-                      
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D023', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-D023">
-                            
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“What metrics are we displaying?”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's question about dashboard metrics</span>
-                                </div>
-                              </div>
-                            
-                          </div>
-                        </div>
-                      
-                    </div>
-                  </div>
-                
-                  <div class="decision-card-outer" id="decision-D024" data-category="functional_requirement" data-confidence="confirmed">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">D024</span>
-                          <h4 class="decision-title">Dashboard content: active user metrics, system status, project lists</h4>
+                          <h4 class="decision-title">Dashboard required metrics</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">functional requirement</span>
@@ -2375,16 +2468,16 @@
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D024', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D023', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D024">
+                          <div class="evidence-content" id="evidence-D023">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“We need active user metrics, system status, and project lists.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement about dashboard content</span>
+                                  <span>Dave's statement on dashboard metrics</span>
                                 </div>
                               </div>
                             
@@ -2394,11 +2487,11 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D025" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D024" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D025</span>
+                          <span class="decision-id">D024</span>
                           <h4 class="decision-title">Detail dashboard features in next sync</h4>
                         </div>
                         <div class="decision-badges">
@@ -2409,20 +2502,20 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The detailed features for the dashboard will be discussed and ironed out in the next synchronization meeting.</p>
+                      <p class="decision-detail">Further detailing of dashboard features will be handled in the next synchronization meeting.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D025', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D024', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D025">
+                          <div class="evidence-content" id="evidence-D024">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
                                 <p class="evidence-quote">“Let's detail the dashboard features in the next sync.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's statement about dashboard features</span>
+                                  <span>Sarah's closing statement</span>
                                 </div>
                               </div>
                             
@@ -2432,12 +2525,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D026" data-category="open_question" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D025" data-category="open_question" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D026</span>
-                          <h4 class="decision-title">Firebase provisioning owner and config keys deadline open question</h4>
+                          <span class="decision-id">D025</span>
+                          <h4 class="decision-title">Open question: Firebase provisioning ownership and deadline</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">open question</span>
@@ -2447,20 +2540,20 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">The person responsible for Firebase provisioning needs to be identified, and the configuration keys are required by next week.</p>
+                      <p class="decision-detail">An open question was raised regarding who is responsible for handling Firebase provisioning, with config keys needed by next week.</p>
                       
                       
                         <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('D026', this)">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D025', this)">
                             <i class="ri-arrow-down-s-line"></i> View Source Citation
                           </button>
-                          <div class="evidence-content" id="evidence-D026">
+                          <div class="evidence-content" id="evidence-D025">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“who is handling the Firebase provisioning? I need the config keys by next week.”</p>
+                                <p class="evidence-quote">“One open question: who is handling the Firebase provisioning? I need the config keys by next week.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>John's question about Firebase provisioning</span>
+                                  <span>John's open question</span>
                                 </div>
                               </div>
                             
@@ -2470,12 +2563,12 @@
                     </div>
                   </div>
                 
-                  <div class="decision-card-outer" id="decision-D027" data-category="key_decision" data-confidence="confirmed">
+                  <div class="decision-card-outer" id="decision-D026" data-category="key_decision" data-confidence="confirmed">
                     <div class="decision-card-inner">
                       <div class="decision-header">
                         <div class="decision-title-group">
-                          <span class="decision-id">D027</span>
-                          <h4 class="decision-title">Mike assigned Firebase provisioning by July 8th</h4>
+                          <span class="decision-id">D026</span>
+                          <h4 class="decision-title">Firebase provisioning assigned to Mike</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">key decision</span>
@@ -2485,7 +2578,45 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">Mike is assigned to handle Firebase provisioning and must provide the necessary configuration keys by July 8th.</p>
+                      <p class="decision-detail">Mike has been assigned the task of handling Firebase provisioning.</p>
+                      
+                      
+                        <div class="evidence-container">
+                          <button class="evidence-toggle" onclick="toggleEvidence('D026', this)">
+                            <i class="ri-arrow-down-s-line"></i> View Source Citation
+                          </button>
+                          <div class="evidence-content" id="evidence-D026">
+                            
+                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
+                                <p class="evidence-quote">“I'll assign that to Mike.”</p>
+                                <div class="evidence-location">
+                                  <i class="ri-map-pin-2-line"></i>
+                                  <span>Sarah's assignment for Firebase provisioning</span>
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                
+                  <div class="decision-card-outer" id="decision-D027" data-category="deadline_or_milestone" data-confidence="confirmed">
+                    <div class="decision-card-inner">
+                      <div class="decision-header">
+                        <div class="decision-title-group">
+                          <span class="decision-id">D027</span>
+                          <h4 class="decision-title">Firebase config keys deadline</h4>
+                        </div>
+                        <div class="decision-badges">
+                          <span class="badge badge-category">deadline or milestone</span>
+                          
+                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
+                          
+                        </div>
+                      </div>
+                      
+                      <p class="decision-detail">Mike is expected to have the Firebase configuration keys ready by July 8th.</p>
                       
                       
                         <div class="evidence-container">
@@ -2495,10 +2626,10 @@
                           <div class="evidence-content" id="evidence-D027">
                             
                               <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“I'll assign that to Mike. He should have it ready by July 8th.”</p>
+                                <p class="evidence-quote">“He should have it ready by July 8th.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Sarah's assignment of Firebase provisioning</span>
+                                  <span>Sarah's assignment for Firebase provisioning</span>
                                 </div>
                               </div>
                             
@@ -2513,7 +2644,7 @@
                       <div class="decision-header">
                         <div class="decision-title-group">
                           <span class="decision-id">D028</span>
-                          <h4 class="decision-title">Sync with marketing team on dashboard design next Wednesday</h4>
+                          <h4 class="decision-title">Sync with marketing team on dashboard design</h4>
                         </div>
                         <div class="decision-badges">
                           <span class="badge badge-category">dependency</span>
@@ -2523,7 +2654,7 @@
                         </div>
                       </div>
                       
-                      <p class="decision-detail">A synchronization meeting with the marketing team to discuss the dashboard design is scheduled for next Wednesday.</p>
+                      <p class="decision-detail">A synchronization meeting with the marketing team on the dashboard design is planned for next Wednesday.</p>
                       
                       
                         <div class="evidence-container">
@@ -2536,7 +2667,7 @@
                                 <p class="evidence-quote">“Let's make sure we sync with the marketing team on the dashboard design next Wednesday.”</p>
                                 <div class="evidence-location">
                                   <i class="ri-map-pin-2-line"></i>
-                                  <span>Dave's statement about syncing with marketing</span>
+                                  <span>Dave's closing remark</span>
                                 </div>
                               </div>
                             
@@ -2581,37 +2712,13 @@
         
           <div class="issue-card">
             <div class="issue-header">
-              <span class="issue-loc">QA View - acceptance_criteria</span>
+              <span class="issue-loc">Stakeholder View</span>
               <span class="issue-sev sev-warning">warning</span>
             </div>
-            <p class="issue-desc">The acceptance criterion for session token validity introduces 'or last refresh (if applicable)', which is not explicitly mentioned in decision D022.</p>
+            <p class="issue-desc">The Stakeholder view's 'decisions_needing_alignment' and 'major_unresolved_questions' are empty, which contradicts the 'alignment_gaps' identified in the PM view for significant items like 'Performance Definition' (D005) and 'Dashboard Feature Scope' (D024). This understates the current level of clarity required for these critical areas for the stakeholder audience.</p>
             <div class="issue-sug">
               <span style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Suggested Fix</span>
-              Rephrase to strictly align with D022, e.g., 'then their session token must remain valid for 24 hours from issuance.', or clarify if a session refresh mechanism is implicitly agreed upon as a V1 feature.
-            </div>
-          </div>
-        
-          <div class="issue-card">
-            <div class="issue-header">
-              <span class="issue-loc">Stakeholder View - business_summary</span>
-              <span class="issue-sev sev-warning">warning</span>
-            </div>
-            <p class="issue-desc">The summary states the system is 'designed for speed and ease of use'. While 'speed' is traceable to D004, 'ease of use' is not explicitly mentioned as a design goal in the extracted decisions.</p>
-            <div class="issue-sug">
-              <span style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Suggested Fix</span>
-              Remove 'and ease of use' or ensure it is supported by an extracted decision, or rephrase to be a more general aspirational goal.
-            </div>
-          </div>
-        
-          <div class="issue-card">
-            <div class="issue-header">
-              <span class="issue-loc">Stakeholder View - key_impact</span>
-              <span class="issue-sev sev-warning">warning</span>
-            </div>
-            <p class="issue-desc">The statement 'Prioritizes system speed and security, enhancing user experience and protecting sensitive data' overstates the direct connection to 'enhancing user experience' from the decisions D004 (speed) and D020 (security). While speed contributes to UX, the specific decisions don't explicitly prioritize general 'user experience' in this context.</p>
-            <div class="issue-sug">
-              <span style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Suggested Fix</span>
-              Rephrase to focus on direct impacts: 'Prioritizes system speed and security, contributing to a performant system and protecting sensitive data.' 
+              Update the Stakeholder view to reflect that performance metrics require definition and dashboard features are still being detailed, aligning with the PM view's 'alignment_gaps'. For example, list 'Defining specific performance metrics' and 'Finalizing detailed dashboard features' under 'decisions_needing_alignment' or 'major_unresolved_questions', possibly with a high-level summary.
             </div>
           </div>
         
@@ -2653,16 +2760,13 @@
 
     // scroll to decision from reference badges
     function scrollToDecision(decisionId) {
-      // Switch tab to Decisions Ledger first
       const decisionTabButton = document.querySelector('.tab-button[data-target="panel-decisions"]');
       decisionTabButton.click();
       
-      // Scroll to element
       setTimeout(() => {
         const element = document.getElementById(`decision-${decisionId}`);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Highlight flash animation
           element.style.outline = '2px solid var(--accent)';
           element.style.boxShadow = '0 0 25px var(--accent-glow)';
           setTimeout(() => {
@@ -2678,6 +2782,7 @@
       document.getElementById('issuesModal').classList.add('active');
     }
 
+    // Close Modal
     function closeIssuesModal() {
       document.getElementById('issuesModal').classList.remove('active');
     }
