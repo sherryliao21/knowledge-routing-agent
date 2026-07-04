@@ -210,6 +210,31 @@
 
 
 
+    /* Two-column layout columns */
+    .hub-content-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      flex-wrap: wrap; /* so it stacks on narrow viewports instead of squeezing */
+    }
+
+    .hub-image-col {
+      flex: 0 0 auto;
+    }
+
+    .hub-team-image {
+      width: 320px;       /* adjust to taste based on actual image proportions */
+      max-width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .hub-cards-col {
+      flex: 1 1 480px;    /* takes remaining width, wraps below image if too narrow */
+      min-width: 0;
+    }
+
     /* Footer */
     .hub-footer {
       margin-top: 5rem;
@@ -231,14 +256,13 @@
     <p class="hub-desc">Source-grounded, role-specific engineering briefs compiled from project discussions.</p>
   </header>
 
-  <section class="hub-lineup" style="display:flex; justify-content:center; padding:1.5rem 0 2rem;">
-    <img src="assets/avatar-team.jpg" alt="The five report roles: Stakeholder, Engineer, QA, Project Manager, System Analyst" style="max-width:100%; width:640px; border-radius:var(--radius-lg); border:1px solid var(--border);">
-  </section>
-
   <main>
-
-    
-      <div class="runs-grid">
+    <div class="hub-content-row">
+      <div class="hub-image-col">
+        <img src="assets/avatar-team.jpg" alt="The five report roles: Stakeholder, Engineer, QA, Project Manager, System Analyst" class="hub-team-image">
+      </div>
+      <div class="hub-cards-col">
+        <div class="runs-grid">
         
         <a href="runs/2026-07-03-vague-notes-test/index.html" class="run-card">
           <div class="run-date">2026-07-03</div>
@@ -325,7 +349,7 @@
         </a>
         
       </div>
-    
+    </div>
   </main>
 
   <footer class="hub-footer">
