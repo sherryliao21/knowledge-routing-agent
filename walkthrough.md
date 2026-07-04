@@ -1,6 +1,6 @@
-# Walkthrough: Knowledge Routing Agent v1.1
+# Walkthrough: Knowledge Routing Agent v1.3
 
-We have successfully built, verified, and published **v1.1** to the `main` branch. 
+We have successfully built, verified, and published **v1.3** to the `main` branch. 
 
 ---
 
@@ -24,35 +24,35 @@ capstone/
 │   │   ├── role_router.py   ← Parallel routing agent (5 roles: Engineer, QA, PM, SA, Stakeholder)
 │   │   ├── reviewer.py       ← Hallucination + Quality + Injection check agent
 │   │   └── report_builder.py ← Renders HTML and Hub page
-│   ├── prompts/          ← Markdown prompts (with pm_router and sa_router split)
+│   ├── prompts/          ← Markdown prompts (with ownership rules applied)
 │   │   ├── decision_extractor.md
 │   │   ├── engineer_router.md
 │   │   ├── pm_router.md
-│   │   ├── sa_router.md   ← [NEW] System Analyst prompt focusing on system design
+│   │   ├── sa_router.md   
 │   │   ├── qa_router.md
 │   │   └── reviewer.md
 │   ├── schemas/
-│   │   └── models.py     ← Pydantic schemas (added SAView, milestones, injection warning fields)
+│   │   └── models.py     ← Pydantic schemas (added CitedItem, split constraints/decisions)
 │   └── templates/        ← HTML dashboard templates (Soft Structuralism light mode)
 ├── samples/
 │   ├── 2026-07-01-planning.md       ← Phoenix kickoff sample notes
-│   ├── 2026-07-02-injection-test.md ← [NEW] Injection test notes
-│   └── 2026-07-03-vague-notes.md     ← [NEW] Vague requirements notes
+│   ├── 2026-07-02-injection-test.md ← Injection test notes
+│   └── 2026-07-03-vague-notes.md     ← Vague requirements notes
 ├── scripts/
-│   └── run_tests.sh      ← [NEW] Automated test suite runner (T2/T3/T4)
+│   └── run_tests.sh      ← Automated test suite runner (T2/T3/T4)
 └── reports/              ← Git-tracked reports directory for GH Pages
     ├── index.html        ← The central knowledge Hub (Soft Structuralism redesign)
     ├── assets/           ← Stakeholder photos and emblem assets
     └── runs/
         └── 2026-07-01-project-phoenix-kickoff/
-            ├── index.html       ← Interactive tabbed report
-            ├── output.json      ← Serialized structured data (privacy-safe by default)
+            ├── index.html       ← Interactive tabbed report (3-state badge, split constraints)
+            ├── output.json      ← Serialized structured data (with CitedItem structures)
             └── source-map.json  ← Decision ID -> quote mappings
 ```
 
 ---
 
-## 🔒 Implemented Security & Privacy Hardening (v1.1)
+## 🔒 Implemented Security & Privacy Hardening
 
 1. **Opt-in Transcript Isolation:** By default, the raw meeting notes are **never** written to the generated reports directory to prevent accidental leakage of sensitive conversations. To publish the transcript tab in the HTML report, users must explicitly supply the `--include-transcript` flag.
 2. **Prompt Injection Defenses:** The `decision_extractor` prompt treats incoming notes as untrusted data rather than instructions. If a user inserts instructions trying to bypass confirmation/grounding, they are ignored.
@@ -60,31 +60,32 @@ capstone/
 
 ---
 
-## 📊 Split of PM (Project Manager) & SA (System Analyst) Roles
+## 📊 v1.3 Refinements
 
-Previously combined, we separated them into two distinct operational contexts:
-- **Project Manager (Sarah):** Focuses strictly on delivery timeline, cross-team dependencies, project risks, alignment gaps, and delivery milestones.
-- **System Analyst (Alex):** Focuses strictly on architectural system design, writing formal specifications ("SHALL/MUST NOT" requirements), data flows/integrations, and interface/API contracts.
+### 1. Three-State Reviewer Badge
+- Replace the binary PASS/FLAG status indicator with a 3-state badge:
+  - **Clean Pass (Green):** Approved with zero issues flagged.
+  - **Approved with Notes (Amber):** Approved with non-blocking warning-level notes from the reviewer.
+  - **Flag Needed (Red):** Critical issues require human intervention.
+- Added a standard Remix info icon (`ri-information-line`) with a hover tooltip clarifying the Reviewer is an automated AI agent.
 
----
+### 2. Constraints vs. Architectural Decisions Split
+- Created a `CitedItem` type in `models.py` associating items with relevant decision IDs.
+- Separated **Constraints** (external limitations like deadlines, budget, performance targets) from **Architectural Decisions** (technology stacks chosen by the team).
+- Rendered these split lists with inline decision pill tags in both the Engineer and System Analyst panels.
 
-## 🎨 Premium Light Mode (Soft Structuralism Vibe)
+### 3. Open Question Ownership Routing
+- Integrated ownership rules in all role router prompts to prevent broadcasting the same open questions verbatim. Gaps are assigned to specific roles responsible for resolving them (e.g. registration acceptance criteria gaps go to PM/QA; session token/API timing details go to Engineer/SA).
 
-Following the **High-End UI/UX design** guidelines:
-- **Palette:** Crisp Slate & Off-White (`#f5f5f5` / `#ffffff`) base theme with distinct color accents per role card.
-- **Navigation Row:** Horizontal navigation row displaying cards for the five roles plus decisions log, each complete with custom profile pictures (Dave, John, Emma, Sarah, Alex) and colored glowing rings.
-- **Responsive:** Fits nicely on 375px mobile screens with smooth horizontal scroll-snap buttons.
+### 4. PM Panel Reordering & Collapse
+- Rearranged the Project Manager panel to display actionable items (Milestones, Risks, Gaps, Open Questions, Dependencies) first.
+- Collapsed the long "Decision History" under a native `<details>` accordion by default to reduce daily cognitive load.
 
 ---
 
 ## 🚀 Live Test Verification
 
-We wrote an automated test runner `capstone/scripts/run_tests.sh` that validates:
-- **T2 (Injection Detection):** Confirms that prompt injection warnings are caught and populated.
-- **T3 (Vague Requirements):** Validates processing notes with incomplete details.
-- **T4 (Boundary Checks):** Verifies correct rejection of empty files, plain-text formats, and oversized uploads.
-
-All tests passed successfully:
+All automated tests passed successfully:
 ```
 ==================================================
   Knowledge Route Agent — Test Suite
