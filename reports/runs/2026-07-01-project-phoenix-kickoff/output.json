@@ -4,503 +4,637 @@
     "date": "2026-07-01",
     "run_id": "2026-07-01-project-phoenix-kickoff",
     "source_file": "2026-07-01-planning.md",
-    "generated_at": "2026-07-04T18:52:31.792196Z"
+    "generated_at": "2026-07-04T19:22:49.853648Z"
   },
   "extraction": {
     "decisions": [
       {
         "id": "D001",
         "title": "V1 MVP deadline",
-        "detail": "A working MVP for V1 must be delivered by September 1st.",
+        "detail": "The main goal for Version 1 (V1) is to deliver a working Minimum Viable Product (MVP) by September 1st.",
         "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The main goal for V1 is a working MVP by September 1st.",
-            "approximate_location": "paragraph 1"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D002",
-        "title": "V1 deadline is a hard constraint",
-        "detail": "The V1 deadline is a hard constraint due to a marketing campaign launch on September 5th.",
+        "title": "Hard deadline for V1 MVP",
+        "detail": "The September 1st deadline for V1 MVP is a hard constraint due to the marketing campaign launching on September 5th.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th.",
-            "approximate_location": "paragraph 1"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D003",
-        "title": "Ads for marketing campaign booked",
-        "detail": "Ads for the marketing campaign launching September 5th have already been booked.",
+        "title": "Marketing ads booked",
+        "detail": "Marketing advertisements have already been booked, reinforcing the V1 deadline.",
         "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Yes, we've already booked the ads.",
-            "approximate_location": "paragraph 2"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D004",
-        "title": "V1 core features",
-        "detail": "V1 must include user authentication and a working project dashboard.",
+        "title": "V1 Core features: User authentication and project dashboard",
+        "detail": "Version 1 (V1) must include user authentication and a functional project dashboard.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "V1 must have user authentication and a working project dashboard.",
-            "approximate_location": "paragraph 2"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D005",
-        "title": "System performance",
-        "detail": "The system should be \"super fast\".",
-        "category": "functional_requirement",
+        "title": "System performance must be fast",
+        "detail": "The system performance should be very fast.",
+        "category": "business_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Let's make sure it's super fast.",
-            "approximate_location": "paragraph 2"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D006",
-        "title": "Frontend technology",
-        "detail": "React will be used for the frontend.",
+        "title": "Frontend stack: React",
+        "detail": "React has been chosen for the frontend development.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "we are using React for the frontend",
-            "approximate_location": "paragraph 3"
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D007",
-        "title": "Backend technology",
-        "detail": "Python (FastAPI) will be used for the backend service.",
+        "title": "Backend stack: Python (FastAPI)",
+        "detail": "Python with FastAPI has been chosen for the backend service development.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Python (FastAPI) for the backend service.",
-            "approximate_location": "paragraph 3"
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D008",
-        "title": "Rationale for Python backend",
-        "detail": "Python was chosen for the backend due to existing team expertise and libraries.",
+        "title": "Python stack rationale: Existing libraries",
+        "detail": "The choice of Python for the backend is influenced by existing Python libraries within the team.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "I think it makes the most sense for our team since we already have libraries built in Python.",
-            "approximate_location": "paragraph 3"
+            "quote": "since we already have libraries built in Python.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D009",
-        "title": "Database choice",
-        "detail": "Question regarding the choice of database.",
+        "title": "Database selection",
+        "detail": "The specific database to be used needs to be decided.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "What about the database?",
-            "approximate_location": "paragraph 4"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D010",
-        "title": "Database technology",
-        "detail": "PostgreSQL will be used as the database, using a standard relational model.",
+        "title": "Database choice: PostgreSQL",
+        "detail": "PostgreSQL will be used as the database, adhering to a standard relational model.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "We'll use PostgreSQL. Standard relational model is fine.",
-            "approximate_location": "paragraph 5"
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D011",
         "title": "Session management technology",
-        "detail": "Question about whether to use Redis or standard database sessions for session management.",
+        "detail": "A decision is needed on whether to use Redis or standard database sessions for managing user sessions.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "what about session management? Should we use Redis or just standard database sessions?",
-            "approximate_location": "paragraph 5"
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D012",
-        "title": "Session management decision",
-        "detail": "Redis is deferred to V2 and will only be considered earlier if it becomes a performance blocker. Standard PostgreSQL sessions will be used for now to save budget.",
+        "title": "Session management: Standard PostgreSQL sessions for V1",
+        "detail": "For V1, standard PostgreSQL sessions will be used for session management to keep it simple and save budget. Redis is deferred to V2 unless performance becomes an issue.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Let's defer Redis to V2 unless it's a performance blocker. Keep it simple. Let's stick to standard postgres sessions for now to save budget.",
-            "approximate_location": "paragraph 6"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D013",
-        "title": "User authentication implementation method",
-        "detail": "Question about the method for implementing user authentication.",
-        "category": "open_question",
+        "title": "PostgreSQL for session storage",
+        "detail": "PostgreSQL will be used to store session information.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "How are we doing user auth?",
-            "approximate_location": "paragraph 7"
+            "quote": "Okay, postgres for sessions.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D014",
-        "title": "Do not build user authentication in-house",
-        "detail": "The team should not build user authentication themselves; external services like Auth0 or Firebase Auth should be used.",
-        "category": "technical_constraint",
+        "title": "User authentication implementation method",
+        "detail": "The specific method or service for implementing user authentication needs to be determined.",
+        "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "We don't want to build it ourselves, right?",
-            "approximate_location": "paragraph 8"
+            "quote": "How are we doing user auth?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D015",
-        "title": "User authentication service for V1",
-        "detail": "Firebase Authentication will be integrated for V1, chosen for its speed, social login capabilities, and pricing.",
-        "category": "key_decision",
+        "title": "Avoid building custom authentication system",
+        "detail": "The team should avoid building a custom authentication system, preferring a third-party service like Auth0 or Firebase Auth.",
+        "category": "business_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements.",
-            "approximate_location": "paragraph 9"
+            "quote": "We don't want to build it ourselves, right?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D016",
-        "title": "Firebase Auth login methods",
-        "detail": "Firebase Authentication will be configured to allow Google sign-in and email logins.",
-        "category": "functional_requirement",
+        "title": "User authentication: Firebase Authentication for V1",
+        "detail": "Firebase Authentication will be integrated for V1 due to its speed, ease of handling social logins, and alignment with pricing requirements.",
+        "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "We will configure it to allow Google sign-in and email logins.",
-            "approximate_location": "paragraph 9"
+            "quote": "for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D017",
-        "title": "User registration acceptance criteria and fields",
-        "detail": "Question regarding the acceptance criteria for user registration and the specific fields to be collected.",
-        "category": "open_question",
+        "title": "Firebase Auth: Google sign-in support",
+        "detail": "Firebase Authentication will be configured to support Google sign-in.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Do we have acceptance criteria for user registration? What fields do we collect?",
-            "approximate_location": "paragraph 10"
+            "quote": "We will configure it to allow Google sign-in",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D018",
-        "title": "User registration fields (initial)",
-        "detail": "Initially, user registration should collect email, full name, and role. Address and telephone number are not required.",
+        "title": "Firebase Auth: Email login support",
+        "detail": "Firebase Authentication will be configured to support email logins.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Just email, full name, and role. We don't need address or telephone number for now.",
-            "approximate_location": "paragraph 11"
+            "quote": "and email logins.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D019",
-        "title": "Company name required for B2B",
-        "detail": "Company name must be collected during signup because the project is B2B.",
-        "category": "business_requirement",
+        "title": "User registration acceptance criteria and required fields",
+        "detail": "Specific acceptance criteria and the exact fields to be collected during user registration need to be defined.",
+        "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "we need to collect company name too! We are B2B.",
-            "approximate_location": "paragraph 12"
+            "quote": "Do we have acceptance criteria for user registration? What fields do we collect?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D020",
-        "title": "User registration fields (final)",
-        "detail": "Company name is required during user signup, in addition to email, full name, and role.",
+        "title": "User registration field: Email",
+        "detail": "The user registration process must collect the user's email address.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Company name is required during signup.",
-            "approximate_location": "paragraph 13"
+            "quote": "Just email",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D021",
-        "title": "Proposed deployment platforms",
-        "detail": "John proposed Cloud Run for the FastAPI backend and Vercel for the React frontend.",
-        "category": "open_question",
+        "title": "User registration field: Full Name",
+        "detail": "The user registration process must collect the user's full name.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app.",
-            "approximate_location": "paragraph 15"
+            "quote": "full name",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D022",
-        "title": "Frontend deployment platform",
-        "detail": "Vercel is accepted as the deployment platform for the React frontend.",
-        "category": "key_decision",
+        "title": "User registration field: Role",
+        "detail": "The user registration process must collect the user's role.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Vercel is fine",
-            "approximate_location": "paragraph 16"
+            "quote": "and role.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D023",
-        "title": "Cloud Run security concern",
-        "detail": "A question was raised about the security of Cloud Run for the backend.",
-        "category": "open_question",
+        "title": "User registration: Address and telephone not required for now",
+        "detail": "The user registration process will not collect address or telephone number initially.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "is Cloud Run secure?",
-            "approximate_location": "paragraph 16"
+            "quote": "We don't need address or telephone number for now.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D024",
-        "title": "Database security via private VPC",
-        "detail": "The database will be placed in a private VPC and connected to Cloud Run via Serverless VPC Access, ensuring the PostgreSQL instance is not exposed to the public internet.",
-        "category": "technical_constraint",
+        "title": "User registration field: Company Name",
+        "detail": "The user registration process must collect the user's company name because the product is B2B.",
+        "category": "business_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet.",
-            "approximate_location": "paragraph 17"
+            "quote": "we need to collect company name too! We are B2B.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D025",
-        "title": "Backend deployment platform",
-        "detail": "Cloud Run will be used for the FastAPI backend, with a specific security configuration.",
-        "category": "key_decision",
+        "title": "Company name is a required field during signup",
+        "detail": "The company name field must be required during the user signup process.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "I was thinking Cloud Run for the FastAPI app",
-            "approximate_location": "paragraph 15"
-          },
-          {
-            "quote": "Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access.",
-            "approximate_location": "paragraph 17"
+            "quote": "Company name is required during signup.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
           }
         ]
       },
       {
         "id": "D026",
-        "title": "Security constraint for database exposure",
-        "detail": "Preventing the PostgreSQL instance from being exposed to the public internet is a strict technical constraint for security.",
-        "category": "technical_constraint",
+        "title": "Confirmed user registration fields",
+        "detail": "The confirmed user registration fields are email, full name, role, and company name.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "This is a strict technical constraint for security.",
-            "approximate_location": "paragraph 17"
+            "quote": "Got it. Email, full name, role, and company name.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D027",
-        "title": "Thorough testing of auth flow",
-        "detail": "The authentication flow needs to be tested thoroughly.",
-        "category": "functional_requirement",
+        "title": "Deployment strategy confirmation",
+        "detail": "The proposed deployment strategy (Cloud Run for FastAPI, Vercel for React) needs to be confirmed.",
+        "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "We need to test the auth flow thoroughly.",
-            "approximate_location": "paragraph 18"
+            "quote": "What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D028",
-        "title": "User session duration",
-        "detail": "Question about the duration of a user session after login.",
-        "category": "open_question",
+        "title": "Frontend deployment: Vercel",
+        "detail": "Vercel is acceptable for deploying the React frontend application.",
+        "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "If a user logs in, how long does the session last?",
-            "approximate_location": "paragraph 18"
+            "quote": "Vercel is fine",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D029",
-        "title": "Token expiration duration",
-        "detail": "Token expiration will be set to 24 hours, with the possibility of adjustment later.",
-        "category": "key_decision",
+        "title": "Cloud Run security for backend",
+        "detail": "There is a question and potential concern regarding the security of using Cloud Run for the backend.",
+        "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Let's set token expiration to 24 hours. We can adjust it later.",
-            "approximate_location": "paragraph 19"
+            "quote": "is Cloud Run secure?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       },
       {
         "id": "D030",
-        "title": "Dashboard metrics",
-        "detail": "Question about which metrics will be displayed on the project dashboard.",
-        "category": "open_question",
+        "title": "Backend deployment: Cloud Run",
+        "detail": "Cloud Run will be used for the FastAPI backend application, with a security mitigation plan in place.",
+        "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "What about the dashboard? What metrics are we displaying?",
-            "approximate_location": "paragraph 20"
+            "quote": "Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D031",
-        "title": "Dashboard required metrics",
-        "detail": "The dashboard needs to display active user metrics, system status, and project lists.",
-        "category": "functional_requirement",
+        "title": "Database private VPC deployment",
+        "detail": "The PostgreSQL database must be placed within a private Virtual Private Cloud (VPC).",
+        "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "We need active user metrics, system status, and project lists.",
-            "approximate_location": "paragraph 21"
+            "quote": "we will place the database in a private VPC",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D032",
-        "title": "Defer dashboard feature detailing",
-        "detail": "Detailed dashboard features will be discussed in the next sync meeting due to time constraints.",
-        "category": "key_decision",
+        "title": "Cloud Run to database connection via Serverless VPC Access",
+        "detail": "Cloud Run must connect to the database using Serverless VPC Access.",
+        "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Let's detail the dashboard features in the next sync. We are running out of time.",
-            "approximate_location": "paragraph 22"
+            "quote": "connect Cloud Run via Serverless VPC Access.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D033",
-        "title": "Firebase provisioning ownership",
-        "detail": "Question regarding who is responsible for Firebase provisioning and when the config keys are needed.",
-        "category": "open_question",
+        "title": "PostgreSQL instance not exposed to public internet",
+        "detail": "The PostgreSQL database instance must not be exposed to the public internet.",
+        "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "who is handling the Firebase provisioning? I need the config keys by next week.",
-            "approximate_location": "paragraph 23"
+            "quote": "the postgres instance is not exposed to the public internet.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D034",
-        "title": "Assign Firebase provisioning to Mike",
-        "detail": "Mike will be assigned to handle Firebase provisioning.",
-        "category": "key_decision",
+        "title": "Database security requirement (strict constraint)",
+        "detail": "Preventing public exposure of the PostgreSQL instance is a strict technical security constraint.",
+        "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "I'll assign that to Mike.",
-            "approximate_location": "paragraph 24"
+            "quote": "This is a strict technical constraint for security.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
           }
         ]
       },
       {
         "id": "D035",
-        "title": "Firebase config keys deadline",
-        "detail": "Mike is responsible for Firebase provisioning and should have the config keys ready by July 8th.",
-        "category": "deadline_or_milestone",
+        "title": "Thorough testing of authentication flow",
+        "detail": "The authentication flow must be thoroughly tested.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "He should have it ready by July 8th.",
-            "approximate_location": "paragraph 24"
+            "quote": "We need to test the auth flow thoroughly.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
           }
         ]
       },
       {
         "id": "D036",
-        "title": "Sync with marketing team on dashboard design",
-        "detail": "A sync meeting with the marketing team on the dashboard design should happen next Wednesday.",
+        "title": "Session duration for logged-in users",
+        "detail": "The duration of a user's session after logging in needs to be determined.",
+        "category": "open_question",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "If a user logs in, how long does the session last?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Emma's statement"
+          }
+        ]
+      },
+      {
+        "id": "D037",
+        "title": "Token expiration set to 24 hours",
+        "detail": "The token expiration for user sessions will be initially set to 24 hours, with the possibility of adjustment later.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Let's set token expiration to 24 hours.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
+          }
+        ]
+      },
+      {
+        "id": "D038",
+        "title": "Dashboard metrics to display",
+        "detail": "The specific metrics to be displayed on the project dashboard need to be identified.",
+        "category": "open_question",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "What about the dashboard? What metrics are we displaying?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
+          }
+        ]
+      },
+      {
+        "id": "D039",
+        "title": "Dashboard metric: Active user metrics",
+        "detail": "The project dashboard must display active user metrics.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "We need active user metrics",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
+          }
+        ]
+      },
+      {
+        "id": "D040",
+        "title": "Dashboard metric: System status",
+        "detail": "The project dashboard must display the system status.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "system status",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
+          }
+        ]
+      },
+      {
+        "id": "D041",
+        "title": "Dashboard feature: Project lists",
+        "detail": "The project dashboard must display lists of projects.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "and project lists.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
+          }
+        ]
+      },
+      {
+        "id": "D042",
+        "title": "Defer dashboard feature detailing to next sync",
+        "detail": "Further detailing of the dashboard features will be postponed until the next synchronization meeting due to time constraints.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Let's detail the dashboard features in the next sync.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
+          }
+        ]
+      },
+      {
+        "id": "D043",
+        "title": "Firebase provisioning ownership",
+        "detail": "The responsible party for Firebase provisioning needs to be identified.",
+        "category": "open_question",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "who is handling the Firebase provisioning?",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
+          }
+        ]
+      },
+      {
+        "id": "D044",
+        "title": "Firebase config keys deadline",
+        "detail": "The Firebase configuration keys are required by next week.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "I need the config keys by next week.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - John's statement"
+          }
+        ]
+      },
+      {
+        "id": "D045",
+        "title": "Mike assigned Firebase provisioning",
+        "detail": "Mike will be assigned the task of handling Firebase provisioning.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "I'll assign that to Mike.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
+          }
+        ]
+      },
+      {
+        "id": "D046",
+        "title": "Firebase config keys delivery by July 8th",
+        "detail": "Mike is expected to have the Firebase configuration keys ready by July 8th.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "He should have it ready by July 8th.",
+            "approximate_location": "Meeting Notes & Discussion Transcript - Sarah's statement"
+          }
+        ]
+      },
+      {
+        "id": "D047",
+        "title": "Sync with marketing on dashboard design",
+        "detail": "A synchronization meeting with the marketing team regarding the dashboard design is scheduled for next Wednesday.",
         "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Let's make sure we sync with the marketing team on the dashboard design next Wednesday.",
-            "approximate_location": "paragraph 25"
+            "approximate_location": "Meeting Notes & Discussion Transcript - Dave's statement"
           }
         ]
       }
     ],
-    "total_confirmed": 36,
+    "total_confirmed": 47,
     "total_inferred": 0
   },
   "roles": {
     "engineer": {
       "implementation_scope": [
-        "Implement user authentication module.",
-        "Integrate Firebase Authentication configured for Google sign-in and email logins.",
-        "Develop user registration flow to collect email, full name, role, and company name.",
-        "Implement a project dashboard displaying active user metrics, system status, and project lists.",
-        "Develop frontend using React.",
-        "Develop backend service using Python (FastAPI).",
-        "Implement data storage using PostgreSQL with a standard relational model.",
-        "Implement session management using standard PostgreSQL sessions.",
-        "Configure token expiration for user sessions to 24 hours.",
-        "Thoroughly test the authentication flow."
+        "Develop and integrate user authentication functionality, including Google sign-in and email logins via Firebase Authentication.",
+        "Implement user registration process to collect email, full name, role, and company name (required). Do not collect address or telephone.",
+        "Build a functional project dashboard displaying active user metrics, system status, and project lists.",
+        "Implement thorough testing of the authentication flow.",
+        "Configure PostgreSQL for session storage for V1."
       ],
       "constraints": [
         {
-          "text": "V1 MVP must be delivered by September 1st (hard deadline due to marketing campaign launch on September 5th).",
+          "text": "Deliver a working Minimum Viable Product (MVP) by September 1st (hard deadline due to marketing campaign launch on September 5th).",
           "decision_ids": [
             "D001",
             "D002",
@@ -508,58 +642,66 @@
           ]
         },
         {
-          "text": "System performance must be 'super fast'.",
+          "text": "The system performance must be very fast.",
           "decision_ids": [
             "D005"
           ]
         },
         {
-          "text": "User authentication must not be built in-house; external services must be used.",
+          "text": "Backend development must leverage existing Python libraries within the team.",
           "decision_ids": [
-            "D014"
+            "D008"
           ]
         },
         {
-          "text": "PostgreSQL database instance must not be exposed to the public internet.",
+          "text": "Avoid building a custom authentication system; prefer third-party services.",
           "decision_ids": [
-            "D024",
-            "D026"
+            "D015"
           ]
         },
         {
-          "text": "Database must be placed in a private VPC and connected to Cloud Run via Serverless VPC Access.",
+          "text": "The PostgreSQL database must be placed within a private Virtual Private Cloud (VPC) and not exposed to the public internet (strict technical security constraint).",
           "decision_ids": [
-            "D024"
+            "D031",
+            "D033",
+            "D034"
           ]
         },
         {
-          "text": "Firebase config keys are needed by July 8th (owned by Mike).",
+          "text": "Cloud Run must connect to the database using Serverless VPC Access.",
           "decision_ids": [
-            "D035"
+            "D032"
+          ]
+        },
+        {
+          "text": "Firebase configuration keys are required by July 8th.",
+          "decision_ids": [
+            "D044",
+            "D046"
           ]
         }
       ],
       "architectural_decisions": [
         {
-          "text": "Frontend framework: React.",
+          "text": "Frontend stack: React.",
           "decision_ids": [
             "D006"
           ]
         },
         {
-          "text": "Backend framework: Python (FastAPI).",
+          "text": "Backend stack: Python with FastAPI.",
           "decision_ids": [
             "D007"
           ]
         },
         {
-          "text": "Database: PostgreSQL with a standard relational model.",
+          "text": "Database: PostgreSQL, adhering to a standard relational model.",
           "decision_ids": [
             "D010"
           ]
         },
         {
-          "text": "Session management: Standard PostgreSQL sessions (Redis deferred to V2 unless performance becomes a blocker).",
+          "text": "Session management: Standard PostgreSQL sessions for V1 (Redis deferred to V2).",
           "decision_ids": [
             "D012"
           ]
@@ -567,31 +709,25 @@
         {
           "text": "User authentication service: Firebase Authentication for V1.",
           "decision_ids": [
-            "D015"
+            "D016"
           ]
         },
         {
-          "text": "Frontend deployment platform: Vercel.",
+          "text": "Frontend deployment: Vercel.",
           "decision_ids": [
-            "D022"
+            "D028"
           ]
         },
         {
-          "text": "Backend deployment platform: Cloud Run.",
+          "text": "Backend deployment: Cloud Run, with security mitigation via private VPC and Serverless VPC Access for database connectivity.",
           "decision_ids": [
-            "D025"
+            "D030"
           ]
         },
         {
-          "text": "User session token expiration: 24 hours.",
+          "text": "User session token expiration: Initially set to 24 hours.",
           "decision_ids": [
-            "D029"
-          ]
-        },
-        {
-          "text": "Detailed dashboard features are deferred to a future sync meeting.",
-          "decision_ids": [
-            "D032"
+            "D037"
           ]
         }
       ],
@@ -606,261 +742,295 @@
         "D008",
         "D010",
         "D012",
-        "D014",
+        "D013",
         "D015",
         "D016",
+        "D017",
         "D018",
-        "D019",
         "D020",
+        "D021",
         "D022",
+        "D023",
         "D024",
         "D025",
         "D026",
-        "D027",
-        "D029",
+        "D028",
+        "D030",
         "D031",
         "D032",
+        "D033",
         "D034",
         "D035",
-        "D036"
+        "D037",
+        "D039",
+        "D040",
+        "D041",
+        "D044",
+        "D046"
       ],
-      "open_technical_questions": []
+      "open_technical_questions": [
+        "What are the specific data sources, display components, interactions, and any other metrics/features (beyond active users, system status, and project lists) required for the V1 project dashboard? (Further detailing was deferred, D042)"
+      ]
     },
     "qa": {
       "acceptance_criteria": [
-        "Given a user navigates to the login page, When they choose \"Google Sign-in\", Then they shall be successfully authenticated via Firebase Authentication and redirected to the project dashboard.",
-        "Given a user navigates to the login page, When they provide valid email and password, Then they shall be successfully authenticated via Firebase Authentication and redirected to the project dashboard.",
-        "Given a user is authenticated, When 24 hours pass without activity, Then their session token shall expire, requiring re-authentication for subsequent actions.",
-        "Given a new user attempts to register, When they provide a valid Email, Full Name, Role, and Company Name, Then their account shall be successfully created via Firebase Authentication, and they shall be logged in.",
-        "Given a new user attempts to register, When they omit any required field (Email, Full Name, Role, Company Name), Then registration shall fail, and an appropriate error message shall be displayed.",
-        "Given a user is logged in, When they access the project dashboard, Then the dashboard shall display active user metrics.",
-        "Given a user is logged in, When they access the project dashboard, Then the dashboard shall display system status information.",
-        "Given a user is logged in, When they access the project dashboard, Then the dashboard shall display a list of projects."
+        "Given a user is on the registration page, When they fill in a valid Email, Full Name, Role, and Company Name, and submit, Then their account is successfully created, they are logged in, and redirected to the project dashboard.",
+        "Given a user is on the registration page, When they attempt to register without providing an Email, Then an error message is displayed indicating the Email field is required, and registration is prevented.",
+        "Given a user is on the registration page, When they attempt to register without providing a Full Name, Then an error message is displayed indicating the Full Name field is required, and registration is prevented.",
+        "Given a user is on the registration page, When they attempt to register without providing a Role, Then an error message is displayed indicating the Role field is required, and registration is prevented.",
+        "Given a user is on the registration page, When they attempt to register without providing a Company Name, Then an error message is displayed indicating the Company Name field is required, and registration is prevented.",
+        "Given a user is on the login page, When they provide valid email/password credentials, Then they are successfully logged in and redirected to the project dashboard.",
+        "Given a user is on the login page, When they click the \"Sign in with Google\" option, Then they are successfully authenticated via Google and redirected to the project dashboard.",
+        "Given a user is logged in, When 24 hours pass since their last successful authentication, Then their session token expires, and subsequent attempts to access protected resources should require re-authentication.",
+        "Given a user is on the registration page, When they attempt to provide an address or telephone number, Then these fields are not collected or stored by the system.",
+        "Given a user is logged in and navigates to the project dashboard, Then the dashboard displays the active user metrics.",
+        "Given a user is logged in and navigates to the project dashboard, Then the dashboard displays the current system status.",
+        "Given a user is logged in and navigates to the project dashboard, Then the dashboard displays lists of projects.",
+        "Given the backend services are running, Then user session information is stored in the PostgreSQL database."
       ],
       "test_scenarios": [
-        "Verify successful login using Google sign-in for a new user, ensuring they are redirected to the dashboard.",
-        "Verify successful login using Google sign-in for an existing user, ensuring they are redirected to the dashboard.",
-        "Verify successful registration and login using email/password for a new user, ensuring all required fields (Email, Full Name, Role, Company Name) are collected and the user is redirected to the dashboard.",
-        "Verify successful login using email/password for an existing user, ensuring they are redirected to the dashboard.",
-        "Verify failed login attempts with an unregistered email address, displaying an appropriate error message.",
-        "Verify failed login attempts with a registered email but incorrect password, displaying an appropriate error message.",
-        "Verify password reset flow for email/password authentication (if available through Firebase Auth UI).",
-        "Verify error handling for registration attempts with an email address already in use.",
-        "Verify error handling for registration attempts with invalid email formats.",
-        "Verify that after a user logs in, their session persists for actions taken within 24 hours.",
-        "Verify that a user's session expires and requires re-authentication if they remain inactive for longer than 24 hours.",
-        "Verify that the project dashboard loads successfully for an authenticated user.",
-        "Verify that active user metrics are displayed and appear up-to-date on the project dashboard.",
-        "Verify that system status information is displayed and appears up-to-date on the project dashboard.",
-        "Verify that a list of projects is displayed on the project dashboard."
+        "**User Registration - Happy Path:** Successfully register a new user using email/password with valid Email, Full Name, Role, and Company Name.",
+        "**User Registration - Google Sign-in Happy Path:** Successfully register and log in a new user using Google sign-in.",
+        "**User Login - Happy Path:** Log in successfully with valid email/password credentials.",
+        "**User Login - Google Sign-in Happy Path:** Log in successfully with Google account credentials.",
+        "**Dashboard Access - Valid Session:** Log in and verify the project dashboard loads correctly, displaying active user metrics, system status, and project lists.",
+        "**User Registration - Invalid Email:** Attempt to register with an incorrectly formatted email address.",
+        "**User Registration - Existing Email:** Attempt to register with an email address already associated with an account.",
+        "**User Registration - Missing Required Fields:** Attempt to register by omitting Email, Full Name, Role, or Company Name individually and in combination.",
+        "**User Login - Incorrect Credentials:** Attempt to log in with incorrect email or password.",
+        "**User Login - Non-existent Account:** Attempt to log in with an email that is not registered.",
+        "**Session Expiration:** Log in, wait for 24 hours (or simulate session expiry), then attempt to access a protected resource and confirm re-authentication is required.",
+        "**Unauthorized Access:** Attempt to access authenticated dashboard features without being logged in or with an expired session."
       ],
       "edge_cases": [
-        "Attempt user registration and login with maximum length inputs for Email, Full Name, Role, and Company Name fields (if character limits are defined by Firebase or the application).",
-        "Attempt user registration and login with special characters or unicode characters in Full Name, Role, and Company Name fields.",
-        "Test concurrency: Multiple users attempting to register or log in simultaneously.",
-        "Observe system behavior during and after a simulated outage or degraded performance of Firebase Authentication.",
-        "Verify system behavior when a user's local client clock is significantly out of sync with the server, specifically around token expiration.",
-        "Perform load testing to ensure key user flows (login, dashboard access) remain performant under expected and peak user loads, aiming for \"super fast\" responsiveness."
+        "**User Registration - Max Length Inputs:** Test registration with maximum allowed character lengths for Email, Full Name, Role, and Company Name fields (if limits are defined).",
+        "**User Registration - Special Characters:** Test registration with Full Name, Role, and Company Name fields containing special characters, symbols, and Unicode characters.",
+        "**Concurrent Registrations:** Attempt multiple user registrations simultaneously with identical or similar data.",
+        "**Concurrent Logins:** Log in to the same user account from multiple devices or browser tabs simultaneously.",
+        "**Session Expiration Handling:** While actively performing actions in the application, simulate session expiration and observe the user experience (e.g., auto-logout, error message on next action, graceful redirection).",
+        "**Empty Dashboard Data:** What does the dashboard display if there are no active users, no system status information, or no projects?"
       ],
       "unresolved_behaviors": [
-        "What are the specific, measurable performance targets for \"super fast\" system performance (e.g., maximum response times for user authentication, dashboard load, concurrent user capacity)? (Ownership: PM/QA)",
-        "Beyond \"active user metrics, system status, and project lists\", what are the detailed requirements and specific data points to be displayed for each section on the project dashboard (e.g., specific metrics for active users, types of system status, project attributes in the list)? (Ownership: PM/QA)"
+        "The definition of \"very fast\" system performance (D005) needs concrete, measurable metrics (e.g., specific page load times, API response thresholds, concurrent user capacity).",
+        "The precise definition, calculation method, and expected display format for \"Active User Metrics\" (D039) on the project dashboard are unclear.",
+        "The specific components and states included in \"System Status\" (D040) for display on the dashboard are unclear.",
+        "The full scope of data and display format for \"Project Lists\" (D041) on the dashboard is currently undefined. Further details are deferred to the next sync with marketing (D042, D047).",
+        "Are there any specific validation rules (e.g., predefined list, character limits) for the 'Role' field during user registration?",
+        "Are there any specific validation rules (e.g., character limits, allowed characters, uniqueness requirements) for the 'Company Name' field during user registration?",
+        "What is the expected user experience and system behavior when a user's session expires while they are actively using the application (e.g., notification, immediate logout, silent refresh attempt)?",
+        "Are there any specific password complexity requirements (e.g., minimum length, use of special characters, numbers) for email logins via Firebase Authentication?"
       ]
     },
     "pm": {
       "decision_history": [
-        "A working MVP for V1 must be delivered by September 1st, which is a hard constraint due to a marketing campaign launch on September 5th.",
-        "V1 core features must include user authentication and a working project dashboard.",
-        "The system should aim to be \"super fast\".",
-        "React will be used for the frontend.",
-        "Python (FastAPI) will be used for the backend service, chosen due to existing team expertise and libraries.",
-        "PostgreSQL will be used as the database, using a standard relational model.",
-        "Standard PostgreSQL sessions will be used for session management for V1 to save budget; Redis is deferred to V2 unless it becomes a performance blocker.",
-        "User authentication will not be built in-house; external services will be used.",
-        "Firebase Authentication will be integrated for V1, chosen for its speed, social login capabilities, and pricing.",
-        "Firebase Authentication will be configured to allow Google sign-in and email logins.",
-        "User registration will initially collect email, full name, role, and company name (required for B2B). Address and telephone number are not required.",
-        "Vercel is accepted as the deployment platform for the React frontend.",
-        "Cloud Run will be used for the FastAPI backend. The PostgreSQL instance will be placed in a private VPC and connected to Cloud Run via Serverless VPC Access to prevent public internet exposure (a strict security constraint).",
-        "The authentication flow needs to be tested thoroughly.",
-        "Token expiration will be set to 24 hours, with the possibility of adjustment later.",
-        "The dashboard needs to display active user metrics, system status, and project lists.",
-        "Detailed dashboard features will be discussed in the next sync meeting due to time constraints.",
-        "Mike will be assigned to handle Firebase provisioning."
+        "The primary objective for Version 1 (V1) is to deliver a functional Minimum Viable Product (MVP) by September 1st, a hard deadline driven by the marketing campaign launching on September 5th.",
+        "Core features for V1 confirmed: User authentication and a functional project dashboard.",
+        "A key non-functional requirement is for the system performance to be 'very fast'.",
+        "Technology stack decisions: React for the frontend, Python (FastAPI) for the backend (leveraging existing team libraries), and PostgreSQL as the primary database.",
+        "For V1, session management will use standard PostgreSQL sessions to prioritize simplicity and budget; Redis is deferred to V2 unless performance becomes a critical blocker.",
+        "User authentication for V1 will be integrated via Firebase Authentication, chosen for its rapid implementation, support for social logins, and alignment with pricing requirements. It will support Google sign-in and email logins. The team explicitly decided against building a custom authentication system.",
+        "User registration will require the collection of Email, Full Name, Role, and Company Name (the latter being essential due to the product's B2B nature). Address and telephone number are not required for initial signup.",
+        "The deployment strategy has been confirmed: Vercel for the React frontend and Cloud Run for the FastAPI backend.",
+        "To address Cloud Run security concerns, the PostgreSQL database will be placed in a private Virtual Private Cloud (VPC), with Cloud Run connecting via Serverless VPC Access. It is a strict technical constraint that the PostgreSQL instance must not be exposed to the public internet.",
+        "Token expiration for user sessions is initially set to 24 hours, with the understanding that this can be adjusted later.",
+        "The project dashboard will display active user metrics, system status, and project lists. However, further detailing of these dashboard features is specifically postponed to the next synchronization meeting.",
+        "Mike has been assigned the responsibility for Firebase provisioning, with a target to deliver the configuration keys by July 8th.",
+        "The authentication flow must undergo thorough testing."
       ],
       "dependencies": [
-        "The project MVP delivery by September 1st is critical, as ads for the marketing campaign launching September 5th have already been booked (External Marketing Team).",
-        "A sync meeting with the marketing team on the dashboard design should happen next Wednesday (Internal Marketing Team)."
+        "The V1 MVP delivery by September 1st is a hard dependency for the marketing campaign launch on September 5th.",
+        "Marketing advertisements have already been booked, making the September 1st V1 deadline non-negotiable.",
+        "Engineering work on authentication is dependent on Mike delivering Firebase configuration keys by July 8th.",
+        "Finalizing detailed dashboard requirements and design is dependent on a scheduled synchronization meeting with the marketing team next Wednesday."
       ],
       "risks": [
-        "Hard deadline for V1 MVP on September 1st (4 days before marketing launch) means any delays will critically impact the marketing campaign and business objectives (Likelihood: High, Impact: High).",
-        "Vague performance requirement: 'System should be super fast' is not quantifiable, risking scope creep or unmet expectations (Likelihood: Medium, Impact: Medium).",
-        "Deferring Redis for session management to V2 for budget reasons introduces a risk that standard PostgreSQL sessions might become a performance blocker for V1 (Likelihood: Low for MVP, Impact: High if it occurs).",
-        "Deferral of detailed dashboard feature discussion to the next sync meeting could delay requirements clarification for a core V1 feature, potentially impacting development timeline or leading to rework (Likelihood: Medium, Impact: Medium)."
+        "Missed V1 MVP Deadline (High Impact, High Likelihood if unforeseen issues occur): The September 1st deadline is a hard constraint due to the marketing campaign launch on September 5th, with ads already booked. Missing this deadline would have severe business repercussions.",
+        "Performance Bottleneck with PostgreSQL Sessions (Medium Impact, Low-Medium Likelihood): The decision to use standard PostgreSQL sessions for V1 to save budget and simplify could become a performance blocker if the 'very fast' system performance requirement is not met, potentially necessitating a costly and time-consuming pivot to Redis later.",
+        "Incomplete Dashboard Requirements Leading to Rework (Medium Impact, Medium Likelihood): The deferral of detailed dashboard feature planning to the next sync meeting carries a risk of delays or rework if requirements are not fully captured and agreed upon in a timely manner, especially with the approaching MVP deadline.",
+        "Database Security Vulnerability (High Impact, Low Likelihood if mitigation followed): While a comprehensive security mitigation plan for Cloud Run and PostgreSQL deployment is established, any failure in implementing these strict technical constraints (e.g., public exposure of DB, misconfigured VPC access) could lead to a critical security breach."
       ],
       "alignment_gaps": [
-        "Lack of quantified performance metrics for the 'super fast' requirement may lead to differing interpretations and expectations among stakeholders.",
-        "Detailed features and design for the project dashboard are yet to be fully defined, which could lead to misalignment between development and marketing expectations."
+        "The requirement for 'very fast' system performance lacks specific, quantifiable metrics. This ambiguity could lead to differing interpretations among stakeholders and potential rework if performance expectations are not mutually understood and met.",
+        "While the required fields for user registration have been identified, the overarching 'acceptance criteria' for the user registration process are still undefined. This could lead to gaps in user experience or testing if not clarified."
       ],
       "open_questions": [
-        "What are the complete acceptance criteria for user registration, beyond the fields already defined (email, full name, role, company name)? (PM/QA)",
-        "What are the detailed features and specific design requirements for the V1 project dashboard, beyond the high-level metrics identified? (PM/Marketing)"
+        "What are the specific, quantifiable acceptance criteria for 'very fast' system performance?",
+        "What are the detailed acceptance criteria for the user registration process, beyond the confirmed fields (email, full name, role, company name)?",
+        "What are the remaining detailed features and specific metrics to be displayed on the project dashboard, further elaborating on 'active user metrics', 'system status', and 'project lists'?"
       ],
       "milestones": [
-        "V1 MVP must be delivered by 2026-09-01.",
-        "Mike to provide Firebase config keys by 2026-07-08.",
-        "Sync with Marketing team on dashboard design by next Wednesday."
+        "Deliver a working V1 Minimum Viable Product (MVP) by 2024-09-01.",
+        "Marketing campaign launch on 2024-09-05.",
+        "Firebase configuration keys delivered by Mike by 2024-07-08."
       ]
     },
     "sa": {
       "system_requirements": [
-        "The system SHALL deliver a working MVP for V1 by September 1st (inferred from D001).",
-        "The system SHALL include user authentication as a core V1 feature (D004).",
-        "The system SHALL include a working project dashboard as a core V1 feature (D004).",
-        "The system SHALL exhibit high performance, perceived as 'super fast' (D005).",
-        "Firebase Authentication SHALL be configured to allow Google sign-in (D016).",
-        "Firebase Authentication SHALL be configured to allow email logins (D016).",
-        "User registration SHALL collect email, full name, and role (D018).",
-        "User registration SHALL collect company name (D019, D020).",
-        "User registration SHALL NOT require address or telephone number (D018).",
-        "The system SHALL ensure the authentication flow is thoroughly tested (D027).",
-        "The project dashboard SHALL display active user metrics (D031).",
-        "The project dashboard SHALL display system status (D031).",
-        "The project dashboard SHALL display project lists (D031)."
+        "The system SHALL deliver a functional Minimum Viable Product (MVP) for V1.",
+        "The system SHALL implement user authentication as a core feature for V1.",
+        "The system SHALL implement a functional project dashboard as a core feature for V1.",
+        "The system SHALL exhibit very fast performance (inferred — needs confirmation of specific metrics like response times).",
+        "The system SHALL utilize PostgreSQL for storing user session information.",
+        "The system SHALL integrate with Firebase Authentication for user authentication in V1.",
+        "Firebase Authentication SHALL be configured to support Google sign-in.",
+        "Firebase Authentication SHALL be configured to support email logins.",
+        "The user registration process SHALL collect the user's email address, full name, role, and company name.",
+        "The user registration process SHALL NOT collect the user's address or telephone number for V1.",
+        "The company name field SHALL be a required input during the user signup process.",
+        "The authentication flow SHALL be thoroughly tested.",
+        "The project dashboard SHALL display active user metrics.",
+        "The project dashboard SHALL display the system status.",
+        "The project dashboard SHALL display lists of projects."
       ],
       "data_flows": [
-        "Frontend (React) to Firebase Authentication: User authentication requests (login, registration, Google Sign-in).",
-        "Firebase Authentication to Frontend (React): Authentication tokens and user profile data.",
-        "Frontend (React) to Backend (FastAPI): Authenticated API requests using tokens.",
-        "Backend (FastAPI) to PostgreSQL Database: Data persistence for application data and session information.",
-        "PostgreSQL Database to Backend (FastAPI): Retrieval of application data and session information.",
-        "Backend (FastAPI) to Firebase Authentication: (Inferred) Token validation and potentially user data lookup post-authentication."
+        "Frontend (React application) <-> Firebase Authentication: User authentication data (login credentials, tokens, user profiles).",
+        "Frontend (React application) <-> Backend (FastAPI service): User session information, project dashboard data (active user metrics, system status, project lists).",
+        "Backend (FastAPI service) <-> PostgreSQL Database: User session data, application data (e.g., user profiles, project details, dashboard metrics).",
+        "Backend (FastAPI service) -> Logging/Monitoring System (inferred from 'system status' dashboard metric): System operational data and events."
       ],
       "interface_contracts": [
-        "Firebase Authentication API: Endpoints for user registration (inputs: email, full name, role, company name), user login (email/password, Google OAuth), token issuance.",
-        "Firebase Authentication API: Output for successful authentication (ID Token, Refresh Token, User Profile information).",
-        "Backend (FastAPI) API: Authentication endpoints for receiving and validating Firebase ID Tokens from the frontend.",
-        "Backend (FastAPI) API: User management endpoints for creating/updating user profiles in PostgreSQL based on Firebase data (inferred).",
-        "Backend (FastAPI) API: Dashboard endpoints for retrieving active user metrics, system status, and project lists (inferred)."
+        "Firebase Authentication Integration: Standard OAuth 2.0 / OpenID Connect flows for Google sign-in and email/password authentication.",
+        "Firebase Authentication Token: Issued JWTs with an expiration of 24 hours.",
+        "User Registration API Endpoint (FastAPI): Expected payload includes 'email' (string), 'fullName' (string), 'role' (string), 'companyName' (string). 'companyName' is a required field. (inferred — needs confirmation of specific field names and types).",
+        "Project Dashboard API Endpoints (FastAPI): (inferred — details to be confirmed) Endpoints for retrieving active user metrics, system status, and project lists."
       ],
       "constraints": [
         {
-          "text": "The V1 MVP must be delivered by September 1st due to a hard dependency on a marketing campaign launching September 5th for which ads are already booked.",
+          "text": "The Version 1 (V1) Minimum Viable Product (MVP) MUST be delivered by September 1st.",
           "decision_ids": [
             "D001",
+            "D002"
+          ]
+        },
+        {
+          "text": "The V1 MVP delivery is constrained by a marketing campaign launch on September 5th.",
+          "decision_ids": [
             "D002",
             "D003"
           ]
         },
         {
-          "text": "The team SHALL NOT build user authentication in-house; an external service must be integrated.",
+          "text": "The backend development stack selection is influenced by existing Python libraries within the team.",
           "decision_ids": [
-            "D014"
+            "D008"
           ]
         },
         {
-          "text": "The PostgreSQL instance MUST NOT be exposed to the public internet.",
+          "text": "The PostgreSQL database instance MUST be deployed within a private Virtual Private Cloud (VPC).",
           "decision_ids": [
-            "D024",
-            "D026"
+            "D031"
+          ]
+        },
+        {
+          "text": "The Cloud Run backend service MUST connect to the PostgreSQL database using Serverless VPC Access.",
+          "decision_ids": [
+            "D032"
+          ]
+        },
+        {
+          "text": "The PostgreSQL database instance MUST NOT be exposed to the public internet.",
+          "decision_ids": [
+            "D033",
+            "D034"
+          ]
+        },
+        {
+          "text": "Firebase configuration keys are required by next week (July 8th).",
+          "decision_ids": [
+            "D044",
+            "D046"
           ]
         }
       ],
       "architectural_decisions": [
         {
-          "text": "The frontend will be developed using React.",
+          "text": "Frontend development SHALL use React.",
           "decision_ids": [
             "D006"
           ]
         },
         {
-          "text": "The backend service will be developed using Python with FastAPI framework.",
+          "text": "Backend service development SHALL use Python with FastAPI.",
           "decision_ids": [
             "D007"
           ]
         },
         {
-          "text": "PostgreSQL will be used as the relational database.",
+          "text": "The primary database SHALL be PostgreSQL, adhering to a standard relational model.",
           "decision_ids": [
             "D010"
           ]
         },
         {
-          "text": "Session management will initially use standard PostgreSQL sessions, deferring Redis to V2 unless performance becomes a blocker (budget constraint).",
+          "text": "User session management for V1 SHALL use standard PostgreSQL sessions, deferring Redis to V2 unless performance issues arise.",
           "decision_ids": [
             "D012"
           ]
         },
         {
-          "text": "Firebase Authentication will be integrated for V1 user authentication.",
+          "text": "User authentication SHALL be handled by integrating Firebase Authentication for V1.",
           "decision_ids": [
-            "D015"
+            "D016"
           ]
         },
         {
-          "text": "The React frontend will be deployed on Vercel.",
+          "text": "The React frontend application SHALL be deployed using Vercel.",
           "decision_ids": [
-            "D022"
+            "D028"
           ]
         },
         {
-          "text": "The FastAPI backend will be deployed on Cloud Run, with the database connected via Serverless VPC Access for security.",
+          "text": "The FastAPI backend application SHALL be deployed using Cloud Run, with the database placed in a private VPC and Cloud Run connecting via Serverless VPC Access for security.",
           "decision_ids": [
-            "D025"
+            "D030"
           ]
         },
         {
-          "text": "Authentication token expiration will be set to 24 hours.",
+          "text": "User session token expiration SHALL be set to 24 hours.",
           "decision_ids": [
-            "D029"
+            "D037"
           ]
         },
         {
-          "text": "Detailed dashboard features will be deferred for discussion in a subsequent meeting.",
+          "text": "Further detailing of project dashboard features is deferred until the next synchronization meeting.",
           "decision_ids": [
-            "D032"
+            "D042"
+          ]
+        },
+        {
+          "text": "Mike is assigned ownership of Firebase provisioning.",
+          "decision_ids": [
+            "D045"
           ]
         }
       ],
       "open_analysis_questions": [
-        "How will the Firebase Authentication tokens (ID Token, Refresh Token) be managed across the React frontend and FastAPI backend to maintain user sessions and implement the 24-hour token expiration?",
-        "What are the specific data points and calculations required for 'active user metrics', 'system status', and 'project lists' to be displayed on the dashboard? (Blocked by: further detailing of dashboard features, owned by PM/QA - D032, D030)",
-        "What are the specific security configurations and best practices that need to be implemented for the Cloud Run backend, beyond the database VPC connection, to ensure overall system security?"
+        "What are the precise definitions, data sources, refresh rates, and display formats for the 'active user metrics', 'system status', and 'project lists' to be shown on the project dashboard? (Follow up on D042)",
+        "Blocked by: acceptance criteria for user registration (owned by PM/QA - D019)"
       ]
     },
     "stakeholder": {
-      "business_summary": "The team is actively working towards delivering a functional version of our product (V1 MVP) by September 1st, a critical deadline aligned with a marketing campaign launch on September 5th. Significant progress has been made on defining core features like user authentication and a basic project dashboard, and key technology decisions have been confirmed.",
+      "business_summary": "The team is committed to delivering the first version (MVP) of the product by September 1st, a firm deadline driven by upcoming marketing campaigns. This initial release will focus on core features like user sign-in and a basic project dashboard, designed for fast performance and essential B2B data collection.",
       "key_impact": [
-        "The product will be ready to support the pre-booked marketing campaign, ensuring we meet a crucial market launch date and maximize its impact.",
-        "Users will benefit from a secure and 'super fast' system with easy sign-in options, enhancing their overall experience.",
-        "Initial user registration will efficiently collect essential B2B information, including company name, to better serve our business clients.",
-        "Strategic technology choices and leveraging existing team expertise are helping to manage budget and accelerate development timelines."
+        "A firm launch date of September 1st is established, crucial for aligning with the planned marketing campaign starting September 5th.",
+        "Users will have a straightforward and secure way to sign in, including via Google, and will gain access to a foundational project dashboard.",
+        "Development leverages standard, cost-effective technologies, helping to manage project budget and timeline for the initial release.",
+        "The system will collect vital B2B user information, such as company name and role, directly during registration, supporting future business insights and sales efforts.",
+        "A secure deployment strategy has been adopted, ensuring sensitive customer data is protected and not exposed publicly."
       ],
       "decisions_needing_alignment": [
-        "Alignment is needed on the specific, detailed features and overall design of the project dashboard, particularly with the marketing team. While core metrics have been identified, the full scope requires stakeholder sign-off to proceed effectively."
+        "The complete and detailed requirements for the project dashboard features need to be finalized. A sync with the marketing team is scheduled for next Wednesday to discuss the design."
       ],
       "major_unresolved_questions": [
-        "Are there any specific user acceptance criteria or processes, beyond collecting email, full name, role, and company name, that need to be defined for the new user registration?"
+        "What specific metrics and functionalities are critical for the project dashboard beyond active users, system status, and project lists?",
+        "Is the default 24-hour user session duration appropriate for business users, or should it be extended or shortened based on usage patterns or security policies?"
       ]
     }
   },
   "review": {
     "status": "PASS",
-    "issues": [
-      {
-        "severity": "warning",
-        "location": "QA View: test_scenarios",
-        "description": "The test scenario 'Verify password reset flow for email/password authentication (if available through Firebase Auth UI)' introduces a feature (password reset flow) that was not explicitly defined as a requirement or decision for V1 in the extracted decisions (D016 only mentions email logins). While Firebase Auth generally supports this, its inclusion as a required test scenario overstates the confirmed scope for the current MVP.",
-        "suggestion": "Clarify with the PM whether password reset is a V1 requirement. If not, consider moving this to a future release or making it conditional/optional, and remove or rephrase the test scenario to reflect only confirmed features."
-      },
-      {
-        "severity": "info",
-        "location": "PM View: milestones",
-        "description": "The specific year '2026' for milestones ('V1 MVP must be delivered by 2026-09-01.', 'Mike to provide Firebase config keys by 2026-07-08.') is an inference not present in the extracted decisions (D001, D035), which only stated the day and month.",
-        "suggestion": "Remove the inferred year (e.g., 'V1 MVP must be delivered by September 1st.') or add a note indicating the year is based on the current project context if it cannot be explicitly sourced."
-      }
-    ],
-    "reviewer_notes": "All role outputs are well-structured and largely accurate, with claims traceable to the extracted decisions. Two minor issues were identified: a potential overstatement of scope in the QA view regarding password reset flow, and an inferred year in the PM view's milestones. Neither of these are critical issues that block publishing.",
+    "issues": [],
+    "reviewer_notes": "All role outputs are consistent with the extracted decisions and maintain high quality. There are no hallucinations, contradictions, or missing critical information. Open questions and areas needing further definition are appropriately flagged across the different views. No prompt injection or sensitive content was detected.",
     "prompt_injection_warnings": [],
     "sensitive_content_warnings": []
   },
@@ -875,7 +1045,7 @@
     },
     {
       "decision_id": "D002",
-      "decision_title": "V1 deadline is a hard constraint",
+      "decision_title": "Hard deadline for V1 MVP",
       "confidence": "confirmed",
       "evidence_quotes": [
         "We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th."
@@ -883,7 +1053,7 @@
     },
     {
       "decision_id": "D003",
-      "decision_title": "Ads for marketing campaign booked",
+      "decision_title": "Marketing ads booked",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Yes, we've already booked the ads."
@@ -891,7 +1061,7 @@
     },
     {
       "decision_id": "D004",
-      "decision_title": "V1 core features",
+      "decision_title": "V1 Core features: User authentication and project dashboard",
       "confidence": "confirmed",
       "evidence_quotes": [
         "V1 must have user authentication and a working project dashboard."
@@ -899,7 +1069,7 @@
     },
     {
       "decision_id": "D005",
-      "decision_title": "System performance",
+      "decision_title": "System performance must be fast",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Let's make sure it's super fast."
@@ -907,7 +1077,7 @@
     },
     {
       "decision_id": "D006",
-      "decision_title": "Frontend technology",
+      "decision_title": "Frontend stack: React",
       "confidence": "confirmed",
       "evidence_quotes": [
         "we are using React for the frontend"
@@ -915,7 +1085,7 @@
     },
     {
       "decision_id": "D007",
-      "decision_title": "Backend technology",
+      "decision_title": "Backend stack: Python (FastAPI)",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Python (FastAPI) for the backend service."
@@ -923,15 +1093,15 @@
     },
     {
       "decision_id": "D008",
-      "decision_title": "Rationale for Python backend",
+      "decision_title": "Python stack rationale: Existing libraries",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "I think it makes the most sense for our team since we already have libraries built in Python."
+        "since we already have libraries built in Python."
       ]
     },
     {
       "decision_id": "D009",
-      "decision_title": "Database choice",
+      "decision_title": "Database selection",
       "confidence": "confirmed",
       "evidence_quotes": [
         "What about the database?"
@@ -939,7 +1109,7 @@
     },
     {
       "decision_id": "D010",
-      "decision_title": "Database technology",
+      "decision_title": "Database choice: PostgreSQL",
       "confidence": "confirmed",
       "evidence_quotes": [
         "We'll use PostgreSQL. Standard relational model is fine."
@@ -955,7 +1125,7 @@
     },
     {
       "decision_id": "D012",
-      "decision_title": "Session management decision",
+      "decision_title": "Session management: Standard PostgreSQL sessions for V1",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Let's defer Redis to V2 unless it's a performance blocker. Keep it simple. Let's stick to standard postgres sessions for now to save budget."
@@ -963,6 +1133,14 @@
     },
     {
       "decision_id": "D013",
+      "decision_title": "PostgreSQL for session storage",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Okay, postgres for sessions."
+      ]
+    },
+    {
+      "decision_id": "D014",
       "decision_title": "User authentication implementation method",
       "confidence": "confirmed",
       "evidence_quotes": [
@@ -970,185 +1148,264 @@
       ]
     },
     {
-      "decision_id": "D014",
-      "decision_title": "Do not build user authentication in-house",
+      "decision_id": "D015",
+      "decision_title": "Avoid building custom authentication system",
       "confidence": "confirmed",
       "evidence_quotes": [
         "We don't want to build it ourselves, right?"
       ]
     },
     {
-      "decision_id": "D015",
-      "decision_title": "User authentication service for V1",
+      "decision_id": "D016",
+      "decision_title": "User authentication: Firebase Authentication for V1",
       "confidence": "confirmed",
       "evidence_quotes": [
         "for V1, let's just integrate Firebase Authentication. It's quick, handles social logins easily, and matches our pricing requirements."
       ]
     },
     {
-      "decision_id": "D016",
-      "decision_title": "Firebase Auth login methods",
+      "decision_id": "D017",
+      "decision_title": "Firebase Auth: Google sign-in support",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "We will configure it to allow Google sign-in and email logins."
+        "We will configure it to allow Google sign-in"
       ]
     },
     {
-      "decision_id": "D017",
-      "decision_title": "User registration acceptance criteria and fields",
+      "decision_id": "D018",
+      "decision_title": "Firebase Auth: Email login support",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "and email logins."
+      ]
+    },
+    {
+      "decision_id": "D019",
+      "decision_title": "User registration acceptance criteria and required fields",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Do we have acceptance criteria for user registration? What fields do we collect?"
       ]
     },
     {
-      "decision_id": "D018",
-      "decision_title": "User registration fields (initial)",
+      "decision_id": "D020",
+      "decision_title": "User registration field: Email",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Just email, full name, and role. We don't need address or telephone number for now."
+        "Just email"
       ]
     },
     {
-      "decision_id": "D019",
-      "decision_title": "Company name required for B2B",
+      "decision_id": "D021",
+      "decision_title": "User registration field: Full Name",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "full name"
+      ]
+    },
+    {
+      "decision_id": "D022",
+      "decision_title": "User registration field: Role",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "and role."
+      ]
+    },
+    {
+      "decision_id": "D023",
+      "decision_title": "User registration: Address and telephone not required for now",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "We don't need address or telephone number for now."
+      ]
+    },
+    {
+      "decision_id": "D024",
+      "decision_title": "User registration field: Company Name",
       "confidence": "confirmed",
       "evidence_quotes": [
         "we need to collect company name too! We are B2B."
       ]
     },
     {
-      "decision_id": "D020",
-      "decision_title": "User registration fields (final)",
+      "decision_id": "D025",
+      "decision_title": "Company name is a required field during signup",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Company name is required during signup."
       ]
     },
     {
-      "decision_id": "D021",
-      "decision_title": "Proposed deployment platforms",
+      "decision_id": "D026",
+      "decision_title": "Confirmed user registration fields",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Got it. Email, full name, role, and company name."
+      ]
+    },
+    {
+      "decision_id": "D027",
+      "decision_title": "Deployment strategy confirmation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "What about deployment? I was thinking Cloud Run for the FastAPI app and Vercel for the React app."
       ]
     },
     {
-      "decision_id": "D022",
-      "decision_title": "Frontend deployment platform",
+      "decision_id": "D028",
+      "decision_title": "Frontend deployment: Vercel",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Vercel is fine"
       ]
     },
     {
-      "decision_id": "D023",
-      "decision_title": "Cloud Run security concern",
+      "decision_id": "D029",
+      "decision_title": "Cloud Run security for backend",
       "confidence": "confirmed",
       "evidence_quotes": [
         "is Cloud Run secure?"
       ]
     },
     {
-      "decision_id": "D024",
-      "decision_title": "Database security via private VPC",
+      "decision_id": "D030",
+      "decision_title": "Backend deployment: Cloud Run",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access. That way the postgres instance is not exposed to the public internet."
-      ]
-    },
-    {
-      "decision_id": "D025",
-      "decision_title": "Backend deployment platform",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "I was thinking Cloud Run for the FastAPI app",
         "Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access."
       ]
     },
     {
-      "decision_id": "D026",
-      "decision_title": "Security constraint for database exposure",
+      "decision_id": "D031",
+      "decision_title": "Database private VPC deployment",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "we will place the database in a private VPC"
+      ]
+    },
+    {
+      "decision_id": "D032",
+      "decision_title": "Cloud Run to database connection via Serverless VPC Access",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "connect Cloud Run via Serverless VPC Access."
+      ]
+    },
+    {
+      "decision_id": "D033",
+      "decision_title": "PostgreSQL instance not exposed to public internet",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "the postgres instance is not exposed to the public internet."
+      ]
+    },
+    {
+      "decision_id": "D034",
+      "decision_title": "Database security requirement (strict constraint)",
       "confidence": "confirmed",
       "evidence_quotes": [
         "This is a strict technical constraint for security."
       ]
     },
     {
-      "decision_id": "D027",
-      "decision_title": "Thorough testing of auth flow",
+      "decision_id": "D035",
+      "decision_title": "Thorough testing of authentication flow",
       "confidence": "confirmed",
       "evidence_quotes": [
         "We need to test the auth flow thoroughly."
       ]
     },
     {
-      "decision_id": "D028",
-      "decision_title": "User session duration",
+      "decision_id": "D036",
+      "decision_title": "Session duration for logged-in users",
       "confidence": "confirmed",
       "evidence_quotes": [
         "If a user logs in, how long does the session last?"
       ]
     },
     {
-      "decision_id": "D029",
-      "decision_title": "Token expiration duration",
+      "decision_id": "D037",
+      "decision_title": "Token expiration set to 24 hours",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Let's set token expiration to 24 hours. We can adjust it later."
+        "Let's set token expiration to 24 hours."
       ]
     },
     {
-      "decision_id": "D030",
-      "decision_title": "Dashboard metrics",
+      "decision_id": "D038",
+      "decision_title": "Dashboard metrics to display",
       "confidence": "confirmed",
       "evidence_quotes": [
         "What about the dashboard? What metrics are we displaying?"
       ]
     },
     {
-      "decision_id": "D031",
-      "decision_title": "Dashboard required metrics",
+      "decision_id": "D039",
+      "decision_title": "Dashboard metric: Active user metrics",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "We need active user metrics, system status, and project lists."
+        "We need active user metrics"
       ]
     },
     {
-      "decision_id": "D032",
-      "decision_title": "Defer dashboard feature detailing",
+      "decision_id": "D040",
+      "decision_title": "Dashboard metric: System status",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Let's detail the dashboard features in the next sync. We are running out of time."
+        "system status"
       ]
     },
     {
-      "decision_id": "D033",
+      "decision_id": "D041",
+      "decision_title": "Dashboard feature: Project lists",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "and project lists."
+      ]
+    },
+    {
+      "decision_id": "D042",
+      "decision_title": "Defer dashboard feature detailing to next sync",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Let's detail the dashboard features in the next sync."
+      ]
+    },
+    {
+      "decision_id": "D043",
       "decision_title": "Firebase provisioning ownership",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "who is handling the Firebase provisioning? I need the config keys by next week."
+        "who is handling the Firebase provisioning?"
       ]
     },
     {
-      "decision_id": "D034",
-      "decision_title": "Assign Firebase provisioning to Mike",
+      "decision_id": "D044",
+      "decision_title": "Firebase config keys deadline",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "I need the config keys by next week."
+      ]
+    },
+    {
+      "decision_id": "D045",
+      "decision_title": "Mike assigned Firebase provisioning",
       "confidence": "confirmed",
       "evidence_quotes": [
         "I'll assign that to Mike."
       ]
     },
     {
-      "decision_id": "D035",
-      "decision_title": "Firebase config keys deadline",
+      "decision_id": "D046",
+      "decision_title": "Firebase config keys delivery by July 8th",
       "confidence": "confirmed",
       "evidence_quotes": [
         "He should have it ready by July 8th."
       ]
     },
     {
-      "decision_id": "D036",
-      "decision_title": "Sync with marketing team on dashboard design",
+      "decision_id": "D047",
+      "decision_title": "Sync with marketing on dashboard design",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Let's make sure we sync with the marketing team on the dashboard design next Wednesday."

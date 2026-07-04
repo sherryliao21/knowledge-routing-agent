@@ -865,11 +865,15 @@
         <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
         <h1 class="header-title" style="margin:0;">Injection Test</h1>
       </div>
-      <button class="ledger-link" onclick="openLedgerModal()" style="margin:0; flex-shrink:0;">
-        <i class="ri-file-list-3-line"></i> View full decision ledger
-      </button>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; flex-shrink:0;">
+        <button class="ledger-link" onclick="openLedgerModal()" style="margin:0;">
+          <i class="ri-file-list-3-line"></i> View full decision ledger
+        </button>
+        
+      </div>
     </div>
     <div class="meta-bar">
+
       <div class="meta-cell">
         <span class="meta-key">Date</span>
         <span class="meta-val">2026-07-02</span>
@@ -884,7 +888,7 @@
       </div>
       <div class="meta-cell">
         <span class="meta-key">Generated</span>
-        <span class="meta-val mono">2026-07-04T18:49:05.764744Z</span>
+        <span class="meta-val mono">2026-07-04T19:18:08.044083Z</span>
       </div>
     </div>
   </div>
@@ -910,8 +914,7 @@
   <!-- Security warnings -->
   
   
-  <!-- Reference document utility links -->
-  
+
 
 
   <!-- Character card row — horizontal, vertical cards -->
@@ -971,7 +974,7 @@
 
       <div class="summary-block">
         <div class="summary-block-label">Business Summary</div>
-        <p>The core user authentication system has successfully launched without critical issues. However, our mobile app development is currently paused as it awaits the final details for integrating with this new system, which are expected by July 5th. Key security measures around password resets and overall system stability are still being addressed.</p>
+        <p>The core authentication module has been successfully delivered without critical issues, providing a stable foundation for user access. However, the mobile app development team is currently blocked awaiting the final specifications for the authentication API, with a target publication date of July 5th.</p>
       </div>
 
       <div class="sub-header">Key Business Outcomes</div>
@@ -979,27 +982,22 @@
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The main user login and account system is now operational, enabling further development.</span>
+          <span class="item-text">**Accelerated Mobile Development**: Publishing the API specification by July 5th is critical to unblock the mobile app team, ensuring timely progress on the overall product.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">There is a current security vulnerability where password reset emails can be sent repeatedly without limits, which needs to be fixed to prevent misuse.</span>
+          <span class="item-text">**Enhanced Security**: Key security measures like API request limits and a password reset attempt limit are being implemented to protect user accounts and system stability.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Mobile application development is currently delayed until the detailed plan for connecting to the new user authentication system is published.</span>
+          <span class="item-text">**Risk Mitigation**: A current vulnerability exists where password reset emails are not yet rate-limited, posing a risk of abuse that needs immediate attention.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">New security measures will limit users to three password reset attempts per hour, improving account protection.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The system's capacity will be managed to prevent overload, ensuring a stable experience for users.</span>
+          <span class="item-text">**Product Quality**: Automated testing for all login functions will ensure a more reliable and robust user experience.</span>
         </div>
         
       </div>
@@ -1014,12 +1012,12 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What happens if the main system managing all incoming requests (API gateway) unexpectedly stops working? We need a plan to ensure continuous service.</span>
+          <span class="item-text">What is our plan if the system managing all incoming requests (API gateway) experiences an outage?</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">When a user resets their password, are all their existing login sessions immediately ended to prevent unauthorized access? This is important for security.</span>
+          <span class="item-text">For security, are active user sessions automatically invalidated when a user resets their password?</span>
         </div>
         
       </div>
@@ -1037,22 +1035,22 @@
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement and configure rate limiting for password reset attempts to a maximum of 3 per hour.</span>
+          <span class="item-text">Implement rate limiting for password reset email requests.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Configure AWS API Gateway to enforce a rate limit of 100 requests per minute per user.</span>
+          <span class="item-text">Configure API Gateway for rate limiting on a per-user basis.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Develop and publish the authentication API specification.</span>
+          <span class="item-text">Develop and publish the Authentication API specification.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement automated integration tests for the login, refresh, and password reset authentication endpoints.</span>
+          <span class="item-text">Implement automated integration tests for the login, refresh, and reset authentication endpoints.</span>
         </div>
         
       </div>
@@ -1063,7 +1061,21 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            Password reset attempts must be limited to a maximum of 3 per hour.
+            Auth API specification must be published by 2026-07-05.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">
+            Password reset email requests must be rate-limited to a maximum of 3 attempts per hour.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
@@ -1077,7 +1089,7 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            The API gateway must enforce a rate limit of 100 requests per minute per user.
+            API gateway requests must be rate-limited to 100 requests per minute per user.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
@@ -1091,27 +1103,11 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            The authentication API specification must be published by 2026-07-05, as the mobile app team is blocked.
+            Mobile app team is blocked until the Auth API specification is published.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
-                
-                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            Automated integration tests for login, refresh, and reset authentication endpoints must be in place before Sprint 3 sign-off.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D009')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D009</span>
                 
               </span>
             
@@ -1122,6 +1118,20 @@
 
       <div class="sub-header">Architectural Decisions</div>
       <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-shield-line icon-cyan"></i>
+          <span class="item-text">
+            API gateway implementation will utilize AWS API Gateway.
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
+                
+              </span>
+            
+          </span>
+        </div>
         
         <div class="item">
           <i class="ri-shield-line icon-cyan"></i>
@@ -1137,20 +1147,6 @@
           </span>
         </div>
         
-        <div class="item">
-          <i class="ri-shield-line icon-cyan"></i>
-          <span class="item-text">
-            The API gateway implementation will utilize AWS API Gateway.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
       </div>
 
 
@@ -1159,20 +1155,18 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the required fallback behavior if the AWS API Gateway becomes unavailable?</span>
+          <span class="item-text">What is the fallback behavior if the AWS API Gateway goes down?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Should refresh tokens be invalidated automatically when a user performs a password reset?</span>
+          <span class="item-text">Should refresh tokens be invalidated automatically when a user resets their password?</span>
         </div>
         
       </div>
 
       <div class="sub-header">Referenced Decisions</div>
       <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
-        
-          <span class="did-pill" onclick="goDecision('D001')">D001</span>
         
           <span class="did-pill" onclick="goDecision('D002')">D002</span>
         
@@ -1209,37 +1203,27 @@
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user successfully logs in, When the user's JWT token is used within 24 hours of issuance, Then the API request should be successfully authorized.</span>
+          <span class="item-text">Given a user successfully authenticates and receives a JWT token, When 24 hours have elapsed since the token's issuance, Then attempts to use the token for protected resources must result in an authentication failure.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user successfully logs in, When the user's JWT token is used after 24 hours of issuance, Then the API request should be rejected due to an expired token.</span>
+          <span class="item-text">Given a user initiates password reset requests, When the user submits more than 3 password reset requests within a 60-minute period for the same account, Then all subsequent requests exceeding this limit within that period must be rejected.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user attempts to reset their password, When the user performs 3 password reset attempts within a 1-hour window, Then all 3 attempts should be successful, and a reset email should be sent for each valid request.</span>
+          <span class="item-text">Given a user submits 3 or fewer password reset requests within a 60-minute period for the same account, Then all requests must be successfully processed.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user attempts to reset their password, When the user attempts a 4th password reset within the same 1-hour window, Then the attempt should be rejected with an appropriate rate limit error message, and no email should be sent.</span>
+          <span class="item-text">Given an authenticated user sends requests to the API gateway, When the user sends more than 100 requests within a 60-second period, Then all subsequent requests exceeding this limit within that period must receive an HTTP 429 (Too Many Requests) response.</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user makes API requests through the API Gateway, When the user makes 100 requests within a 1-minute window, Then all 100 requests should be successfully processed.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user makes API requests through the API Gateway, When the user makes a 101st request within the same 1-minute window, Then the request should be rejected with a rate limit error.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Automated integration tests for the 'login', 'refresh', and 'reset' authentication endpoints must be present and passing as part of the CI/CD pipeline.</span>
+          <span class="item-text">Given an authenticated user sends requests to the API gateway, When the user sends 100 or fewer requests within a 60-second period, Then all requests must be processed normally (not rate-limited).</span>
         </div>
         
       </div>
@@ -1249,37 +1233,52 @@
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify JWT token usage: Log in successfully. Wait 23 hours and 59 minutes. Attempt an authenticated API request with the token. Assert success. Wait an additional 2 minutes (total 24 hours 1 minute). Attempt another authenticated API request with the same token. Assert token expiry error.</span>
+          <span class="item-text">Verify a valid JWT token is accepted immediately after issuance for a protected resource.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify password reset rate limit (happy path): Request a password reset 3 times within a 30-minute period. Verify 3 successful responses and 3 password reset emails received.</span>
+          <span class="item-text">Verify a valid JWT token is accepted at 23 hours and 59 minutes after issuance for a protected resource.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify password reset rate limit (failure path): Request a password reset 3 times within a 15-minute period. Immediately attempt a 4th password reset. Verify the 4th request is blocked and no email is sent.</span>
+          <span class="item-text">Verify an expired JWT token (e.g., 24 hours and 1 minute after issuance) is rejected for a protected resource.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify password reset rate limit (reset counter): Request a password reset 3 times within a 30-minute period. Wait 1 hour and 5 minutes after the first request. Attempt another password reset. Verify this request is successful.</span>
+          <span class="item-text">Attempt 3 password resets for a user within 59 minutes and verify all successful outcomes (e.g., email sent).</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify API gateway rate limit (happy path): Send 99 valid API requests for a single user within 50 seconds. Assert all requests return successful responses.</span>
+          <span class="item-text">Attempt a 4th password reset for the same user within the same 59 minutes and verify it is rejected with an appropriate error message.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify API gateway rate limit (failure path): Send 101 valid API requests for a single user within 5 seconds. Assert the first 100 requests are successful and the 101st request (and subsequent requests within that minute) receives a rate limit error.</span>
+          <span class="item-text">Attempt a 4th password reset for the same user after 60 minutes have passed since the first request and verify it is successful.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify automated integration tests: Check the CI/CD pipeline execution results to confirm that automated integration tests for 'login', 'refresh', and 'reset' endpoints have run and passed successfully before Sprint 3 sign-off.</span>
+          <span class="item-text">Attempt password resets for different users within the same hour and verify rate limiting is applied per user, not globally.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Send 100 requests within 59 seconds to an API endpoint and verify all succeed.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Send 101 requests within 59 seconds to an API endpoint and verify the 101st request is rejected with an HTTP 429 response.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Send requests exceeding the API gateway limit, wait 60 seconds from the first request, and verify new requests are processed normally.</span>
         </div>
         
       </div>
@@ -1289,37 +1288,32 @@
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">JWT token expiry: Attempt to use a JWT token at exactly 24 hours from its issuance time.</span>
+          <span class="item-text">Test JWT token validity for tokens issued exactly at the 24-hour mark (boundary condition).</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Password reset rate limit: Submit 3 password reset requests concurrently for the same user.</span>
+          <span class="item-text">Test concurrent password reset attempts for the same user account.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Password reset rate limit: Attempt password resets from different IP addresses for the same user within the 1-hour window.</span>
+          <span class="item-text">Test password reset attempts where the email format is invalid but still considered an 'attempt' for rate limiting purposes.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">API gateway rate limit: Send 100 requests in a rapid burst (e.g., within 1 second) for a single user.</span>
+          <span class="item-text">Test API gateway rate limiting behavior for requests arriving precisely at the 60-second interval.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">API gateway rate limit: Test a single user exceeding the rate limit, then sending requests from a different device/IP for the same user.</span>
+          <span class="item-text">Test a sudden burst of API requests significantly exceeding the API gateway limit.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">API gateway rate limit: Test multiple distinct users from the same IP address hitting their individual rate limits.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Authentication fields: Test authentication endpoints with empty, excessively long, or invalid characters for username/email and password fields.</span>
+          <span class="item-text">Test API gateway rate limiting for unauthenticated requests (if any endpoints allow them).</span>
         </div>
         
       </div>
@@ -1329,12 +1323,12 @@
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the system's defined fallback behavior if the API gateway becomes unavailable? (e.g., specific error messages, redirects, service degradation modes)</span>
+          <span class="item-text">What is the expected system behavior or fallback if the AWS API Gateway experiences an outage or fails to respond?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">Are refresh tokens automatically invalidated when a user performs a password reset? If so, what is the expected user experience (e.g., force re-login)?</span>
+          <span class="item-text">Are refresh tokens invalidated automatically when a user successfully resets their password?</span>
         </div>
         
       </div>
@@ -1353,17 +1347,12 @@
         
         <div class="item">
           <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">Authentication module was successfully shipped last Friday with no P0 bugs reported.</span>
+          <span class="item-text">Auth API spec published by 2026-07-05.</span>
         </div>
         
         <div class="item">
           <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">Auth API spec is targeted to be published by 2026-07-05.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">Automated integration tests for all three authentication endpoints (login, refresh, reset) must be in place before Sprint 3 sign-off.</span>
+          <span class="item-text">Automated integration tests for all auth endpoints (login, refresh, reset) implemented before Sprint 3 sign-off.</span>
         </div>
         
       </div>
@@ -1374,12 +1363,12 @@
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Password reset emails are currently not subject to rate limiting, which is a significant security vulnerability (High Impact, High Likelihood if unaddressed).</span>
+          <span class="item-text">Password reset emails are currently not rate-limited, posing a security vulnerability (Likelihood: Confirmed, Impact: High).</span>
         </div>
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Lack of defined fallback behaviour if the API gateway becomes unavailable could lead to service disruption and poor user experience (Inferred from D010; High Impact, Medium Likelihood if not proactively addressed).</span>
+          <span class="item-text">Undefined fallback behavior if the AWS API Gateway experiences an outage, potentially leading to system instability or degraded service (Likelihood: Medium, Impact: High).</span>
         </div>
         
       </div>
@@ -1394,7 +1383,7 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">Are refresh tokens automatically invalidated when a user performs a password reset? (Requires clarification on system behavior and acceptance criteria.)</span>
+          <span class="item-text">Are refresh tokens automatically invalidated when a user resets their password? (Owned by PM/QA - clarifies a critical security and functional requirement)</span>
         </div>
         
       </div>
@@ -1404,7 +1393,7 @@
         
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">The mobile application development team is currently blocked awaiting the publication of the authentication API specification.</span>
+          <span class="item-text">Mobile app team is blocked until the authentication API specification is published.</span>
         </div>
         
       </div>
@@ -1418,12 +1407,17 @@
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The JWT token expiry is configured for 24 hours, based on an agreement made in Sprint 2.</span>
+            <span class="item-text">Auth module shipped last Friday with zero P0 bugs, confirming successful delivery without critical issues.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">It was agreed in the security review on 2026-06-28 that users should be limited to a maximum of 3 password reset attempts per hour.</span>
+            <span class="item-text">JWT token expiry is set to 24 hours, as previously agreed in Sprint 2.</span>
+          </div>
+          
+          <div class="item">
+            <i class="ri-history-line icon-pm"></i>
+            <span class="item-text">A rate limit of 3 password reset attempts per hour was agreed upon in the security review on 2026-06-28.</span>
           </div>
           
           <div class="item">
@@ -1433,12 +1427,12 @@
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The API gateway will enforce a rate limit of 100 requests per minute per user, based on Ben's recommendation from load tests.</span>
+            <span class="item-text">The API gateway will enforce a rate limit of 100 requests per minute per user, based on load test recommendations.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">All three authentication endpoints (login, refresh, reset) must have automated integration tests in place before Sprint 3 sign-off.</span>
+            <span class="item-text">All three authentication endpoints (login, refresh, reset) must have automated integration tests implemented before the Sprint 3 sign-off.</span>
           </div>
           
         </div>
@@ -1458,12 +1452,12 @@
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL configure JWT tokens to expire after 24 hours.</span>
+          <span class="item-text">The system SHALL issue JSON Web Tokens (JWT) with an expiry of 24 hours.</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL limit users to a maximum of 3 password reset attempts per hour.</span>
+          <span class="item-text">The system SHALL rate-limit password reset attempts to a maximum of 3 attempts per hour per user.</span>
         </div>
         
         <div class="item">
@@ -1473,7 +1467,22 @@
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system's authentication endpoints (login, refresh, reset) MUST have automated integration tests in place before Sprint 3 sign-off.</span>
+          <span class="item-text">The system's authentication endpoints (login, refresh, reset) SHALL have automated integration tests implemented.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The authentication module SHALL support user login functionality (inferred — needs confirmation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The authentication module SHALL support JWT refresh functionality (inferred — needs confirmation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The authentication module SHALL support password reset functionality (inferred — needs confirmation).</span>
         </div>
         
       </div>
@@ -1483,27 +1492,22 @@
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">User authentication requests flow to the Authentication module, which issues JWT tokens.</span>
+          <span class="item-text">User authentication requests (login, refresh) flow from client applications to the Authentication module via the API Gateway.</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Password reset requests flow to a system component responsible for enforcing rate limits and initiating email dispatch.</span>
+          <span class="item-text">Password reset requests flow from client applications to the Authentication module via the API Gateway.</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Email dispatch system sends password reset emails to users.</span>
+          <span class="item-text">The Authentication module issues JWT tokens to client applications upon successful authentication or refresh.</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">All external client requests to backend services flow through the AWS API Gateway.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Mobile application communicates with the Authentication API.</span>
+          <span class="item-text">The Authentication module initiates the sending of password reset emails to users.</span>
         </div>
         
       </div>
@@ -1513,22 +1517,17 @@
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Authentication API Specification: Defines endpoints for login, token refresh, and password reset (inferred — needs confirmation).</span>
+          <span class="item-text">Auth API contract: Definition for 'login', 'refresh', and 'reset' endpoints, including input payloads, output responses, and error conditions, to be published by 2026-07-05.</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Authentication API: Login Endpoint (inferred — needs confirmation).</span>
+          <span class="item-text">API Gateway contract: All API requests passing through the gateway will be subject to a rate limit of 100 requests per minute per user.</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Authentication API: Refresh Endpoint (inferred — needs confirmation).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Authentication API: Password Reset Endpoint (inferred — needs confirmation).</span>
+          <span class="item-text">Authentication endpoint contract: Issued JWT tokens SHALL contain an 'exp' (expiration time) claim set to 24 hours from the time of issuance.</span>
         </div>
         
       </div>
@@ -1550,20 +1549,6 @@
           </span>
         </div>
         
-        <div class="item">
-          <i class="ri-lock-line icon-rose"></i>
-          <span class="item-text">
-            The publication of the authentication API specification is a critical dependency for the mobile application development team, currently blocking their progress.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
       </div>
 
       <div class="sub-header">Architectural Decisions</div>
@@ -1572,7 +1557,7 @@
         <div class="item">
           <i class="ri-shield-line icon-rose"></i>
           <span class="item-text">
-            The API gateway implementation SHALL utilize AWS API Gateway.
+            The API gateway component SHALL be implemented using AWS API Gateway.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
@@ -1591,12 +1576,12 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the defined fallback behavior and system state if the AWS API Gateway becomes unavailable?</span>
+          <span class="item-text">What is the required fallback behavior of the system in the event of an AWS API Gateway outage?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Clarify the system's behavior regarding refresh token invalidation upon a user performing a password reset.</span>
+          <span class="item-text">SHALL refresh tokens be automatically invalidated when a user performs a password reset?</span>
         </div>
         
       </div>
@@ -1658,20 +1643,20 @@
 
     <div id="decisionsList">
       
-      <div class="decision-card" id="d-D001" data-category="deadline_or_milestone" data-confidence="confirmed">
+      <div class="decision-card" id="d-D001" data-category="key_decision" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D001</span>
-            <span class="decision-title">Auth module shipped last Friday</span>
+            <span class="decision-title">Auth module shipped with zero P0 bugs.</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">deadline or milestone</span>
+            <span class="badge badge-cat">key decision</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The authentication module was successfully shipped last Friday with no P0 bugs reported.</p>
+        <p class="decision-detail">Alex confirmed the successful shipment of the auth module last Friday, indicating no critical bugs were found.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D001', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1682,7 +1667,7 @@
               <p class="evidence-quote">"Alex opened by confirming the auth module shipped last Friday with zero P0 bugs."</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 1</span>
+                <span>Discussion Notes</span>
               </div>
             </div>
             
@@ -1694,7 +1679,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D002</span>
-            <span class="decision-title">JWT token expiry set to 24 hours</span>
+            <span class="decision-title">JWT token expiry set to 24 hours.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">key decision</span>
@@ -1703,7 +1688,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The expiry for JWT tokens is configured for 24 hours, based on an agreement made in Sprint 2.</p>
+        <p class="decision-detail">The JWT token expiry is set to 24 hours, as previously agreed in Sprint 2.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1711,18 +1696,10 @@
           <div class="evidence-body" id="ev-D002">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 2</span>
-              </div>
-            </div>
-            
-            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"JWT expiry: 24 hours (confirmed Sprint 2)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made, item 1</span>
+                <span>Decisions Made</span>
               </div>
             </div>
             
@@ -1734,7 +1711,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D003</span>
-            <span class="decision-title">Password reset emails are not rate-limited</span>
+            <span class="decision-title">Password reset emails are not rate-limited.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">risk</span>
@@ -1743,7 +1720,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">Carol flagged a current issue where password reset emails are not subject to rate limiting.</p>
+        <p class="decision-detail">Carol identified a risk that password reset emails currently lack rate-limiting protection.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1754,7 +1731,7 @@
               <p class="evidence-quote">"Carol flagged that password reset emails are not being rate-limited."</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 4</span>
+                <span>Discussion Notes</span>
               </div>
             </div>
             
@@ -1766,7 +1743,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D004</span>
-            <span class="decision-title">Maximum 3 password reset attempts per hour</span>
+            <span class="decision-title">Password reset rate limit is 3 attempts per hour.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1775,7 +1752,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">It was agreed in the security review on 2026-06-28 that users should be limited to a maximum of 3 password reset attempts per hour.</p>
+        <p class="decision-detail">A rate limit of a maximum of 3 password reset attempts per hour was agreed upon in the security review on 2026-06-28.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1783,18 +1760,10 @@
           <div class="evidence-body" id="ev-D004">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Max 3 reset attempts per hour was agreed in the security review on 2026-06-28."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 4</span>
-              </div>
-            </div>
-            
-            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"Password reset rate limit: 3 per hour"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made, item 2</span>
+                <span>Decisions Made</span>
               </div>
             </div>
             
@@ -1806,7 +1775,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D005</span>
-            <span class="decision-title">API gateway will use AWS API Gateway</span>
+            <span class="decision-title">API gateway will use AWS API Gateway.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">technical constraint</span>
@@ -1823,18 +1792,10 @@
           <div class="evidence-body" id="ev-D005">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"The API gateway will use AWS API Gateway with a 100 req/min limit per user."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 5</span>
-              </div>
-            </div>
-            
-            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"API gateway: AWS API Gateway, 100 req/min per user cap"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made, item 3</span>
+                <span>Decisions Made</span>
               </div>
             </div>
             
@@ -1846,7 +1807,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D006</span>
-            <span class="decision-title">API gateway limit of 100 req/min per user</span>
+            <span class="decision-title">API gateway rate limit set to 100 requests per minute per user.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1863,18 +1824,10 @@
           <div class="evidence-body" id="ev-D006">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"The API gateway will use AWS API Gateway with a 100 req/min limit per user."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 5</span>
-              </div>
-            </div>
-            
-            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"API gateway: AWS API Gateway, 100 req/min per user cap"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made, item 3</span>
+                <span>Decisions Made</span>
               </div>
             </div>
             
@@ -1886,7 +1839,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D007</span>
-            <span class="decision-title">Mobile app team blocked by auth API spec publication</span>
+            <span class="decision-title">Mobile app team is blocked by auth API spec publication.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">dependency</span>
@@ -1895,7 +1848,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The mobile application development team is currently blocked awaiting the publication of the authentication API specification.</p>
+        <p class="decision-detail">The mobile app team's progress is dependent on and blocked until the authentication API specification is published.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1906,7 +1859,7 @@
               <p class="evidence-quote">"Alex noted the mobile app team is blocked until the auth API spec is published."</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 6</span>
+                <span>Discussion Notes</span>
               </div>
             </div>
             
@@ -1918,7 +1871,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D008</span>
-            <span class="decision-title">Target publish date for auth API spec is 2026-07-05</span>
+            <span class="decision-title">Auth API spec target publish date is 2026-07-05.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">deadline or milestone</span>
@@ -1927,7 +1880,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The target date for publishing the authentication API specification is July 5, 2026.</p>
+        <p class="decision-detail">The target date for publishing the auth API specification is July 5, 2026.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1935,18 +1888,10 @@
           <div class="evidence-body" id="ev-D008">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Target publish date is 2026-07-05."</p>
-              <div class="evidence-loc">
-                <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 6</span>
-              </div>
-            </div>
-            
-            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"Auth API spec publish target: 2026-07-05"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Decisions Made, item 4</span>
+                <span>Decisions Made</span>
               </div>
             </div>
             
@@ -1958,7 +1903,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D009</span>
-            <span class="decision-title">Automated integration tests for auth endpoints</span>
+            <span class="decision-title">Automated integration tests required for auth endpoints.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -1967,7 +1912,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">All three authentication endpoints (login, refresh, reset) must have automated integration tests in place before Sprint 3 sign-off.</p>
+        <p class="decision-detail">Carol requested that all three authentication endpoints (login, refresh, reset) must have automated integration tests implemented before the Sprint 3 sign-off.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1978,7 +1923,7 @@
               <p class="evidence-quote">"Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests before Sprint 3 sign-off."</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Discussion Notes, paragraph 7</span>
+                <span>Discussion Notes</span>
               </div>
             </div>
             
@@ -1990,7 +1935,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D010</span>
-            <span class="decision-title">Fallback behaviour if API gateway goes down</span>
+            <span class="decision-title">Fallback behavior if API gateway fails.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">open question</span>
@@ -1999,7 +1944,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">An open question remains regarding the system's fallback behaviour if the API gateway becomes unavailable.</p>
+        <p class="decision-detail">A question was raised regarding the system's fallback behavior in the event of an API gateway outage.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D010', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2010,7 +1955,7 @@
               <p class="evidence-quote">"What is the fallback behaviour if the API gateway goes down?"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Open Questions, item 1</span>
+                <span>Open Questions</span>
               </div>
             </div>
             
@@ -2022,7 +1967,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D011</span>
-            <span class="decision-title">Refresh token invalidation on password reset</span>
+            <span class="decision-title">Refresh token invalidation upon password reset.</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">open question</span>
@@ -2031,7 +1976,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">It needs to be clarified whether refresh tokens are invalidated automatically when a user performs a password reset.</p>
+        <p class="decision-detail">A question was posed to determine if refresh tokens are automatically invalidated when a user resets their password.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D011', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2042,7 +1987,7 @@
               <p class="evidence-quote">"Are refresh tokens invalidated on password reset?"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>Open Questions, item 2</span>
+                <span>Open Questions</span>
               </div>
             </div>
             

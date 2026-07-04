@@ -865,11 +865,19 @@
         <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
         <h1 class="header-title" style="margin:0;">{{ metadata.title }}</h1>
       </div>
-      <button class="ledger-link" onclick="openLedgerModal()" style="margin:0; flex-shrink:0;">
-        <i class="ri-file-list-3-line"></i> View full decision ledger
-      </button>
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; flex-shrink:0;">
+        <button class="ledger-link" onclick="openLedgerModal()" style="margin:0;">
+          <i class="ri-file-list-3-line"></i> View full decision ledger
+        </button>
+        {% if raw_notes %}
+        <button class="utility-link" data-target="panel-notes" data-role="notes" style="margin:0;">
+          <i class="ri-file-text-line"></i> View source transcript
+        </button>
+        {% endif %}
+      </div>
     </div>
     <div class="meta-bar">
+
       <div class="meta-cell">
         <span class="meta-key">Date</span>
         <span class="meta-val">{{ metadata.date }}</span>
@@ -952,14 +960,7 @@
       </div>
     </div>
   {% endif %}
-  <!-- Reference document utility links -->
-  {% if raw_notes %}
-  <div class="report-utility-links">
-    <button class="utility-link" data-target="panel-notes" data-role="notes">
-      <i class="ri-file-text-line"></i> View source transcript
-    </button>
-  </div>
-  {% endif %}
+
 
 
   <!-- Character card row — horizontal, vertical cards -->

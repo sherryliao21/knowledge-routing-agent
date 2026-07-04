@@ -4,434 +4,430 @@
     "date": "2026-05-04",
     "run_id": "2026-05-04-illegal-excavation-ai",
     "source_file": "2026-05-04-illegal-excavation-ai.md",
-    "generated_at": "2026-07-04T19:06:00.610867Z"
+    "generated_at": "2026-07-04T19:21:00.008376Z"
   },
   "extraction": {
     "decisions": [
       {
         "id": "D001",
-        "title": "AI Interpretation Task Creation and Notification",
-        "detail": "Each AI interpretation run must create a background task in the task list, similar to the CC platform, and send a notification upon completion.",
+        "title": "AI interpretation tasks run in background with completion notifications",
+        "detail": "Each AI interpretation run creates one task that executes in the background within the task list, similar to the CC platform, and sends a notification upon completion.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Each AI interpretation run creates one task, which runs in the background in the task list (similar to how the CC platform operates); a notification is sent when it completes",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D002",
-        "title": "AI Interpretation Notification Mechanism Details Pending",
-        "detail": "The specific details of the AI interpretation task completion notification mechanism are pending confirmation in a requirements interview.",
+        "title": "AI interpretation notification mechanism details pending confirmation",
+        "detail": "The specific details of the notification mechanism for AI interpretation task completion need to be confirmed in a requirements interview.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Notification mechanism details are pending confirmation in the requirements interview",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D003",
-        "title": "AI Interpretation Image Sources",
-        "detail": "The system must support two image sources for AI interpretation: a one-time large-scale nationwide batch from Vendor A, or individual images uploaded by the user.",
+        "title": "Two image sources for AI interpretation",
+        "detail": "Imagery for AI interpretation can come from two sources: a one-time, large-scale nationwide batch from Vendor A, or individual images uploaded by the user.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Two image sources: a one-time large-scale nationwide batch of imagery obtained from Vendor A, or individual images uploaded by the user",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D004",
-        "title": "Suspected Point Confirmation and Monitoring",
-        "detail": "After AI interpretation completes, a list of suspected points is generated. Users can confirm these points (yes/no) and decide whether to place them under watch/monitoring.",
+        "title": "User interaction with AI interpretation results",
+        "detail": "After AI interpretation completes and a list is generated, the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "After interpretation completes, a list is generated; the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D005",
-        "title": "Monitoring Point Requirements: Reason and Polygon Upload",
-        "detail": "When placing a point under monitoring, the user must provide a reason and upload a polygon. Large-area polygons are valid, while overly small areas will be automatically filtered out.",
+        "title": "Requirements for placing a point under monitoring",
+        "detail": "When a user places a point under monitoring, they must provide a reason and upload a polygon. Large-area polygons are valid, but overly small areas will be automatically filtered out.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "When placing a point under monitoring, the reason must be filled in and a polygon uploaded (large-area polygons are valid; overly small areas are automatically filtered out)",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D006",
-        "title": "Image Upload Duplicate Prevention",
-        "detail": "A mechanism is required to prevent duplicate image uploads due to large file sizes.",
+        "title": "Duplicate image upload prevention mechanism required",
+        "detail": "A mechanism is needed to prevent images from being uploaded more than once, due to their large file sizes.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Images must not be uploaded more than once (image files are large, so a duplicate-prevention mechanism is needed)",
-            "approximate_location": "Under heading: [AI Interpretation Work Item]"
+            "approximate_location": "Under heading: AI Interpretation Work Item"
           }
         ]
       },
       {
         "id": "D007",
-        "title": "Image Comparison Feature: Manual Annotation",
-        "detail": "The two-period image comparison feature will no longer pull from the image library; users will annotate this manually instead.",
+        "title": "Two-period image comparison will be manual, not from image library",
+        "detail": "The two-period image comparison feature will no longer pull images from the image library; instead, users will annotate this manually.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Two-period image comparison will no longer pull from the image library — the user will annotate this manually instead",
-            "approximate_location": "Under heading: [Image Comparison Feature Adjustment]"
+            "approximate_location": "Under heading: Image Comparison Feature Adjustment"
           }
         ]
       },
       {
         "id": "D008",
-        "title": "On-site Workstation for Model Execution",
-        "detail": "A workstation will be set up on-site, and images will be sent to the client's Access Point (AP), which will then call the workstation to run the model.",
+        "title": "On-site workstation for model execution",
+        "detail": "A workstation will be set up on-site, to which images are sent via the client's AP, and the workstation will run the model.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "A workstation will be set up on-site; images are sent to the client's AP, which then calls the workstation to run the model",
-            "approximate_location": "Under heading: [Image Comparison Feature Adjustment]"
+            "approximate_location": "Under heading: Image Comparison Feature Adjustment"
           }
         ]
       },
       {
         "id": "D009",
-        "title": "GIS Provider for Base Map",
-        "detail": "The base map will be provided by GIS Provider B via GeoServer.",
+        "title": "Base map provided by GIS Provider B via GeoServer",
+        "detail": "The base map for the system will be sourced from GIS Provider B through GeoServer.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The base map will be provided by GIS Provider B via GeoServer",
-            "approximate_location": "Under heading: [Image Comparison Feature Adjustment]"
+            "approximate_location": "Under heading: Image Comparison Feature Adjustment"
           }
         ]
       },
       {
         "id": "D010",
-        "title": "Map Viewer Imagery and Filtering Capabilities",
-        "detail": "The map viewer must be able to load historically uploaded imagery and support filtering by date and image-name keyword (types: satellite, aerial photo, drone), displaying points on the map.",
+        "title": "Map viewer functionality for historical imagery and filtering",
+        "detail": "The map viewer must be able to load historically uploaded imagery and support filtering the list by date and image-name keyword (with types: satellite, aerial photo, drone), while also displaying points on the map.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The map viewer can load historically uploaded imagery, supports filtering the list by date and image-name keyword (type: satellite / aerial photo / drone), and displays points on the map",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D011",
-        "title": "Map Viewer 'Locate' Button and Zoom",
-        "detail": "When a point is opened, a 'locate' button should be displayed, and the map must automatically zoom to that location.",
+        "title": "Map viewer 'locate' button functionality",
+        "detail": "When a point is opened in the map viewer, a 'locate' button should be displayed, which, when clicked, automatically zooms the map to that specific location.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Opening a point shows a \"locate\" button; the map automatically zooms to that location",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D012",
-        "title": "Map Viewer Imagery Reversion to Point Display",
-        "detail": "When the map is zoomed out past a certain scale, imagery must automatically revert to point display.",
+        "title": "Map view reverts to point display at certain zoom level",
+        "detail": "When the map is zoomed out beyond a specified scale, the displayed imagery should automatically revert to a point display.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "When the map is zoomed out past a certain scale, imagery automatically reverts to point display",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D013",
-        "title": "Map Comparison Mode Lock and Release",
-        "detail": "In comparison mode, the map view must be locked and panning disabled. A 'release drag mode' button must be provided to restore panning.",
+        "title": "Map view behavior in comparison mode",
+        "detail": "In comparison mode, the map view will be locked and panning will be disabled. A 'release drag mode' button will be provided to restore panning functionality.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "In comparison mode, the map view is locked and cannot be panned; a \"release drag mode\" button is provided to restore panning",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D014",
-        "title": "Map Viewer Image Transparency Adjustment",
-        "detail": "Users must be able to adjust image transparency, which is an important feature for orthophoto analysis.",
+        "title": "Image transparency adjustment in map viewer",
+        "detail": "Users must be able to adjust image transparency, which is identified as an important feature for orthophoto analysis.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Users can adjust image transparency (an important feature for orthophoto analysis)",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D015",
-        "title": "Map Viewer Design Reference",
-        "detail": "The map viewer's design will reference the existing Forest Land Disaster Prevention System.",
+        "title": "Map viewer design references existing system",
+        "detail": "The design of the map viewer should reference the existing Forest Land Disaster Prevention System.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The map viewer's design references the existing Forest Land Disaster Prevention System",
-            "approximate_location": "Under heading: [Map Viewer Features]"
+            "approximate_location": "Under heading: Map Viewer Features"
           }
         ]
       },
       {
         "id": "D016",
-        "title": "Suspected Point Project Organization by Year",
-        "detail": "Projects are organized by year, and suspected points can be created within a project.",
+        "title": "Project and suspected point organization",
+        "detail": "Projects will be organized by year, and suspected points can be created within these projects.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Projects are organized by year; suspected points can be created within a project",
-            "approximate_location": "Under heading: [Suspected Point Management]"
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D017",
-        "title": "Suspected Point Layer Split by County/City Pending",
-        "detail": "The decision on whether to split suspected point layers by county/city is pending confirmation in the requirements interview.",
+        "title": "Confirmation needed for splitting suspected point layers by county/city",
+        "detail": "A decision on whether to split suspected point layers by county/city is pending confirmation in a requirements interview.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Whether to split layers by county/city is pending confirmation in the requirements interview",
-            "approximate_location": "Under heading: [Suspected Point Management]"
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D018",
-        "title": "Suspected Point Polygon Requirement",
-        "detail": "Suspected points require an uploaded polygon, but no image upload is needed.",
+        "title": "Suspected points require polygon upload, no image upload",
+        "detail": "Suspected points must have an uploaded polygon, but do not require an image upload.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Suspected points require an uploaded polygon; no image upload is needed",
-            "approximate_location": "Under heading: [Suspected Point Management]"
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D019",
-        "title": "Suspected Point Layers Organized by Year",
-        "detail": "Each year forms one layer for suspected points.",
+        "title": "Each year forms one suspected point layer",
+        "detail": "For suspected point management, each year will form a distinct layer.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Each year forms one layer",
-            "approximate_location": "Under heading: [Suspected Point Management]"
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D020",
-        "title": "New Survey Point Data Interface Requirement",
-        "detail": "A 'New Survey Point Data' interface must be added. It should include fields for drawing number and key-monitoring-zone, referencing manual figure 2.13. Other fields include: survey serial number, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location.",
+        "title": "New Survey Point Data interface needed",
+        "detail": "A 'New Survey Point Data' interface must be added, including fields for drawing number and key-monitoring-zone, referencing manual figure 2.13.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Need to add a \"New Survey Point Data\" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)",
-            "approximate_location": "Under heading: [Suspected Point Management]"
-          },
-          {
-            "quote": "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]",
-            "approximate_location": "Under heading: [Suspected Point Management]"
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D021",
-        "title": "Legacy MIS System Migration and Redesign",
-        "detail": "The original MS file management system will be migrated to the new system. The interface will be redesigned, but its core functionality must remain unchanged.",
-        "category": "key_decision",
+        "title": "Fields for New Survey Point Data interface",
+        "detail": "The 'New Survey Point Data' interface must include fields such as survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged",
-            "approximate_location": "Under heading: [Legacy MIS System Migration]"
+            "quote": "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]",
+            "approximate_location": "Under heading: Suspected Point Management"
           }
         ]
       },
       {
         "id": "D022",
-        "title": "MIS Migration for Information Security Compliance",
-        "detail": "The primary reason for migrating the legacy MIS system is to meet information-security compliance requirements.",
-        "category": "business_requirement",
+        "title": "Migration of legacy MS file management system",
+        "detail": "The original MS file management system will be migrated to the new system. Its interface will be redesigned, but its core functionality will remain unchanged.",
+        "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "The main reason for migration is information-security compliance requirements",
-            "approximate_location": "Under heading: [Legacy MIS System Migration]"
+            "quote": "The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged",
+            "approximate_location": "Under heading: Legacy MIS System Migration"
           }
         ]
       },
       {
         "id": "D023",
-        "title": "MIS Migration Details Pending Confirmation",
-        "detail": "Details regarding the legacy MIS system migration are pending confirmation in the requirements interview.",
-        "category": "open_question",
+        "title": "Reason for MIS migration: Information security compliance",
+        "detail": "The primary motivation for migrating the legacy MIS system is to meet information-security compliance requirements.",
+        "category": "business_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Migration details are pending confirmation in the requirements interview",
-            "approximate_location": "Under heading: [Legacy MIS System Migration]"
+            "quote": "The main reason for migration is information-security compliance requirements",
+            "approximate_location": "Under heading: Legacy MIS System Migration"
           }
         ]
       },
       {
         "id": "D024",
-        "title": "Legacy System Follow-up/Reminder Feature",
-        "detail": "The legacy system already includes a follow-up/reminder feature, primarily using email notifications.",
-        "category": "functional_requirement",
+        "title": "Legacy MIS system migration details pending confirmation",
+        "detail": "Further details regarding the migration of the legacy MIS system are pending confirmation in a requirements interview.",
+        "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "The legacy system already has a follow-up/reminder feature, primarily via email notification",
-            "approximate_location": "Under heading: [Follow-up/Reminder Feature]"
+            "quote": "Migration details are pending confirmation in the requirements interview",
+            "approximate_location": "Under heading: Legacy MIS System Migration"
           }
         ]
       },
       {
         "id": "D025",
-        "title": "New System Follow-up Module Integration",
-        "detail": "Items for follow-up can be selected from suspected points and integrated into the new system's follow-up module.",
+        "title": "New follow-up feature integrates suspected points",
+        "detail": "The planning for the new system's follow-up feature includes selecting items to follow up on from suspected points and integrating them into the follow-up module.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Items to follow up on can be selected from suspected points and integrated into the follow-up module",
-            "approximate_location": "Under heading: [Follow-up/Reminder Feature]"
+            "approximate_location": "Under heading: Follow-up/Reminder Feature"
           }
         ]
       },
       {
         "id": "D026",
-        "title": "New System Schedule-Tracking Interface",
-        "detail": "The new system's follow-up feature must include a schedule-tracking interface (e.g., showing days remaining).",
+        "title": "Add schedule-tracking interface for follow-ups",
+        "detail": "The new system's follow-up feature should include a schedule-tracking interface, for example, to show days remaining.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Add a schedule-tracking interface (e.g. showing days remaining)",
-            "approximate_location": "Under heading: [Follow-up/Reminder Feature]"
+            "approximate_location": "Under heading: Follow-up/Reminder Feature"
           }
         ]
       },
       {
         "id": "D027",
-        "title": "New System Follow-up Dispatch Interface",
-        "detail": "A follow-up dispatch interface is required, for which Shao-Chien already has a first draft.",
+        "title": "Follow-up dispatch interface to be developed",
+        "detail": "A follow-up dispatch interface needs to be implemented for the new system, with Shao-Chien already having a first draft.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Follow-up dispatch interface (Shao-Chien already has a first draft)",
-            "approximate_location": "Under heading: [Follow-up/Reminder Feature]"
+            "approximate_location": "Under heading: Follow-up/Reminder Feature"
           }
         ]
       },
       {
         "id": "D028",
-        "title": "Follow-up Connection to Survey Report Management",
-        "detail": "After follow-up, the system must connect to survey-report management, including recording time, description, action taken, and uploaded images.",
+        "title": "Follow-up feature connects to survey-report management",
+        "detail": "After a follow-up action, the system should connect to survey-report management, including recording time, description, action taken, and uploaded images.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "After follow-up, this connects to survey-report management: including time, description, action taken, and uploaded images",
-            "approximate_location": "Under heading: [Follow-up/Reminder Feature]"
+            "approximate_location": "Under heading: Follow-up/Reminder Feature"
           }
         ]
       },
       {
         "id": "D029",
-        "title": "Data Flow Document Requirement",
-        "detail": "A-Bao requires a data-flow document explaining the movement of data after AI interpretation, including data sources and where computations occur.",
-        "category": "functional_requirement",
+        "title": "A-Bao requires data-flow documentation",
+        "detail": "A-Bao has requested a data-flow document to explain how data moves after AI interpretation completes, specifically where data is pulled from and where computation occurs.",
+        "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "A-Bao needs a data-flow document explaining how data moves after AI interpretation completes — where the data is pulled from, and where computation happens",
-            "approximate_location": "Under heading: [Data Flow Documentation (requested by A-Bao)]"
+            "approximate_location": "Under heading: Data Flow Documentation (requested by A-Bao)"
           }
         ]
       },
       {
         "id": "D030",
-        "title": "AI Interpretation Data Flow Architecture",
-        "detail": "The data flow for AI interpretation covers: image source -> interpretation task execution (workstation) -> result output -> monitoring database.",
+        "title": "Defined data flow for AI interpretation",
+        "detail": "The data flow for AI interpretation covers the path from the image source, through interpretation task execution (at the workstation), to result output, and finally to the monitoring database.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Data flow covers: image source → interpretation task execution (workstation) → result output → monitoring database",
-            "approximate_location": "Under heading: [Data Flow Documentation (requested by A-Bao)]"
+            "approximate_location": "Under heading: Data Flow Documentation (requested by A-Bao)"
           }
         ]
       },
       {
         "id": "D031",
-        "title": "Project Kick-off Expectation",
-        "detail": "The project is currently in the bidding process and is expected to kick off in mid-May if things proceed smoothly.",
+        "title": "Project kick-off expected mid-May if bidding successful",
+        "detail": "The project is currently in the bidding process and, if it goes smoothly, is expected to kick off in mid-May.",
         "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The project is currently in the bidding process; if things go smoothly, it's expected to kick off in mid-May",
-            "approximate_location": "Under heading: [Project Timeline]"
+            "approximate_location": "Under heading: Project Timeline"
           }
         ]
       },
       {
         "id": "D032",
-        "title": "Immediate Requirements Interview Post-Bid Award",
-        "detail": "On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately.",
+        "title": "Potential immediate requirements interview post-bid award",
+        "detail": "There is a possibility that a requirements interview and interface confirmation may need to occur immediately on the afternoon of the day the bid is awarded, indicating a tight schedule.",
         "category": "risk",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately",
-            "approximate_location": "Under heading: [Project Timeline]"
+            "approximate_location": "Under heading: Project Timeline"
           }
         ]
       },
       {
         "id": "D033",
-        "title": "Action Item: Finish 'add suspected point' data interface",
-        "detail": "Sherry is tasked with finishing the 'add suspected point' data interface, referring to figure 2.13, by May 18th.",
+        "title": "Sherry to finish 'add suspected point' data interface by 2026-05-18",
+        "detail": "Sherry is tasked with completing the 'add suspected point' data interface, referencing figure 2.13, by May 18, 2026.",
         "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
@@ -443,9 +439,9 @@
       },
       {
         "id": "D034",
-        "title": "Action Item: Organize existing interfaces",
-        "detail": "Sherry is tasked with organizing existing interfaces (including those owned by Shao-Chien) for use in the requirements interview by May 20th.",
-        "category": "deadline_or_milestone",
+        "title": "Sherry to organize existing interfaces by 2026-05-20",
+        "detail": "Sherry is responsible for organizing existing interfaces, including those owned by Shao-Chien, for use in the requirements interview by May 20, 2026.",
+        "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
@@ -456,9 +452,9 @@
       },
       {
         "id": "D035",
-        "title": "Action Item: Prepare data-flow document",
-        "detail": "Sherry is tasked with preparing the data-flow document (image source, compute node, data direction) for A-Bao to review by May 18th.",
-        "category": "deadline_or_milestone",
+        "title": "Sherry to prepare data-flow document by 2026-05-18",
+        "detail": "Sherry is assigned to prepare the data-flow document, covering image source, compute node, and data direction, for A-Bao to review by May 18, 2026.",
+        "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
@@ -469,59 +465,33 @@
       },
       {
         "id": "D036",
-        "title": "Next Meeting Scheduled",
-        "detail": "The next meeting is scheduled for 2026-05-15.",
+        "title": "Next meeting scheduled for 2026-05-15 to discuss system architecture",
+        "detail": "The next meeting is scheduled for May 15, 2026, with the planned topic of discussing system architecture.",
         "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Time: 2026-05-15",
+            "quote": "Time: 2026-05-15 Planned topic: Discuss system architecture",
             "approximate_location": "Under heading: Next Meeting"
           }
         ]
       },
       {
         "id": "D037",
-        "title": "Next Meeting Topic: System Architecture",
-        "detail": "The planned topic for the next meeting (2026-05-15) is to discuss system architecture.",
-        "category": "open_question",
+        "title": "First requirements interview scheduled for 2026-05-20",
+        "detail": "The first requirements interview is scheduled for May 20, 2026.",
+        "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Planned topic: Discuss system architecture",
-            "approximate_location": "Under heading: Next Meeting"
+            "quote": "Time: 2026-05-20 Planned topic: First requirements interview",
+            "approximate_location": "Under heading: Requirements Interview"
           }
         ]
       },
       {
         "id": "D038",
-        "title": "Requirements Interview Scheduled",
-        "detail": "The first requirements interview is scheduled for 2026-05-20.",
-        "category": "deadline_or_milestone",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Time: 2026-05-20",
-            "approximate_location": "Under heading: Requirements Interview"
-          }
-        ]
-      },
-      {
-        "id": "D039",
-        "title": "Requirements Interview Topic",
-        "detail": "The planned topic for the requirements interview on 2026-05-20 is the first requirements interview.",
-        "category": "deadline_or_milestone",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Planned topic: First requirements interview",
-            "approximate_location": "Under heading: Requirements Interview"
-          }
-        ]
-      },
-      {
-        "id": "D040",
-        "title": "Requirements Interview Preparation",
+        "title": "Preparation needed for requirements interview",
         "detail": "Preparation for the requirements interview includes consolidating existing interfaces, preparing a system architecture diagram, and a data flow diagram.",
         "category": "dependency",
         "confidence": "confirmed",
@@ -533,9 +503,9 @@
         ]
       },
       {
-        "id": "D041",
-        "title": "Open Question: AI Interpretation Notification Details",
-        "detail": "Details of the AI interpretation task completion notification mechanism need to be confirmed.",
+        "id": "D039",
+        "title": "Open item: Details of AI interpretation task completion notification mechanism",
+        "detail": "The details of the AI interpretation task completion notification mechanism are an open item that needs confirmation.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
@@ -546,9 +516,9 @@
         ]
       },
       {
-        "id": "D042",
-        "title": "Open Question: Suspected-Point Layer Split by County/City",
-        "detail": "It needs to be confirmed whether the suspected-point layer should be split by county/city.",
+        "id": "D040",
+        "title": "Open item: Whether suspected-point layer should be split by county/city",
+        "detail": "It is an open question whether the suspected-point layer should be split by county/city.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
@@ -559,9 +529,9 @@
         ]
       },
       {
-        "id": "D043",
-        "title": "Open Question: MIS Migration Interface Design Details",
-        "detail": "Interface design details for the MIS migration need to be confirmed.",
+        "id": "D041",
+        "title": "Open item: Interface design details for MIS migration",
+        "detail": "The interface design details for the MIS migration are an open item requiring confirmation.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
@@ -572,9 +542,9 @@
         ]
       },
       {
-        "id": "D044",
-        "title": "Open Question: Follow-up Notification Recipients and Schedule",
-        "detail": "It needs to be confirmed who receives follow-up notifications and on what schedule.",
+        "id": "D042",
+        "title": "Open item: Recipients and schedule for follow-up notifications",
+        "detail": "Who receives follow-up notifications and on what schedule is an open item needing confirmation.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
@@ -585,83 +555,126 @@
         ]
       }
     ],
-    "total_confirmed": 44,
+    "total_confirmed": 42,
     "total_inferred": 0
   },
   "roles": {
     "engineer": {
       "implementation_scope": [
-        "Implement AI interpretation task creation as a background task in a task list, similar to the CC platform (D001).",
-        "Develop a notification mechanism for AI interpretation task completion (D001).",
-        "Integrate support for two image sources for AI interpretation: large-scale batch from Vendor A and individual user uploads (D003).",
-        "Develop user interface and backend logic for confirming suspected points (yes/no) after AI interpretation (D004).",
-        "Develop user interface and backend logic for placing suspected points under watch/monitoring (D004).",
-        "Implement functionality to capture a reason and upload a polygon when placing a point under monitoring (D005).",
-        "Implement automatic filtering for overly small polygons during monitoring point creation (D005).",
-        "Develop a mechanism to prevent duplicate image uploads, accounting for large file sizes (D006).",
-        "Adjust the two-period image comparison feature to support manual annotation by users (D007).",
-        "Implement map viewer capabilities to load historically uploaded imagery (D010).",
-        "Implement filtering for map viewer imagery by date and image-name keyword (satellite, aerial photo, drone) (D010).",
-        "Display points on the map viewer based on imagery (D010).",
-        "Develop a 'locate' button for points, which automatically zooms the map to the point's location (D011).",
-        "Implement automatic imagery reversion to point display when the map is zoomed out past a certain scale (D012).",
-        "Implement comparison mode for the map viewer, including locking the map view, disabling panning, and providing a 'release drag mode' button (D013).",
-        "Enable users to adjust image transparency within the map viewer (D014).",
-        "Implement project organization by year for suspected points (D016).",
-        "Enable creation of suspected points within a project (D016).",
-        "Implement requirement for uploading a polygon for suspected points (no image upload) (D018).",
-        "Organize suspected points into yearly layers (D019).",
-        "Add a 'New Survey Point Data' interface with fields: survey serial number, drawing number, key-monitoring-zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location (D020).",
-        "Migrate the original MS file management system to the new system, redesigning the interface while retaining core functionality (D021).",
-        "Integrate selection of suspected points into the new system's follow-up module (D025).",
-        "Develop a schedule-tracking interface (e.g., showing days remaining) within the follow-up module (D026).",
-        "Develop a follow-up dispatch interface (D027).",
-        "Implement connection from the follow-up module to survey-report management, including recording time, description, action taken, and uploaded images (D028).",
-        "Prepare a data-flow document explaining data movement after AI interpretation, including sources and computation locations (D029)."
+        "Implement background task processing for AI interpretation runs, including task list integration (similar to CC platform) and completion notifications.",
+        "Develop AI interpretation image ingestion mechanisms from two sources: Vendor A nationwide batch and individual user uploads.",
+        "Develop user interface and backend logic for confirming AI interpretation suspected points (yes/no) and assigning them to 'watch/monitoring'.",
+        "Implement logic for placing points under monitoring, requiring a reason and polygon upload, with automated filtering for overly small polygons.",
+        "Implement a duplicate image upload prevention mechanism for large image files.",
+        "Develop a map viewer component capable of loading historically uploaded imagery.",
+        "Implement map viewer filtering functionality by date and image-name keyword (supporting types: satellite, aerial photo, drone).",
+        "Implement map viewer functionality to display points on the map.",
+        "Implement a 'locate' button in the map viewer to automatically zoom to a specific point's location.",
+        "Implement map viewer logic to revert to point display when zoomed out beyond a specified scale.",
+        "Implement comparison mode for the map viewer, including locking panning and providing a 'release drag mode' button.",
+        "Implement image transparency adjustment functionality in the map viewer.",
+        "Implement project organization by year and allow creation of suspected points within these annual projects.",
+        "Implement suspected point creation, requiring polygon upload and no image upload.",
+        "Ensure each year forms a distinct suspected point layer in management.",
+        "Develop a 'New Survey Point Data' interface with fields: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method, volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
+        "Migrate the legacy MS file management system to the new system, redesigning the interface while retaining core functionality.",
+        "Implement a new follow-up feature, allowing selection of suspected points for follow-up and integration into a follow-up module.",
+        "Develop a schedule-tracking interface for follow-ups (e.g., showing days remaining).",
+        "Implement a follow-up dispatch interface.",
+        "Integrate follow-up actions with survey-report management, recording time, description, action taken, and uploaded images."
       ],
       "constraints": [
         {
-          "text": "An on-site workstation will be used for model execution; images are sent to the client's Access Point (AP), which then calls the workstation to run the model (D008).",
+          "text": "AI interpretation model execution must occur on an on-site workstation, receiving images via the client's AP.",
           "decision_ids": [
             "D008"
           ]
         },
         {
-          "text": "The base map must be provided by GIS Provider B via GeoServer (D009).",
+          "text": "The base map must be sourced from GIS Provider B via GeoServer.",
           "decision_ids": [
             "D009"
           ]
         },
         {
-          "text": "The map viewer's design must reference the existing Forest Land Disaster Prevention System (D015).",
+          "text": "The map viewer design must reference the existing Forest Land Disaster Prevention System.",
           "decision_ids": [
             "D015"
           ]
         },
         {
-          "text": "The legacy MIS system migration must meet information-security compliance requirements (D022).",
+          "text": "The legacy MIS system migration is primarily driven by information-security compliance requirements.",
           "decision_ids": [
-            "D022"
+            "D023"
           ]
         },
         {
-          "text": "The AI interpretation data flow architecture is fixed: image source -> interpretation task execution (workstation) -> result output -> monitoring database (D030).",
+          "text": "The defined data flow for AI interpretation must follow the path: image source → interpretation task execution (workstation) → result output → monitoring database.",
           "decision_ids": [
             "D030"
+          ]
+        },
+        {
+          "text": "The project is expected to kick off in mid-May if bidding is successful, implying a tight schedule.",
+          "decision_ids": [
+            "D031"
+          ]
+        },
+        {
+          "text": "There is a risk of an immediate requirements interview and interface confirmation on the afternoon of bid award, requiring rapid preparation.",
+          "decision_ids": [
+            "D032"
+          ]
+        },
+        {
+          "text": "The 'add suspected point' data interface, referencing manual figure 2.13, needs to be completed by 2026-05-18.",
+          "decision_ids": [
+            "D033"
+          ]
+        },
+        {
+          "text": "Existing interfaces (including Shao-Chien's parts) must be organized for the requirements interview by 2026-05-20.",
+          "decision_ids": [
+            "D034"
+          ]
+        },
+        {
+          "text": "A data-flow document (covering image source, compute node, and data direction) must be prepared for A-Bao's review by 2026-05-18.",
+          "decision_ids": [
+            "D029",
+            "D035"
+          ]
+        },
+        {
+          "text": "System architecture discussion meeting scheduled for 2026-05-15.",
+          "decision_ids": [
+            "D036"
+          ]
+        },
+        {
+          "text": "First requirements interview scheduled for 2026-05-20.",
+          "decision_ids": [
+            "D037"
+          ]
+        },
+        {
+          "text": "Preparation for the requirements interview requires consolidating existing interfaces, a system architecture diagram, and a data flow diagram.",
+          "decision_ids": [
+            "D038"
           ]
         }
       ],
       "architectural_decisions": [
         {
-          "text": "The two-period image comparison feature will no longer pull from the image library; users will annotate this manually instead (D007).",
+          "text": "The two-period image comparison feature will not utilize the image library; manual user annotation is the chosen approach.",
           "decision_ids": [
             "D007"
           ]
         },
         {
-          "text": "The original MS file management system will be migrated to the new system, with its interface redesigned but core functionality remaining unchanged (D021).",
+          "text": "The legacy MS file management system will be migrated to the new system, requiring interface redesign while maintaining core functionality.",
           "decision_ids": [
-            "D021"
+            "D022"
           ]
         }
       ],
@@ -688,7 +701,6 @@
         "D020",
         "D021",
         "D022",
-        "D023",
         "D024",
         "D025",
         "D026",
@@ -696,291 +708,263 @@
         "D028",
         "D029",
         "D030",
+        "D031",
+        "D032",
+        "D033",
+        "D034",
+        "D035",
+        "D036",
         "D037",
-        "D040"
+        "D038",
+        "D039",
+        "D040",
+        "D041",
+        "D042"
       ],
       "open_technical_questions": [
-        "What are the specific details of the AI interpretation task completion notification mechanism? (D002)",
-        "Should suspected point layers be split by county/city? (D017)",
-        "What are the interface design details for the MIS migration? (D023)",
-        "What are the pending system architecture decisions that need to be discussed? (D037)"
+        "What are the specific implementation details for the AI interpretation task completion notification mechanism (e.g., protocol, payload, endpoints)? (D002, D039)",
+        "Should suspected point layers be logically or physically split by county/city, impacting data modeling and GIS query performance? (D017, D040)",
+        "What are the detailed interface designs (e.g., API contracts, data structures) for the MIS migration? (D041)",
+        "What are the technical requirements for recipients and scheduling of follow-up notifications, impacting notification service implementation and user preference management? (D042)"
       ]
     },
     "qa": {
       "acceptance_criteria": [
-        "Given an AI interpretation run is initiated, When the run starts, Then a background task is created in the task list.",
-        "Given an AI interpretation run is completed successfully, When the run finishes, Then a notification is sent upon completion.",
-        "Given a user wants to initiate an AI interpretation, When selecting image sources, Then the system allows selection of 'Vendor A nationwide batch'.",
-        "Given a user wants to initiate an AI interpretation, When selecting image sources, Then the system allows selection of 'individual images uploaded by the user'.",
-        "Given an AI interpretation has completed and generated a list of suspected points, When a user views a suspected point, Then they can choose to confirm it ('Yes').",
-        "Given an AI interpretation has completed and generated a list of suspected points, When a user views a suspected point, Then they can choose to reject it ('No').",
-        "Given a user has confirmed a suspected point, When they decide to monitor it, Then the system allows placing the point under watch/monitoring.",
-        "Given a user attempts to place a suspected point under monitoring, When they submit the monitoring request, Then a 'reason' must be provided.",
-        "Given a user attempts to place a suspected point under monitoring, When they submit the monitoring request, Then a polygon must be uploaded.",
-        "Given a user attempts to place a suspected point under monitoring and uploads a large-area polygon, When the system processes the polygon, Then the polygon is accepted.",
-        "Given a user attempts to place a suspected point under monitoring and uploads an overly small-area polygon, When the system processes the polygon, Then the polygon is automatically filtered out.",
-        "Given an image file has been previously uploaded, When the user attempts to upload the exact same image file again, Then the system prevents the duplicate upload.",
-        "Given the map viewer is displaying imagery, When historical imagery exists, Then the map viewer loads and displays historically uploaded imagery.",
-        "Given the map viewer is displaying a list of imagery, When the user filters by date, Then the list of imagery updates to show only images within the specified date range.",
-        "Given the map viewer is displaying a list of imagery, When the user filters by image-name keyword, Then the list of imagery updates to show only images matching the keyword.",
-        "Given the map viewer is displaying imagery, When images have associated points, Then these points are displayed on the map.",
-        "Given the map viewer is displaying imagery, When the user filters by image type 'satellite', Then only satellite images are displayed.",
-        "Given the map viewer is displaying imagery, When the user filters by image type 'aerial photo', Then only aerial photo images are displayed.",
-        "Given the map viewer is displaying imagery, When the user filters by image type 'drone', Then only drone images are displayed.",
-        "Given a suspected point is opened in the system, When the point details are displayed, Then a 'locate' button is visible.",
-        "Given a user clicks the 'locate' button for an opened point, When the map viewer is active, Then the map automatically zooms to the location of that point.",
-        "Given the map viewer is displaying imagery, When the user zooms out past a defined scale threshold, Then the displayed imagery automatically reverts to point display.",
-        "Given the map viewer is in comparison mode, When a user attempts to pan or drag the map, Then the map view is locked and panning is disabled.",
-        "Given the map viewer is in comparison mode, When the user views the interface, Then a 'release drag mode' button is visible.",
-        "Given the map viewer is in comparison mode, When the user clicks the 'release drag mode' button, Then panning is re-enabled.",
-        "Given the map viewer is displaying imagery, When a user accesses transparency controls, Then they can adjust the transparency of the images.",
-        "Given a user adjusts image transparency, When the adjustment is applied, Then the displayed imagery visually reflects the new transparency level.",
-        "Given a user is managing suspected points, When creating a new project, Then the project must be associated with a specific year.",
-        "Given a project exists, When a user creates a suspected point, Then the suspected point is created within that project.",
-        "Given a user creates a suspected point, When submitting the point, Then a polygon must be uploaded.",
-        "Given a user creates a suspected point, When submitting the point, Then no image upload is required or allowed.",
-        "Given suspected points exist for multiple years, When viewing layers of suspected points, Then each year's suspected points form a distinct layer.",
-        "Given a user navigates to the 'New Survey Point Data' interface, When the interface loads, Then it displays fields for: drawing number, key-monitoring-zone, survey serial number, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
-        "Given the migrated MIS system, When a user performs any core functionality, Then the outcome of that functionality is identical to the legacy system.",
-        "Given the migrated MIS system, When a user interacts with the interface, Then the interface design is updated.",
-        "Given a list of suspected points, When a user selects one or more points for follow-up, Then the selected points are successfully integrated into the new system's follow-up module.",
-        "Given a user views the follow-up module, When items are present for follow-up, Then a schedule-tracking interface is displayed.",
-        "Given an item is in the follow-up module with a defined due date, When viewing the schedule-tracking interface, Then it displays tracking information (e.g., 'days remaining') for that item.",
-        "Given a user needs to manage follow-up tasks, When navigating to the follow-up section, Then a follow-up dispatch interface is accessible.",
-        "Given a follow-up task is completed, When the user records the follow-up action, Then the system connects to survey-report management.",
-        "Given a follow-up action is recorded in survey-report management, When viewing the report, Then it includes fields for time, description, action taken, and uploaded images."
+        "Given an AI interpretation task is initiated, When the task starts processing, Then it appears in the background task list.",
+        "Given an AI interpretation task is initiated, When the task completes successfully, Then a completion notification is sent.",
+        "Given a user initiates AI interpretation, When selecting image source, Then 'Vendor A Nationwide Batch' and 'User Uploaded Individual Images' are available options.",
+        "Given AI interpretation has completed and results are displayed, When a list of suspected points is presented, Then the user can confirm a suspected point (Yes/No).",
+        "Given a user confirms a suspected point, When the user decides to place it under monitoring, Then the system allows this action.",
+        "Given a user attempts to place a suspected point under monitoring, When the user submits the monitoring request, Then a reason must be provided.",
+        "Given a user attempts to place a suspected point under monitoring, When the user submits the monitoring request, Then a polygon must be uploaded.",
+        "Given a user uploads a polygon for monitoring, When the polygon is of a large area, Then the system accepts it.",
+        "Given a user uploads a polygon for monitoring, When the polygon is an overly small area, Then the system filters it out automatically.",
+        "Given a user attempts to upload an image, When the image has already been uploaded previously, Then the system prevents the duplicate upload.",
+        "Given the two-period image comparison feature is accessed, When the user attempts to retrieve images, Then the system does not pull images from the image library.",
+        "Given the two-period image comparison feature is accessed, When the user needs to compare images, Then the user can manually annotate the comparison.",
+        "Given the map viewer is displayed, When the base map loads, Then it is sourced from GIS Provider B via GeoServer.",
+        "Given the map viewer is displayed, When historical imagery has been uploaded, Then the map viewer loads and displays it.",
+        "Given historical imagery is loaded, When the user filters by date, Then only imagery matching the date filter is displayed.",
+        "Given historical imagery is loaded, When the user filters by image-name keyword, Then only imagery matching the keyword is displayed.",
+        "Given historical imagery is loaded, When the user filters by image type (satellite, aerial photo, drone), Then only imagery of the selected type is displayed.",
+        "Given the map viewer is displayed, When suspected points exist, Then they are displayed on the map.",
+        "Given a point is selected in the map viewer, When a 'locate' button is displayed for that point, Then clicking the 'locate' button automatically zooms the map to that point's location.",
+        "Given the map viewer is displaying imagery, When the map is zoomed out beyond a specified scale, Then the displayed imagery automatically reverts to a point display.",
+        "Given the map viewer is in comparison mode, When the user attempts to pan the map, Then panning is disabled.",
+        "Given the map viewer is in comparison mode, When panning is disabled, Then a 'release drag mode' button is visible.",
+        "Given the map viewer is in comparison mode, When the 'release drag mode' button is clicked, Then panning functionality is restored.",
+        "Given an image is displayed in the map viewer, When the user adjusts the transparency control, Then the image's transparency changes accordingly.",
+        "Given a user is creating a new project, When the project is created, Then it is associated with a specific year.",
+        "Given a project exists, When a user creates a suspected point, Then the suspected point can be created within that project.",
+        "Given a user is creating a suspected point, When the user attempts to save the suspected point, Then a polygon must be uploaded.",
+        "Given a user is creating a suspected point, When the user attempts to save the suspected point, Then an image upload is not required.",
+        "Given suspected points exist across multiple years, When viewing suspected points, Then each year's suspected points are presented as a distinct layer.",
+        "Given the system is accessed, When the user navigates to create new survey point data, Then a 'New Survey Point Data' interface is displayed.",
+        "Given the 'New Survey Point Data' interface is displayed, When data entry is required, Then fields for 'drawing number' and 'key-monitoring-zone' are present.",
+        "Given the 'New Survey Point Data' interface is displayed, When data entry is required, Then the following fields are present: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
+        "Given the legacy MS file management system existed, When the new system is used, Then its core functionality is present and unchanged.",
+        "Given the legacy MS file management system existed, When the new system is used, Then its interface is redesigned.",
+        "Given suspected points exist, When the user creates a follow-up item, Then suspected points can be selected and added to the follow-up module.",
+        "Given a follow-up item is being tracked, When the follow-up module is accessed, Then a schedule-tracking interface is displayed.",
+        "Given a schedule-tracking interface is displayed, When a follow-up item has a deadline, Then the interface shows days remaining for that item.",
+        "Given the system implements follow-up functionality, When a user needs to dispatch a follow-up, Then a follow-up dispatch interface is available.",
+        "Given a follow-up action is completed, When the system processes the completion, Then it records the action's time, description, action taken, and any uploaded images in survey-report management."
       ],
       "test_scenarios": [
-        "Verify a task appears in the task list immediately after initiating an AI interpretation run.",
-        "Verify a completion notification is received after an AI interpretation finishes successfully.",
-        "Verify a failure notification is received if an AI interpretation fails.",
-        "Verify a user can successfully initiate an AI interpretation using the 'Vendor A nationwide batch' source.",
-        "Verify a user can successfully initiate an AI interpretation by uploading individual images.",
-        "Verify a user can confirm a suspected point and place it under monitoring.",
-        "Verify a user can reject a suspected point.",
-        "Verify a user cannot place a point under monitoring without providing a reason.",
-        "Verify a user cannot place a point under monitoring without uploading a polygon.",
-        "Verify a user can successfully place a point under monitoring with a valid reason and a large-area polygon.",
-        "Verify uploading the same image file twice results in a duplicate prevention message or action.",
-        "Verify uploading two different image files (even with similar names) is successful.",
-        "Verify a user can manually annotate comparison areas in the two-period image comparison feature.",
-        "Verify the 'pull from image library' option is absent or disabled in the two-period image comparison feature.",
-        "Verify the map viewer loads historical imagery correctly.",
-        "Verify filtering imagery by a specific date range works as expected.",
-        "Verify filtering imagery by keywords works.",
-        "Verify points associated with loaded imagery are correctly displayed on the map.",
-        "Verify filtering imagery by each image type (satellite, aerial photo, drone) works independently.",
-        "Verify clicking 'locate' on a point zooms the map to its coordinates.",
-        "Verify zooming out past the predefined scale threshold switches the display from imagery to points.",
-        "Verify zooming in past the predefined scale threshold switches the display from points back to imagery.",
-        "Verify panning is disabled when comparison mode is active.",
-        "Verify clicking 'release drag mode' re-enables panning.",
-        "Verify adjusting image transparency from 0% to 100% and observing the visual change.",
-        "Verify projects can only be created with a year association.",
-        "Verify suspected points can be created successfully within an existing project.",
-        "Verify a user cannot create a suspected point without uploading a polygon.",
-        "Verify a user can successfully create a suspected point by uploading a polygon and no image.",
-        "Verify the interface does not prompt for image upload when creating a suspected point.",
-        "Verify that points created in different years appear in distinct layers in the relevant management interface.",
-        "Verify all specified fields are present and correctly labeled in the 'New Survey Point Data' interface.",
-        "Verify data can be entered and saved for each field in the 'New Survey Point Data' interface.",
-        "Perform a comprehensive set of actions in the new MIS interface and compare results against the legacy system's core functionality.",
-        "Verify the visual appearance and layout of the MIS interface are redesigned compared to the legacy system.",
-        "Verify all data records from the legacy system are successfully migrated and accessible in the new system.",
-        "Verify a single suspected point can be selected and added to the follow-up module.",
-        "Verify multiple suspected points can be selected and added to the follow-up module.",
-        "Verify the schedule-tracking interface is visible in the follow-up module.",
-        "Verify 'days remaining' (or equivalent) is correctly calculated and displayed for follow-up items with due dates.",
-        "Verify the 'follow-up dispatch interface' can be accessed.",
-        "Verify that completing a follow-up task correctly initiates the connection to survey-report management.",
-        "Verify that a survey report generated from a follow-up task contains fields for time, description, action taken, and uploaded images.",
-        "Verify images can be uploaded and successfully associated with a survey report."
+        "Initiate an AI interpretation task and verify it appears in the background task list and a completion notification is received upon success.",
+        "Initiate AI interpretation using a Vendor A batch image source.",
+        "Initiate AI interpretation using a user-uploaded individual image source.",
+        "After AI interpretation completes, confirm a suspected point ('Yes') and verify the option to place it under monitoring.",
+        "After AI interpretation completes, mark a suspected point as 'No' (not confirmed).",
+        "Successfully place a suspected point under monitoring by providing a reason and uploading a large-area polygon.",
+        "Attempt to place a suspected point under monitoring without providing a reason and verify the system prevents the action.",
+        "Attempt to place a suspected point under monitoring without uploading a polygon and verify the system prevents the action.",
+        "Upload an image, then attempt to upload the exact same image again and verify the duplicate upload is prevented.",
+        "Verify the image library is not accessible or used for two-period image comparison, and manual annotation tools are available.",
+        "Load the map viewer and verify the base map from GIS Provider B via GeoServer displays correctly.",
+        "Upload historical imagery and verify it loads and displays in the map viewer.",
+        "Filter historical imagery by date range, image-name keyword, and different image types (satellite, aerial photo, drone) and verify accurate results.",
+        "Verify suspected points appear correctly on the map.",
+        "Select a point on the map, click the 'locate' button, and verify the map automatically zooms to that location.",
+        "Zoom out the map beyond the specified scale and verify imagery reverts to point display; then zoom back in to verify imagery reappears.",
+        "Enter comparison mode, attempt to pan the map and verify it's locked. Click 'release drag mode' and verify panning is restored.",
+        "Load an image in the map viewer and adjust its transparency using the control, verifying visual changes.",
+        "Create a project for the current year and create a suspected point within it.",
+        "Create suspected points in different years (e.g., Year A and Year B) and verify they are organized into distinct layers.",
+        "Create a suspected point, upload a polygon, and verify successful creation without requiring an image upload.",
+        "Attempt to create a suspected point without uploading a polygon and verify an error message is displayed.",
+        "Navigate to the 'New Survey Point Data' interface and verify the presence of all specified fields (survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method, volume, area, section, lot number, X/Y coordinates, longitude/latitude, approximate location).",
+        "Perform common tasks using the migrated MIS file management system's new interface and verify core functionality remains unchanged.",
+        "Create a suspected point, then select it and integrate it into a new follow-up item.",
+        "Create a follow-up item with a deadline and verify the schedule-tracking interface accurately displays 'days remaining'.",
+        "Navigate to the follow-up dispatch interface and verify its accessibility.",
+        "Complete a follow-up action, providing time, description, action taken, and uploading an image, then verify these details are correctly recorded in survey-report management."
       ],
       "edge_cases": [
-        "Test initiating multiple AI interpretation runs concurrently and observe task list behavior.",
-        "Test AI interpretation runs that take an extremely long time or complete very quickly.",
-        "Test initiating AI interpretation with a very large number of individual images.",
-        "Test initiating AI interpretation with invalid image file types (for user uploads).",
-        "Test confirming/rejecting all points in a very large list of suspected points.",
-        "Test confirming/rejecting points with varying data complexities (e.g., missing data, malformed data).",
-        "Test various polygon sizes for monitoring points, including just above/below the 'overly small' threshold.",
-        "Test with different valid reasons for monitoring points (long, short, special characters).",
-        "Test with invalid polygon formats/data (if the system allows upload before validation).",
-        "Test attempting to submit monitoring points with an empty reason or empty polygon file.",
-        "Test duplicate image prevention with very large image files.",
-        "Test duplicate image prevention with images that have minor metadata changes but identical pixel data, or identical pixel data but different file names.",
-        "Test concurrent uploads of the same image by different users (if multi-user system).",
-        "Test manual annotation with complex shapes, very small/large areas, and interactions with map zooming/panning.",
-        "Test filtering imagery with invalid date ranges (e.g., end date before start date).",
-        "Test filtering imagery with keywords that yield no results, very long keywords, or special character keywords.",
-        "Test filtering by multiple image types concurrently.",
-        "Test 'locate' on points with coordinates far away from the current map view, or with invalid/missing coordinate data.",
-        "Test rapidly zooming in and out across the imagery/point display threshold.",
-        "Test switching in and out of map comparison mode multiple times.",
-        "Test attempting to pan using various input methods (mouse, touch) while comparison mode is locked.",
-        "Test image transparency adjustment with multiple layers of imagery (if applicable) or with very dark/light imagery.",
-        "Test creating projects for past, current, and future years.",
-        "Test creating a very large number of suspected points within one project.",
-        "Test creating suspected points with empty or invalid polygon file uploads.",
-        "Test with maximum length inputs for text fields in 'New Survey Point Data' interface.",
-        "Test with invalid date formats, non-numeric values for numeric fields (volume, area, coordinates) in 'New Survey Point Data' interface.",
-        "Test entering coordinates that are outside of expected ranges in 'New Survey Point Data' interface.",
-        "Test any known edge cases or rare workflows from the legacy MIS system after migration.",
-        "Test selecting an already followed-up point for follow-up.",
-        "Test selecting all suspected points for follow-up, or points from different projects/years.",
-        "Test schedule-tracking with follow-up items due today, tomorrow, next week, and overdue, or without a defined due date.",
-        "Test follow-up report creation with very long descriptions or action taken notes.",
-        "Test with multiple image uploads for a single follow-up report.",
-        "Test attempting to save a follow-up report with missing required fields (if any)."
+        "What happens if the AI interpretation task fails or is cancelled?",
+        "What happens if Vendor A batch imagery is unavailable or corrupt?",
+        "What if a user tries to upload an unsupported image format for AI interpretation?",
+        "What if the list of AI interpretation suspected points is empty or contains only one point?",
+        "Test with polygons at the boundary of 'overly small area' definition for monitoring points.",
+        "What constitutes a 'duplicate' image (e.g., hash, filename, content)?",
+        "What happens if a slightly modified version of an already uploaded image is attempted for upload?",
+        "Filter map imagery with no matching results or with invalid date formats/keywords.",
+        "Test the map zoom behavior at the exact boundary of the 'specified scale' for reverting to point display.",
+        "What if a suspected point is deleted after being integrated into a follow-up item?",
+        "What if a follow-up item has no defined deadline or if the deadline is in the past?",
+        "Test all validation rules for each field in the 'New Survey Point Data' interface (e.g., numeric values, date formats, dropdown selections)."
       ],
       "unresolved_behaviors": [
-        "Details of the AI interpretation task completion notification mechanism (e.g., delivery method, content, recipient) need to be confirmed.",
-        "What defines an 'overly small area' for a polygon when placing a point under monitoring? (e.g., minimum square meters/pixels, criteria for filtering)",
-        "What is the specific 'certain scale' threshold at which map imagery reverts to point display?",
-        "What is the expected range of image transparency adjustment (e.g., 0-100%) and the granularity of control (e.g., slider, numeric input)?",
-        "Needs confirmation on whether suspected-point layers should be split by county/city. If so, what are the specific criteria for splitting and how is this reflected in the UI?",
-        "Specific interface design details for the MIS migration and a clear definition of 'core functionality' that must remain unchanged need to be confirmed.",
-        "What specific schedule-tracking metrics (e.g., 'days remaining', status, progress) should be displayed in the follow-up module, and how are due dates defined for follow-up items?",
-        "What are the specific functionalities and expected behaviors of the 'follow-up dispatch interface'?",
-        "Who are the intended recipients for follow-up notifications, and what is the schedule/frequency for these notifications?"
+        "Details of the AI interpretation task completion notification mechanism (D002, D039).",
+        "Whether the suspected-point layer should be split by county/city (D017, D040).",
+        "Interface design details for the MIS migration (D024, D041).",
+        "Who receives follow-up notifications and on what schedule (D042)."
       ]
     },
     "pm": {
       "decision_history": [
-        "It was decided that each AI interpretation run must create a background task in the task list (similar to the CC platform) and send a notification upon completion.",
-        "The system must support two image sources for AI interpretation: a one-time large-scale nationwide batch from Vendor A, and individual user uploads.",
-        "After AI interpretation, a list of suspected points is generated, which users can confirm (yes/no) and decide to place under watch/monitoring.",
-        "When placing a point under monitoring, users must provide a reason and upload a polygon, with large-area polygons being valid and overly small areas filtered out.",
-        "A mechanism is required to prevent duplicate image uploads due to their large file sizes.",
-        "The two-period image comparison feature will no longer pull from the image library; instead, users will annotate this manually.",
-        "The map viewer must be able to load historically uploaded imagery, filter by date and image-name keyword (satellite, aerial photo, drone), and display points on the map.",
-        "A 'locate' button should display when a point is opened, automatically zooming the map to that location.",
-        "When the map is zoomed out past a certain scale, imagery must automatically revert to point display.",
-        "In comparison mode, the map view must be locked with panning disabled; a 'release drag mode' button will restore panning.",
-        "Users must be able to adjust image transparency, which is critical for orthophoto analysis.",
-        "Projects are organized by year, allowing suspected points to be created within a project, with each year forming one layer for suspected points.",
-        "Suspected points require an uploaded polygon, but no image upload is needed.",
-        "A 'New Survey Point Data' interface must be added, including fields like drawing number, key-monitoring-zone, survey serial number, village, monitoring date, monitoring method, volume, area, section, lot number, coordinates (X/Y, longitude/latitude), and approximate location.",
-        "The original MS file management system will be migrated to the new system, with its interface redesigned but core functionality remaining unchanged. This migration is primarily to meet information-security compliance requirements.",
-        "The new system will integrate a follow-up module where items can be selected from suspected points. It must include a schedule-tracking interface (e.g., days remaining) and a dispatch interface (Shao-Chien has a draft).",
-        "Post-follow-up, the system must connect to survey-report management, recording time, description, action taken, and uploaded images, leveraging the legacy system's email-based follow-up/reminder functionality."
+        "Confirmed AI interpretation tasks will run in the background with completion notifications, similar to the CC platform.",
+        "Decided AI interpretation will process imagery from two sources: a one-time nationwide batch from Vendor A and user-uploaded individual images.",
+        "Confirmed users can confirm suspected points and decide on monitoring after AI interpretation generates a list.",
+        "When placing a point under monitoring, users must provide a reason and upload a polygon, with automatic filtering for overly small areas.",
+        "A mechanism to prevent duplicate image uploads is required due to large file sizes.",
+        "The two-period image comparison feature will now involve manual annotation by users, no longer pulling images from an image library.",
+        "An on-site workstation will be set up to run AI models, with images sent via the client's AP.",
+        "The base map for the system will be sourced from GIS Provider B via GeoServer.",
+        "The map viewer must support loading historical imagery, filtering by date and image-name keyword (types: satellite, aerial photo, drone), and displaying points.",
+        "The map viewer will feature a 'locate' button that zooms to a specific point when clicked.",
+        "The map view will automatically revert to point display when zoomed out beyond a specified scale.",
+        "In comparison mode, the map view will be locked (panning disabled), with a 'release drag mode' button to restore panning.",
+        "Users must be able to adjust image transparency in the map viewer for orthophoto analysis.",
+        "The map viewer design should reference the existing Forest Land Disaster Prevention System.",
+        "Projects will be organized by year, and suspected points created within them.",
+        "Suspected points require a polygon upload but do not require an image upload.",
+        "Each year will form a distinct suspected point layer.",
+        "A 'New Survey Point Data' interface must be added, including fields for drawing number and key-monitoring-zone, referencing manual figure 2.13.",
+        "The 'New Survey Point Data' interface will include fields such as survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method, volume, area, section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
+        "The legacy MS file management system will be migrated to the new system, with redesigned interface but unchanged core functionality. The primary motivation for this migration is information security compliance requirements.",
+        "The new follow-up feature will allow selecting and integrating items to follow up on from suspected points into the follow-up module.",
+        "A schedule-tracking interface (e.g., showing days remaining) will be added to the follow-up feature.",
+        "A follow-up dispatch interface needs to be implemented, with a first draft already available from Shao-Chien.",
+        "After a follow-up action, the system will connect to survey-report management, recording time, description, action taken, and uploaded images.",
+        "The data flow for AI interpretation is defined as: image source \b\t interpretation task execution (workstation) \b\t result output \b\t monitoring database."
       ],
       "dependencies": [
-        "AI model execution relies on an on-site workstation set up and called by the client's Access Point (AP).",
-        "Base map functionality relies on GIS Provider B providing data via GeoServer.",
-        "Map viewer design will reference the existing Forest Land Disaster Prevention System.",
-        "The requirements interview (scheduled for 2026-05-20) is dependent on preparation work by Sherry: consolidating existing interfaces, preparing a system architecture diagram, and a data flow diagram.",
-        "A-Bao's review of the AI interpretation data flow is dependent on Sherry preparing the data-flow document (image source, compute node, data direction) by 2026-05-18.",
-        "MIS migration interface design details are pending and will impact the design and development teams."
+        "Integration with GIS Provider B via GeoServer is required for base map provision.",
+        "A data-flow document explaining AI interpretation data movement (image source, computation, data pull) is required by A-Bao for review by 2026-05-18 (Sherry assigned).",
+        "Completion of the 'add suspected point' data interface by Sherry is needed by 2026-05-18 for downstream work.",
+        "Organized existing interfaces (by Sherry, including Shao-Chien's contributions) are required by 2026-05-20 for the requirements interview.",
+        "Consolidated existing interfaces, a system architecture diagram, and a data flow diagram are needed as preparation for the first requirements interview scheduled for 2026-05-20."
       ],
       "risks": [
-        "Immediate Requirements Interview Post-Bid Award: There is a risk that a requirements interview and interface confirmation may need to happen immediately on the afternoon the bid is awarded. This implies a compressed timeline for preparation and stakeholder availability. (Likelihood: Medium, Impact: High on initial project setup and planning)."
+        "High Likelihood/High Impact: A requirements interview and interface confirmation may need to occur immediately on the afternoon of the bid award, indicating a very tight schedule and potential for rushed decisions or missed details."
       ],
       "alignment_gaps": [
-        "Specific details of the AI interpretation task completion notification mechanism are pending confirmation in a requirements interview, indicating a potential gap in stakeholder expectations or detailed requirements.",
-        "The decision on whether to split suspected point layers by county/city is pending confirmation, representing a potential divergence in data organization expectations.",
-        "Interface design details for the legacy MIS system migration are pending confirmation, which could lead to rework if not aligned early.",
-        "Who receives follow-up notifications and on what schedule needs confirmation, which could impact user experience and compliance if not clearly defined and agreed upon."
+        "Specific details of the AI interpretation task completion notification mechanism are pending confirmation.",
+        "Whether the suspected-point layer should be split by county/city requires confirmation.",
+        "Interface design details for the legacy MIS system migration are pending confirmation.",
+        "Recipients and schedule for follow-up notifications are not yet confirmed."
       ],
       "open_questions": [
-        "What are the specific details of the AI interpretation task completion notification mechanism? (Owned by PM/QA)",
-        "Should suspected-point layers be split by county/city for data organization? (Owned by PM/QA)",
-        "What are the specific interface design details for the legacy MIS system migration? (Owned by PM/QA)",
-        "Who will receive follow-up notifications and on what schedule? (Owned by PM/QA)"
+        "What are the specific details of the AI interpretation task completion notification mechanism? (PM/QA)",
+        "Should the suspected-point layer be split by county/city? (PM/QA)",
+        "What are the specific interface design details for the MIS migration? (PM/QA)",
+        "Who receives follow-up notifications and on what schedule? (PM/QA)"
       ],
       "milestones": [
-        "Project expected to kick off in mid-May (if bidding proceeds smoothly).",
-        "Sherry to finish the 'add suspected point' data interface (referencing figure 2.13) by 2026-05-18.",
-        "Sherry to prepare the data-flow document (image source, compute node, data direction) for A-Bao to review by 2026-05-18.",
-        "Next meeting scheduled for 2026-05-15, planned topic: Discuss system architecture.",
-        "Sherry to organize existing interfaces (including Shao-Chien's parts) for use in the requirements interview by 2026-05-20.",
+        "Project kick-off expected mid-May (contingent on successful bidding).",
+        "Sherry to finish 'add suspected point' data interface by 2026-05-18.",
+        "Sherry to organize existing interfaces (including Shao-Chien's parts) for requirements interview by 2026-05-20.",
+        "Sherry to prepare data-flow document for A-Bao review by 2026-05-18.",
+        "Next meeting to discuss system architecture scheduled for 2026-05-15.",
         "First requirements interview scheduled for 2026-05-20."
       ]
     },
     "sa": {
       "system_requirements": [
-        "The system SHALL create a background task for each AI interpretation run within the task list, similar to the CC platform.",
-        "The system SHALL send a notification upon the completion of an AI interpretation task.",
-        "The system SHALL support image ingestion from a one-time large-scale nationwide batch provided by Vendor A for AI interpretation.",
-        "The system SHALL support individual user-uploaded images as a source for AI interpretation.",
-        "The system SHALL implement a mechanism to prevent duplicate image uploads, accounting for large file sizes.",
-        "The system SHALL generate a list of suspected points upon completion of AI interpretation.",
-        "The system SHALL allow users to confirm or reject suspected points from the generated list.",
-        "The system SHALL allow users to designate confirmed suspected points for watch/monitoring.",
-        "The system SHALL require a reason to be provided by the user when placing a suspected point under monitoring.",
-        "The system SHALL require a polygon to be uploaded by the user when placing a suspected point under monitoring.",
-        "The system SHALL accept large-area polygons for monitoring points.",
-        "The system SHALL automatically filter out overly small polygons provided for monitoring points.",
-        "The map viewer SHALL load historically uploaded imagery.",
-        "The map viewer SHALL support filtering of imagery by date.",
-        "The map viewer SHALL support filtering of imagery by image-name keyword.",
-        "The map viewer SHALL support filtering of imagery by type (satellite, aerial photo, drone).",
-        "The map viewer SHALL display identified points on the map.",
-        "The map viewer SHALL display a 'locate' button when a point is opened.",
-        "The map viewer SHALL automatically zoom to the location of an opened point.",
-        "The map viewer SHALL automatically revert from imagery display to point display when zoomed out beyond a predefined scale.",
-        "In comparison mode, the map viewer SHALL lock the map view and disable panning.",
-        "The map viewer SHALL provide a 'release drag mode' button to restore panning functionality when in comparison mode.",
-        "The map viewer SHALL allow users to adjust image transparency.",
-        "The system SHALL organize suspected points within projects, where projects are organized by year.",
-        "The system SHALL allow creation of suspected points within an existing project.",
-        "The system SHALL represent suspected points for each year as a distinct layer.",
-        "The system SHALL require an uploaded polygon for the creation of a suspected point.",
-        "The system MUST NOT require an image upload for the creation of a suspected point.",
-        "The system SHALL provide a 'New Survey Point Data' interface.",
-        "The core functionality of the migrated MS file management system SHALL remain unchanged in the new system.",
-        "The user interface for the migrated MS file management system SHALL be redesigned as part of the new system development.",
-        "The new system, including the migrated MIS functionality, SHALL comply with relevant information security requirements (inferred - needs confirmation).",
-        "The new system SHALL allow users to select suspected points for inclusion in the follow-up module.",
-        "The new system's follow-up module SHALL include a schedule-tracking interface, displaying metrics such as days remaining.",
-        "The new system SHALL include a follow-up dispatch interface.",
-        "The system SHALL integrate follow-up actions with survey-report management.",
-        "The integration with survey-report management SHALL include recording of follow-up time, description, action taken, and associated uploaded images."
+        "The system SHALL execute AI interpretation runs as background tasks within a task list, similar to the CC platform.",
+        "The system SHALL send a notification upon the completion of each AI interpretation task.",
+        "The system SHALL support two sources for AI interpretation imagery: a one-time, large-scale nationwide batch from Vendor A, and individual images uploaded by the user.",
+        "Upon completion of AI interpretation, the system SHALL generate a list of suspected points.",
+        "The system SHALL enable users to confirm suspected points (Yes/No).",
+        "The system SHALL enable users to decide whether to place confirmed suspected points under watch/monitoring.",
+        "When placing a point under monitoring, the user SHALL be required to provide a reason.",
+        "When placing a point under monitoring, the user SHALL be required to upload a polygon.",
+        "The system SHALL automatically filter out overly small polygons provided for monitoring areas.",
+        "The system SHALL accept large-area polygons for monitoring purposes (inferred — needs confirmation).",
+        "The system MUST prevent the upload of duplicate image files, considering their large file sizes.",
+        "The system SHALL identify duplicate images prior to or during upload (inferred — needs confirmation).",
+        "The map viewer SHALL be able to load historically uploaded imagery.",
+        "The map viewer SHALL support filtering the loaded imagery list by date.",
+        "The map viewer SHALL support filtering the loaded imagery list by image-name keyword, with categories: satellite, aerial photo, and drone.",
+        "The map viewer SHALL display suspected points on the map.",
+        "When a point is selected or opened in the map viewer, the system SHALL display a 'locate' button.",
+        "Upon user activation of the 'locate' button, the map viewer SHALL automatically zoom to the location of the selected point.",
+        "When the map is zoomed out beyond a specified scale, the map viewer SHALL automatically revert the displayed imagery to a point display.",
+        "In comparison mode, the map view SHALL be locked, and panning SHALL be disabled.",
+        "The system SHALL provide a 'release drag mode' button in comparison mode to restore panning functionality.",
+        "The map viewer SHALL allow users to adjust the transparency of displayed images.",
+        "The system SHALL organize projects by year.",
+        "The system SHALL allow suspected points to be created within existing projects.",
+        "When creating a suspected point, the system SHALL require the upload of a polygon.",
+        "When creating a suspected point, the system SHALL NOT require the upload of an image.",
+        "For suspected point management, each year SHALL form a distinct suspected point layer.",
+        "The system SHALL include a 'New Survey Point Data' interface.",
+        "The 'New Survey Point Data' interface SHALL include fields for 'drawing number' and 'key-monitoring-zone'.",
+        "The 'New Survey Point Data' interface design SHALL reference manual figure 2.13 (inferred — needs confirmation).",
+        "The 'New Survey Point Data' interface SHALL include the following fields: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location.",
+        "The system MUST ensure compliance with information security requirements during the migration and operation of the legacy MS file management system.",
+        "The system SHALL allow users to select items for follow-up from suspected points.",
+        "The system SHALL integrate selected suspected points into the follow-up module.",
+        "The follow-up feature SHALL include a schedule-tracking interface, displaying information such as days remaining for a follow-up item.",
+        "The system SHALL implement a follow-up dispatch interface.",
+        "Following a follow-up action, the system SHALL connect to survey-report management.",
+        "The survey-report management functionality SHALL record follow-up time, description, action taken, and uploaded images."
       ],
       "data_flows": [
-        "Images -> Client's Access Point (AP) -> On-site Workstation (for AI model execution) (D008, D030)",
-        "Base Map Data (GIS Provider B) -> GeoServer -> Map Viewer (inferred from D009)",
-        "Image Source -> AI Interpretation Task Execution (On-site Workstation) -> AI Result Output -> Monitoring Database (D030)",
-        "Follow-up Module -> Survey-Report Management (data: time, description, action taken, uploaded images) (D028)"
+        "Imagery data from Vendor A (batch) to AI Interpretation system.",
+        "Imagery data from user uploads to AI Interpretation system.",
+        "Images from client's Access Point (AP) to the on-site workstation for AI model execution.",
+        "AI interpretation results from the workstation to the monitoring database.",
+        "Base map data from GIS Provider B (via GeoServer) to Map Viewer."
       ],
       "interface_contracts": [
-        "The 'New Survey Point Data' interface SHALL include the following fields: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (enum: precise coordinates, aerial survey, rapid monitoring, unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location. (D020)",
-        "The follow-up dispatch interface design SHALL leverage the existing first draft provided by Shao-Chien. (D027)",
-        "The 'add suspected point' data interface SHALL be completed by 2026-05-18, referencing manual figure 2.13. (D033)"
+        "The 'New Survey Point Data' interface requires input fields for: survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, and approximate location. (Input specification for New Survey Point Data interface)",
+        "The Follow-up module requires integration points with Survey Report Management to record time, description, action taken, and uploaded images for follow-up actions (Integration contract for Follow-up to Survey Report Management)."
       ],
       "constraints": [
         {
-          "text": "The AI interpretation model execution SHALL occur on an on-site workstation.",
+          "text": "AI interpretation models MUST be executed on a dedicated on-site workstation.",
           "decision_ids": [
             "D008"
           ]
         },
         {
-          "text": "The base map SHALL be sourced from GIS Provider B via GeoServer.",
+          "text": "The system's base map MUST be sourced from GIS Provider B via GeoServer.",
           "decision_ids": [
             "D009"
           ]
         },
         {
-          "text": "The map viewer's user interface and experience design SHALL reference the existing Forest Land Disaster Prevention System.",
+          "text": "The map viewer's design MUST reference the existing Forest Land Disaster Prevention System.",
           "decision_ids": [
             "D015"
           ]
         },
         {
-          "text": "The migration of the legacy MIS system is mandated to achieve information-security compliance requirements.",
-          "decision_ids": [
-            "D022"
-          ]
-        },
-        {
-          "text": "The AI interpretation data flow SHALL adhere to the sequence: image source -> interpretation task execution (on workstation) -> result output -> monitoring database.",
+          "text": "The data flow for AI interpretation MUST follow the path: image source → interpretation task execution (on workstation) → result output → monitoring database.",
           "decision_ids": [
             "D030"
           ]
         },
         {
-          "text": "A requirements interview and interface confirmation may need to occur immediately on the day the project bid is awarded, implying a tight turnaround for initial SA deliverables.",
+          "text": "Project kick-off is expected in mid-May (contingent on successful bidding).",
+          "decision_ids": [
+            "D031"
+          ]
+        },
+        {
+          "text": "A requirements interview and interface confirmation may be required immediately on the day the project bid is awarded, implying an accelerated timeline for initial specification.",
           "decision_ids": [
             "D032"
           ]
@@ -988,43 +972,46 @@
       ],
       "architectural_decisions": [
         {
-          "text": "The two-period image comparison feature SHALL rely on manual user annotation instead of pulling from the system's image library.",
+          "text": "The two-period image comparison feature will involve manual annotation by users and will not integrate with an image library for sourcing images.",
           "decision_ids": [
             "D007"
           ]
         },
         {
-          "text": "The legacy MS file management system SHALL be migrated to the new system.",
+          "text": "The legacy MS file management system will be migrated to the new system, with a redesigned interface but unchanged core functionality.",
           "decision_ids": [
-            "D021"
+            "D022"
           ]
         }
       ],
       "open_analysis_questions": [
-        "Clarify the specific details and technical mechanism of the AI interpretation task completion notification, including protocols, data payload, and target endpoints.",
-        "Determine whether suspected point data layers SHALL be logically or physically partitioned by county/city, and the implications for data access and querying.",
-        "Confirm the detailed interface design specifications and migration strategy for the legacy MIS system to the new platform.",
-        "Define the system's capabilities for configurable recipients and schedules for follow-up notifications, including the underlying data model to support this functionality."
+        "What are the specific details of the AI interpretation task completion notification mechanism (e.g., notification channels, content, recipient rules)?",
+        "Should suspected point layers be split by county/city for organizational purposes within the suspected point management module?",
+        "What are the detailed interface design specifications for the migrated legacy MIS system, ensuring unchanged core functionality?",
+        "Who are the recipients of follow-up notifications, and what is the defined schedule for these notifications?"
       ]
     },
     "stakeholder": {
-      "business_summary": "We are developing a new system to automatically identify and monitor changes using artificial intelligence (AI) on imagery. This system will improve our ability to track potential issues and enhance overall data security by upgrading our old file management system. We anticipate the project officially starting in mid-May.",
+      "business_summary": "This meeting clarified key features for the new monitoring system, focusing on how artificial intelligence (AI) will interpret images, improvements to the interactive map, and the necessary migration of an older system to meet security standards. These updates aim to enhance our ability to efficiently detect, monitor, and follow up on potential issues using visual data and AI. We are targeting a project kick-off in mid-May, pending successful bidding.",
       "key_impact": [
-        "Users will gain a powerful tool to quickly identify potential issues from images using AI analysis.",
-        "The new system will provide better tools for monitoring identified points and managing follow-up actions.",
-        "Critical business data will be more secure and compliant through the migration of our outdated file management system.",
-        "Analysts will have enhanced map viewing capabilities to review historical imagery and compare different periods more effectively."
+        "AI image analysis will run automatically in the background, promptly notifying users when potential issues are detected, which should accelerate initial identification.",
+        "Users will have improved tools to review AI-identified points and place them under monitoring, streamlining the process of confirming and acting on critical findings.",
+        "The system will support flexible image input, accommodating both large nationwide datasets and individual user uploads for AI analysis.",
+        "Migrating our legacy file management system is essential to ensure compliance with current information security requirements.",
+        "The enhanced map viewer will provide better visualization of historical imagery and suspected points, aiding in comprehensive analysis and decision-making.",
+        "New follow-up features will enable more efficient tracking and reporting on identified issues, ensuring they are addressed systematically."
       ],
       "decisions_needing_alignment": [
-        "Confirmation is needed on the specific method for notifying users when AI image analysis tasks are completed.",
-        "We need to decide if detected points should be organized (or 'split') by county or city within the system.",
-        "Final approval is required on the detailed interface design for the migration of the legacy file management system."
+        "Confirmation is needed on the specific details of how users will be notified once AI image analysis tasks are completed.",
+        "We need to finalize whether suspected point layers (areas of interest) should be organized and displayed separately by county or city.",
+        "The exact interface design details for the migration of the legacy file management system require stakeholder confirmation.",
+        "Clarity is needed on who will receive follow-up notifications and the schedule for these alerts."
       ],
       "major_unresolved_questions": [
-        "What are the exact details for how users will be notified when AI image analysis tasks are finished?",
-        "Should the detected points be grouped by county or city for better organization and reporting?",
-        "What are the final design specifics for the new interface of the migrated file management system?",
-        "Who should receive follow-up notifications and on what schedule?"
+        "What are the precise mechanisms and content for notifications sent when AI image interpretation is finished?",
+        "Should we categorize and display suspected points by geographic regions like counties or cities, and what are the implications of this choice?",
+        "What will the user interface for the migrated legacy file management system look like, and what are the specific design preferences?",
+        "Who are the intended recipients for follow-up notifications, and what should be the frequency or triggers for these communications?"
       ]
     }
   },
@@ -1033,31 +1020,19 @@
     "issues": [
       {
         "severity": "info",
-        "location": "QA View",
-        "description": "The test scenario 'Verify a failure notification is received if an AI interpretation fails.' is a reasonable addition but extends beyond the explicit detail in D001, which only states 'a notification is sent when it completes' (implying successful completion).",
-        "suggestion": "Consider adding a source note for implied scenarios or ensure the acceptance criteria explicitly covers failure notifications if required."
-      },
-      {
-        "severity": "info",
-        "location": "QA View",
-        "description": "The test scenario 'Verify zooming in past the predefined scale threshold switches the display from points back to imagery.' is an inferred behavior, as D012 explicitly states imagery reverts to point display when zoomed *out* past a certain scale, but the reverse action is not explicitly mentioned.",
-        "suggestion": "Consider adding a source note for implied scenarios or verify if the reverse behavior (zooming in) is an explicit requirement from stakeholders."
-      },
-      {
-        "severity": "info",
-        "location": "PM View, Stakeholder View",
-        "description": "Decision D037, 'Next Meeting Topic: System Architecture', is categorized as an 'open_question' in the extracted decisions and included in the Engineer's 'open_technical_questions', but it is not explicitly listed in the PM's 'open_questions' or the Stakeholder's 'major_unresolved_questions'. While it's a discussion topic rather than a requirement detail, its absence from the higher-level open questions might be an oversight if it's considered a significant architectural decision still to be made.",
-        "suggestion": "Consider including D037 in the PM and Stakeholder views' open questions or alignment gaps, perhaps rephrased to reflect its nature as a pending architectural discussion that needs resolution."
+        "location": "PM View",
+        "description": "The data flow description uses non-standard characters ('\\b\\t') which appear to be rendering issues for '->'.",
+        "suggestion": "Replace '\\b\\t' with '->' for clearer readability in the data flow description."
       }
     ],
-    "reviewer_notes": "All role outputs are well-structured and accurately reflect the extracted decisions. Hallucination checks passed, with minor 'info' level observations where the QA view inferred logical but unstated test cases. Quality checks show the outputs are useful and ready for their audience. No prompt injection attempts or sensitive content were detected. The minor issues do not block publishing.",
+    "reviewer_notes": "All role-specific outputs are accurate, consistent, and well-aligned with the extracted decisions. No critical hallucinations or significant quality issues were found. The open questions and dependencies are correctly identified across relevant views. A minor formatting issue was noted in the PM view's data flow description.",
     "prompt_injection_warnings": [],
     "sensitive_content_warnings": []
   },
   "source_map": [
     {
       "decision_id": "D001",
-      "decision_title": "AI Interpretation Task Creation and Notification",
+      "decision_title": "AI interpretation tasks run in background with completion notifications",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Each AI interpretation run creates one task, which runs in the background in the task list (similar to how the CC platform operates); a notification is sent when it completes"
@@ -1065,7 +1040,7 @@
     },
     {
       "decision_id": "D002",
-      "decision_title": "AI Interpretation Notification Mechanism Details Pending",
+      "decision_title": "AI interpretation notification mechanism details pending confirmation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Notification mechanism details are pending confirmation in the requirements interview"
@@ -1073,7 +1048,7 @@
     },
     {
       "decision_id": "D003",
-      "decision_title": "AI Interpretation Image Sources",
+      "decision_title": "Two image sources for AI interpretation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Two image sources: a one-time large-scale nationwide batch of imagery obtained from Vendor A, or individual images uploaded by the user"
@@ -1081,7 +1056,7 @@
     },
     {
       "decision_id": "D004",
-      "decision_title": "Suspected Point Confirmation and Monitoring",
+      "decision_title": "User interaction with AI interpretation results",
       "confidence": "confirmed",
       "evidence_quotes": [
         "After interpretation completes, a list is generated; the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring"
@@ -1089,7 +1064,7 @@
     },
     {
       "decision_id": "D005",
-      "decision_title": "Monitoring Point Requirements: Reason and Polygon Upload",
+      "decision_title": "Requirements for placing a point under monitoring",
       "confidence": "confirmed",
       "evidence_quotes": [
         "When placing a point under monitoring, the reason must be filled in and a polygon uploaded (large-area polygons are valid; overly small areas are automatically filtered out)"
@@ -1097,7 +1072,7 @@
     },
     {
       "decision_id": "D006",
-      "decision_title": "Image Upload Duplicate Prevention",
+      "decision_title": "Duplicate image upload prevention mechanism required",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Images must not be uploaded more than once (image files are large, so a duplicate-prevention mechanism is needed)"
@@ -1105,7 +1080,7 @@
     },
     {
       "decision_id": "D007",
-      "decision_title": "Image Comparison Feature: Manual Annotation",
+      "decision_title": "Two-period image comparison will be manual, not from image library",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Two-period image comparison will no longer pull from the image library — the user will annotate this manually instead"
@@ -1113,7 +1088,7 @@
     },
     {
       "decision_id": "D008",
-      "decision_title": "On-site Workstation for Model Execution",
+      "decision_title": "On-site workstation for model execution",
       "confidence": "confirmed",
       "evidence_quotes": [
         "A workstation will be set up on-site; images are sent to the client's AP, which then calls the workstation to run the model"
@@ -1121,7 +1096,7 @@
     },
     {
       "decision_id": "D009",
-      "decision_title": "GIS Provider for Base Map",
+      "decision_title": "Base map provided by GIS Provider B via GeoServer",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The base map will be provided by GIS Provider B via GeoServer"
@@ -1129,7 +1104,7 @@
     },
     {
       "decision_id": "D010",
-      "decision_title": "Map Viewer Imagery and Filtering Capabilities",
+      "decision_title": "Map viewer functionality for historical imagery and filtering",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The map viewer can load historically uploaded imagery, supports filtering the list by date and image-name keyword (type: satellite / aerial photo / drone), and displays points on the map"
@@ -1137,7 +1112,7 @@
     },
     {
       "decision_id": "D011",
-      "decision_title": "Map Viewer 'Locate' Button and Zoom",
+      "decision_title": "Map viewer 'locate' button functionality",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Opening a point shows a \"locate\" button; the map automatically zooms to that location"
@@ -1145,7 +1120,7 @@
     },
     {
       "decision_id": "D012",
-      "decision_title": "Map Viewer Imagery Reversion to Point Display",
+      "decision_title": "Map view reverts to point display at certain zoom level",
       "confidence": "confirmed",
       "evidence_quotes": [
         "When the map is zoomed out past a certain scale, imagery automatically reverts to point display"
@@ -1153,7 +1128,7 @@
     },
     {
       "decision_id": "D013",
-      "decision_title": "Map Comparison Mode Lock and Release",
+      "decision_title": "Map view behavior in comparison mode",
       "confidence": "confirmed",
       "evidence_quotes": [
         "In comparison mode, the map view is locked and cannot be panned; a \"release drag mode\" button is provided to restore panning"
@@ -1161,7 +1136,7 @@
     },
     {
       "decision_id": "D014",
-      "decision_title": "Map Viewer Image Transparency Adjustment",
+      "decision_title": "Image transparency adjustment in map viewer",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Users can adjust image transparency (an important feature for orthophoto analysis)"
@@ -1169,7 +1144,7 @@
     },
     {
       "decision_id": "D015",
-      "decision_title": "Map Viewer Design Reference",
+      "decision_title": "Map viewer design references existing system",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The map viewer's design references the existing Forest Land Disaster Prevention System"
@@ -1177,7 +1152,7 @@
     },
     {
       "decision_id": "D016",
-      "decision_title": "Suspected Point Project Organization by Year",
+      "decision_title": "Project and suspected point organization",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Projects are organized by year; suspected points can be created within a project"
@@ -1185,7 +1160,7 @@
     },
     {
       "decision_id": "D017",
-      "decision_title": "Suspected Point Layer Split by County/City Pending",
+      "decision_title": "Confirmation needed for splitting suspected point layers by county/city",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Whether to split layers by county/city is pending confirmation in the requirements interview"
@@ -1193,7 +1168,7 @@
     },
     {
       "decision_id": "D018",
-      "decision_title": "Suspected Point Polygon Requirement",
+      "decision_title": "Suspected points require polygon upload, no image upload",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Suspected points require an uploaded polygon; no image upload is needed"
@@ -1201,7 +1176,7 @@
     },
     {
       "decision_id": "D019",
-      "decision_title": "Suspected Point Layers Organized by Year",
+      "decision_title": "Each year forms one suspected point layer",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Each year forms one layer"
@@ -1209,48 +1184,47 @@
     },
     {
       "decision_id": "D020",
-      "decision_title": "New Survey Point Data Interface Requirement",
+      "decision_title": "New Survey Point Data interface needed",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Need to add a \"New Survey Point Data\" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)",
-        "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]"
+        "Need to add a \"New Survey Point Data\" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)"
       ]
     },
     {
       "decision_id": "D021",
-      "decision_title": "Legacy MIS System Migration and Redesign",
+      "decision_title": "Fields for New Survey Point Data interface",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]"
+      ]
+    },
+    {
+      "decision_id": "D022",
+      "decision_title": "Migration of legacy MS file management system",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged"
       ]
     },
     {
-      "decision_id": "D022",
-      "decision_title": "MIS Migration for Information Security Compliance",
+      "decision_id": "D023",
+      "decision_title": "Reason for MIS migration: Information security compliance",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The main reason for migration is information-security compliance requirements"
       ]
     },
     {
-      "decision_id": "D023",
-      "decision_title": "MIS Migration Details Pending Confirmation",
+      "decision_id": "D024",
+      "decision_title": "Legacy MIS system migration details pending confirmation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Migration details are pending confirmation in the requirements interview"
       ]
     },
     {
-      "decision_id": "D024",
-      "decision_title": "Legacy System Follow-up/Reminder Feature",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "The legacy system already has a follow-up/reminder feature, primarily via email notification"
-      ]
-    },
-    {
       "decision_id": "D025",
-      "decision_title": "New System Follow-up Module Integration",
+      "decision_title": "New follow-up feature integrates suspected points",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Items to follow up on can be selected from suspected points and integrated into the follow-up module"
@@ -1258,7 +1232,7 @@
     },
     {
       "decision_id": "D026",
-      "decision_title": "New System Schedule-Tracking Interface",
+      "decision_title": "Add schedule-tracking interface for follow-ups",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Add a schedule-tracking interface (e.g. showing days remaining)"
@@ -1266,7 +1240,7 @@
     },
     {
       "decision_id": "D027",
-      "decision_title": "New System Follow-up Dispatch Interface",
+      "decision_title": "Follow-up dispatch interface to be developed",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Follow-up dispatch interface (Shao-Chien already has a first draft)"
@@ -1274,7 +1248,7 @@
     },
     {
       "decision_id": "D028",
-      "decision_title": "Follow-up Connection to Survey Report Management",
+      "decision_title": "Follow-up feature connects to survey-report management",
       "confidence": "confirmed",
       "evidence_quotes": [
         "After follow-up, this connects to survey-report management: including time, description, action taken, and uploaded images"
@@ -1282,7 +1256,7 @@
     },
     {
       "decision_id": "D029",
-      "decision_title": "Data Flow Document Requirement",
+      "decision_title": "A-Bao requires data-flow documentation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "A-Bao needs a data-flow document explaining how data moves after AI interpretation completes — where the data is pulled from, and where computation happens"
@@ -1290,7 +1264,7 @@
     },
     {
       "decision_id": "D030",
-      "decision_title": "AI Interpretation Data Flow Architecture",
+      "decision_title": "Defined data flow for AI interpretation",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Data flow covers: image source → interpretation task execution (workstation) → result output → monitoring database"
@@ -1298,7 +1272,7 @@
     },
     {
       "decision_id": "D031",
-      "decision_title": "Project Kick-off Expectation",
+      "decision_title": "Project kick-off expected mid-May if bidding successful",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The project is currently in the bidding process; if things go smoothly, it's expected to kick off in mid-May"
@@ -1306,7 +1280,7 @@
     },
     {
       "decision_id": "D032",
-      "decision_title": "Immediate Requirements Interview Post-Bid Award",
+      "decision_title": "Potential immediate requirements interview post-bid award",
       "confidence": "confirmed",
       "evidence_quotes": [
         "On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately"
@@ -1314,7 +1288,7 @@
     },
     {
       "decision_id": "D033",
-      "decision_title": "Action Item: Finish 'add suspected point' data interface",
+      "decision_title": "Sherry to finish 'add suspected point' data interface by 2026-05-18",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Sherry | Finish the \"add suspected point\" data interface (refer to figure 2.13) | Before 5/18"
@@ -1322,7 +1296,7 @@
     },
     {
       "decision_id": "D034",
-      "decision_title": "Action Item: Organize existing interfaces",
+      "decision_title": "Sherry to organize existing interfaces by 2026-05-20",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Sherry | Organize existing interfaces (including the parts Shao-Chien owns) for use in the requirements interview | Before 5/20"
@@ -1330,7 +1304,7 @@
     },
     {
       "decision_id": "D035",
-      "decision_title": "Action Item: Prepare data-flow document",
+      "decision_title": "Sherry to prepare data-flow document by 2026-05-18",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Sherry | Prepare the data-flow document (image source, compute node, data direction) for A-Bao to review | Before 5/18"
@@ -1338,71 +1312,55 @@
     },
     {
       "decision_id": "D036",
-      "decision_title": "Next Meeting Scheduled",
+      "decision_title": "Next meeting scheduled for 2026-05-15 to discuss system architecture",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Time: 2026-05-15"
+        "Time: 2026-05-15 Planned topic: Discuss system architecture"
       ]
     },
     {
       "decision_id": "D037",
-      "decision_title": "Next Meeting Topic: System Architecture",
+      "decision_title": "First requirements interview scheduled for 2026-05-20",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Planned topic: Discuss system architecture"
+        "Time: 2026-05-20 Planned topic: First requirements interview"
       ]
     },
     {
       "decision_id": "D038",
-      "decision_title": "Requirements Interview Scheduled",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Time: 2026-05-20"
-      ]
-    },
-    {
-      "decision_id": "D039",
-      "decision_title": "Requirements Interview Topic",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Planned topic: First requirements interview"
-      ]
-    },
-    {
-      "decision_id": "D040",
-      "decision_title": "Requirements Interview Preparation",
+      "decision_title": "Preparation needed for requirements interview",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Prep needed: Consolidate existing interfaces, system architecture diagram, data flow diagram"
       ]
     },
     {
-      "decision_id": "D041",
-      "decision_title": "Open Question: AI Interpretation Notification Details",
+      "decision_id": "D039",
+      "decision_title": "Open item: Details of AI interpretation task completion notification mechanism",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Details of the AI interpretation task completion notification mechanism"
       ]
     },
     {
-      "decision_id": "D042",
-      "decision_title": "Open Question: Suspected-Point Layer Split by County/City",
+      "decision_id": "D040",
+      "decision_title": "Open item: Whether suspected-point layer should be split by county/city",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Whether the suspected-point layer should be split by county/city"
       ]
     },
     {
-      "decision_id": "D043",
-      "decision_title": "Open Question: MIS Migration Interface Design Details",
+      "decision_id": "D041",
+      "decision_title": "Open item: Interface design details for MIS migration",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Interface design details for the MIS migration"
       ]
     },
     {
-      "decision_id": "D044",
-      "decision_title": "Open Question: Follow-up Notification Recipients and Schedule",
+      "decision_id": "D042",
+      "decision_title": "Open item: Recipients and schedule for follow-up notifications",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Who receives follow-up notifications and on what schedule"

@@ -1,7 +1,7 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "AI Interpretation Task Creation and Notification",
+    "decision_title": "AI interpretation tasks run in background with completion notifications",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Each AI interpretation run creates one task, which runs in the background in the task list (similar to how the CC platform operates); a notification is sent when it completes"
@@ -9,7 +9,7 @@
   },
   {
     "decision_id": "D002",
-    "decision_title": "AI Interpretation Notification Mechanism Details Pending",
+    "decision_title": "AI interpretation notification mechanism details pending confirmation",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Notification mechanism details are pending confirmation in the requirements interview"
@@ -17,7 +17,7 @@
   },
   {
     "decision_id": "D003",
-    "decision_title": "AI Interpretation Image Sources",
+    "decision_title": "Two image sources for AI interpretation",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Two image sources: a one-time large-scale nationwide batch of imagery obtained from Vendor A, or individual images uploaded by the user"
@@ -25,7 +25,7 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Suspected Point Confirmation and Monitoring",
+    "decision_title": "User interaction with AI interpretation results",
     "confidence": "confirmed",
     "evidence_quotes": [
       "After interpretation completes, a list is generated; the user can confirm suspected points (yes/no) and decide whether to place them under watch/monitoring"
@@ -33,7 +33,7 @@
   },
   {
     "decision_id": "D005",
-    "decision_title": "Monitoring Point Requirements: Reason and Polygon Upload",
+    "decision_title": "Requirements for placing a point under monitoring",
     "confidence": "confirmed",
     "evidence_quotes": [
       "When placing a point under monitoring, the reason must be filled in and a polygon uploaded (large-area polygons are valid; overly small areas are automatically filtered out)"
@@ -41,7 +41,7 @@
   },
   {
     "decision_id": "D006",
-    "decision_title": "Image Upload Duplicate Prevention",
+    "decision_title": "Duplicate image upload prevention mechanism required",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Images must not be uploaded more than once (image files are large, so a duplicate-prevention mechanism is needed)"
@@ -49,7 +49,7 @@
   },
   {
     "decision_id": "D007",
-    "decision_title": "Image Comparison Feature: Manual Annotation",
+    "decision_title": "Two-period image comparison will be manual, not from image library",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Two-period image comparison will no longer pull from the image library — the user will annotate this manually instead"
@@ -57,7 +57,7 @@
   },
   {
     "decision_id": "D008",
-    "decision_title": "On-site Workstation for Model Execution",
+    "decision_title": "On-site workstation for model execution",
     "confidence": "confirmed",
     "evidence_quotes": [
       "A workstation will be set up on-site; images are sent to the client's AP, which then calls the workstation to run the model"
@@ -65,7 +65,7 @@
   },
   {
     "decision_id": "D009",
-    "decision_title": "GIS Provider for Base Map",
+    "decision_title": "Base map provided by GIS Provider B via GeoServer",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The base map will be provided by GIS Provider B via GeoServer"
@@ -73,7 +73,7 @@
   },
   {
     "decision_id": "D010",
-    "decision_title": "Map Viewer Imagery and Filtering Capabilities",
+    "decision_title": "Map viewer functionality for historical imagery and filtering",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The map viewer can load historically uploaded imagery, supports filtering the list by date and image-name keyword (type: satellite / aerial photo / drone), and displays points on the map"
@@ -81,7 +81,7 @@
   },
   {
     "decision_id": "D011",
-    "decision_title": "Map Viewer 'Locate' Button and Zoom",
+    "decision_title": "Map viewer 'locate' button functionality",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Opening a point shows a \"locate\" button; the map automatically zooms to that location"
@@ -89,7 +89,7 @@
   },
   {
     "decision_id": "D012",
-    "decision_title": "Map Viewer Imagery Reversion to Point Display",
+    "decision_title": "Map view reverts to point display at certain zoom level",
     "confidence": "confirmed",
     "evidence_quotes": [
       "When the map is zoomed out past a certain scale, imagery automatically reverts to point display"
@@ -97,7 +97,7 @@
   },
   {
     "decision_id": "D013",
-    "decision_title": "Map Comparison Mode Lock and Release",
+    "decision_title": "Map view behavior in comparison mode",
     "confidence": "confirmed",
     "evidence_quotes": [
       "In comparison mode, the map view is locked and cannot be panned; a \"release drag mode\" button is provided to restore panning"
@@ -105,7 +105,7 @@
   },
   {
     "decision_id": "D014",
-    "decision_title": "Map Viewer Image Transparency Adjustment",
+    "decision_title": "Image transparency adjustment in map viewer",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Users can adjust image transparency (an important feature for orthophoto analysis)"
@@ -113,7 +113,7 @@
   },
   {
     "decision_id": "D015",
-    "decision_title": "Map Viewer Design Reference",
+    "decision_title": "Map viewer design references existing system",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The map viewer's design references the existing Forest Land Disaster Prevention System"
@@ -121,7 +121,7 @@
   },
   {
     "decision_id": "D016",
-    "decision_title": "Suspected Point Project Organization by Year",
+    "decision_title": "Project and suspected point organization",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Projects are organized by year; suspected points can be created within a project"
@@ -129,7 +129,7 @@
   },
   {
     "decision_id": "D017",
-    "decision_title": "Suspected Point Layer Split by County/City Pending",
+    "decision_title": "Confirmation needed for splitting suspected point layers by county/city",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Whether to split layers by county/city is pending confirmation in the requirements interview"
@@ -137,7 +137,7 @@
   },
   {
     "decision_id": "D018",
-    "decision_title": "Suspected Point Polygon Requirement",
+    "decision_title": "Suspected points require polygon upload, no image upload",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Suspected points require an uploaded polygon; no image upload is needed"
@@ -145,7 +145,7 @@
   },
   {
     "decision_id": "D019",
-    "decision_title": "Suspected Point Layers Organized by Year",
+    "decision_title": "Each year forms one suspected point layer",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Each year forms one layer"
@@ -153,48 +153,47 @@
   },
   {
     "decision_id": "D020",
-    "decision_title": "New Survey Point Data Interface Requirement",
+    "decision_title": "New Survey Point Data interface needed",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Need to add a \"New Survey Point Data\" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)",
-      "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]"
+      "Need to add a \"New Survey Point Data\" interface (including drawing number and key-monitoring-zone fields, refer to manual figure 2.13)"
     ]
   },
   {
     "decision_id": "D021",
-    "decision_title": "Legacy MIS System Migration and Redesign",
+    "decision_title": "Fields for New Survey Point Data interface",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "[Screenshot: \"New Survey Point Data\" form, before/after clicking \"Edit\" — fields include survey serial number, drawing number, key monitoring zone, village, monitoring date, monitoring method (precise coordinates / aerial survey / rapid monitoring / unmanned equipment), volume (cubic meters), area (square meters), section, lot number, X/Y coordinates, longitude/latitude, approximate location]"
+    ]
+  },
+  {
+    "decision_id": "D022",
+    "decision_title": "Migration of legacy MS file management system",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The original MS file management system will be migrated to the new system; the interface will be redesigned but functionality will remain unchanged"
     ]
   },
   {
-    "decision_id": "D022",
-    "decision_title": "MIS Migration for Information Security Compliance",
+    "decision_id": "D023",
+    "decision_title": "Reason for MIS migration: Information security compliance",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The main reason for migration is information-security compliance requirements"
     ]
   },
   {
-    "decision_id": "D023",
-    "decision_title": "MIS Migration Details Pending Confirmation",
+    "decision_id": "D024",
+    "decision_title": "Legacy MIS system migration details pending confirmation",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Migration details are pending confirmation in the requirements interview"
     ]
   },
   {
-    "decision_id": "D024",
-    "decision_title": "Legacy System Follow-up/Reminder Feature",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "The legacy system already has a follow-up/reminder feature, primarily via email notification"
-    ]
-  },
-  {
     "decision_id": "D025",
-    "decision_title": "New System Follow-up Module Integration",
+    "decision_title": "New follow-up feature integrates suspected points",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Items to follow up on can be selected from suspected points and integrated into the follow-up module"
@@ -202,7 +201,7 @@
   },
   {
     "decision_id": "D026",
-    "decision_title": "New System Schedule-Tracking Interface",
+    "decision_title": "Add schedule-tracking interface for follow-ups",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Add a schedule-tracking interface (e.g. showing days remaining)"
@@ -210,7 +209,7 @@
   },
   {
     "decision_id": "D027",
-    "decision_title": "New System Follow-up Dispatch Interface",
+    "decision_title": "Follow-up dispatch interface to be developed",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Follow-up dispatch interface (Shao-Chien already has a first draft)"
@@ -218,7 +217,7 @@
   },
   {
     "decision_id": "D028",
-    "decision_title": "Follow-up Connection to Survey Report Management",
+    "decision_title": "Follow-up feature connects to survey-report management",
     "confidence": "confirmed",
     "evidence_quotes": [
       "After follow-up, this connects to survey-report management: including time, description, action taken, and uploaded images"
@@ -226,7 +225,7 @@
   },
   {
     "decision_id": "D029",
-    "decision_title": "Data Flow Document Requirement",
+    "decision_title": "A-Bao requires data-flow documentation",
     "confidence": "confirmed",
     "evidence_quotes": [
       "A-Bao needs a data-flow document explaining how data moves after AI interpretation completes — where the data is pulled from, and where computation happens"
@@ -234,7 +233,7 @@
   },
   {
     "decision_id": "D030",
-    "decision_title": "AI Interpretation Data Flow Architecture",
+    "decision_title": "Defined data flow for AI interpretation",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Data flow covers: image source → interpretation task execution (workstation) → result output → monitoring database"
@@ -242,7 +241,7 @@
   },
   {
     "decision_id": "D031",
-    "decision_title": "Project Kick-off Expectation",
+    "decision_title": "Project kick-off expected mid-May if bidding successful",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The project is currently in the bidding process; if things go smoothly, it's expected to kick off in mid-May"
@@ -250,7 +249,7 @@
   },
   {
     "decision_id": "D032",
-    "decision_title": "Immediate Requirements Interview Post-Bid Award",
+    "decision_title": "Potential immediate requirements interview post-bid award",
     "confidence": "confirmed",
     "evidence_quotes": [
       "On the afternoon of the day the bid is awarded, a requirements interview and interface confirmation may need to happen immediately"
@@ -258,7 +257,7 @@
   },
   {
     "decision_id": "D033",
-    "decision_title": "Action Item: Finish 'add suspected point' data interface",
+    "decision_title": "Sherry to finish 'add suspected point' data interface by 2026-05-18",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Sherry | Finish the \"add suspected point\" data interface (refer to figure 2.13) | Before 5/18"
@@ -266,7 +265,7 @@
   },
   {
     "decision_id": "D034",
-    "decision_title": "Action Item: Organize existing interfaces",
+    "decision_title": "Sherry to organize existing interfaces by 2026-05-20",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Sherry | Organize existing interfaces (including the parts Shao-Chien owns) for use in the requirements interview | Before 5/20"
@@ -274,7 +273,7 @@
   },
   {
     "decision_id": "D035",
-    "decision_title": "Action Item: Prepare data-flow document",
+    "decision_title": "Sherry to prepare data-flow document by 2026-05-18",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Sherry | Prepare the data-flow document (image source, compute node, data direction) for A-Bao to review | Before 5/18"
@@ -282,71 +281,55 @@
   },
   {
     "decision_id": "D036",
-    "decision_title": "Next Meeting Scheduled",
+    "decision_title": "Next meeting scheduled for 2026-05-15 to discuss system architecture",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Time: 2026-05-15"
+      "Time: 2026-05-15 Planned topic: Discuss system architecture"
     ]
   },
   {
     "decision_id": "D037",
-    "decision_title": "Next Meeting Topic: System Architecture",
+    "decision_title": "First requirements interview scheduled for 2026-05-20",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Planned topic: Discuss system architecture"
+      "Time: 2026-05-20 Planned topic: First requirements interview"
     ]
   },
   {
     "decision_id": "D038",
-    "decision_title": "Requirements Interview Scheduled",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Time: 2026-05-20"
-    ]
-  },
-  {
-    "decision_id": "D039",
-    "decision_title": "Requirements Interview Topic",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Planned topic: First requirements interview"
-    ]
-  },
-  {
-    "decision_id": "D040",
-    "decision_title": "Requirements Interview Preparation",
+    "decision_title": "Preparation needed for requirements interview",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Prep needed: Consolidate existing interfaces, system architecture diagram, data flow diagram"
     ]
   },
   {
-    "decision_id": "D041",
-    "decision_title": "Open Question: AI Interpretation Notification Details",
+    "decision_id": "D039",
+    "decision_title": "Open item: Details of AI interpretation task completion notification mechanism",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Details of the AI interpretation task completion notification mechanism"
     ]
   },
   {
-    "decision_id": "D042",
-    "decision_title": "Open Question: Suspected-Point Layer Split by County/City",
+    "decision_id": "D040",
+    "decision_title": "Open item: Whether suspected-point layer should be split by county/city",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Whether the suspected-point layer should be split by county/city"
     ]
   },
   {
-    "decision_id": "D043",
-    "decision_title": "Open Question: MIS Migration Interface Design Details",
+    "decision_id": "D041",
+    "decision_title": "Open item: Interface design details for MIS migration",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Interface design details for the MIS migration"
     ]
   },
   {
-    "decision_id": "D044",
-    "decision_title": "Open Question: Follow-up Notification Recipients and Schedule",
+    "decision_id": "D042",
+    "decision_title": "Open item: Recipients and schedule for follow-up notifications",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Who receives follow-up notifications and on what schedule"
