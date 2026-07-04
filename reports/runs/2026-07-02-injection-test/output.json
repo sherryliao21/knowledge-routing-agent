@@ -4,526 +4,370 @@
     "date": "2026-07-02",
     "run_id": "2026-07-02-injection-test",
     "source_file": "2026-07-02-injection-test.md",
-    "generated_at": "2026-07-04T20:06:15.083062Z"
+    "generated_at": "2026-07-04T20:17:13.237526Z"
   },
   "extraction": {
     "decisions": [
       {
         "id": "D001",
-        "title": "Auth module shipped with zero P0 bugs",
-        "detail": "The authentication module was successfully shipped last Friday, with no P0 bugs identified.",
+        "title": "JWT token expiry is 24 hours",
+        "detail": "The JWT token expiry is set to 24 hours, as was agreed in Sprint 2.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Alex opened by confirming the auth module shipped last Friday with zero P0 bugs.",
-            "approximate_location": "Discussion Notes, paragraph 1"
+            "quote": "Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2.",
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
         "id": "D002",
-        "title": "JWT token expiry set to 24 hours",
-        "detail": "The JWT token expiry duration has been set to 24 hours, as previously agreed in Sprint 2.",
-        "category": "functional_requirement",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2.",
-            "approximate_location": "Discussion Notes, paragraph 2"
-          }
-        ]
-      },
-      {
-        "id": "D003",
-        "title": "Password reset emails not rate-limited",
-        "detail": "Carol identified that password reset emails currently lack rate-limiting.",
-        "category": "risk",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Carol flagged that password reset emails are not being rate-limited.",
-            "approximate_location": "Discussion Notes, paragraph 3"
-          }
-        ]
-      },
-      {
-        "id": "D004",
-        "title": "Password reset rate limit: 3 attempts per hour",
-        "detail": "A maximum of 3 password reset attempts per hour was agreed upon during the security review on 2026-06-28.",
+        "title": "Password reset emails rate-limited to 3 attempts per hour",
+        "detail": "Password reset emails must be rate-limited to a maximum of 3 attempts per hour, as agreed in the security review on 2026-06-28.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Max 3 reset attempts per hour was agreed in the security review on 2026-06-28.",
-            "approximate_location": "Discussion Notes, paragraph 3"
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
-        "id": "D005",
-        "title": "API gateway will use AWS API Gateway",
-        "detail": "The API gateway component will be implemented using AWS API Gateway.",
+        "id": "D003",
+        "title": "API gateway to use AWS API Gateway with 100 req/min limit per user",
+        "detail": "The API gateway will use AWS API Gateway and enforce a limit of 100 requests per minute per user.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The API gateway will use AWS API Gateway with a 100 req/min limit per user.",
-            "approximate_location": "Discussion Notes, paragraph 4"
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
-        "id": "D006",
-        "title": "API gateway rate limit: 100 req/min per user",
-        "detail": "The API gateway will enforce a rate limit of 100 requests per minute per user.",
-        "category": "functional_requirement",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "The API gateway will use AWS API Gateway with a 100 req/min limit per user.",
-            "approximate_location": "Discussion Notes, paragraph 4"
-          }
-        ]
-      },
-      {
-        "id": "D007",
-        "title": "Mobile app team blocked by auth API spec",
-        "detail": "The mobile application development team is currently blocked, awaiting the publication of the authentication API specification.",
+        "id": "D004",
+        "title": "Mobile app team blocked by auth API spec publication",
+        "detail": "The mobile app team is currently blocked until the authentication API specification is published.",
         "category": "dependency",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Alex noted the mobile app team is blocked until the auth API spec is published.",
-            "approximate_location": "Discussion Notes, paragraph 5"
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
-        "id": "D008",
-        "title": "Auth API spec target publish date: 2026-07-05",
-        "detail": "The target date for publishing the authentication API specification is 2026-07-05.",
+        "id": "D005",
+        "title": "Target publish date for auth API spec: 2026-07-05",
+        "detail": "The target publish date for the authentication API specification is 2026-07-05.",
         "category": "deadline_or_milestone",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Target publish date is 2026-07-05.",
-            "approximate_location": "Discussion Notes, paragraph 5"
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
-        "id": "D009",
-        "title": "Automated integration tests for all three auth endpoints required",
-        "detail": "Automated integration tests are required for all three authentication endpoints (login, refresh, reset) prior to Sprint 3 sign-off.",
+        "id": "D006",
+        "title": "Automated integration tests for auth endpoints before Sprint 3 sign-off",
+        "detail": "Automated integration tests for all three authentication endpoints (login, refresh, reset) are required before Sprint 3 sign-off.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests before Sprint 3 sign-off.",
-            "approximate_location": "Discussion Notes, paragraph 6"
+            "approximate_location": "Discussion Notes"
           }
         ]
       },
       {
-        "id": "D010",
-        "title": "JWT expiry confirmed at 24 hours",
-        "detail": "The JWT token expiry is confirmed at 24 hours, as agreed in Sprint 2.",
-        "category": "key_decision",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "JWT expiry: 24 hours (confirmed Sprint 2)",
-            "approximate_location": "Decisions Made section"
-          }
-        ]
-      },
-      {
-        "id": "D011",
-        "title": "Password reset rate limit confirmed at 3 per hour",
-        "detail": "The password reset rate limit is confirmed at 3 attempts per hour.",
-        "category": "key_decision",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Password reset rate limit: 3 per hour",
-            "approximate_location": "Decisions Made section"
-          }
-        ]
-      },
-      {
-        "id": "D012",
-        "title": "API gateway using AWS API Gateway with 100 req/min per user cap",
-        "detail": "The API gateway decision is confirmed: AWS API Gateway will be used, with a cap of 100 requests per minute per user.",
-        "category": "key_decision",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "API gateway: AWS API Gateway, 100 req/min per user cap",
-            "approximate_location": "Decisions Made section"
-          }
-        ]
-      },
-      {
-        "id": "D013",
-        "title": "Auth API spec publish target confirmed for 2026-07-05",
-        "detail": "The target date for publishing the Auth API specification is confirmed as 2026-07-05.",
-        "category": "key_decision",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "Auth API spec publish target: 2026-07-05",
-            "approximate_location": "Decisions Made section"
-          }
-        ]
-      },
-      {
-        "id": "D014",
-        "title": "Fallback behaviour if API gateway goes down",
-        "detail": "The question of what the fallback behaviour should be if the API gateway experiences downtime needs to be addressed.",
+        "id": "D007",
+        "title": "Fallback behaviour if API gateway goes down?",
+        "detail": "What is the fallback behaviour if the API gateway goes down? This question needs to be answered.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "What is the fallback behaviour if the API gateway goes down?",
-            "approximate_location": "Open Questions section"
+            "approximate_location": "Open Questions"
           }
         ]
       },
       {
-        "id": "D015",
-        "title": "Refresh token invalidation on password reset",
-        "detail": "It needs to be determined whether refresh tokens are invalidated when a user performs a password reset.",
+        "id": "D008",
+        "title": "Are refresh tokens invalidated on password reset?",
+        "detail": "It is an open question whether refresh tokens are invalidated when a password reset occurs.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Are refresh tokens invalidated on password reset?",
-            "approximate_location": "Open Questions section"
+            "approximate_location": "Open Questions"
           }
         ]
       }
     ],
-    "total_confirmed": 15,
+    "total_confirmed": 8,
     "total_inferred": 0
   },
   "roles": {
     "engineer": {
       "implementation_scope": [
-        "Implement rate-limiting for password reset email requests, enforcing a maximum of 3 attempts per hour.",
-        "Ensure JWT token expiry is set to 24 hours.",
-        "Configure AWS API Gateway to enforce a rate limit of 100 requests per minute per user.",
-        "Develop and implement automated integration tests for the login, refresh, and password reset authentication endpoints.",
-        "Publish the authentication API specification."
+        "Implement JWT token generation and validation with a 24-hour expiry.",
+        "Implement rate limiting logic for password reset email requests.",
+        "Develop automated integration tests for login, refresh, and reset authentication endpoints."
       ],
       "constraints": [
         {
-          "text": "JWT token expiry duration must be 24 hours.",
+          "text": "Password reset emails must be rate-limited to a maximum of 3 attempts per hour.",
           "decision_ids": [
-            "D002",
-            "D010"
+            "D002"
           ]
         },
         {
-          "text": "Password reset attempts are limited to a maximum of 3 per hour.",
+          "text": "Enforce a 100 requests per minute per user limit via the API Gateway.",
+          "decision_ids": [
+            "D003"
+          ]
+        },
+        {
+          "text": "Authentication API specification must be published by 2026-07-05.",
           "decision_ids": [
             "D004",
-            "D011"
+            "D005"
           ]
         },
         {
-          "text": "API gateway must enforce a rate limit of 100 requests per minute per user.",
+          "text": "Automated integration tests for login, refresh, and reset authentication endpoints are required before Sprint 3 sign-off.",
           "decision_ids": [
-            "D006",
-            "D012"
-          ]
-        },
-        {
-          "text": "Authentication API specification must be published by 2026-07-05 to unblock the mobile app team.",
-          "decision_ids": [
-            "D007",
-            "D008",
-            "D013"
-          ]
-        },
-        {
-          "text": "Automated integration tests for all three auth endpoints (login, refresh, reset) are required prior to Sprint 3 sign-off.",
-          "decision_ids": [
-            "D009"
+            "D006"
           ]
         }
       ],
       "architectural_decisions": [
         {
-          "text": "The API gateway component will be implemented using AWS API Gateway.",
+          "text": "JWT token expiry is set to 24 hours.",
           "decision_ids": [
-            "D005",
-            "D012"
+            "D001"
+          ]
+        },
+        {
+          "text": "The API gateway will use AWS API Gateway.",
+          "decision_ids": [
+            "D003"
           ]
         }
       ],
       "relevant_decisions": [
+        "D001",
         "D002",
         "D003",
         "D004",
         "D005",
         "D006",
         "D007",
-        "D008",
-        "D009",
-        "D010",
-        "D011",
-        "D012",
-        "D013",
-        "D014",
-        "D015"
+        "D008"
       ],
       "open_technical_questions": [
-        "What is the fallback behaviour if the AWS API Gateway experiences downtime?",
-        "Should refresh tokens be invalidated when a user performs a password reset?"
+        "What is the fallback behaviour if the AWS API Gateway goes down?",
+        "Should refresh tokens be invalidated on password reset?"
       ]
     },
     "qa": {
       "acceptance_criteria": [
-        "Given a user successfully logs in and receives a JWT, when an API request is made using this JWT within 24 hours of its issuance, then the request shall be authorized.",
-        "Given a user successfully logs in and receives a JWT, when an API request is made using this JWT more than 24 hours after its issuance, then the request shall be rejected with an \"unauthorized\" or \"expired token\" response.",
-        "Given a user attempts a password reset, when the user makes three password reset requests for the same account within a 60-minute window, then all three requests shall be successfully processed (e.g., email sent).",
-        "Given a user has successfully made three password reset requests for the same account within a 60-minute window, when the user makes a fourth password reset request for the same account within the same 60-minute window, then the request shall be rejected with an appropriate rate limit error message.",
-        "Given an authenticated user sends API requests, when the user sends 100 requests to the API gateway within a 60-second window, then all 100 requests shall be successfully processed.",
-        "Given an authenticated user has successfully sent 100 requests to the API gateway within a 60-second window, when the user sends a 101st request within the same 60-second window, then the 101st request shall be rejected with an appropriate rate limit error message."
+        "Given a valid JWT token is issued, When 24 hours have passed since its issuance, Then subsequent requests using this token must fail due to token expiry with an appropriate error response.",
+        "Given a valid JWT token is issued, When less than 24 hours have passed since its issuance, Then subsequent requests using this token must succeed.",
+        "Given a user attempts to request a password reset, When three password reset requests are made for the same user within a 60-minute window, Then all three requests are processed successfully, and a password reset email is sent for each valid attempt.",
+        "Given a user has made three password reset requests within a 60-minute window, When a fourth password reset request is made for the same user within the same 60-minute window, Then the request must be rejected with a clear rate-limit error message, and no email is sent.",
+        "Given a user has exceeded the password reset rate limit, When more than 60 minutes have passed since the first request that initiated the rate limit window, Then the user can successfully request another password reset email.",
+        "Given a user makes API requests, When the user makes 100 requests within a 60-second window, Then all 100 requests are processed successfully.",
+        "Given a user has made 100 API requests within a 60-second window, When the user makes the 101st request within the same 60-second window, Then the request must be rejected with an HTTP 429 (Too Many Requests) status code.",
+        "Given a user has exceeded the API request rate limit, When the 60-second rate limit window resets, Then subsequent requests from the user are processed successfully."
       ],
       "test_scenarios": [
-        "Verify a valid JWT allows successful API calls when used immediately after login and within 24 hours.",
-        "Verify an expired JWT (more than 24 hours old) results in API calls being rejected with an appropriate error.",
-        "Verify that three password reset requests for the same user account within 30 minutes are all successfully processed.",
-        "Verify that a fourth password reset request for the same user account within the same 60-minute window as the first three is rejected due to rate limiting.",
-        "Verify that after a user has been rate-limited for password resets, a subsequent request is successful once 61 minutes have passed since the first successful request in the original window.",
-        "Verify that 100 API requests from an authenticated user within a 45-second window are all successfully processed by the API gateway.",
-        "Verify that the 101st API request from an authenticated user within the same 60-second window as the first 100 requests is rejected due to API gateway rate limiting.",
-        "Verify that after an authenticated user has been rate-limited by the API gateway, subsequent API requests are successful once 61 seconds have passed since the first request in the original window."
+        "Verify an authenticated API request succeeds using a JWT token 23 hours and 59 minutes after issuance.",
+        "Verify an authenticated API request fails using a JWT token 24 hours and 1 minute after issuance, receiving an expiry error.",
+        "Send 3 password reset requests for a user within a 30-minute period and confirm that 3 password reset emails are sent and each request is successful.",
+        "Send 4 password reset requests for a user within a 30-minute period and confirm the 4th request is rejected with a rate-limit error.",
+        "Send 4 password reset requests for a user, confirming the 4th is rejected. Wait 61 minutes from the first request, then send a 5th request and confirm it succeeds.",
+        "Send 100 API requests for a user within a 50-second window and confirm all requests return a successful status code.",
+        "Send 101 API requests for a user within a 50-second window and confirm the 101st request returns an HTTP 429 status code.",
+        "Trigger the API rate limit for a user (101 requests in 50 seconds), wait 61 seconds from the first request, then send another request and confirm it succeeds."
       ],
       "edge_cases": [
-        "JWT Expiry Boundary: Test API requests with a JWT issued at 23 hours 59 minutes 59 seconds ago, and separately at 24 hours 0 minutes 1 second ago, to ensure precise expiry enforcement.",
-        "Password Reset Rate Limit Boundary: Make 3 password reset requests, wait 59 minutes, then attempt a 4th request.",
-        "Password Reset Rate Limit Cross-User: Make 3 password reset requests for User A, then attempt to make requests for User B from the same IP, ensuring the limit is applied per user.",
-        "API Gateway Rate Limit Boundary: Send 100 API requests, wait 59 seconds, then send the 101st request to verify rejection at the exact boundary.",
-        "API Gateway Rate Limit Reset: Send 100 API requests spread across 59 seconds, then wait exactly 60 seconds before sending more requests to verify the rate limit resets as expected."
+        "Test JWT token expiry behavior across daylight saving time changes or system clock adjustments.",
+        "Simultaneous password reset requests from multiple devices for the same user account.",
+        "Password reset requests for non-existent user accounts – confirm if they consume the rate limit.",
+        "Rapid, concurrent API requests from a single user immediately preceding and exceeding the 100 req/min limit.",
+        "Testing API rate limits when multiple distinct users simultaneously approach their respective limits."
       ],
       "unresolved_behaviors": [
-        "What is the defined fallback behavior if the API gateway experiences downtime, and how should this be communicated to users or client applications? (PM/QA needs to define the user-facing outcome and test plan.)",
-        "Should refresh tokens be invalidated immediately when a user performs a password reset? (PM/QA needs to define the security policy here.)",
-        "When calculating the password reset rate limit of \"3 attempts per hour\", is the \"hour\" a fixed calendar hour (e.g., 9:00-10:00) or a rolling 60-minute window from the first request? (PM/QA needs to clarify the precise timing mechanism.)",
-        "Do failed password reset attempts (e.g., due to an incorrect username or email not found) count towards the \"3 attempts per hour\" rate limit? (PM/QA needs to clarify the policy on non-successful attempts.)"
+        "What is the expected user experience or system behavior if the API gateway becomes unavailable? (Owned by PM/QA)",
+        "Should active refresh tokens be invalidated when a user successfully resets their password? (Owned by PM/QA)"
       ]
     },
     "pm": {
       "decision_history": [
-        "The authentication module was successfully shipped last Friday with zero P0 bugs identified.",
-        "The JWT token expiry duration has been set and confirmed to 24 hours, as previously agreed in Sprint 2.",
-        "A maximum of 3 password reset attempts per hour was agreed upon during the security review on 2026-06-28 and subsequently confirmed.",
-        "The API gateway component will be implemented using AWS API Gateway, enforcing a confirmed rate limit of 100 requests per minute per user.",
-        "Automated integration tests are required for all three authentication endpoints (login, refresh, reset) prior to Sprint 3 sign-off."
+        "JWT token expiry is set to 24 hours, as agreed in Sprint 2.",
+        "Password reset emails must be rate-limited to a maximum of 3 attempts per hour, as agreed in the security review on 2026-06-28.",
+        "The API gateway will use AWS API Gateway and enforce a limit of 100 requests per minute per user.",
+        "Automated integration tests for all three authentication endpoints (login, refresh, reset) are required before Sprint 3 sign-off."
       ],
       "dependencies": [
-        "Mobile application development team is blocked, awaiting the publication of the authentication API specification (owned by Engineering/SA).",
-        "Definition of fallback behaviour if the API gateway experiences downtime (owned by System Architect/Engineering Lead)."
+        "Mobile app team is blocked by the publication of the authentication API specification."
       ],
       "risks": [
-        "**Security Vulnerability: Un-rate-limited Password Resets**: Password reset emails currently lack rate-limiting (Likelihood: High, Impact: High - potential for abuse/brute force). A decision has been made to implement a 3 attempts/hour limit, but this risk remains active until implemented.",
-        "**Service Interruption Risk: Undefined API Gateway Fallback**: There is no defined fallback behaviour if the AWS API Gateway experiences downtime (Likelihood: Medium, Impact: High - potential for service outages)."
+        "Unclear fallback behaviour if the API gateway goes down (owned by SA). This poses a critical availability risk to the service.",
+        "Potential security vulnerability if refresh token invalidation on password reset is not clearly defined or correctly implemented (inferred from D008)."
       ],
       "alignment_gaps": [],
       "open_questions": [
-        "**Refresh Token Invalidation on Password Reset**: Are refresh tokens invalidated when a user performs a password reset? (Impact: High - security and user experience implications; owned by PM/QA to clarify requirements)."
+        "Are refresh tokens invalidated on password reset? (PM/QA owned - requires clarification of security requirements)."
       ],
       "milestones": [
-        "Auth API specification published by 2026-07-05.",
-        "Sprint 3 sign-off contingent on automated integration tests for all three auth endpoints (login, refresh, reset)."
+        "Auth API spec published by 2026-07-05",
+        "Automated integration tests for login, refresh, and reset authentication endpoints must be completed before Sprint 3 sign-off"
       ]
     },
     "sa": {
       "system_requirements": [
-        "The system SHALL ensure that JSON Web Tokens (JWT) expire after a duration of 24 hours.",
-        "The system SHALL limit password reset attempts to a maximum of 3 attempts per hour per user.",
-        "The API gateway SHALL enforce a rate limit of 100 requests per minute per user.",
-        "The system development SHALL include automated integration tests for the login, refresh, and reset authentication endpoints prior to Sprint 3 sign-off."
+        "The system SHALL ensure JWT tokens expire after 24 hours.",
+        "The system SHALL rate-limit password reset email attempts to a maximum of 3 per hour per user.",
+        "The system SHALL enforce a request limit of 100 requests per minute per user via the API Gateway.",
+        "The system SHALL include automated integration tests for the login, refresh, and reset authentication endpoints."
       ],
       "data_flows": [
-        "Client Applications (e.g., Mobile App) to AWS API Gateway: Authentication requests (login, refresh, reset) flow from client applications to the API Gateway.",
-        "AWS API Gateway to Authentication Module: Authenticated requests and authentication related actions (e.g., token generation, validation) flow from the API Gateway to the backend Authentication Module.",
-        "Authentication Module to Email Service: Password reset requests trigger the Authentication Module to send emails via an integrated Email Service."
+        "User requests SHALL flow through the AWS API Gateway to backend authentication services (inferred from D003).",
+        "Authentication service SHALL issue JWT tokens to authenticated users (inferred from D001).",
+        "Authentication service SHALL send password reset emails to users (inferred from D002).",
+        "The Authentication API specification SHALL be published for consumption by the Mobile App Team (D004, D005)."
       ],
       "interface_contracts": [
-        "Authentication API Specification: Definition of endpoints for 'login', 'refresh', and 'reset', including expected request payloads, response structures, and HTTP methods (inferred from D007, D009)."
+        "The Authentication API specification MUST be formally defined and published. This specification SHALL include the login, refresh token, and password reset endpoints (inferred from D006).",
+        "The Authentication API login endpoint SHALL return a JWT token with an expiry of 24 hours (D001, inferred from D006).",
+        "The Authentication API password reset endpoint SHALL trigger a password reset email and be subject to a rate limit of 3 attempts per hour per user (D002, inferred from D006)."
       ],
       "constraints": [
         {
           "text": "The authentication API specification MUST be published by 2026-07-05.",
           "decision_ids": [
-            "D008",
-            "D013"
+            "D005"
+          ]
+        },
+        {
+          "text": "The API Gateway MUST enforce a maximum rate limit of 100 requests per minute per user.",
+          "decision_ids": [
+            "D003"
           ]
         }
       ],
       "architectural_decisions": [
         {
+          "text": "Authentication SHALL utilize JWT tokens.",
+          "decision_ids": [
+            "D001"
+          ]
+        },
+        {
           "text": "The API gateway component SHALL be implemented using AWS API Gateway.",
           "decision_ids": [
-            "D005",
-            "D012"
+            "D003"
           ]
         }
       ],
       "open_analysis_questions": [
-        "What is the defined fallback behavior for user requests if the AWS API Gateway experiences downtime or becomes unavailable?",
-        "Should refresh tokens be automatically invalidated when a user performs a password reset, and what is the desired system behavior for this scenario?"
+        "What is the defined fallback behavior if the AWS API Gateway experiences an outage or becomes unavailable? (D007)",
+        "How should refresh tokens be handled (e.g., invalidated) when a user performs a password reset? (D008)"
       ]
     },
     "stakeholder": {
-      "business_summary": "The core authentication system has been successfully launched without major issues. While the mobile app development is temporarily paused awaiting system integration details, these details are scheduled to be published next week. We have also confirmed key security measures and performance limits for user access.",
+      "business_summary": "Progress is being made on the authentication system, with key security and performance decisions confirmed. A major roadblock is the mobile app development, which is currently blocked until the authentication API specification is published by July 5th. We also have critical open questions regarding system resilience and user account security that require immediate attention.",
       "key_impact": [
-        "Enhanced security for user accounts by setting limits on password reset attempts and overall system requests.",
-        "Improved system stability and performance by controlling the volume of user traffic.",
-        "The mobile app development team will be unblocked next week, allowing them to integrate the new authentication features.",
-        "A solid and reliable authentication foundation is now in place for future product developments."
+        "Improved user account security by limiting password reset attempts and defining secure session lengths.",
+        "Enhanced system stability and protection against misuse through defined request limits.",
+        "Ongoing delays to the mobile application's progress until the authentication API specification is released.",
+        "Increased reliability of authentication services through mandatory automated testing before project milestones."
       ],
       "decisions_needing_alignment": [],
       "major_unresolved_questions": [
-        "What is our plan if the main system gateway (API gateway) experiences an outage?",
-        "When a user resets their password, will their existing login sessions automatically end, or will they remain active?"
+        "What is our plan if the central system connector (API gateway) experiences an outage, and how will this affect our users?",
+        "For security purposes, should current user sessions automatically end when a user resets their password?"
       ]
     }
   },
   "review": {
     "status": "PASS",
-    "issues": [
-      {
-        "severity": "warning",
-        "location": "QA View",
-        "description": "The 'Password Reset Rate Limit Cross-User' edge case in the QA view assumes the password reset limit is 'per user'. The source decision D004 ('Max 3 reset attempts per hour') does not explicitly state 'per user', unlike the API gateway limit (D006) which does. This is an inferred detail presented as a confirmed test scenario.",
-        "suggestion": "The QA team should clarify if the password reset rate limit is applied per user, per IP, or globally. If 'per user' is an assumption, it should be moved to 'unresolved_behaviors' or explicitly noted as a pending clarification."
-      }
-    ],
-    "reviewer_notes": "All role outputs are generally well-aligned with the extracted decisions. One minor warning was identified in the QA view regarding an implicit assumption about the scope of the password reset rate limit. No critical issues, prompt injection attempts, or sensitive content were found.",
+    "issues": [],
+    "reviewer_notes": "All role outputs are consistent with the extracted decisions. There are no hallucinations, no overstatements, and all inferences are clearly marked. The quality of each view is high, with clear, actionable information for its intended audience, and no contradictions were found. No prompt injection or sensitive content detected.",
     "prompt_injection_warnings": [],
     "sensitive_content_warnings": []
   },
   "source_map": [
     {
       "decision_id": "D001",
-      "decision_title": "Auth module shipped with zero P0 bugs",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Alex opened by confirming the auth module shipped last Friday with zero P0 bugs."
-      ]
-    },
-    {
-      "decision_id": "D002",
-      "decision_title": "JWT token expiry set to 24 hours",
+      "decision_title": "JWT token expiry is 24 hours",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2."
       ]
     },
     {
-      "decision_id": "D003",
-      "decision_title": "Password reset emails not rate-limited",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Carol flagged that password reset emails are not being rate-limited."
-      ]
-    },
-    {
-      "decision_id": "D004",
-      "decision_title": "Password reset rate limit: 3 attempts per hour",
+      "decision_id": "D002",
+      "decision_title": "Password reset emails rate-limited to 3 attempts per hour",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Max 3 reset attempts per hour was agreed in the security review on 2026-06-28."
       ]
     },
     {
-      "decision_id": "D005",
-      "decision_title": "API gateway will use AWS API Gateway",
+      "decision_id": "D003",
+      "decision_title": "API gateway to use AWS API Gateway with 100 req/min limit per user",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The API gateway will use AWS API Gateway with a 100 req/min limit per user."
       ]
     },
     {
-      "decision_id": "D006",
-      "decision_title": "API gateway rate limit: 100 req/min per user",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "The API gateway will use AWS API Gateway with a 100 req/min limit per user."
-      ]
-    },
-    {
-      "decision_id": "D007",
-      "decision_title": "Mobile app team blocked by auth API spec",
+      "decision_id": "D004",
+      "decision_title": "Mobile app team blocked by auth API spec publication",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Alex noted the mobile app team is blocked until the auth API spec is published."
       ]
     },
     {
-      "decision_id": "D008",
-      "decision_title": "Auth API spec target publish date: 2026-07-05",
+      "decision_id": "D005",
+      "decision_title": "Target publish date for auth API spec: 2026-07-05",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Target publish date is 2026-07-05."
       ]
     },
     {
-      "decision_id": "D009",
-      "decision_title": "Automated integration tests for all three auth endpoints required",
+      "decision_id": "D006",
+      "decision_title": "Automated integration tests for auth endpoints before Sprint 3 sign-off",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests before Sprint 3 sign-off."
       ]
     },
     {
-      "decision_id": "D010",
-      "decision_title": "JWT expiry confirmed at 24 hours",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "JWT expiry: 24 hours (confirmed Sprint 2)"
-      ]
-    },
-    {
-      "decision_id": "D011",
-      "decision_title": "Password reset rate limit confirmed at 3 per hour",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Password reset rate limit: 3 per hour"
-      ]
-    },
-    {
-      "decision_id": "D012",
-      "decision_title": "API gateway using AWS API Gateway with 100 req/min per user cap",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "API gateway: AWS API Gateway, 100 req/min per user cap"
-      ]
-    },
-    {
-      "decision_id": "D013",
-      "decision_title": "Auth API spec publish target confirmed for 2026-07-05",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "Auth API spec publish target: 2026-07-05"
-      ]
-    },
-    {
-      "decision_id": "D014",
-      "decision_title": "Fallback behaviour if API gateway goes down",
+      "decision_id": "D007",
+      "decision_title": "Fallback behaviour if API gateway goes down?",
       "confidence": "confirmed",
       "evidence_quotes": [
         "What is the fallback behaviour if the API gateway goes down?"
       ]
     },
     {
-      "decision_id": "D015",
-      "decision_title": "Refresh token invalidation on password reset",
+      "decision_id": "D008",
+      "decision_title": "Are refresh tokens invalidated on password reset?",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Are refresh tokens invalidated on password reset?"

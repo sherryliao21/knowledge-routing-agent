@@ -9,7 +9,7 @@
   },
   {
     "decision_id": "D002",
-    "decision_title": "Consider Better Database",
+    "decision_title": "Consideration for Better Database",
     "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "Someone mentioned we should probably use a better database at some point."
@@ -17,7 +17,7 @@
   },
   {
     "decision_id": "D003",
-    "decision_title": "UI Design Improvement Required",
+    "decision_title": "UI Aesthetics Improvement Required",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The UI needs to look nicer."
@@ -25,7 +25,7 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Current UI Design is Unsatisfactory",
+    "decision_title": "Current UI Design Deemed Inadequate",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We all agreed the current design isn't great."
@@ -49,7 +49,7 @@
   },
   {
     "decision_id": "D007",
-    "decision_title": "CRM Integration Details Unknown",
+    "decision_title": "Uncertainty on CRM Integration Details",
     "confidence": "confirmed",
     "evidence_quotes": [
       "but we're not sure when or how."
@@ -57,7 +57,7 @@
   },
   {
     "decision_id": "D008",
-    "decision_title": "Budget is a Concern",
+    "decision_title": "Budget Concerns Raised",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Budget was mentioned briefly — it's a concern"
@@ -65,24 +65,24 @@
   },
   {
     "decision_id": "D009",
-    "decision_title": "Budget Numbers Required",
-    "confidence": "confirmed",
+    "decision_title": "Budget Details Unshared",
+    "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
-      "but no numbers were shared."
+      "no numbers were shared."
     ]
   },
   {
     "decision_id": "D010",
-    "decision_title": "More Thorough Testing Recommended",
-    "confidence": "inferred_needs_confirmation",
+    "decision_title": "Increased Testing Thoroughness Required",
+    "confidence": "confirmed",
     "evidence_quotes": [
       "The team lead hinted that testing should be more thorough."
     ]
   },
   {
     "decision_id": "D011",
-    "decision_title": "Improved Documentation Needed",
-    "confidence": "inferred_needs_confirmation",
+    "decision_title": "Improved Documentation Required",
+    "confidence": "confirmed",
     "evidence_quotes": [
       "We should probably document things better going forward."
     ]
