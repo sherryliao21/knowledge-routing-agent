@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ metadata.title }} — Knowledge Route Report</title>
+  <title>Vague Notes Test — Knowledge Route Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -796,79 +796,44 @@
   <!-- Header -->
   <div class="header">
     <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
-    <h1 class="header-title">{{ metadata.title }}</h1>
+    <h1 class="header-title">Vague Notes Test</h1>
     <div class="meta-bar">
       <div class="meta-cell">
         <span class="meta-key">Date</span>
-        <span class="meta-val">{{ metadata.date }}</span>
+        <span class="meta-val">2026-07-03</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Run ID</span>
-        <span class="meta-val mono">{{ metadata.run_id }}</span>
+        <span class="meta-val mono">2026-07-03-vague-notes-test</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Source</span>
-        <span class="meta-val mono">{{ metadata.source_file }}</span>
+        <span class="meta-val mono">2026-07-03-vague-notes.md</span>
       </div>
       <div class="meta-cell">
         <span class="meta-key">Generated</span>
-        <span class="meta-val mono">{{ metadata.generated_at }}</span>
+        <span class="meta-val mono">2026-07-04T09:00:52.654493Z</span>
       </div>
     </div>
   </div>
 
   <!-- Review status banner -->
-  {% if review.status == "PASS" %}
-    <div class="review-banner pass">
-      <div class="review-left">
-        <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
-        <div>
-          <div class="review-label">Reviewer: APPROVED</div>
-          <div class="review-note">{{ review.reviewer_notes }}</div>
-        </div>
-      </div>
-      {% if review.issues %}
-        <button class="review-action" onclick="openModal()">View logs ({{ review.issues|length }})</button>
-      {% else %}
-        <button class="review-action" disabled>No issues flagged</button>
-      {% endif %}
-    </div>
-  {% else %}
+  
     <div class="review-banner flag">
       <div class="review-left">
         <div class="review-icon"><i class="ri-error-warning-line"></i></div>
         <div>
           <div class="review-label">Reviewer: FLAG NEEDED</div>
-          <div class="review-note">{{ review.reviewer_notes }}</div>
+          <div class="review-note">The report generally aligns with extracted decisions and provides useful role-specific information. However, the QA and PM views have critical sections (acceptance criteria, test scenarios, milestones) that are empty, reducing their utility. The SA view also has minor inaccuracies in how it labels confirmed requirements as 'inferred' when only the details are truly inferred.</div>
         </div>
       </div>
-      <button class="review-action" onclick="openModal()">Inspect ({{ review.issues|length }})</button>
+      <button class="review-action" onclick="openModal()">Inspect (4)</button>
     </div>
-  {% endif %}
+  
 
   <!-- Security warnings -->
-  {% if review.prompt_injection_warnings %}
-    <div class="security-banner injection">
-      <i class="ri-spy-line"></i>
-      <div>
-        <div class="security-banner-label">⚠ Prompt Injection Attempts Detected</div>
-        <ul>
-          {% for w in review.prompt_injection_warnings %}<li>{{ w }}</li>{% endfor %}
-        </ul>
-      </div>
-    </div>
-  {% endif %}
-  {% if review.sensitive_content_warnings %}
-    <div class="security-banner sensitive">
-      <i class="ri-shield-keyhole-line"></i>
-      <div>
-        <div class="security-banner-label">⚠ Sensitive Content Detected</div>
-        <ul>
-          {% for w in review.sensitive_content_warnings %}<li>{{ w }}</li>{% endfor %}
-        </ul>
-      </div>
-    </div>
-  {% endif %}
+  
+  
 
   <!-- Character card row — horizontal, vertical cards -->
   <div class="char-row-wrap">
@@ -922,15 +887,7 @@
         <div class="char-role">Decisions Log</div>
       </button>
 
-      {% if raw_notes %}
-      <button class="char-card" data-target="panel-notes" data-role="notes">
-        <div class="char-avatar-ring">
-          <img src="../../assets/avatar-system.jpg" alt="Source Transcript" style="filter:hue-rotate(90deg)">
-        </div>
-        <div class="char-name">Transcript</div>
-        <div class="char-role">Original Notes</div>
-      </button>
-      {% endif %}
+      
 
     </div>
   </div>
@@ -945,37 +902,72 @@
 
       <div class="summary-block">
         <div class="summary-block-label">Business Summary</div>
-        <p>{{ roles.stakeholder.business_summary }}</p>
+        <p>The team has identified significant concerns regarding the dashboard project's performance and its current user interface, which was agreed to be unsatisfactory. Key decisions on project timelines, budget, and integration with our CRM system are still pending and require stakeholder input to move forward.</p>
       </div>
 
       <div class="sub-header">Key Business Outcomes</div>
       <div class="item-list">
-        {% for item in roles.stakeholder.key_impact %}
+        
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">The current poor user interface will negatively impact user satisfaction and adoption of the dashboard.</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Concerns about performance could lead to a slow and frustrating experience for users.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Without clear timelines and an approved budget, the project faces uncertainty regarding completion dates and resource allocation.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">Potential quality issues and higher future maintenance costs could arise if testing is not made more thorough and documentation is not improved.</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Decisions Requiring Alignment</div>
       <div class="item-list">
-        {% for item in roles.stakeholder.decisions_needing_alignment %}
+        
         <div class="item">
           <i class="ri-git-pull-request-line icon-stakeholder"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Project timelines need to be established to set clear expectations for delivery.</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">Specific budget details and approval are required to ensure the project has the necessary resources.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">The timing and method for integrating with our CRM system need to be determined to plan future development effectively.</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Open Questions</div>
       <div class="item-list">
-        {% for item in roles.stakeholder.major_unresolved_questions %}
+        
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">What are the confirmed timelines for the project's completion and key milestones?</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What is the approved budget for this project, and how will it address the identified performance and design improvements?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">When and how will the dashboard integrate with our existing CRM system?</span>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -988,39 +980,66 @@
 
       <div class="sub-header">Implementation Scope</div>
       <div class="item-list">
-        {% for item in roles.engineer.implementation_scope %}
+        
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Performance optimization of the dashboard project.</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Refactor/reimplement dashboard UI components to align with improved design specifications.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement more thorough testing practices and potentially enhance test coverage for existing/new features.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Improve documentation for existing and future codebase components, APIs, and deployment processes.</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Technical Constraints</div>
       <div class="item-list">
-        {% for item in roles.engineer.technical_constraints %}
+        
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Consideration of using a better database system at some point.</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Open Technical Questions</div>
       <div class="item-list">
-        {% for item in roles.engineer.open_technical_questions %}
+        
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Determine the timing and specific integration method for the CRM system.</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Referenced Decisions</div>
       <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
-        {% for item in roles.engineer.relevant_decisions %}
-          <span class="did-pill" onclick="goDecision('{{ item }}')">{{ item }}</span>
-        {% endfor %}
+        
+          <span class="did-pill" onclick="goDecision('D001')">D001</span>
+        
+          <span class="did-pill" onclick="goDecision('D002')">D002</span>
+        
+          <span class="did-pill" onclick="goDecision('D003')">D003</span>
+        
+          <span class="did-pill" onclick="goDecision('D004')">D004</span>
+        
+          <span class="did-pill" onclick="goDecision('D006')">D006</span>
+        
+          <span class="did-pill" onclick="goDecision('D008')">D008</span>
+        
+          <span class="did-pill" onclick="goDecision('D009')">D009</span>
+        
       </div>
     </div>
   </div>
@@ -1033,42 +1052,42 @@
 
       <div class="sub-header">Acceptance Criteria</div>
       <div class="item-list">
-        {% for item in roles.qa.acceptance_criteria %}
-        <div class="item">
-          <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">{{ item }}</span>
-        </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Test Scenarios</div>
       <div class="item-list">
-        {% for item in roles.qa.test_scenarios %}
-        <div class="item">
-          <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">{{ item }}</span>
-        </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Edge Cases</div>
       <div class="item-list">
-        {% for item in roles.qa.edge_cases %}
-        <div class="item">
-          <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">{{ item }}</span>
-        </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Unresolved Behaviours</div>
       <div class="item-list">
-        {% for item in roles.qa.unresolved_behaviors %}
+        
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Specific performance metrics and acceptable thresholds for the dashboard project are not defined.</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">The criteria for 'nicer' UI design are subjective; specific design mockups or objective standards are required to validate UI improvements.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">Project timelines and key delivery milestones remain undecided.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">The timing and specific method for potential CRM system integration are unclear and require definition.</span>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -1081,65 +1100,120 @@
 
       <div class="sub-header">Decision History</div>
       <div class="item-list">
-        {% for item in roles.pm.decision_history %}
+        
         <div class="item">
           <i class="ri-history-line icon-pm"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">It was agreed by attendees that the current design of the User Interface is not satisfactory, necessitating improvement (D004).</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-history-line icon-pm"></i>
+          <span class="item-text">It was decided that the User Interface needs to be improved to look nicer (D003).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-history-line icon-pm"></i>
+          <span class="item-text">The team lead indicated that testing practices should be more thorough going forward (D008).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-history-line icon-pm"></i>
+          <span class="item-text">It was suggested and implicitly agreed that documentation practices should be improved for future work (D009).</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Dependencies</div>
       <div class="item-list">
-        {% for item in roles.pm.dependencies %}
+        
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Potential future integration with the CRM system (inferred, timing and method unclear) (D006).</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Risks</div>
       <div class="item-list">
-        {% for item in roles.pm.risks %}
+        
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Confirmed concern regarding the performance of the dashboard project (D001). (Likelihood: High, Impact: High - could affect user adoption and stability).</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">Budget has been identified as a concern, but no specific figures or details were shared (D007). (Likelihood: High, Impact: High - could significantly impact scope, resources, and timeline).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">The current database may be insufficient, with a suggestion to use a 'better database at some point' (D002). This represents a potential performance bottleneck or technical debt if not addressed. (Likelihood: Medium, Impact: Medium-High - could affect system stability and future scalability).</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Alignment Gaps</div>
       <div class="item-list">
-        {% for item in roles.pm.alignment_gaps %}
+        
         <div class="item">
           <i class="ri-user-voice-line icon-stakeholder"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Project timelines remain undecided (D005) – stakeholders may have differing expectations on delivery dates.</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">The timing and method for potential CRM system integration are unclear (D006), leading to an alignment gap on project scope and roadmap.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">The scope and specific requirements for UI improvements (D003, D004) are not explicitly defined, potentially leading to differing expectations on what 'nicer' means.</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Open Questions</div>
       <div class="item-list">
-        {% for item in roles.pm.open_questions %}
+        
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">What are the firm timelines and key milestones for the project? (High Impact - D005)</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">When and how will the potential integration with the CRM system occur, and what is its scope? (High Impact - D006)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What specific improvements are required for the UI design, and what is the scope and budget for this redesign effort? (High Impact - D003, D004)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What are the specific budget figures and constraints for this project? (High Impact - D007)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What specific actions, processes, or resources are needed to ensure more thorough testing practices? (Medium Impact - D008)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What specific improvements are needed for documentation practices, and how will they be implemented? (Medium Impact - D009)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Is the current database truly inadequate, and if so, what 'better' database solution is recommended, and when should this transition occur? (Medium-High Impact - D002)</span>
+        </div>
+        
       </div>
 
-      {% if roles.pm.milestones %}
-      <div class="sub-header">Milestones &amp; Deadlines</div>
-      <div class="item-list">
-        {% for item in roles.pm.milestones %}
-        <div class="item">
-          <i class="ri-flag-line icon-pm"></i>
-          <span class="item-text">{{ item }}</span>
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
+      
     </div>
   </div>
 
@@ -1151,52 +1225,97 @@
 
       <div class="sub-header">System Requirements</div>
       <div class="item-list">
-        {% for item in roles.sa.system_requirements %}
+        
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">The dashboard project SHALL meet defined performance targets (inferred — needs confirmation).</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system UI SHALL be improved to enhance user experience and aesthetics.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system SHALL be subject to thorough testing prior to release and during maintenance cycles (inferred — needs confirmation).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-list-check-3 icon-rose"></i>
+          <span class="item-text">The system's technical design, implementation, and operational aspects SHALL be comprehensively documented (inferred — needs confirmation).</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Data Flows &amp; Integrations</div>
       <div class="item-list">
-        {% for item in roles.sa.data_flows %}
+        
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Potential future data flow: Data exchange between the dashboard project and an external CRM system (timing and method unclear — needs confirmation).</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Interface Contracts</div>
       <div class="item-list">
-        {% for item in roles.sa.interface_contracts %}
+        
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">Potential future contract: API specifications for integrating with the CRM system (inferred — needs confirmation).</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Constraints &amp; Assumptions</div>
       <div class="item-list">
-        {% for item in roles.sa.constraints_and_assumptions %}
+        
         <div class="item">
           <i class="ri-lock-line icon-engineer"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">The underlying database technology for the dashboard project SHOULD be evaluated for potential improvement or replacement.</span>
         </div>
-        {% endfor %}
+        
       </div>
 
       <div class="sub-header">Open Analysis Questions</div>
       <div class="item-list">
-        {% for item in roles.sa.open_analysis_questions %}
+        
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">{{ item }}</span>
+          <span class="item-text">What are the specific performance targets for the dashboard project (e.g., response times, throughput, concurrent users)?</span>
         </div>
-        {% endfor %}
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What is the scope, timing, and technical approach for integrating with the CRM system? Which specific CRM system? What data elements will be exchanged, in what direction, and with what frequency?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the detailed functional and non-functional requirements for the improved UI design?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the criteria and scope for 'thorough testing practices'?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the scope and standards for 'improved documentation' for the system?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the project timelines and key milestones for the dashboard development?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">What are the budgetary constraints that might influence technical decisions or scope?</span>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -1226,59 +1345,301 @@
       </div>
 
       <div id="decisionsList">
-        {% for decision in extraction.decisions %}
-        <div class="decision-card" id="d-{{ decision.id }}" data-category="{{ decision.category }}" data-confidence="{{ decision.confidence }}">
+        
+        <div class="decision-card" id="d-D001" data-category="risk" data-confidence="confirmed">
           <div class="decision-head">
             <div class="decision-id-title">
-              <span class="decision-id">{{ decision.id }}</span>
-              <span class="decision-title">{{ decision.title }}</span>
+              <span class="decision-id">D001</span>
+              <span class="decision-title">Concerns about performance identified</span>
             </div>
             <div class="badge-row">
-              <span class="badge badge-cat">{{ decision.category|replace('_', ' ') }}</span>
-              {% if decision.confidence == "confirmed" %}
+              <span class="badge badge-cat">risk</span>
+              
                 <span class="badge badge-confirmed">confirmed</span>
-              {% else %}
-                <span class="badge badge-inferred">needs confirmation</span>
-              {% endif %}
+              
             </div>
           </div>
-          <p class="decision-detail">{{ decision.detail }}</p>
-          {% if decision.evidence %}
-            <button class="evidence-toggle" onclick="toggleEvidence('{{ decision.id }}', this)">
+          <p class="decision-detail">There are concerns regarding the performance of the dashboard project.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D001', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
             </button>
-            <div class="evidence-body" id="ev-{{ decision.id }}">
-              {% for ev in decision.evidence %}
+            <div class="evidence-body" id="ev-D001">
+              
               <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"{{ ev.quote }}"</p>
+                <p class="evidence-quote">"there are some concerns about performance."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>{{ ev.approximate_location }}</span>
+                  <span>Notes paragraph 1</span>
                 </div>
               </div>
-              {% endfor %}
+              
             </div>
-          {% else %}
-            <span class="evidence-toggle" style="cursor:default;">
-              <i class="ri-close-circle-line"></i> No citation (inferred)
-            </span>
-          {% endif %}
+          
         </div>
-        {% endfor %}
+        
+        <div class="decision-card" id="d-D002" data-category="technical_constraint" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D002</span>
+              <span class="decision-title">Consider using a better database</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">technical constraint</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">A suggestion was made to potentially use a better database at some point for the project.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D002">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"Someone mentioned we should probably use a better database at some point."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 2</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D003" data-category="functional_requirement" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D003</span>
+              <span class="decision-title">UI design needs improvement</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">functional requirement</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">The User Interface needs to be improved to look nicer.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D003">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"The UI needs to look nicer."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 3</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D004" data-category="key_decision" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D004</span>
+              <span class="decision-title">Current UI design is not satisfactory</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">key decision</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">It was agreed by attendees that the current design of the UI is not great.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D004">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"We all agreed the current design isn't great."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 3</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D005" data-category="open_question" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D005</span>
+              <span class="decision-title">Timelines for project remain undecided</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">open question</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">Discussions were held regarding project timelines, but no firm decisions were made.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D005">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"There was a discussion about timelines but nothing was firmly decided."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 4</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D006" data-category="open_question" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D006</span>
+              <span class="decision-title">CRM integration timing and method is unclear</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">open question</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">There is a potential future need to integrate with the CRM system, but the timing and method for this integration are currently uncertain.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D006">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"We might need to integrate with the CRM system eventually, but we're not sure when or how."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 5</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D007" data-category="risk" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D007</span>
+              <span class="decision-title">Budget identified as a concern</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">risk</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">Budget was briefly mentioned and is a concern, but no specific figures or details were shared.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D007">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"Budget was mentioned briefly — it's a concern but no numbers were shared."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 6</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D008" data-category="functional_requirement" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D008</span>
+              <span class="decision-title">Testing needs to be more thorough</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">functional requirement</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">The team lead indicated that testing practices should be more thorough going forward.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D008">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"The team lead hinted that testing should be more thorough."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 7</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D009" data-category="functional_requirement" data-confidence="confirmed">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D009</span>
+              <span class="decision-title">Improved documentation is needed</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">functional requirement</span>
+              
+                <span class="badge badge-confirmed">confirmed</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">It was suggested that documentation practices should be improved for future work.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D009">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"We should probably document things better going forward."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>Notes paragraph 8</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
       </div>
     </div>
   </div>
 
   <!-- TRANSCRIPT (opt-in only) -->
-  {% if raw_notes %}
-  <div class="panel" id="panel-notes">
-    <div class="card">
-      <div class="panel-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</div>
-      <p class="panel-desc">Raw meeting notes fed into the pipeline. Published via <code>--include-transcript</code>.</p>
-      <div class="transcript-block">{{ raw_notes }}</div>
-    </div>
-  </div>
-  {% endif %}
+  
 
   <!-- Footer -->
   <footer class="report-footer">
@@ -1297,19 +1658,55 @@
     <div class="modal-title"><i class="ri-bug-line" style="color:var(--teal)"></i> Pipeline Review Log</div>
     <p class="modal-subtitle">Issues flagged by the Reviewer Agent. Address any critical items before sharing.</p>
     <div>
-      {% for issue in review.issues %}
+      
       <div class="issue-item">
         <div class="issue-header">
-          <span class="issue-loc">{{ issue.location }}</span>
-          <span class="issue-sev sev-{{ issue.severity }}">{{ issue.severity }}</span>
+          <span class="issue-loc">QA View</span>
+          <span class="issue-sev sev-warning">warning</span>
         </div>
-        <p class="issue-desc">{{ issue.description }}</p>
+        <p class="issue-desc">The 'acceptance_criteria', 'test_scenarios', and 'edge_cases' sections are empty, making the QA view vague and less actionable for its intended audience.</p>
         <div class="issue-suggestion">
           <span class="suggestion-label">Suggested Fix</span>
-          {{ issue.suggestion }}
+          Populate these sections with relevant, specific criteria, scenarios, and edge cases derived from the extracted decisions, even if they are high-level or identified as needing further definition. For example, 'UI design improvement - Acceptance Criteria: Needs specific design mockups or objective standards (D003, D004).'
         </div>
       </div>
-      {% endfor %}
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">PM View</span>
+          <span class="issue-sev sev-warning">warning</span>
+        </div>
+        <p class="issue-desc">The 'milestones' section is empty, which is a critical omission for a Project Manager's report on project status and future planning.</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          Even if timelines are undecided (D005), the PM view should reflect the need for milestones, perhaps listing them as 'To Be Defined' or proposing a process for their establishment.
+        </div>
+      </div>
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">PM View, dependencies (D006)</span>
+          <span class="issue-sev sev-info">info</span>
+        </div>
+        <p class="issue-desc">Decision D006 (CRM integration) is listed as '(inferred, timing and method unclear)' in the dependencies. D006 is a 'confirmed' 'open_question' in the extracted decisions.</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          While the timing and method are indeed unclear, the potential need for integration is 'confirmed'. The 'inferred' tag for the existence of the dependency is less precise. Consider rephrasing to 'Potential future integration with the CRM system (confirmed open question, timing and method unclear) (D006)' to accurately reflect the confidence of the original decision.
+        </div>
+      </div>
+      
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">SA View, system_requirements (D008, D009)</span>
+          <span class="issue-sev sev-warning">warning</span>
+        </div>
+        <p class="issue-desc">The system requirements derived from D008 ('The system SHALL be subject to thorough testing...') and D009 ('The system's technical design... SHALL be comprehensively documented...') are both marked as '(inferred — needs confirmation)'. However, D008 ('Testing needs to be more thorough') and D009 ('Improved documentation is needed') are confirmed functional requirements.</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          The *need* for thorough testing and improved documentation is confirmed. What needs confirmation are the specific *details*, *scope*, and *implementation* of these requirements (e.g., 'What are the criteria for 'thorough' testing?'). The 'inferred' tag should clarify that it applies to the detailed 'SHALL' statement and its scope, not to the underlying confirmed requirement itself.
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

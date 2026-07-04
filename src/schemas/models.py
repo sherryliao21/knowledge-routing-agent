@@ -153,22 +153,46 @@ class QAView(BaseModel):
 
 
 class PMView(BaseModel):
-    """Role output tailored for a Project Manager or System Analyst."""
+    """Role output tailored for a Project Manager."""
 
     decision_history: list[str] = Field(
-        description="Chronological summary of decisions made in the meeting."
+        description="Chronological summary of key decisions made in the meeting, capturing what was decided and why."
     )
     dependencies: list[str] = Field(
-        description="Cross-team, cross-system, or cross-feature dependencies."
+        description="Cross-team, cross-system, or cross-feature dependencies. Label inferred ones clearly."
     )
     risks: list[str] = Field(
-        description="Identified risks and their potential impact."
+        description="Identified risks and concerns that could affect timeline, quality, or scope."
     )
     alignment_gaps: list[str] = Field(
-        description="Areas where stakeholders may not be aligned."
+        description="Areas where stakeholders may have different expectations or where agreement was not clearly reached."
     )
     open_questions: list[str] = Field(
-        description="Questions that must be resolved before work can proceed."
+        description="Questions that must be resolved before work can safely proceed, prioritised by impact."
+    )
+    milestones: list[str] = Field(
+        default_factory=list,
+        description="Key delivery targets, deadlines, or checkpoints extracted from the meeting."
+    )
+
+
+class SAView(BaseModel):
+    """Role output tailored for a System Analyst."""
+
+    system_requirements: list[str] = Field(
+        description="Functional and non-functional requirements derived from the meeting, written in clear specification language."
+    )
+    data_flows: list[str] = Field(
+        description="Key data movements, integrations, or system interactions implied or stated in the meeting."
+    )
+    interface_contracts: list[str] = Field(
+        description="API contracts, input/output specs, or interface agreements that need formal definition."
+    )
+    constraints_and_assumptions: list[str] = Field(
+        description="Technical constraints, architectural assumptions, or non-negotiable design decisions the SA must document."
+    )
+    open_analysis_questions: list[str] = Field(
+        description="Questions the SA needs answered to complete the system specification — gaps in the requirements."
     )
 
 
@@ -190,11 +214,12 @@ class StakeholderView(BaseModel):
 
 
 class RoleOutputs(BaseModel):
-    """All four role-specific views, produced in parallel."""
+    """All five role-specific views, produced in parallel."""
 
     engineer: EngineerView
     qa: QAView
     pm: PMView
+    sa: SAView
     stakeholder: StakeholderView
 
 

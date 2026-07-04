@@ -9,6 +9,7 @@ Output state keys:
   "engineer_view"    → EngineerView
   "qa_view"          → QAView
   "pm_view"          → PMView
+  "sa_view"          → SAView
   "stakeholder_view" → StakeholderView
 """
 
@@ -18,7 +19,7 @@ from pathlib import Path
 
 from google.adk.agents import LlmAgent, ParallelAgent
 
-from src.schemas.models import EngineerView, QAView, PMView, StakeholderView
+from src.schemas.models import EngineerView, QAView, PMView, SAView, StakeholderView
 
 _PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
 
@@ -64,6 +65,15 @@ pm_router = LlmAgent(
     output_key="pm_view",
 )
 
+sa_router = LlmAgent(
+    name="sa_router",
+    model="gemini-2.5-flash",
+    instruction=_build_instruction(_load_prompt("sa_router")),
+    description="Produces a System Analyst view: requirements, data flows, interface contracts, and constraints.",
+    output_schema=SAView,
+    output_key="sa_view",
+)
+
 stakeholder_router = LlmAgent(
     name="stakeholder_router",
     model="gemini-2.5-flash",
@@ -78,7 +88,7 @@ stakeholder_router = LlmAgent(
 role_router = ParallelAgent(
     name="role_router",
     description=(
-        "Runs all four role routers in parallel: engineer, QA, PM, and stakeholder."
+        "Runs all five role routers in parallel: engineer, QA, PM, SA, and stakeholder."
     ),
-    sub_agents=[engineer_router, qa_router, pm_router, stakeholder_router],
+    sub_agents=[engineer_router, qa_router, pm_router, sa_router, stakeholder_router],
 )

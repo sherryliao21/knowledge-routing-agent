@@ -39,6 +39,7 @@ from src.schemas.models import (
     EngineerView,
     QAView,
     PMView,
+    SAView,
     StakeholderView,
     ReviewOutput,
     SourceMapEntry,
@@ -50,7 +51,7 @@ async def _execute_pipeline(
     app_name: str,
     user_id: str,
     session_id: str,
-) -> tuple[dict, dict, dict, dict, dict, dict]:
+) -> tuple[dict, dict, dict, dict, dict, dict, dict]:
     """Execute the ADK sequential + parallel pipeline on the asyncio loop."""
     runner = InMemoryRunner(agent=root_agent, app_name=app_name)
 
@@ -86,6 +87,7 @@ async def _execute_pipeline(
         session.state.get("engineer_view"),
         session.state.get("qa_view"),
         session.state.get("pm_view"),
+        session.state.get("sa_view"),
         session.state.get("stakeholder_view"),
         session.state.get("review"),
     )
@@ -182,10 +184,10 @@ def run(file_path: str, title: str | None, date: str | None, include_transcript:
         click.secho(f"Pipeline Error: {e}", fg="red", bold=True, err=True)
         sys.exit(1)
 
-    ext_data, eng_data, qa_data, pm_data, stak_data, rev_data = res
+    ext_data, eng_data, qa_data, pm_data, sa_data, stak_data, rev_data = res
 
     # Check that we received all values
-    if not all([ext_data, eng_data, qa_data, pm_data, stak_data, rev_data]):
+    if not all([ext_data, eng_data, qa_data, pm_data, sa_data, stak_data, rev_data]):
         click.secho(
             "Error: Pipeline completed but some role views were missing in output.",
             fg="red",
@@ -208,6 +210,7 @@ def run(file_path: str, title: str | None, date: str | None, include_transcript:
         engineer = to_model(eng_data, EngineerView)
         qa = to_model(qa_data, QAView)
         pm = to_model(pm_data, PMView)
+        sa = to_model(sa_data, SAView)
         stakeholder = to_model(stak_data, StakeholderView)
         review = to_model(rev_data, ReviewOutput)
     except Exception as e:
@@ -257,6 +260,7 @@ def run(file_path: str, title: str | None, date: str | None, include_transcript:
             engineer=engineer,
             qa=qa,
             pm=pm,
+            sa=sa,
             stakeholder=stakeholder,
         ),
         review=review,
