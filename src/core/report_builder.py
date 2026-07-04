@@ -7,8 +7,10 @@ Renders and writes all output artifacts for a pipeline run:
   - reports/runs/<run_id>/index.html       (tabbed, interactive HTML brief)
   - reports/index.html                     (global Hub page listing all runs)
 
-SECURITY RULE ENFORCED STRUCTURALLY:
-Raw meeting notes text is NEVER written to any output file.
+SECURITY NOTE:
+Raw meeting notes are written to output.json ONLY when --include-transcript
+was explicitly passed to the CLI. By default raw_notes is an empty string
+and the Transcript tab is hidden in the HTML report.
 """
 
 from __future__ import annotations

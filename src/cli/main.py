@@ -113,7 +113,13 @@ def cli():
     "-d",
     help="Meeting date in YYYY-MM-DD format (defaults to today).",
 )
-def run(file_path: str, title: str | None, date: str | None):
+@click.option(
+    "--include-transcript",
+    is_flag=True,
+    default=False,
+    help="Publish the full raw notes in the report HTML. OFF by default for privacy.",
+)
+def run(file_path: str, title: str | None, date: str | None, include_transcript: bool):
     """Compile unstructured meeting notes into structured role views."""
     # Check for API key before starting
     if not os.environ.get("GEMINI_API_KEY"):
@@ -231,6 +237,19 @@ def run(file_path: str, title: str | None, date: str | None):
         )
 
     # Bundle into root RunOutput
+    # raw_notes is opt-in only: requires --include-transcript flag
+    if include_transcript:
+        click.secho(
+            "[!] Warning: --include-transcript is active. The full raw notes will be "
+            "written to output.json and the report HTML. Only use with synthetic or "
+            "sanitized notes.",
+            fg="yellow",
+            bold=True,
+        )
+        raw_notes_value = parsed_doc.raw_text
+    else:
+        raw_notes_value = ""
+
     run_output = RunOutput(
         metadata=metadata,
         extraction=extraction,
@@ -242,7 +261,7 @@ def run(file_path: str, title: str | None, date: str | None):
         ),
         review=review,
         source_map=source_map,
-        raw_notes=parsed_doc.raw_text,
+        raw_notes=raw_notes_value,
     )
 
     # Step 4: Write artifacts and build Hub

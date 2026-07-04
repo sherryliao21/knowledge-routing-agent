@@ -4,1447 +4,1281 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ metadata.title }} — Knowledge Route Report</title>
-  <!-- Premium Typography: Plus Jakarta Sans for UI/Headings, Geist Mono for code/data -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Featherweight, ultra-clean icons (Remix Icon) -->
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-  
+
   <style>
     :root {
-      /* Soft Structuralism - Premium Light Mode Palette */
-      --bg-dark: #f8fafc;        /* slate-50 base background */
-      --bg-card: #ffffff;        /* Solid white cards */
-      --bg-card-hover: #f1f5f9;  /* slate-100 hover state */
-      --border-color: rgba(15, 23, 42, 0.08); /* slate-900 with low opacity */
-      --border-highlight: rgba(13, 148, 136, 0.2);
-      
-      --accent: #0d9488;        /* Teal Main */
-      --accent-glow: rgba(13, 148, 136, 0.08);
-      --cyan: #06b6d4;          /* Cyan */
-      --emerald: #10b981;       /* Emerald */
-      --amber: #d97706;         /* Amber */
-      --rose: #e11d48;          /* Rose */
-      --violet: #7c3aed;        /* Violet */
-      
-      --text-main: #0f172a;      /* slate-900 primary text */
-      --text-muted: #475569;     /* slate-600 secondary text */
-      --text-dark: #94a3b8;      /* slate-400 subtle labels */
-      
-      --radius-lg: 1.25rem;      /* 20px */
-      --radius-md: 0.75rem;      /* 12px */
-      --radius-sm: 0.5rem;       /* 8px */
-      
-      --transition-bezier: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-raised: #fafafa;
+      --border: #e4e4e7;
+      --border-strong: #d1d1d6;
+
+      --text-primary: #09090b;
+      --text-secondary: #52525b;
+      --text-tertiary: #a1a1aa;
+
+      --accent: #18181b;
+      --accent-fg: #ffffff;
+
+      --teal:    #0d9488;
+      --teal-bg: rgba(13,148,136,.06);
+      --amber:   #b45309;
+      --amber-bg:rgba(180,83,9,.06);
+      --emerald: #059669;
+      --emerald-bg:rgba(5,150,105,.06);
+      --violet:  #6d28d9;
+      --violet-bg:rgba(109,40,217,.06);
+      --slate:   #475569;
+      --slate-bg:rgba(71,85,105,.06);
+      --rose:    #be123c;
+      --rose-bg: rgba(190,18,60,.06);
+      --cyan:    #0e7490;
+      --cyan-bg: rgba(14,116,144,.06);
+
+      --radius: 10px;
+      --radius-sm: 6px;
+      --radius-lg: 14px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --dur: 260ms;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Geist', -apple-system, sans-serif;
+      font-size: 15px;
       line-height: 1.6;
-      position: relative;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient Soft Light Glows */
-    .glow-orb-1 {
-      position: absolute;
-      top: -10%;
-      right: -10%;
-      width: 50vw;
-      height: 50vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      filter: blur(80px);
-    }
-    
-    .glow-orb-2 {
-      position: absolute;
-      bottom: 10%;
-      left: -10%;
-      width: 45vw;
-      height: 45vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      filter: blur(80px);
-    }
-
-    .container {
-      max-width: 1400px;
+    /* ── Layout ──────────────────────────────────────────────────── */
+    .page {
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
-      position: relative;
-      z-index: 10;
+      padding: 2.5rem 1.5rem 5rem;
     }
 
-    /* Breadcrumbs / Back button */
-    .back-btn-container {
-      margin-bottom: 2rem;
-    }
-    .back-btn {
+    /* ── Back button ─────────────────────────────────────────────── */
+    .back-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--text-muted);
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
       text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.35rem 0.75rem;
       border-radius: var(--radius-sm);
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-      transition: var(--transition-bezier);
+      transition: color var(--dur) var(--ease-out),
+                  border-color var(--dur) var(--ease-out);
+      margin-bottom: 2.5rem;
     }
-    .back-btn:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--bg-card-hover);
-      transform: translateX(-4px);
-    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--border-strong); }
 
-    /* Header Section */
-    header {
-      margin-bottom: 3.5rem;
-    }
-    
-    .header-eyebrow {
+    /* ── Header ──────────────────────────────────────────────────── */
+    .header { margin-bottom: 2rem; }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      background: rgba(13, 148, 136, 0.06);
-      border: 1px solid rgba(13, 148, 136, 0.15);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
+      gap: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 1.25rem;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      background: var(--teal-bg);
+      border: 1px solid rgba(13,148,136,.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
     }
 
     .header-title {
-      font-size: clamp(2.25rem, 4vw, 3.25rem);
-      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
       line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
     }
 
-    /* Metadata Panel (Double-Bezel) */
-    .meta-wrapper {
-      padding: 1.5px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.02) 100%);
-      display: inline-block;
-      width: 100%;
-      box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.03);
-    }
-    
-    .meta-inner {
-      background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1.5px);
-      padding: 1.25rem 2rem;
+    .meta-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 2.5rem;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
-
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .meta-label {
-      font-size: 0.725rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-dark);
-      font-weight: 700;
-    }
-
-    .meta-value {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .meta-value.mono {
-      font-family: 'Geist Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Main Dashboard Layout */
-    .dashboard-layout {
-      display: grid;
-      grid-template-cols: 320px 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    @media (max-width: 1024px) {
-      .dashboard-layout {
-        grid-template-cols: 1fr;
-        gap: 2.5rem;
-      }
-    }
-
-    /* Navigation Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    /* Double Bezel Character Profile Buttons */
-    .tab-button {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.75rem;
-      border-radius: var(--radius-lg);
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      cursor: pointer;
-      text-align: left;
-      font-family: inherit;
-      transition: var(--transition-bezier);
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    }
-
-    /* Avatar picture double bezel */
-    .avatar-wrapper {
-      padding: 1.5px;
-      border-radius: 50%;
-      background: var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition-bezier);
-      flex-shrink: 0;
-    }
-    
-    .avatar-img {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-
-    .tab-text-group {
+    .meta-cell {
+      padding: 0.75rem 1.25rem;
+      border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       gap: 0.15rem;
+      flex: 1 1 auto;
+      min-width: 140px;
     }
-
-    .tab-char-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-main);
-      transition: var(--transition-bezier);
+    .meta-cell:last-child { border-right: none; }
+    .meta-key {
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
     }
-
-    .tab-char-role {
-      font-size: 0.725rem;
+    .meta-val {
+      font-size: 0.875rem;
       font-weight: 500;
-      color: var(--text-muted);
+      color: var(--text-primary);
+    }
+    .meta-val.mono {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
     }
 
-    .tab-button:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(15, 23, 42, 0.15);
-      transform: translateY(-1px);
-    }
-
-    .tab-button.active {
-      background: #ffffff;
-      border-color: var(--accent);
-      box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.08), 0 4px 10px -2px rgba(0,0,0,0.02);
-    }
-
-    /* Active Highlight States per character role */
-    .tab-button.active .avatar-wrapper {
-      background: var(--accent);
-    }
-    .tab-button[data-role="stakeholder"].active {
-      border-color: var(--amber);
-      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.08);
-    }
-    .tab-button[data-role="stakeholder"].active .avatar-wrapper {
-      background: var(--amber);
-    }
-    .tab-button[data-role="qa"].active {
-      border-color: var(--emerald);
-      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.08);
-    }
-    .tab-button[data-role="qa"].active .avatar-wrapper {
-      background: var(--emerald);
-    }
-    .tab-button[data-role="pm"].active {
-      border-color: var(--violet);
-      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.08);
-    }
-    .tab-button[data-role="pm"].active .avatar-wrapper {
-      background: var(--violet);
-    }
-    .tab-button[data-role="decisions"].active {
-      border-color: var(--cyan);
-      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.08);
-    }
-    .tab-button[data-role="decisions"].active .avatar-wrapper {
-      background: var(--cyan);
-    }
-    .tab-button[data-role="notes"].active {
-      border-color: #64748b;
-      box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.08);
-    }
-    .tab-button[data-role="notes"].active .avatar-wrapper {
-      background: #64748b;
-    }
-
-    /* Content Area */
-    .content-area {
-      min-height: 500px;
-    }
-
-    .tab-panel {
-      display: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: var(--transition-bezier);
-    }
-
-    .tab-panel.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Double Bezel Cards (Light Mode) */
-    .card-outer {
-      padding: 1.5px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--border-color) 0%, rgba(15, 23, 42, 0.01) 100%);
-      box-shadow: 0 15px 40px -15px rgba(15, 23, 42, 0.05);
-      margin-bottom: 2rem;
-      transition: var(--transition-bezier);
-    }
-    
-    .card-outer:hover {
-      background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(15, 23, 42, 0.02) 100%);
-    }
-
-    .card-inner {
-      background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1.5px);
-      padding: 2.25rem;
-    }
-
-    /* Section Typography */
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
+    /* ── Review status banner ────────────────────────────────────── */
+    .review-banner {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-    }
-    
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 2.5rem;
-      max-width: 80ch;
-    }
-
-    /* Lists of items inside Role Views */
-    .list-items {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .list-item {
-      display: grid;
-      grid-template-cols: auto 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding: 1.25rem;
-      border-radius: var(--radius-md);
-      background: rgba(15, 23, 42, 0.01);
-      border: 1px solid var(--border-color);
-      transition: var(--transition-bezier);
-    }
-
-    .list-item:hover {
-      background: rgba(15, 23, 42, 0.02);
-      border-color: rgba(15, 23, 42, 0.12);
-      transform: translateX(4px);
-    }
-
-    .list-item i {
-      font-size: 1.1rem;
-      margin-top: 0.15rem;
-    }
-    
-    /* Dynamic bullet colors per role */
-    [data-role-type="engineer"] .list-item i { color: var(--accent); }
-    [data-role-type="qa"] .list-item i { color: var(--emerald); }
-    [data-role-type="pm"] .list-item i { color: var(--violet); }
-    [data-role-type="stakeholder"] .list-item i { color: var(--amber); }
-
-    .list-item-text {
-      color: var(--text-main);
-      font-size: 0.975rem;
-      font-weight: 500;
-    }
-
-    /* Decisions Ledger Layout */
-    .decisions-grid {
-      display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid;
+      margin-bottom: 1rem;
+    }
+    .review-banner.pass {
+      background: rgba(5,150,105,.04);
+      border-color: rgba(5,150,105,.2);
+    }
+    .review-banner.flag {
+      background: rgba(190,18,60,.04);
+      border-color: rgba(190,18,60,.2);
+    }
+    .review-left { display: flex; align-items: center; gap: 0.75rem; }
+    .review-icon {
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .review-banner.pass .review-icon { background: rgba(5,150,105,.1); color: var(--emerald); }
+    .review-banner.flag .review-icon { background: rgba(190,18,60,.1); color: var(--rose); }
+    .review-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+    }
+    .review-note { font-size: 0.8125rem; color: var(--text-secondary); }
+    .review-action {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--dur) var(--ease-out);
+      white-space: nowrap;
+    }
+    .review-banner.pass .review-action {
+      color: var(--emerald); border-color: rgba(5,150,105,.25);
+    }
+    .review-banner.pass .review-action:hover { background: rgba(5,150,105,.07); }
+    .review-banner.flag .review-action {
+      color: var(--surface); background: var(--rose); border-color: var(--rose);
+    }
+    .review-banner.flag .review-action:hover { background: #9f1239; }
+
+    /* Security warning banners */
+    .security-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid;
+      margin-bottom: 0.75rem;
+    }
+    .security-banner.injection {
+      background: rgba(190,18,60,.04);
+      border-color: rgba(190,18,60,.2);
+    }
+    .security-banner.sensitive {
+      background: rgba(180,83,9,.04);
+      border-color: rgba(180,83,9,.2);
+    }
+    .security-banner i { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .security-banner.injection i { color: var(--rose); }
+    .security-banner.sensitive i { color: var(--amber); }
+    .security-banner-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+    .security-banner.injection .security-banner-label { color: var(--rose); }
+    .security-banner.sensitive .security-banner-label { color: var(--amber); }
+    .security-banner ul {
+      margin: 0; padding-left: 1.1rem;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      display: flex; flex-direction: column; gap: 0.2rem;
     }
 
-    .decision-card-outer {
-      padding: 1px;
-      border-radius: var(--radius-lg);
-      background: var(--border-color);
-      transition: var(--transition-bezier);
+    /* ── Character card row ──────────────────────────────────────── */
+    .char-row-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      margin-bottom: 1.75rem;
+    }
+    .char-row-wrap::-webkit-scrollbar { display: none; }
+
+    .char-row {
+      display: flex;
+      flex-direction: row;
+      gap: 0.75rem;
+      width: max-content;
+      min-width: 100%;
     }
 
-    .decision-card-outer:hover {
-      background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(15, 23, 42, 0.02) 100%);
-    }
-
-    .decision-card-inner {
-      background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1px);
-      padding: 1.75rem 2rem;
+    .char-card {
+      scroll-snap-align: start;
+      flex: 1 0 0;
+      min-width: 140px;
+      max-width: 200px;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+      align-items: center;
+      gap: 0.625rem;
+      padding: 1.125rem 0.875rem 0.875rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+      text-align: center;
+      transition: border-color var(--dur) var(--ease-out),
+                  box-shadow var(--dur) var(--ease-out),
+                  transform var(--dur) var(--ease-out);
+      box-shadow: var(--shadow-sm);
+    }
+    .char-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
-    .decision-header {
+    /* Avatar ring */
+    .char-avatar-ring {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      padding: 2px;
+      background: var(--border);
+      transition: background var(--dur) var(--ease-out);
+    }
+    .char-avatar-ring img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(255,255,255,.8);
+      display: block;
+    }
+
+    .char-name {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .char-role {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      line-height: 1.3;
+    }
+
+    /* Active states — one accent per card */
+    .char-card.active[data-role="stakeholder"] {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(180,83,9,.08), var(--shadow-md);
+    }
+    .char-card.active[data-role="stakeholder"] .char-avatar-ring {
+      background: var(--amber);
+    }
+    .char-card.active[data-role="engineer"] {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="engineer"] .char-avatar-ring {
+      background: var(--teal);
+    }
+    .char-card.active[data-role="qa"] {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px var(--emerald-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="qa"] .char-avatar-ring {
+      background: var(--emerald);
+    }
+    .char-card.active[data-role="pm"] {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 3px var(--violet-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="pm"] .char-avatar-ring {
+      background: var(--violet);
+    }
+    .char-card.active[data-role="decisions"] {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px var(--cyan-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="decisions"] .char-avatar-ring {
+      background: var(--cyan);
+    }
+    .char-card.active[data-role="notes"] {
+      border-color: var(--slate);
+      box-shadow: 0 0 0 3px var(--slate-bg), var(--shadow-md);
+    }
+    .char-card.active[data-role="notes"] .char-avatar-ring {
+      background: var(--slate);
+    }
+
+    /* ── Tab panels ──────────────────────────────────────────────── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── Card shell ──────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .panel-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.375rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+    }
+    .panel-title i { font-size: 1.1rem; }
+
+    .panel-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 72ch;
+    }
+
+    /* ── Section sub-headers ─────────────────────────────────────── */
+    .sub-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      margin: 1.75rem 0 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sub-header:first-of-type { margin-top: 0; }
+
+    /* ── List items ──────────────────────────────────────────────── */
+    .item-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1.1rem 1fr;
+      gap: 0.625rem;
+      align-items: start;
+      padding: 0.75rem 0.875rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: var(--surface-raised);
+      transition: border-color var(--dur) var(--ease-out),
+                  background var(--dur) var(--ease-out);
+    }
+    .item:hover { background: #f4f4f5; border-color: var(--border); }
+    .item i { font-size: 0.875rem; margin-top: 0.15rem; }
+    .item-text { font-size: 0.875rem; color: var(--text-primary); font-weight: 500; line-height: 1.5; }
+
+    /* Business summary block */
+    .summary-block {
+      padding: 1.125rem 1.25rem;
+      border-radius: var(--radius);
+      background: var(--amber-bg);
+      border: 1px solid rgba(180,83,9,.15);
+      margin-bottom: 1.5rem;
+    }
+    .summary-block-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+    .summary-block p {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+
+    /* Role-tinted icons */
+    .icon-stakeholder { color: var(--amber); }
+    .icon-engineer { color: var(--teal); }
+    .icon-qa { color: var(--emerald); }
+    .icon-pm { color: var(--violet); }
+    .icon-danger { color: var(--rose); }
+    .icon-cyan { color: var(--cyan); }
+
+    /* Decision ID pill link */
+    .did-pill {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+    }
+    .did-pill:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ── Decisions ledger ────────────────────────────────────────── */
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap i {
+      position: absolute;
+      left: 0.875rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+    .search-input, .filter-select {
+      font-family: inherit;
+      font-size: 0.875rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      transition: border-color var(--dur) var(--ease-out),
+                  box-shadow var(--dur) var(--ease-out);
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.625rem 1rem 0.625rem 2.375rem;
+    }
+    .filter-select {
+      padding: 0.625rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .search-input:focus, .filter-select:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg);
+    }
+
+    .decision-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1.25rem 1.375rem;
+      margin-bottom: 0.75rem;
+      transition: border-color var(--dur) var(--ease-out);
+    }
+    .decision-card:hover { border-color: var(--border-strong); }
+
+    .decision-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .decision-title-group {
-      display: flex;
-      align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.625rem;
     }
+    .decision-id-title { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
 
     .decision-id {
       font-family: 'Geist Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      background: rgba(15, 23, 42, 0.03);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      color: var(--text-main);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      flex-shrink: 0;
     }
-
     .decision-title {
-      font-size: 1.15rem;
+      font-size: 0.9375rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
     }
 
-    .decision-badges {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
+    .badge-row { display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .badge {
-      font-size: 0.725rem;
-      font-weight: 600;
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
+      font-size: 0.625rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      padding: 0.175rem 0.525rem;
+      border-radius: 9999px;
+      border: 1px solid;
     }
-
-    .badge-category {
-      background: rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      color: var(--text-muted);
+    .badge-cat {
+      background: var(--surface-raised);
+      border-color: var(--border);
+      color: var(--text-secondary);
     }
-
-    .badge-confidence-confirmed {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+    .badge-confirmed {
+      background: var(--emerald-bg);
+      border-color: rgba(5,150,105,.2);
       color: var(--emerald);
     }
-
-    .badge-confidence-inferred {
-      background: rgba(217, 119, 6, 0.08);
-      border: 1px solid rgba(217, 119, 6, 0.2);
+    .badge-inferred {
+      background: var(--amber-bg);
+      border-color: rgba(180,83,9,.2);
       color: var(--amber);
     }
 
     .decision-detail {
-      font-size: 0.95rem;
-      color: var(--text-muted);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
       line-height: 1.6;
-    }
-
-    /* Collapsible Evidence System */
-    .evidence-container {
-      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .evidence-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: none;
-      border: none;
-      color: var(--text-dark);
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 700;
+      gap: 0.35rem;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-family: inherit;
-      transition: var(--transition-bezier);
-    }
-
-    .evidence-toggle:hover {
-      color: var(--accent);
-    }
-
-    .evidence-toggle i {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .evidence-toggle.expanded i {
-      transform: rotate(180deg);
-    }
-
-    .evidence-content {
-      display: none;
-      margin-top: 1rem;
-      padding: 1.25rem;
-      border-radius: var(--radius-md);
-      background: #f8fafc;
-      border-left: 2px solid var(--accent);
-      animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .evidence-quote {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: var(--text-main);
-      margin-bottom: 0.5rem;
-      position: relative;
-    }
-
-    .evidence-location {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    /* Review Status Widget */
-    .review-widget {
-      margin-bottom: 3.5rem;
-      padding: 1.5rem 2rem;
-      border-radius: var(--radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .review-widget.pass {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.04) 0%, rgba(16, 185, 129, 0.01) 100%);
-      border: 1px solid rgba(16, 185, 129, 0.15);
-    }
-
-    .review-widget.needs-improvement {
-      background: linear-gradient(135deg, rgba(225, 29, 72, 0.04) 0%, rgba(225, 29, 72, 0.01) 100%);
-      border: 1px solid rgba(225, 29, 72, 0.15);
-    }
-
-    .review-left {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    .review-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .review-widget.pass .review-icon {
-      background: rgba(16, 185, 129, 0.08);
-      color: var(--emerald);
-    }
-
-    .review-widget.needs-improvement .review-icon {
-      background: rgba(225, 29, 72, 0.08);
-      color: var(--rose);
-    }
-
-    .review-info h3 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 0.25rem;
-      color: #0f172a;
-    }
-
-    .review-info p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    .review-btn {
-      padding: 0.6rem 1.25rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
+      color: var(--text-tertiary);
+      background: none;
       border: none;
-      transition: var(--transition-bezier);
+      cursor: pointer;
+      padding: 0;
+      transition: color var(--dur) var(--ease-out);
+    }
+    .evidence-toggle:hover { color: var(--teal); }
+    .evidence-toggle i { transition: transform 0.25s var(--ease-out); }
+    .evidence-toggle.open i { transform: rotate(180deg); }
+
+    .evidence-body {
+      display: none;
+      margin-top: 0.875rem;
+      padding: 1rem 1.125rem;
+      border-left: 2px solid var(--teal);
+      background: #f8fafc;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .evidence-quote {
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 0.375rem;
+    }
+    .evidence-loc {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
     }
 
-    .review-widget.pass .review-btn {
-      background: rgba(16, 185, 129, 0.08);
-      color: var(--emerald);
-      border: 1px solid rgba(16, 185, 129, 0.15);
+    /* ── Raw transcript panel ────────────────────────────────────── */
+    .transcript-block {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      white-space: pre-wrap;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.825rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      overflow-x: auto;
     }
 
-    .review-widget.pass .review-btn:hover {
-      background: rgba(16, 185, 129, 0.15);
-    }
-
-    .review-widget.needs-improvement .review-btn {
-      background: var(--rose);
-      color: #ffffff;
-    }
-
-    .review-widget.needs-improvement .review-btn:hover {
-      background: #be123c;
-      transform: scale(1.02);
-    }
-
-    /* Modal for Review issues */
-    .modal {
+    /* ── Review detail modal ─────────────────────────────────────── */
+    .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.35);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
+      background: rgba(9,9,11,.3);
+      backdrop-filter: blur(4px);
+      z-index: 100;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
     }
+    .modal-backdrop.open { display: flex; }
 
-    .modal.active {
-      display: flex;
-      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .modal-content {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      max-width: 650px;
+      padding: 2rem;
+      max-width: 600px;
       width: 100%;
       max-height: 80vh;
       overflow-y: auto;
-      padding: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
       position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
     }
-
     .modal-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text-dark);
+      top: 1.25rem; right: 1.25rem;
+      background: none; border: none;
+      font-size: 1.25rem; color: var(--text-tertiary);
       cursor: pointer;
-      font-size: 1.5rem;
-      transition: var(--transition-bezier);
+      transition: color var(--dur) var(--ease-out);
     }
-
-    .modal-close:hover {
-      color: var(--text-main);
-    }
-
+    .modal-close:hover { color: var(--text-primary); }
     .modal-title {
-      font-size: 1.5rem;
-      font-weight: 800;
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.375rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .modal-subtitle {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
       margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: #0f172a;
     }
-
-    .issue-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .issue-item {
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface-raised);
+      margin-bottom: 0.75rem;
     }
-
-    .issue-card {
-      padding: 1.25rem;
-      border-radius: var(--radius-md);
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-    }
-
     .issue-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
-
     .issue-loc {
       font-family: 'Geist Mono', monospace;
       font-size: 0.75rem;
-      color: var(--accent);
       font-weight: 700;
+      color: var(--teal);
     }
-
     .issue-sev {
-      font-size: 0.65rem;
+      font-size: 0.625rem;
       font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 9999px;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      border: 1px solid;
     }
-
-    .sev-critical {
-      background: rgba(225, 29, 72, 0.08);
-      border: 1px solid rgba(225, 29, 72, 0.2);
-      color: var(--rose);
-    }
-
-    .sev-warning {
-      background: rgba(217, 119, 6, 0.08);
-      border: 1px solid rgba(217, 119, 6, 0.2);
-      color: var(--amber);
-    }
-
-    .sev-info {
-      background: rgba(6, 182, 212, 0.08);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      color: var(--cyan);
-    }
-
-    .issue-desc {
-      font-size: 0.9rem;
-      color: var(--text-main);
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-    }
-
-    .issue-sug {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.8);
-      padding: 0.75rem 1rem;
+    .sev-critical { background: var(--rose-bg); border-color: rgba(190,18,60,.2); color: var(--rose); }
+    .sev-warning  { background: var(--amber-bg); border-color: rgba(180,83,9,.2); color: var(--amber); }
+    .sev-info     { background: var(--cyan-bg); border-color: rgba(14,116,144,.2); color: var(--cyan); }
+    .issue-desc { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .issue-suggestion {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      padding: 0.625rem 0.875rem;
       border-radius: var(--radius-sm);
-      border-left: 2px solid var(--text-muted);
-      border: 1px solid var(--border-color);
-      border-left-width: 3px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border-strong);
+      background: var(--surface);
+    }
+    .suggestion-label {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      display: block;
+      margin-bottom: 0.25rem;
     }
 
-    /* Animations */
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Footer styling */
-    footer.report-footer {
-      margin-top: 6rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
+    /* ── Footer ──────────────────────────────────────────────────── */
+    .report-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
     }
-
-    footer.report-footer a {
-      color: var(--text-main);
+    .report-footer a {
+      color: var(--text-secondary);
       text-decoration: none;
       font-weight: 600;
-      transition: var(--transition-bezier);
+      transition: color var(--dur) var(--ease-out);
     }
+    .report-footer a:hover { color: var(--text-primary); }
 
-    footer.report-footer a:hover {
-      color: var(--accent);
-    }
-
-    /* Search bar for decisions */
-    .search-container {
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-cols: 1fr auto;
-      gap: 1rem;
-    }
-
-    .search-input-wrapper {
-      position: relative;
-    }
-
-    .search-input-wrapper i {
-      position: absolute;
-      left: 1.25rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-
-    .search-input {
-      width: 100%;
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem 0.85rem 3rem;
-      color: var(--text-main);
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: var(--transition-bezier);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
-    }
-
-    .filter-select {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0 1.25rem;
-      color: var(--text-muted);
-      font-family: inherit;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-bezier);
-    }
-
-    .filter-select:focus {
-      outline: none;
-      border-color: var(--accent);
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page { padding: 1.5rem 1rem 3rem; }
+      .meta-bar { flex-direction: column; }
+      .meta-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .meta-cell:last-child { border-bottom: none; }
+      .search-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <div class="glow-orb-1"></div>
-  <div class="glow-orb-2"></div>
+<div class="page">
 
-  <div class="container">
-    
-    <!-- Back to Hub link -->
-    <div class="back-btn-container">
-      <a href="../../index.html" class="back-btn">
-        <i class="ri-arrow-left-line"></i>
-        Back to Knowledge Hub
-      </a>
+  <!-- Back -->
+  <a href="../../index.html" class="back-link">
+    <i class="ri-arrow-left-s-line"></i> Knowledge Hub
+  </a>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
+    <h1 class="header-title">{{ metadata.title }}</h1>
+    <div class="meta-bar">
+      <div class="meta-cell">
+        <span class="meta-key">Date</span>
+        <span class="meta-val">{{ metadata.date }}</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Run ID</span>
+        <span class="meta-val mono">{{ metadata.run_id }}</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Source</span>
+        <span class="meta-val mono">{{ metadata.source_file }}</span>
+      </div>
+      <div class="meta-cell">
+        <span class="meta-key">Generated</span>
+        <span class="meta-val mono">{{ metadata.generated_at }}</span>
+      </div>
     </div>
-
-    <!-- Header Block -->
-    <header>
-      <div class="header-eyebrow">
-        <i class="ri-radar-line"></i> Routed Report
-      </div>
-      <h1 class="header-title">{{ metadata.title }}</h1>
-      
-      <div class="meta-wrapper">
-        <div class="meta-inner">
-          <div class="meta-item">
-            <span class="meta-label">Date</span>
-            <span class="meta-value">{{ metadata.date }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Run Slug</span>
-            <span class="meta-value mono">{{ metadata.run_id }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Source Document</span>
-            <span class="meta-value mono">{{ metadata.source_file }}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Processed At</span>
-            <span class="meta-value mono">{{ metadata.generated_at }}</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Review Status Widget -->
-    {% if review.status == "PASS" %}
-      <div class="review-widget pass">
-        <div class="review-left">
-          <div class="review-icon">
-            <i class="ri-checkbox-circle-line"></i>
-          </div>
-          <div class="review-info">
-            <h3>Human-in-the-Loop Verification: APPROVED</h3>
-            <p>{{ review.reviewer_notes }}</p>
-          </div>
-        </div>
-        {% if review.issues %}
-          <button class="review-btn" onclick="openIssuesModal()">View Review Logs ({{ review.issues|length }})</button>
-        {% else %}
-          <button class="review-btn" disabled>Zero Issues Flagged</button>
-        {% endif %}
-      </div>
-    {% else %}
-      <div class="review-widget needs-improvement">
-        <div class="review-left">
-          <div class="review-icon">
-            <i class="ri-error-warning-line"></i>
-          </div>
-          <div class="review-info">
-            <h3>Human-in-the-Loop Verification: FLAG NEEDED</h3>
-            <p>{{ review.reviewer_notes }}</p>
-          </div>
-        </div>
-        <button class="review-btn" onclick="openIssuesModal()">Inspect Blockers ({{ review.issues|length }})</button>
-      </div>
-    {% endif %}
-
-    <!-- Interactive Dashboard Grid -->
-    <div class="dashboard-layout">
-      
-      <!-- Sticky Navigation Sidebar (Character Avatars) -->
-      <div class="sidebar">
-        <button class="tab-button active" data-target="panel-stakeholder" data-role="stakeholder">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-stakeholder.jpg" alt="Dave" class="avatar-img">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">Dave (Client)</span>
-            <span class="tab-char-role">Stakeholder Brief</span>
-          </div>
-        </button>
-        
-        <button class="tab-button" data-target="panel-engineer" data-role="engineer">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-engineer.jpg" alt="John" class="avatar-img">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">John (Lead Dev)</span>
-            <span class="tab-char-role">Engineer Spec</span>
-          </div>
-        </button>
-        
-        <button class="tab-button" data-target="panel-qa" data-role="qa">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-qa.jpg" alt="Emma" class="avatar-img">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">Emma (QA Lead)</span>
-            <span class="tab-char-role">QA Test Params</span>
-          </div>
-        </button>
-        
-        <button class="tab-button" data-target="panel-pm" data-role="pm">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-pm.jpg" alt="Sarah" class="avatar-img">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">Sarah (PM / SA)</span>
-            <span class="tab-char-role">Alignment Ledger</span>
-          </div>
-        </button>
-        
-        <button class="tab-button" data-target="panel-decisions" data-role="decisions">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-system.jpg" alt="System" class="avatar-img">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">Ledger Engine</span>
-            <span class="tab-char-role">Decisions Log</span>
-          </div>
-        </button>
-        
-        <button class="tab-button" data-target="panel-notes" data-role="notes">
-          <div class="avatar-wrapper">
-            <img src="../../assets/avatar-system.jpg" alt="Source Transcript" class="avatar-img" style="filter: hue-rotate(90deg);">
-          </div>
-          <div class="tab-text-group">
-            <span class="tab-char-name">Source Transcript</span>
-            <span class="tab-char-role">Original Notes</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Main Panels Panel -->
-      <div class="content-area">
-        
-        <!-- Panel 1: Stakeholder View -->
-        <div class="tab-panel active" id="panel-stakeholder" data-role-type="stakeholder">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-user-star-line"></i> Stakeholder Executive Briefing</h2>
-              <p class="section-desc">Condensed summary focused strictly on business impacts, critical alignments needed, and major high-level open questions.</p>
-              
-              <div class="list-items">
-                <div class="list-item" style="grid-template-cols: 1fr; gap: 0.5rem; background: rgba(217, 119, 6, 0.02); border-color: rgba(217, 119, 6, 0.1); padding: 1.5rem;">
-                  <span class="meta-label" style="color: var(--amber);">Business Summary</span>
-                  <p class="list-item-text" style="font-size: 1.1rem; font-weight: 600; line-height: 1.7; color: var(--text-main);">
-                    {{ roles.stakeholder.business_summary }}
-                  </p>
-                </div>
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Key Business Outcomes</h3>
-                {% for item in roles.stakeholder.key_impact %}
-                  <div class="list-item">
-                    <i class="ri-focus-3-line"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Decisions Requiring Alignment</h3>
-                {% for item in roles.stakeholder.decisions_needing_alignment %}
-                  <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
-                    <i class="ri-git-pull-request-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Key Open Issues</h3>
-                {% for item in roles.stakeholder.major_unresolved_questions %}
-                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 2: Engineer View -->
-        <div class="tab-panel" id="panel-engineer" data-role-type="engineer">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-terminal-box-line"></i> Engineering Specifications & Scope</h2>
-              <p class="section-desc">Targeted technical implementation goals, rigid stack/infrastructure constraints, and unresolved development queries.</p>
-              
-              <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Implementation Scope</h3>
-                {% for item in roles.engineer.implementation_scope %}
-                  <div class="list-item">
-                    <i class="ri-code-line"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Technical Constraints</h3>
-                {% for item in roles.engineer.technical_constraints %}
-                  <div class="list-item" style="background: rgba(6, 182, 212, 0.01); border-color: rgba(6, 182, 212, 0.08);">
-                    <i class="ri-git-commit-line" style="color: var(--cyan);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open Technical Questions</h3>
-                {% for item in roles.engineer.open_technical_questions %}
-                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
-                    <i class="ri-question-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Referenced Decisions</h3>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  {% for item in roles.engineer.relevant_decisions %}
-                    <span class="decision-id" style="cursor: pointer;" onclick="scrollToDecision('{{ item }}')">{{ item }}</span>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 3: QA View -->
-        <div class="tab-panel" id="panel-qa" data-role-type="qa">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-shield-check-line"></i> Quality Assurance & Testing Suite</h2>
-              <p class="section-desc">Measurable acceptance criteria, essential validation test cases, edge-case parameters, and ambiguous behaviors.</p>
-              
-              <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Acceptance Criteria</h3>
-                {% for item in roles.qa.acceptance_criteria %}
-                  <div class="list-item">
-                    <i class="ri-task-line"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Test Scenarios</h3>
-                {% for item in roles.qa.test_scenarios %}
-                  <div class="list-item">
-                    <i class="ri-play-list-add-line"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Critical Edge Cases</h3>
-                {% for item in roles.qa.edge_cases %}
-                  <div class="list-item" style="background: rgba(16, 185, 129, 0.01); border-color: rgba(16, 185, 129, 0.08);">
-                    <i class="ri-alert-line" style="color: var(--emerald);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Unresolved Behaviors (Untestable)</h3>
-                {% for item in roles.qa.unresolved_behaviors %}
-                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
-                    <i class="ri-bubble-chart-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 4: PM View -->
-        <div class="tab-panel" id="panel-pm" data-role-type="pm">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-briefcase-line"></i> Project Management & Delivery Alignment</h2>
-              <p class="section-desc">High-level timeline and decision registry, system dependencies, mitigation risks, and alignment gaps.</p>
-              
-              <div class="list-items">
-                <h3 style="margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Decision Registry Summary</h3>
-                {% for item in roles.pm.decision_history %}
-                  <div class="list-item">
-                    <i class="ri-history-line"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">System Dependencies</h3>
-                {% for item in roles.pm.dependencies %}
-                  <div class="list-item" style="background: rgba(124, 58, 237, 0.01); border-color: rgba(124, 58, 237, 0.08);">
-                    <i class="ri-git-merge-line" style="color: var(--violet); rotate: 90deg;"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Mitigation Risks</h3>
-                {% for item in roles.pm.risks %}
-                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
-                    <i class="ri-temp-cold-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-                
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Stakeholder Alignment Gaps</h3>
-                {% for item in roles.pm.alignment_gaps %}
-                  <div class="list-item" style="background: rgba(217, 119, 6, 0.01); border-color: rgba(217, 119, 6, 0.08);">
-                    <i class="ri-user-voice-line" style="color: var(--amber);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Open SA/PM Questions</h3>
-                {% for item in roles.pm.open_questions %}
-                  <div class="list-item" style="background: rgba(225, 29, 72, 0.01); border-color: rgba(225, 29, 72, 0.08);">
-                    <i class="ri-questionnaire-line" style="color: var(--rose);"></i>
-                    <span class="list-item-text">{{ item }}</span>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 5: Detailed Decisions Ledger -->
-        <div class="tab-panel" id="panel-decisions">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-node-tree"></i> Sourced Decision Ledger</h2>
-              <p class="section-desc">Fully audited ledger of all extracted requirements and technical choices. Filter by category or look up source evidence matching any choice.</p>
-              
-              <!-- Search & Filter Bar -->
-              <div class="search-container">
-                <div class="search-input-wrapper">
-                  <i class="ri-search-line"></i>
-                  <input type="text" id="decisionSearch" class="search-input" placeholder="Search decisions..." oninput="filterDecisions()">
-                </div>
-                <select id="categoryFilter" class="filter-select" onchange="filterDecisions()">
-                  <option value="all">All Categories</option>
-                  <option value="key_decision">Key Decisions</option>
-                  <option value="business_requirement">Business Requirements</option>
-                  <option value="functional_requirement">Functional Requirements</option>
-                  <option value="technical_constraint">Technical Constraints</option>
-                  <option value="deadline_or_milestone">Deadlines & Milestones</option>
-                  <option value="dependency">Dependencies</option>
-                  <option value="risk">Risks</option>
-                  <option value="open_question">Open Questions</option>
-                </select>
-              </div>
-
-              <div class="decisions-grid">
-                {% for decision in extraction.decisions %}
-                  <div class="decision-card-outer" id="decision-{{ decision.id }}" data-category="{{ decision.category }}" data-confidence="{{ decision.confidence }}">
-                    <div class="decision-card-inner">
-                      <div class="decision-header">
-                        <div class="decision-title-group">
-                          <span class="decision-id">{{ decision.id }}</span>
-                          <h4 class="decision-title">{{ decision.title }}</h4>
-                        </div>
-                        <div class="decision-badges">
-                          <span class="badge badge-category">{{ decision.category|replace('_', ' ') }}</span>
-                          {% if decision.confidence == "confirmed" %}
-                            <span class="badge badge-confidence-confirmed"><i class="ri-checkbox-circle-line"></i> confirmed</span>
-                          {% else %}
-                            <span class="badge badge-confidence-inferred"><i class="ri-alert-line"></i> needs confirmation</span>
-                          {% endif %}
-                        </div>
-                      </div>
-                      
-                      <p class="decision-detail">{{ decision.detail }}</p>
-                      
-                      {% if decision.evidence %}
-                        <div class="evidence-container">
-                          <button class="evidence-toggle" onclick="toggleEvidence('{{ decision.id }}', this)">
-                            <i class="ri-arrow-down-s-line"></i> View Source Citation
-                          </button>
-                          <div class="evidence-content" id="evidence-{{ decision.id }}">
-                            {% for ev in decision.evidence %}
-                              <div class="evidence-item" style="margin-bottom: 0.75rem;">
-                                <p class="evidence-quote">“{{ ev.quote }}”</p>
-                                <div class="evidence-location">
-                                  <i class="ri-map-pin-2-line"></i>
-                                  <span>{{ ev.approximate_location }}</span>
-                                </div>
-                              </div>
-                            {% endfor %}
-                          </div>
-                        </div>
-                      {% else %}
-                        <div class="evidence-container">
-                          <span class="evidence-toggle" style="color: var(--text-dark); cursor: default;">
-                            <i class="ri-close-circle-line"></i> No Source Citation (Inferred Content)
-                          </span>
-                        </div>
-                      {% endif %}
-                    </div>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Panel 6: Original Notes -->
-        <div class="tab-panel" id="panel-notes">
-          <div class="card-outer">
-            <div class="card-inner">
-              <h2 class="section-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</h2>
-              <p class="section-desc">Unstructured raw meeting notes fed into the pipeline for analysis.</p>
-              
-              <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; white-space: pre-wrap; font-family: inherit; font-size: 0.95rem; line-height: 1.7; color: var(--text-main); overflow-x: auto;">{{ raw_notes }}</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="report-footer">
-      <span>Routed via <strong>Knowledge Routing Agent v0.1.0</strong></span>
-      <span>Kaggle Vibe Coding Capstone · <a href="https://github.com/sherryliao21/sherry-lab" target="_blank"><i class="ri-github-line"></i> GitHub Repo</a></span>
-    </footer>
-
   </div>
 
-  <!-- Human-in-the-loop Issue Modal -->
-  <div class="modal" id="issuesModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeIssuesModal()"><i class="ri-close-line"></i></button>
-      
-      <div class="modal-title">
-        <i class="ri-bug-line" style="color: var(--accent);"></i>
-        <span>Pipeline Review Log Details</span>
+  <!-- Review status banner -->
+  {% if review.status == "PASS" %}
+    <div class="review-banner pass">
+      <div class="review-left">
+        <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
+        <div>
+          <div class="review-label">Reviewer: APPROVED</div>
+          <div class="review-note">{{ review.reviewer_notes }}</div>
+        </div>
       </div>
-      
-      <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">
-        These items were flagged by the Reviewer Agent during verification. Verify or fix these issues before publishing this plan to production resources.
-      </p>
+      {% if review.issues %}
+        <button class="review-action" onclick="openModal()">View logs ({{ review.issues|length }})</button>
+      {% else %}
+        <button class="review-action" disabled>No issues flagged</button>
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="review-banner flag">
+      <div class="review-left">
+        <div class="review-icon"><i class="ri-error-warning-line"></i></div>
+        <div>
+          <div class="review-label">Reviewer: FLAG NEEDED</div>
+          <div class="review-note">{{ review.reviewer_notes }}</div>
+        </div>
+      </div>
+      <button class="review-action" onclick="openModal()">Inspect ({{ review.issues|length }})</button>
+    </div>
+  {% endif %}
 
-      <div class="issue-list">
-        {% for issue in review.issues %}
-          <div class="issue-card">
-            <div class="issue-header">
-              <span class="issue-loc">{{ issue.location }}</span>
-              <span class="issue-sev sev-{{ issue.severity }}">{{ issue.severity }}</span>
-            </div>
-            <p class="issue-desc">{{ issue.description }}</p>
-            <div class="issue-sug">
-              <span style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Suggested Fix</span>
-              {{ issue.suggestion }}
-            </div>
-          </div>
+  <!-- Security warnings -->
+  {% if review.prompt_injection_warnings %}
+    <div class="security-banner injection">
+      <i class="ri-spy-line"></i>
+      <div>
+        <div class="security-banner-label">⚠ Prompt Injection Attempts Detected</div>
+        <ul>
+          {% for w in review.prompt_injection_warnings %}<li>{{ w }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+  {% if review.sensitive_content_warnings %}
+    <div class="security-banner sensitive">
+      <i class="ri-shield-keyhole-line"></i>
+      <div>
+        <div class="security-banner-label">⚠ Sensitive Content Detected</div>
+        <ul>
+          {% for w in review.sensitive_content_warnings %}<li>{{ w }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Character card row — horizontal, vertical cards -->
+  <div class="char-row-wrap">
+    <div class="char-row">
+
+      <button class="char-card active" data-target="panel-stakeholder" data-role="stakeholder">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-stakeholder.jpg" alt="Dave (Client)">
+        </div>
+        <div class="char-name">Dave</div>
+        <div class="char-role">Stakeholder Brief</div>
+      </button>
+
+      <button class="char-card" data-target="panel-engineer" data-role="engineer">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-engineer.jpg" alt="John (Engineer)">
+        </div>
+        <div class="char-name">John</div>
+        <div class="char-role">Engineer Spec</div>
+      </button>
+
+      <button class="char-card" data-target="panel-qa" data-role="qa">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-qa.jpg" alt="Emma (QA)">
+        </div>
+        <div class="char-name">Emma</div>
+        <div class="char-role">QA Test Params</div>
+      </button>
+
+      <button class="char-card" data-target="panel-pm" data-role="pm">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-pm.jpg" alt="Sarah (PM/SA)">
+        </div>
+        <div class="char-name">Sarah</div>
+        <div class="char-role">PM &amp; SA Ledger</div>
+      </button>
+
+      <button class="char-card" data-target="panel-decisions" data-role="decisions">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-system.jpg" alt="Decision Ledger">
+        </div>
+        <div class="char-name">Ledger</div>
+        <div class="char-role">Decisions Log</div>
+      </button>
+
+      {% if raw_notes %}
+      <button class="char-card" data-target="panel-notes" data-role="notes">
+        <div class="char-avatar-ring">
+          <img src="../../assets/avatar-system.jpg" alt="Source Transcript" style="filter:hue-rotate(90deg)">
+        </div>
+        <div class="char-name">Transcript</div>
+        <div class="char-role">Original Notes</div>
+      </button>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <!-- Panel content -->
+
+  <!-- STAKEHOLDER -->
+  <div class="panel active" id="panel-stakeholder">
+    <div class="card">
+      <div class="panel-title"><i class="ri-user-star-line icon-stakeholder"></i> Stakeholder Executive Briefing</div>
+      <p class="panel-desc">Business-focused summary: impact, alignment decisions, and top open questions.</p>
+
+      <div class="summary-block">
+        <div class="summary-block-label">Business Summary</div>
+        <p>{{ roles.stakeholder.business_summary }}</p>
+      </div>
+
+      <div class="sub-header">Key Business Outcomes</div>
+      <div class="item-list">
+        {% for item in roles.stakeholder.key_impact %}
+        <div class="item">
+          <i class="ri-focus-3-line icon-stakeholder"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Decisions Requiring Alignment</div>
+      <div class="item-list">
+        {% for item in roles.stakeholder.decisions_needing_alignment %}
+        <div class="item">
+          <i class="ri-git-pull-request-line icon-stakeholder"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Open Questions</div>
+      <div class="item-list">
+        {% for item in roles.stakeholder.major_unresolved_questions %}
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
         {% endfor %}
       </div>
     </div>
   </div>
 
-  <script>
-    // Tab switching logic
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+  <!-- ENGINEER -->
+  <div class="panel" id="panel-engineer">
+    <div class="card">
+      <div class="panel-title"><i class="ri-terminal-box-line icon-engineer"></i> Engineering Specification</div>
+      <p class="panel-desc">Implementation scope, hard constraints, and unresolved technical questions.</p>
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Deactivate all buttons & panels
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanels.forEach(panel => {
-          panel.classList.remove('active');
-        });
+      <div class="sub-header">Implementation Scope</div>
+      <div class="item-list">
+        {% for item in roles.engineer.implementation_scope %}
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
 
-        // Activate clicked button and target panel
-        button.classList.add('active');
-        const targetPanel = document.getElementById(button.getAttribute('data-target'));
-        targetPanel.classList.add('active');
-      });
+      <div class="sub-header">Technical Constraints</div>
+      <div class="item-list">
+        {% for item in roles.engineer.technical_constraints %}
+        <div class="item">
+          <i class="ri-git-commit-line icon-cyan"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Open Technical Questions</div>
+      <div class="item-list">
+        {% for item in roles.engineer.open_technical_questions %}
+        <div class="item">
+          <i class="ri-question-line icon-danger"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Referenced Decisions</div>
+      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
+        {% for item in roles.engineer.relevant_decisions %}
+          <span class="did-pill" onclick="goDecision('{{ item }}')">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- QA -->
+  <div class="panel" id="panel-qa">
+    <div class="card">
+      <div class="panel-title"><i class="ri-shield-check-line icon-qa"></i> Quality Assurance</div>
+      <p class="panel-desc">Acceptance criteria, test scenarios, edge cases, and untestable behaviours.</p>
+
+      <div class="sub-header">Acceptance Criteria</div>
+      <div class="item-list">
+        {% for item in roles.qa.acceptance_criteria %}
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Test Scenarios</div>
+      <div class="item-list">
+        {% for item in roles.qa.test_scenarios %}
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Edge Cases</div>
+      <div class="item-list">
+        {% for item in roles.qa.edge_cases %}
+        <div class="item">
+          <i class="ri-alert-line icon-qa"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Unresolved Behaviours</div>
+      <div class="item-list">
+        {% for item in roles.qa.unresolved_behaviors %}
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- PM -->
+  <div class="panel" id="panel-pm">
+    <div class="card">
+      <div class="panel-title"><i class="ri-briefcase-line icon-pm"></i> Project &amp; System Alignment</div>
+      <p class="panel-desc">Decision timeline, dependencies, risks, alignment gaps, and open PM/SA questions.</p>
+
+      <div class="sub-header">Decision History</div>
+      <div class="item-list">
+        {% for item in roles.pm.decision_history %}
+        <div class="item">
+          <i class="ri-history-line icon-pm"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Dependencies</div>
+      <div class="item-list">
+        {% for item in roles.pm.dependencies %}
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Risks</div>
+      <div class="item-list">
+        {% for item in roles.pm.risks %}
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Alignment Gaps</div>
+      <div class="item-list">
+        {% for item in roles.pm.alignment_gaps %}
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="sub-header">Open Questions</div>
+      <div class="item-list">
+        {% for item in roles.pm.open_questions %}
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">{{ item }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- DECISIONS LEDGER -->
+  <div class="panel" id="panel-decisions">
+    <div class="card">
+      <div class="panel-title"><i class="ri-node-tree icon-cyan"></i> Sourced Decision Ledger</div>
+      <p class="panel-desc">All extracted items with source citations. Filter by category or search by keyword.</p>
+
+      <div class="search-row">
+        <div class="search-wrap">
+          <i class="ri-search-line"></i>
+          <input id="searchInput" class="search-input" type="text" placeholder="Search decisions…" oninput="filterDecisions()">
+        </div>
+        <select id="catFilter" class="filter-select" onchange="filterDecisions()">
+          <option value="all">All categories</option>
+          <option value="key_decision">Key decisions</option>
+          <option value="business_requirement">Business requirements</option>
+          <option value="functional_requirement">Functional requirements</option>
+          <option value="technical_constraint">Technical constraints</option>
+          <option value="deadline_or_milestone">Deadlines &amp; milestones</option>
+          <option value="dependency">Dependencies</option>
+          <option value="risk">Risks</option>
+          <option value="open_question">Open questions</option>
+        </select>
+      </div>
+
+      <div id="decisionsList">
+        {% for decision in extraction.decisions %}
+        <div class="decision-card" id="d-{{ decision.id }}" data-category="{{ decision.category }}" data-confidence="{{ decision.confidence }}">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">{{ decision.id }}</span>
+              <span class="decision-title">{{ decision.title }}</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">{{ decision.category|replace('_', ' ') }}</span>
+              {% if decision.confidence == "confirmed" %}
+                <span class="badge badge-confirmed">confirmed</span>
+              {% else %}
+                <span class="badge badge-inferred">needs confirmation</span>
+              {% endif %}
+            </div>
+          </div>
+          <p class="decision-detail">{{ decision.detail }}</p>
+          {% if decision.evidence %}
+            <button class="evidence-toggle" onclick="toggleEvidence('{{ decision.id }}', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-{{ decision.id }}">
+              {% for ev in decision.evidence %}
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"{{ ev.quote }}"</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>{{ ev.approximate_location }}</span>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <span class="evidence-toggle" style="cursor:default;">
+              <i class="ri-close-circle-line"></i> No citation (inferred)
+            </span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSCRIPT (opt-in only) -->
+  {% if raw_notes %}
+  <div class="panel" id="panel-notes">
+    <div class="card">
+      <div class="panel-title"><i class="ri-file-text-line"></i> Original Discussion Transcript</div>
+      <p class="panel-desc">Raw meeting notes fed into the pipeline. Published via <code>--include-transcript</code>.</p>
+      <div class="transcript-block">{{ raw_notes }}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Footer -->
+  <footer class="report-footer">
+    <span>Knowledge Routing Agent v0.1.0</span>
+    <a href="https://github.com/sherryliao21/sherry-lab" target="_blank">
+      <i class="ri-github-line"></i> GitHub
+    </a>
+  </footer>
+
+</div><!-- /page -->
+
+<!-- Review modal -->
+<div class="modal-backdrop" id="reviewModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()"><i class="ri-close-line"></i></button>
+    <div class="modal-title"><i class="ri-bug-line" style="color:var(--teal)"></i> Pipeline Review Log</div>
+    <p class="modal-subtitle">Issues flagged by the Reviewer Agent. Address any critical items before sharing.</p>
+    <div>
+      {% for issue in review.issues %}
+      <div class="issue-item">
+        <div class="issue-header">
+          <span class="issue-loc">{{ issue.location }}</span>
+          <span class="issue-sev sev-{{ issue.severity }}">{{ issue.severity }}</span>
+        </div>
+        <p class="issue-desc">{{ issue.description }}</p>
+        <div class="issue-suggestion">
+          <span class="suggestion-label">Suggested Fix</span>
+          {{ issue.suggestion }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  // --- Tab switching ---
+  const cards = document.querySelectorAll('.char-card');
+  const panels = document.querySelectorAll('.panel');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      card.classList.add('active');
+      document.getElementById(card.dataset.target).classList.add('active');
     });
+  });
 
-    // Toggle evidence citation details
-    function toggleEvidence(decisionId, button) {
-      const evidenceDiv = document.getElementById(`evidence-${decisionId}`);
-      if (evidenceDiv.style.display === 'block') {
-        evidenceDiv.style.display = 'none';
-        button.classList.remove('expanded');
-      } else {
-        evidenceDiv.style.display = 'block';
-        button.classList.add('expanded');
-      }
-    }
+  // --- Evidence toggle ---
+  function toggleEvidence(id, btn) {
+    const body = document.getElementById('ev-' + id);
+    const open = body.style.display === 'block';
+    body.style.display = open ? 'none' : 'block';
+    btn.classList.toggle('open', !open);
+  }
 
-    // scroll to decision from reference badges
-    function scrollToDecision(decisionId) {
-      const decisionTabButton = document.querySelector('.tab-button[data-target="panel-decisions"]');
-      decisionTabButton.click();
-      
-      setTimeout(() => {
-        const element = document.getElementById(`decision-${decisionId}`);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          element.style.outline = '2px solid var(--accent)';
-          element.style.boxShadow = '0 0 25px var(--accent-glow)';
-          setTimeout(() => {
-            element.style.outline = 'none';
-            element.style.boxShadow = 'none';
-          }, 2000);
-        }
-      }, 300);
-    }
+  // --- Jump to decision ---
+  function goDecision(id) {
+    document.querySelector('.char-card[data-target="panel-decisions"]').click();
+    setTimeout(() => {
+      const el = document.getElementById('d-' + id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.style.outline = '2px solid var(--teal)';
+      setTimeout(() => el.style.outline = '', 1800);
+    }, 200);
+  }
 
-    // Modal Control
-    function openIssuesModal() {
-      document.getElementById('issuesModal').classList.add('active');
-    }
+  // --- Decisions filter ---
+  function filterDecisions() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const cat = document.getElementById('catFilter').value;
+    document.querySelectorAll('.decision-card').forEach(c => {
+      const match = c.textContent.toLowerCase().includes(q);
+      const catMatch = cat === 'all' || c.dataset.category === cat;
+      c.style.display = match && catMatch ? '' : 'none';
+    });
+  }
 
-    // Close Modal
-    function closeIssuesModal() {
-      document.getElementById('issuesModal').classList.remove('active');
-    }
-
-    // Close modal on background click
-    window.onclick = function(event) {
-      const modal = document.getElementById('issuesModal');
-      if (event.target === modal) {
-        modal.classList.remove('active');
-      }
-    }
-
-    // Decisions Filter
-    function filterDecisions() {
-      const query = document.getElementById('decisionSearch').value.toLowerCase();
-      const category = document.getElementById('categoryFilter').value;
-      const cards = document.querySelectorAll('.decision-card-outer');
-
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        const cardCategory = card.getAttribute('data-category');
-        
-        const matchesQuery = text.includes(query);
-        const matchesCategory = (category === 'all' || cardCategory === category);
-
-        if (matchesQuery && matchesCategory) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
+  // --- Modal ---
+  function openModal() { document.getElementById('reviewModal').classList.add('open'); }
+  function closeModal() { document.getElementById('reviewModal').classList.remove('open'); }
+  document.getElementById('reviewModal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+</script>
 </body>
 </html>

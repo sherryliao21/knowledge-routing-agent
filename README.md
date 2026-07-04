@@ -65,6 +65,9 @@ cp .env.example .env
 uv run knowledge-route run samples/2026-07-01-planning.md \
   --title "Planning Sync" \
   --date 2026-07-01
+
+# Optionally embed the raw notes in the report (off by default — see Security)
+uv run knowledge-route run samples/my-notes.md --title "My Meeting" --include-transcript
 ```
 
 Output files:
@@ -83,7 +86,9 @@ Open `reports/index.html` for the full archive of all runs.
 - API keys are loaded from `.env` and never hardcoded
 - `.env` is excluded from git via `.gitignore`
 - Input is validated: only `.md` files accepted, capped at 50,000 characters
-- Raw meeting notes are **never** written to any output file — only extracted/summarized content appears in reports
+- **Raw notes are private by default** — `raw_notes` is an empty string in `output.json` and the Transcript tab is hidden in the HTML report
+- Pass `--include-transcript` to opt in to embedding the full source text (only use with synthetic or pre-sanitised notes, since they will be written to a public-deployable file)
+- Prompt injection defense: the extractor is instructed to treat meeting notes as untrusted data; the reviewer flags detected injection attempts and sensitive content in dedicated warning fields
 
 ## Tech Stack
 

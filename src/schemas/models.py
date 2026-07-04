@@ -236,6 +236,20 @@ class ReviewOutput(BaseModel):
     reviewer_notes: str = Field(
         description="Brief overall summary of the review findings."
     )
+    prompt_injection_warnings: list[str] = Field(
+        default_factory=list,
+        description=(
+            "List of prompt injection attempts detected in the source notes. "
+            "Populated when the reviewer detects text trying to instruct the AI pipeline."
+        ),
+    )
+    sensitive_content_warnings: list[str] = Field(
+        default_factory=list,
+        description=(
+            "List of sensitive content items detected (e.g. credentials, PII) "
+            "that should not be published in the report."
+        ),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -257,8 +271,10 @@ class RunOutput(BaseModel):
     """
     Complete output of one pipeline run. Written to output.json.
 
-    IMPORTANT: This object does NOT contain the raw meeting notes.
-    Only extracted, summarized content is persisted — never the source text.
+    By default this object does NOT contain the raw meeting notes (raw_notes
+    is an empty string). Pass --include-transcript to the CLI to opt in to
+    embedding the full source text — only appropriate for synthetic or
+    pre-sanitized notes, as the field is written to a publicly deployed file.
     """
 
     metadata: RunMetadata
@@ -270,5 +286,8 @@ class RunOutput(BaseModel):
     )
     raw_notes: str = Field(
         default="",
-        description="The original unstructured meeting notes text."
+        description=(
+            "Full raw notes. Only populated when --include-transcript is explicitly "
+            "passed to the CLI. Empty by default for privacy."
+        ),
     )

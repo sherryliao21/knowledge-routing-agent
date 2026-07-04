@@ -3,346 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knowledge Route Hub — AI Agent Archive</title>
+  <title>Knowledge Route Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-  
+
   <style>
     :root {
-      /* Soft Structuralism - Light Mode */
-      --bg-dark: #f8fafc;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f1f5f9;
-      --border-color: rgba(15, 23, 42, 0.08);
-      --border-highlight: rgba(13, 148, 136, 0.2);
-      
-      --accent: #0d9488;
-      --accent-glow: rgba(13, 148, 136, 0.08);
-      --cyan: #06b6d4;
-      --emerald: #10b981;
-      --amber: #d97706;
-      --rose: #e11d48;
-      
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-dark: #94a3b8;
-      
-      --radius-lg: 1.25rem;
-      --radius-md: 0.75rem;
-      --radius-sm: 0.5rem;
-      
-      --transition-bezier: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-raised: #fafafa;
+      --border: #e4e4e7;
+      --border-strong: #d1d1d6;
+
+      --text-primary: #09090b;
+      --text-secondary: #52525b;
+      --text-tertiary: #a1a1aa;
+
+      --teal: #0d9488;
+      --teal-bg: rgba(13,148,136,.06);
+      --emerald: #059669;
+      --emerald-bg: rgba(5,150,105,.06);
+      --rose: #be123c;
+      --rose-bg: rgba(190,18,60,.06);
+
+      --radius: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --dur: 260ms;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Geist', -apple-system, sans-serif;
+      font-size: 15px;
       line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .glow-orb-1 {
-      position: absolute;
-      top: -15%;
-      right: -10%;
-      width: 55vw;
-      height: 55vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      filter: blur(100px);
-    }
-    
-    .glow-orb-2 {
-      position: absolute;
-      bottom: -10%;
-      left: -10%;
-      width: 50vw;
-      height: 50vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
-      z-index: 0;
-      pointer-events: none;
-      filter: blur(100px);
-    }
-
-    .container {
-      max-width: 1200px;
+    .page {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 5rem 1.5rem;
-      position: relative;
-      z-index: 10;
+      padding: 4rem 1.5rem 6rem;
     }
 
-    header {
-      margin-bottom: 5rem;
-      text-align: center;
+    /* Header */
+    .hub-header {
+      margin-bottom: 3.5rem;
     }
-
-    .header-eyebrow {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      background: rgba(13, 148, 136, 0.06);
-      border: 1px solid rgba(13, 148, 136, 0.15);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
+      gap: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      background: var(--teal-bg);
+      border: 1px solid rgba(13,148,136,.15);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
     }
-
-    .header-title {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 850;
-      line-height: 1.1;
+    .hub-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .hub-desc {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      max-width: 60ch;
     }
 
-    .header-desc {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      font-weight: 500;
-    }
-
-    /* Grid of Runs */
+    /* Grid */
     .runs-grid {
       display: grid;
-      grid-template-cols: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
     }
 
     @media (max-width: 640px) {
       .runs-grid {
-        grid-template-cols: 1fr;
+        grid-template-columns: 1fr;
       }
     }
 
-    .run-card-outer {
-      padding: 1.5px;
-      border-radius: var(--radius-lg);
-      background: var(--border-color);
-      box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.06);
-      transition: var(--transition-bezier);
-      text-decoration: none;
+    .run-card {
       display: block;
+      text-decoration: none;
       color: inherit;
-    }
-
-    .run-card-outer:hover {
-      background: linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(15, 23, 42, 0.02) 100%);
-      transform: translateY(-4px);
-    }
-
-    .run-card-inner {
-      background: var(--bg-card);
-      border-radius: calc(var(--radius-lg) - 1.5px);
-      padding: 2rem;
-      height: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--dur) var(--ease-out),
+                  box-shadow var(--dur) var(--ease-out),
+                  transform var(--dur) var(--ease-out);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1rem;
+    }
+    .run-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
 
     .run-date {
       font-family: 'Geist Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-
     .run-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #0f172a;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
       line-height: 1.3;
-      margin-top: 0.5rem;
-      margin-bottom: 0.75rem;
     }
-
     .run-summary {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      margin-bottom: 1rem;
-      font-weight: 500;
+      flex: 1;
     }
-
     .run-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(15, 23, 42, 0.05);
-      padding-top: 1.25rem;
+      padding-top: 0.875rem;
+      border-top: 1px solid var(--border);
     }
-
-    .run-stats {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-family: 'Geist Mono', monospace;
-      font-weight: 600;
-    }
-
     .run-stat {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.3rem;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
     }
 
     .badge {
-      font-size: 0.65rem;
+      font-size: 0.625rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
-      border-radius: 9999px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      padding: 0.175rem 0.525rem;
+      border-radius: 9999px;
+      border: 1px solid;
     }
-
     .badge-pass {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      background: var(--emerald-bg);
+      border-color: rgba(5,150,105,.2);
       color: var(--emerald);
     }
-
-    .badge-flagged {
-      background: rgba(225, 29, 72, 0.08);
-      border: 1px solid rgba(225, 29, 72, 0.2);
+    .badge-flag {
+      background: var(--rose-bg);
+      border-color: rgba(190,18,60,.2);
       color: var(--rose);
     }
 
-    /* Empty Hub Screen */
+    /* Empty state */
     .empty-state {
       text-align: center;
-      padding: 5rem 2rem;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid var(--border-color);
+      padding: 4rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      max-width: 600px;
+      max-width: 520px;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.01);
     }
-
-    .empty-icon {
-      font-size: 3rem;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-    }
-
-    .empty-state h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .empty-state p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    footer.hub-footer {
-      margin-top: 8rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: var(--text-muted);
+    .empty-icon { font-size: 2.5rem; color: var(--text-tertiary); margin-bottom: 1rem; }
+    .empty-state h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .empty-state p { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+    .empty-cmd {
+      font-family: 'Geist Mono', monospace;
       font-size: 0.8rem;
+      color: var(--teal);
+      background: var(--teal-bg);
+      border: 1px solid rgba(13,148,136,.15);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      display: inline-block;
+    }
+
+    /* Footer */
+    .hub-footer {
+      margin-top: 5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
     }
   </style>
 </head>
 <body>
+<div class="page">
 
-  <div class="glow-orb-1"></div>
-  <div class="glow-orb-2"></div>
+  <header class="hub-header">
+    <div class="eyebrow"><i class="ri-git-repository-line"></i> Knowledge Repository</div>
+    <h1 class="hub-title">Knowledge Route Hub</h1>
+    <p class="hub-desc">Source-grounded, role-specific engineering briefs compiled from project discussions.</p>
+  </header>
 
-  <div class="container">
-    
-    <header>
-      <div class="header-eyebrow">
-        <i class="ri-git-repository-line"></i> Knowledge Repository
-      </div>
-      <h1 class="header-title">Knowledge Route Hub</h1>
-      <p class="header-desc">
-        Source-grounded, role-specific engineering briefs compiled from project discussions.
-      </p>
-    </header>
-
-    <main>
-      {% if runs %}
-        <div class="runs-grid">
-          {% for run in runs %}
-            <a href="runs/{{ run.run_id }}/index.html" class="run-card-outer">
-              <div class="run-card-inner">
-                <div>
-                  <div class="run-date">{{ run.date }}</div>
-                  <h3 class="run-title">{{ run.title }}</h3>
-                  <p class="run-summary">{{ run.summary }}</p>
-                </div>
-                
-                <div class="run-footer">
-                  <div class="run-stats">
-                    <div class="run-stat">
-                      <i class="ri-node-tree"></i>
-                      <span>{{ run.decisions_count }} Decisions</span>
-                    </div>
-                  </div>
-                  {% if run.review_status == "PASS" %}
-                    <span class="badge badge-pass">Verify PASS</span>
-                  {% else %}
-                    <span class="badge badge-flagged">verify FLAG</span>
-                  {% endif %}
-                </div>
-              </div>
-            </a>
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="empty-state">
-          <div class="empty-icon">
-            <i class="ri-folder-open-line"></i>
+  <main>
+    {% if runs %}
+      <div class="runs-grid">
+        {% for run in runs %}
+        <a href="runs/{{ run.run_id }}/index.html" class="run-card">
+          <div class="run-date">{{ run.date }}</div>
+          <div class="run-title">{{ run.title }}</div>
+          <p class="run-summary">{{ run.summary }}</p>
+          <div class="run-footer">
+            <div class="run-stat">
+              <i class="ri-node-tree"></i> {{ run.decisions_count }} decisions
+            </div>
+            {% if run.review_status == "PASS" %}
+              <span class="badge badge-pass">Verified</span>
+            {% else %}
+              <span class="badge badge-flag">Flag</span>
+            {% endif %}
           </div>
-          <h3>No reports compiled yet</h3>
-          <p>
-            Feed unstructured meeting notes into the CLI pipeline to generate your first source-grounded brief.
-          </p>
-          <code style="font-family: 'Geist Mono', monospace; font-size: 0.85rem; padding: 0.5rem 1rem; background: #ffffff; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--accent);">
-            uv run knowledge-route run [path-to-notes.md]
-          </code>
-        </div>
-      {% endif %}
-    </main>
+        </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <div class="empty-icon"><i class="ri-folder-open-line"></i></div>
+        <h3>No reports yet</h3>
+        <p>Run the CLI on your meeting notes to generate the first source-grounded brief.</p>
+        <span class="empty-cmd">uv run knowledge-route run [notes.md]</span>
+      </div>
+    {% endif %}
+  </main>
 
-    <footer class="hub-footer">
-      <span>Powered by <strong>Knowledge Routing Agent</strong> · Kaggle Vibe Coding Capstone</span>
-    </footer>
+  <footer class="hub-footer">
+    Knowledge Routing Agent · Kaggle Vibe Coding Capstone
+  </footer>
 
-  </div>
-
+</div>
 </body>
 </html>
