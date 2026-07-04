@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Route Hub — AI Agent Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #050505;
+      --bg-card: rgba(18, 18, 18, 0.7);
+      --bg-card-hover: rgba(28, 28, 28, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(45, 212, 191, 0.2);
+      
+      --accent: #2dd4bf;
+      --accent-glow: rgba(45, 212, 191, 0.15);
+      --cyan: #22d3ee;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #f43f5e;
+      
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dark: #6b7280;
+      
+      --radius-lg: 1.25rem;
+      --radius-md: 0.75rem;
+      --radius-sm: 0.5rem;
+      
+      --transition-bezier: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .glow-orb-1 {
+      position: absolute;
+      top: -15%;
+      right: -10%;
+      width: 55vw;
+      height: 55vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(100px);
+    }
+    
+    .glow-orb-2 {
+      position: absolute;
+      bottom: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(100px);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    header {
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+
+    .header-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(45, 212, 191, 0.1);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 40%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-desc {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Grid of Runs */
+    .runs-grid {
+      display: grid;
+      grid-template-cols: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .runs-grid {
+        grid-template-cols: 1fr;
+      }
+    }
+
+    .run-card-outer {
+      padding: 1px;
+      border-radius: var(--radius-lg);
+      background: var(--border-color);
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.6);
+      transition: var(--transition-bezier);
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .run-card-outer:hover {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.3) 0%, rgba(255,255,255,0.02) 100%);
+      transform: translateY(-4px);
+    }
+
+    .run-card-inner {
+      background: var(--bg-card);
+      border-radius: calc(var(--radius-lg) - 1px);
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .run-date {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .run-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .run-summary {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .run-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1.25rem;
+    }
+
+    .run-stats {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-dark);
+      font-family: 'Geist Mono', monospace;
+    }
+
+    .run-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-pass {
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      color: var(--emerald);
+    }
+
+    .badge-flagged {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+      color: var(--rose);
+    }
+
+    /* Empty Hub Screen */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: rgba(18, 18, 18, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .empty-state h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer.hub-footer {
+      margin-top: 8rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-dark);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <div class="container">
+    
+    <header>
+      <div class="header-eyebrow">
+        <i class="ri-git-repository-line"></i> Knowledge Repository
+      </div>
+      <h1 class="header-title">Knowledge Route Hub</h1>
+      <p class="header-desc">
+        Source-grounded, role-specific engineering briefs compiled from project discussions.
+      </p>
+    </header>
+
+    <main>
+      {% if runs %}
+        <div class="runs-grid">
+          {% for run in runs %}
+            <a href="runs/{{ run.run_id }}/index.html" class="run-card-outer">
+              <div class="run-card-inner">
+                <div>
+                  <div class="run-date">{{ run.date }}</div>
+                  <h3 class="run-title">{{ run.title }}</h3>
+                  <p class="run-summary">{{ run.summary }}</p>
+                </div>
+                
+                <div class="run-footer">
+                  <div class="run-stats">
+                    <div class="run-stat">
+                      <i class="ri-node-tree"></i>
+                      <span>{{ run.decisions_count }} Decisions</span>
+                    </div>
+                  </div>
+                  {% if run.review_status == "PASS" %}
+                    <span class="badge badge-pass">Verify PASS</span>
+                  {% else %}
+                    <span class="badge badge-flagged">verify FLAG</span>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <div class="empty-icon">
+            <i class="ri-folder-open-line"></i>
+          </div>
+          <h3>No reports compiled yet</h3>
+          <p>
+            Feed unstructured meeting notes into the CLI pipeline to generate your first source-grounded brief.
+          </p>
+          <code style="font-family: 'Geist Mono', monospace; font-size: 0.85rem; padding: 0.5rem 1rem; background: #000; border-radius: var(--radius-sm); border: 1px solid var(--border-color); color: var(--accent);">
+            uv run knowledge-route run [path-to-notes.md]
+          </code>
+        </div>
+      {% endif %}
+    </main>
+
+    <footer class="hub-footer">
+      <span>Powered by <strong>Knowledge Routing Agent</strong> · Kaggle Vibe Coding Capstone</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>
