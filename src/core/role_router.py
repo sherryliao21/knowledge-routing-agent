@@ -39,7 +39,7 @@ def _build_instruction(prompt: str) -> str:
 
 engineer_router = LlmAgent(
     name="engineer_router",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(_load_prompt("engineer_router")),
     description="Produces an engineer-specific view of the extracted decisions.",
     output_schema=EngineerView,
@@ -48,7 +48,7 @@ engineer_router = LlmAgent(
 
 qa_router = LlmAgent(
     name="qa_router",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(_load_prompt("qa_router")),
     description="Produces a QA-specific view with acceptance criteria and test scenarios.",
     output_schema=QAView,
@@ -57,7 +57,7 @@ qa_router = LlmAgent(
 
 pm_router = LlmAgent(
     name="pm_router",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(_load_prompt("pm_router")),
     description="Produces a PM/SA view covering decisions, dependencies, risks, and gaps.",
     output_schema=PMView,
@@ -66,7 +66,7 @@ pm_router = LlmAgent(
 
 stakeholder_router = LlmAgent(
     name="stakeholder_router",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(_load_prompt("stakeholder_router")),
     description="Produces a plain-language stakeholder summary.",
     output_schema=StakeholderView,

@@ -39,7 +39,7 @@ def _build_instruction() -> str:
 
 reviewer = LlmAgent(
     name="reviewer",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(),
     description=(
         "Reviews all pipeline outputs for hallucinations and quality issues "

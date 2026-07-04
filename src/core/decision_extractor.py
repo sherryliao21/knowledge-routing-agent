@@ -31,7 +31,7 @@ def _build_instruction() -> str:
 
 decision_extractor = LlmAgent(
     name="decision_extractor",
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     instruction=_build_instruction(),
     description=(
         "Extracts all decisions, requirements, constraints, and open questions "
