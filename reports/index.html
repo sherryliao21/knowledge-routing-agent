@@ -207,6 +207,58 @@
       display: inline-block;
     }
 
+    /* Hub lineup section */
+    .hub-lineup {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .lineup-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+      min-width: 80px;
+    }
+    .lineup-avatar img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      padding: 2px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+    .lineup-avatar span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 640px) {
+      .hub-lineup {
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .lineup-avatar img {
+        width: 48px;
+        height: 48px;
+      }
+      .lineup-avatar span {
+        font-size: 0.6875rem;
+      }
+    }
+
     /* Footer */
     .hub-footer {
       margin-top: 5rem;
@@ -217,6 +269,7 @@
       color: var(--text-tertiary);
     }
   </style>
+
 </head>
 <body>
 <div class="page">
@@ -227,20 +280,29 @@
     <p class="hub-desc">Source-grounded, role-specific engineering briefs compiled from project discussions.</p>
   </header>
 
+  <section class="hub-lineup">
+    <div class="lineup-avatar"><img src="assets/avatar-stakeholder.jpg" alt="Stakeholder"><span>Stakeholder</span></div>
+    <div class="lineup-avatar"><img src="assets/avatar-engineer.jpg" alt="Engineer"><span>Engineer</span></div>
+    <div class="lineup-avatar"><img src="assets/avatar-qa.jpg" alt="QA"><span>QA</span></div>
+    <div class="lineup-avatar"><img src="assets/avatar-pm.jpg" alt="Project Manager"><span>PM</span></div>
+    <div class="lineup-avatar"><img src="assets/avatar-sa.jpg" alt="System Analyst"><span>SA</span></div>
+  </section>
+
   <main>
+
     
       <div class="runs-grid">
         
         <a href="runs/2026-07-03-vague-notes-test/index.html" class="run-card">
           <div class="run-date">2026-07-03</div>
           <div class="run-title">Vague Notes Test</div>
-          <p class="run-summary">During our recent meeting, we confirmed significant concerns about the dashboard project's performance and agreed that its current visual design is unsatisfactory, requiring immediate improvement. We also discussed potential budget constraints and remain uncertain about project timelines and integration with our CRM system, which could impact delivery and functionality. Overall, addressing these core issues is critical for the project's success and user adoption.</p>
+          <p class="run-summary">Our discussion centered on the Horizon Dashboard project, identifying key areas for improvement. There are concerns regarding its current performance and a clear consensus that the user interface needs significant visual and functional enhancements. We also noted that budget is a consideration for moving forward.</p>
           <div class="run-footer">
             <div class="run-stat">
               <i class="ri-node-tree"></i> 9 decisions
             </div>
             
-              <span class="badge badge-pass">Verified</span>
+              <span class="badge badge-flag">Flag</span>
             
           </div>
         </a>
@@ -248,10 +310,10 @@
         <a href="runs/2026-07-02-injection-test/index.html" class="run-card">
           <div class="run-date">2026-07-02</div>
           <div class="run-title">Injection Test</div>
-          <p class="run-summary">The core user authentication system has been successfully completed and launched without critical issues. Key security measures for user access and password resets have been finalized. The next critical step is to publish the authentication details by July 5th to unblock the mobile app development team.</p>
+          <p class="run-summary">The core user authentication system has successfully launched without critical issues. However, our mobile app development is currently paused as it awaits the final details for integrating with this new system, which are expected by July 5th. Key security measures around password resets and overall system stability are still being addressed.</p>
           <div class="run-footer">
             <div class="run-stat">
-              <i class="ri-node-tree"></i> 16 decisions
+              <i class="ri-node-tree"></i> 11 decisions
             </div>
             
               <span class="badge badge-pass">Verified</span>
@@ -262,10 +324,10 @@
         <a href="runs/2026-07-01-project-phoenix-kickoff/index.html" class="run-card">
           <div class="run-date">2026-07-01</div>
           <div class="run-title">Project Phoenix Kickoff</div>
-          <p class="run-summary">The Phoenix Project is targeting a September 1st launch for its initial version (MVP) to align with a critical marketing campaign. This first version will include essential features like user login and a functional project dashboard, designed to be exceptionally fast for a smooth user experience. We are focused on delivering these core capabilities on time.</p>
+          <p class="run-summary">The team is actively working towards delivering a functional version of our product (V1 MVP) by September 1st, a critical deadline aligned with a marketing campaign launch on September 5th. Significant progress has been made on defining core features like user authentication and a basic project dashboard, and key technology decisions have been confirmed.</p>
           <div class="run-footer">
             <div class="run-stat">
-              <i class="ri-node-tree"></i> 38 decisions
+              <i class="ri-node-tree"></i> 36 decisions
             </div>
             
               <span class="badge badge-pass">Verified</span>
