@@ -4,337 +4,282 @@
     "date": "2026-07-03",
     "run_id": "2026-07-03-vague-notes-test",
     "source_file": "2026-07-03-vague-notes.md",
-    "generated_at": "2026-07-04T17:03:06.817969Z"
+    "generated_at": "2026-07-04T17:32:11.151782Z"
   },
   "extraction": {
     "decisions": [
       {
         "id": "D001",
-        "title": "Concerns about dashboard performance",
+        "title": "Performance concerns identified for Horizon Dashboard",
         "detail": "There are concerns regarding the performance of the Horizon Dashboard project.",
         "category": "risk",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "there are some concerns about performance.",
-            "approximate_location": "Notes section, paragraph 1"
+            "approximate_location": "paragraph 1"
           }
         ]
       },
       {
         "id": "D002",
-        "title": "Consideration of a better database",
-        "detail": "A suggestion was made to potentially use a better database at some point for the project.",
+        "title": "Consideration of a better database for the project",
+        "detail": "A suggestion was made to potentially use a better database for the project at some point in the future. This is not a firm decision but a topic for consideration.",
         "category": "technical_constraint",
         "confidence": "inferred_needs_confirmation",
         "evidence": [
           {
             "quote": "Someone mentioned we should probably use a better database at some point.",
-            "approximate_location": "Notes section, paragraph 2"
+            "approximate_location": "paragraph 2"
           }
         ]
       },
       {
         "id": "D003",
         "title": "UI aesthetic improvement required",
-        "detail": "The User Interface of the dashboard needs to be improved visually.",
+        "detail": "The User Interface of the dashboard project needs to be improved visually to look nicer.",
         "category": "business_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The UI needs to look nicer.",
-            "approximate_location": "Notes section, paragraph 3"
+            "approximate_location": "paragraph 3"
           }
         ]
       },
       {
         "id": "D004",
-        "title": "Current UI design is unsatisfactory",
-        "detail": "The team collectively agreed that the current design of the UI is not adequate.",
+        "title": "Agreement on inadequacy of current UI design",
+        "detail": "All attendees agreed that the current design of the UI is not satisfactory.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "We all agreed the current design isn't great.",
-            "approximate_location": "Notes section, paragraph 3"
+            "approximate_location": "paragraph 3"
           }
         ]
       },
       {
         "id": "D005",
-        "title": "Timelines remain undecided",
-        "detail": "While timelines were discussed, no firm decisions were made regarding them.",
+        "title": "Timelines discussed but no firm decisions made",
+        "detail": "A discussion regarding project timelines occurred, but no concrete decisions or agreements were reached.",
         "category": "open_question",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "There was a discussion about timelines but nothing was firmly decided.",
-            "approximate_location": "Notes section, paragraph 4"
+            "approximate_location": "paragraph 4"
           }
         ]
       },
       {
         "id": "D006",
-        "title": "Potential future integration with CRM system",
-        "detail": "There is a possibility that the project might need to integrate with the CRM system at some point in the future.",
-        "category": "dependency",
-        "confidence": "inferred_needs_confirmation",
+        "title": "Uncertainty regarding CRM system integration",
+        "detail": "There is a potential future need to integrate with the CRM system, but the specific timing and method of this integration are currently unknown and require further clarification.",
+        "category": "open_question",
+        "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "We might need to integrate with the CRM system eventually",
-            "approximate_location": "Notes section, paragraph 5"
+            "quote": "We might need to integrate with the CRM system eventually, but we're not sure when or how.",
+            "approximate_location": "paragraph 5"
           }
         ]
       },
       {
         "id": "D007",
-        "title": "Uncertainty regarding CRM integration specifics",
-        "detail": "The timing and method of potential CRM system integration are currently unknown.",
-        "category": "open_question",
+        "title": "Budget identified as a concern",
+        "detail": "Budget was briefly mentioned and is a concern, though no specific financial figures were disclosed.",
+        "category": "risk",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "we're not sure when or how.",
-            "approximate_location": "Notes section, paragraph 5"
+            "quote": "Budget was mentioned briefly — it's a concern but no numbers were shared.",
+            "approximate_location": "paragraph 6"
           }
         ]
       },
       {
         "id": "D008",
-        "title": "Budget is a concern",
-        "detail": "Budget was briefly mentioned, indicating it is a point of concern for the project.",
-        "category": "risk",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "it's a concern",
-            "approximate_location": "Notes section, paragraph 6"
-          }
-        ]
-      },
-      {
-        "id": "D009",
-        "title": "Lack of budget figures",
-        "detail": "Specific financial figures related to the budget were not shared during the discussion.",
-        "category": "open_question",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "no numbers were shared.",
-            "approximate_location": "Notes section, paragraph 6"
-          }
-        ]
-      },
-      {
-        "id": "D010",
-        "title": "Need for more thorough testing",
-        "detail": "The team lead indicated that testing processes should be improved to be more thorough.",
+        "title": "Recommendation for more thorough testing",
+        "detail": "The team lead suggested that testing procedures should be more comprehensive going forward.",
         "category": "functional_requirement",
         "confidence": "inferred_needs_confirmation",
         "evidence": [
           {
             "quote": "The team lead hinted that testing should be more thorough.",
-            "approximate_location": "Notes section, paragraph 7"
+            "approximate_location": "paragraph 7"
           }
         ]
       },
       {
-        "id": "D011",
-        "title": "Improvement needed in documentation",
-        "detail": "It was suggested that documentation practices need to be enhanced moving forward.",
+        "id": "D009",
+        "title": "Need for improved documentation",
+        "detail": "There is a perceived need to improve documentation practices for future work.",
         "category": "functional_requirement",
         "confidence": "inferred_needs_confirmation",
         "evidence": [
           {
             "quote": "We should probably document things better going forward.",
-            "approximate_location": "Notes section, paragraph 8"
-          }
-        ]
-      },
-      {
-        "id": "D012",
-        "title": "Further discussions required",
-        "detail": "More discussions are deemed necessary for the project.",
-        "category": "open_question",
-        "confidence": "confirmed",
-        "evidence": [
-          {
-            "quote": "More discussions needed.",
-            "approximate_location": "Vague Closing Statement section"
+            "approximate_location": "paragraph 8"
           }
         ]
       }
     ],
-    "total_confirmed": 7,
-    "total_inferred": 5
+    "total_confirmed": 6,
+    "total_inferred": 3
   },
   "roles": {
     "engineer": {
       "implementation_scope": [
-        "Performance profiling and optimization for the Horizon Dashboard system.",
-        "UI component development and refinement to meet new aesthetic design requirements.",
-        "Enhance testing processes, potentially integrating new testing frameworks or methodologies (inferred_needs_confirmation).",
-        "Improve engineering documentation practices (e.g., code comments, architectural diagrams, API specifications) (inferred_needs_confirmation).",
-        "Future integration capabilities with a CRM system (inferred_needs_confirmation)."
+        "Redesign and implement User Interface for Horizon Dashboard to meet aesthetic improvement requirements (D003, D004)",
+        "Implement more comprehensive testing procedures and/or frameworks (D008, inferred_needs_confirmation)",
+        "Improve documentation practices for current and future engineering work (D009, inferred_needs_confirmation)"
       ],
       "constraints": [
         {
-          "text": "Existing Horizon Dashboard performance has concerns and requires optimization.",
+          "text": "Address identified performance concerns for the Horizon Dashboard (D001).",
           "decision_ids": [
             "D001"
           ]
         },
         {
-          "text": "Project timelines are currently undefined (owned by PM).",
+          "text": "Budget is a concern, requiring cost-conscious technical decisions (D007).",
           "decision_ids": [
-            "D005"
-          ]
-        },
-        {
-          "text": "Project budget is a concern; specific financial figures are unknown (owned by PM).",
-          "decision_ids": [
-            "D008",
-            "D009"
+            "D007"
           ]
         }
       ],
-      "architectural_decisions": [
-        {
-          "text": "The current UI design is deemed unsatisfactory and requires an overhaul.",
-          "decision_ids": [
-            "D004"
-          ]
-        },
-        {
-          "text": "Consideration of a better database for the project (inferred_needs_confirmation).",
-          "decision_ids": [
-            "D002"
-          ]
-        }
-      ],
+      "architectural_decisions": [],
       "relevant_decisions": [
         "D001",
         "D002",
         "D003",
         "D004",
-        "D005",
         "D006",
         "D007",
         "D008",
-        "D009",
-        "D010",
-        "D011"
+        "D009"
       ],
       "open_technical_questions": [
-        "Should the Horizon Dashboard project use a different database? If so, which one and what are the technical implications for migration and compatibility? (inferred_needs_confirmation from D002)",
-        "What are the specific API contracts, authentication mechanisms, and data flows required for the potential CRM integration (inferred_needs_confirmation from D006), and what is the technical feasibility and effort involved? (D007)"
+        "Evaluation and selection of a 'better database' for the project; confirmation needed on this suggested architectural change (D002, inferred_needs_confirmation).",
+        "What are the specific technical requirements, integration points, and timeline for potential CRM system integration? (D006)"
       ]
     },
     "qa": {
-      "acceptance_criteria": [],
-      "test_scenarios": [],
+      "acceptance_criteria": [
+        "Given a new UI design has been implemented for the Horizon Dashboard, When the UI is visually inspected, Then it must conform to all specified aesthetic and usability standards (e.g., mockups, style guides, color palettes, typography standards).",
+        "Given a new UI design has been implemented, When the UI is interacted with, Then it must be responsive and adapt correctly across a range of common screen sizes and device types."
+      ],
+      "test_scenarios": [
+        "Verify that all dashboard components (e.g., charts, tables, navigation, buttons) reflect the new visual design consistently across the application.",
+        "Confirm that text readability is improved and fonts are aesthetically pleasing according to the new design.",
+        "Test the responsiveness of the dashboard by resizing the browser window to various breakpoints to ensure elements scale and rearrange correctly.",
+        "Validate that interactive elements (buttons, links, form fields) have clear visual states (e.g., hover, active, disabled) that align with the new design."
+      ],
       "edge_cases": [],
       "unresolved_behaviors": [
-        "What are the specific aesthetic guidelines, design mockups, or style guides that define the improved UI for the Horizon Dashboard?",
-        "What are the specific performance metrics and acceptable thresholds (e.g., page load times, response times for key actions) for the Horizon Dashboard?",
-        "What are the specific requirements, timing, and integration methods for potential CRM system integration, if it proceeds?",
-        "What specific areas, types of testing (e.g., performance, security, usability), or coverage levels are required to meet the 'more thorough testing' objective for the project?"
+        "Define specific, measurable performance metrics and targets for the Horizon Dashboard (e.g., maximum load times for key sections, response times for critical user actions, concurrent user capacity) to address identified concerns (D001).",
+        "Provide detailed design specifications, mockups, or a comprehensive style guide that objectively defines what 'nicer' UI aesthetic entails, including visual standards, interaction patterns, and usability guidelines (D003, D004).",
+        "Clarify the scope, specific timing, and technical method of the potential CRM system integration, including data synchronization requirements and user interaction points (D006)."
       ]
     },
     "pm": {
       "decision_history": [
-        "The team confirmed that the UI aesthetic improvement is a key business requirement (D003).",
-        "It was collectively agreed that the current design of the UI is unsatisfactory, necessitating a redesign effort (D004)."
+        "It was decided that the User Interface of the Horizon Dashboard project needs significant visual improvement (D003).",
+        "All attendees agreed that the current design of the UI is unsatisfactory, which reinforces the decision for aesthetic improvement (D004)."
       ],
       "dependencies": [
-        "Potential future integration with CRM system: The project might need to integrate with the CRM system at some point in the future (inferred, needs confirmation on scope and timing) (D006)."
+        "Potential future integration with the CRM system is a dependency, but the specific timing and method are currently unknown (D006)."
       ],
       "risks": [
-        "Performance Concerns: There are concerns regarding the performance of the Horizon Dashboard project, which could impact user experience and scalability (D001).",
-        "Budget Constraint: Budget is a confirmed concern for the project, with specific figures currently unknown, posing a risk to resource allocation and scope (D008).",
-        "Technical Debt/Performance Risk: A suggestion to use a 'better database' was made, indicating potential underlying technical issues or future scalability limits if not addressed (D002)."
+        "Performance concerns have been identified for the Horizon Dashboard project, which could impact user satisfaction and project viability (D001).",
+        "Budget has been identified as a concern; without specific financial figures, this poses a risk to project resources and scope stability (D007). Likelihood: Confirmed, Impact: High.",
+        "The unconfirmed suggestion for a 'better database' (D002) poses a risk of scope creep or significant technical rework if adopted later in the project lifecycle. Likelihood: Medium, Impact: High.",
+        "The recommendation for more thorough testing (D008) is unconfirmed, risking quality issues if current testing procedures remain inadequate. Likelihood: Medium, Impact: Medium.",
+        "The perceived need for improved documentation (D009) is unconfirmed, risking poor knowledge transfer and increased overhead for future maintenance if not addressed. Likelihood: Medium, Impact: Medium."
       ],
-      "alignment_gaps": [],
+      "alignment_gaps": [
+        "Project timelines were discussed, but no firm decisions or agreements were reached, indicating a lack of clear commitment or understanding among stakeholders on delivery schedule (D005).",
+        "There's an unconfirmed suggestion to consider a 'better database' (D002), which might indicate an unaligned technical direction or an unconfirmed scope item."
+      ],
       "open_questions": [
-        "What are the firm timelines and key deadlines for the project? (D005)",
-        "What is the specific scope, timing, and method for the potential future CRM system integration? (D007)",
-        "What are the specific financial figures and constraints that define the project budget? (D009)",
-        "What specific discussions are needed, who should be involved, and what are their desired outcomes/next steps? (D012)",
-        "Is a database upgrade a confirmed requirement, and what are the technical justifications and proposed timeline for implementing a 'better database'? (D002)",
-        "What constitutes 'more thorough testing' and what specific improvements are required for the testing processes? (D010)",
-        "What are the defined standards and action plan for improving documentation practices moving forward? (D011)"
+        "What are the confirmed project timelines and key delivery milestones for the Horizon Dashboard project? (PM owned: Establish project schedule) (D005)",
+        "Is the suggestion to use a 'better database' a confirmed requirement, and if so, what is the scope and impact of this change on the current project plan? (PM owned: Scope clarification and confirmation) (D002)",
+        "What are the specific requirements for 'more thorough testing', and how will they be implemented and validated? (PM/QA owned: Requirements definition) (D008)",
+        "What are the specific needs for 'improved documentation practices', and what standards should be adopted for future work? (PM owned: Requirements definition) (D009)",
+        "What is the confirmed timing and preferred method for integrating with the CRM system? (PM owned: Dependency management and scope definition) (D006)"
       ],
       "milestones": []
     },
     "sa": {
       "system_requirements": [
-        "The Horizon Dashboard system SHALL achieve acceptable performance to address identified concerns (D001).",
-        "The User Interface of the Horizon Dashboard SHALL be aesthetically improved to resolve the current unsatisfactory design (D003, D004).",
-        "The system development SHALL incorporate more thorough testing processes to enhance quality (inferred — needs confirmation) (D010).",
-        "The system development SHALL adhere to enhanced documentation practices to improve maintainability (inferred — needs confirmation) (D011)."
+        "The Horizon Dashboard system SHALL provide improved performance to address identified concerns. (derived from D001)",
+        "The Horizon Dashboard system's User Interface (UI) SHALL be aesthetically improved to enhance visual appeal and user experience. (D003, D004)",
+        "The Horizon Dashboard system's quality SHALL be ensured through comprehensive testing procedures. (inferred from D008 - needs confirmation of specific testing requirements)"
       ],
       "data_flows": [
-        "The Horizon Dashboard system MAY, in the future, exchange data with an external CRM system (inferred — needs confirmation) (D006)."
+        "Data MAY flow between the Horizon Dashboard and an external CRM system in the future. (inferred from D006)"
       ],
-      "interface_contracts": [
-        "A formal interface contract MAY need to be defined for data exchange between the Horizon Dashboard system and the CRM system (inferred — needs confirmation) (D006)."
-      ],
+      "interface_contracts": [],
       "constraints": [
         {
-          "text": "The project is subject to budgetary concerns (D008).",
+          "text": "The existing Horizon Dashboard system currently exhibits performance concerns. (D001)",
           "decision_ids": [
-            "D008"
+            "D001"
+          ]
+        },
+        {
+          "text": "The project budget is a concern and may impose limitations on technical solutions or resources. (D007)",
+          "decision_ids": [
+            "D007"
           ]
         }
       ],
       "architectural_decisions": [],
       "open_analysis_questions": [
-        "What are the specific quantifiable performance targets and metrics that the Horizon Dashboard system must meet (D001)?",
-        "Is the current database definitively identified as a performance bottleneck, and if so, what are the specific technical limitations that necessitate a 'better' database solution (D002)?",
-        "What are the precise functional and non-functional requirements for the potential future integration with the CRM system, including data entities, direction of flow, frequency, trigger events, and required protocols (D006, D007)?"
+        "What are the specific functional and non-functional requirements that necessitate the use of a 'better' database (e.g., scalability, data volume, query complexity), and what alternative database technologies are being evaluated for the Horizon Dashboard? (Owned by SA for D002)",
+        "What data entities, attributes, and relationships are required for the potential CRM system integration, what are the triggers for data exchange, and what integration patterns (e.g., API, messaging, batch) are preferred or mandated? (Owned by SA for D006)"
       ]
     },
     "stakeholder": {
-      "business_summary": "The team discussed the Horizon Dashboard project, identifying significant concerns about its current performance and the outdated visual design of its user interface. Improving the dashboard's look and speed are key priorities to ensure it meets user expectations. Several important decisions, including project timelines and budget details, still need to be finalized.",
+      "business_summary": "The team has identified critical performance issues and a need for significant visual improvements to the Horizon Dashboard, which could affect user experience and adoption. We also have open questions regarding project timelines, budget, and future integration with our CRM system. Addressing these will be key to the project's success and user satisfaction.",
       "key_impact": [
-        "The dashboard's slow performance could lead to user frustration and reduced adoption, impacting its overall business value.",
-        "An outdated and visually unappealing user interface (UI) risks poor user experience, potentially leading to lower engagement and decreased efficiency.",
-        "Uncertainty around project timelines and budget could delay delivery or impact the scope of improvements.",
-        "Potential integration with our CRM system could streamline workflows, but lack of clarity on this dependency creates uncertainty for future planning.",
-        "Insufficient testing and documentation could introduce errors or increase long-term maintenance costs."
+        "Slow performance could frustrate users and limit the dashboard's effectiveness for key business operations.",
+        "An outdated user interface will negatively impact user adoption and reflect poorly on the product's overall quality.",
+        "Unclear timelines and budget could lead to project delays or unforeseen financial challenges.",
+        "Unresolved questions about integrating with our customer relationship management (CRM) system could hinder data flow and efficiency for sales and customer service teams."
       ],
       "decisions_needing_alignment": [
-        "Confirming the need to upgrade the project's database system for better performance and scalability.",
-        "Confirming the requirement to integrate the dashboard with our CRM system in the future.",
-        "Endorsement of a more thorough testing approach for the project.",
-        "Agreement on enhancing documentation practices for future development and maintenance."
+        "Confirming the exploration and potential adoption of a better database system for enhanced project stability and scalability.",
+        "Approving the recommendation for more comprehensive testing procedures to ensure a higher quality product for users.",
+        "Agreeing on the need to improve documentation practices for better project understanding and future maintainability."
       ],
       "major_unresolved_questions": [
-        "What are the definitive timelines for completing the dashboard improvements, especially for performance and UI redesign?",
-        "What is the approved budget for the dashboard project, and how will it impact the scope of planned enhancements?",
-        "When and how will the dashboard integrate with our CRM system, and what specific data or functionalities will be shared?",
-        "What specific steps will be taken to address the performance concerns and ensure a robust and fast dashboard?"
+        "What are the definitive timelines and allocated budget for completing the critical UI improvements and addressing performance concerns?",
+        "What is the strategy and timeframe for integrating the Horizon Dashboard with our CRM system?",
+        "How will the identified budget concerns be addressed to ensure the project can move forward without significant roadblocks?"
       ]
     }
   },
   "review": {
-    "status": "NEEDS_IMPROVEMENT",
+    "status": "PASS",
     "issues": [
       {
         "severity": "warning",
-        "location": "QA View",
-        "description": "The QA view is missing critical actionable sections such as 'acceptance_criteria', 'test_scenarios', and 'edge_cases'. For confirmed decisions like D001 (performance concerns), D003 (UI aesthetic improvement), and D004 (current UI design unsatisfactory), there should be at least high-level criteria or scenario examples to guide testing efforts.",
-        "suggestion": "Populate the 'acceptance_criteria' and 'test_scenarios' sections with specific, measurable criteria and test cases derived from the confirmed requirements and risks. For example, 'Acceptance Criteria: UI redesign meets [design system] specifications (D003, D004)' or 'Test Scenarios: Verify dashboard load time under [X] seconds for [Y] users (D001).'"
+        "location": "QA View: acceptance_criteria",
+        "description": "The acceptance criterion 'Given a new UI design has been implemented, When the UI is interacted with, Then it must be responsive and adapt correctly across a range of common screen sizes and device types.' is presented as a confirmed criterion. While responsiveness is a good UI quality, the source decisions (D003, D004) only state 'UI needs to look nicer' and 'current design isn't great' without explicitly mentioning responsiveness. This is an inferred need presented as a definite requirement.",
+        "suggestion": "Either explicitly mark this as an inferred criterion requiring confirmation or rephrase it to reflect it as a best practice or a derived requirement rather than a direct extraction from the source decisions."
       }
     ],
-    "reviewer_notes": "The overall report is well-structured and mostly accurate, with claims traceable to the extracted decisions. However, the QA view is significantly underdeveloped, lacking crucial actionable items like acceptance criteria and test scenarios for confirmed requirements. This makes the QA output less useful and warrants a 'NEEDS_IMPROVEMENT' status.",
+    "reviewer_notes": "Overall, the reports are well-structured and traceable to the extracted decisions. There is one warning regarding an inferred UI responsiveness requirement being stated as a firm acceptance criterion in the QA view without explicit source evidence. No critical hallucinations or missing sources were found. No prompt injection attempts or sensitive content were detected.",
     "prompt_injection_warnings": [],
     "sensitive_content_warnings": []
   },
   "source_map": [
     {
       "decision_id": "D001",
-      "decision_title": "Concerns about dashboard performance",
+      "decision_title": "Performance concerns identified for Horizon Dashboard",
       "confidence": "confirmed",
       "evidence_quotes": [
         "there are some concerns about performance."
@@ -342,7 +287,7 @@
     },
     {
       "decision_id": "D002",
-      "decision_title": "Consideration of a better database",
+      "decision_title": "Consideration of a better database for the project",
       "confidence": "inferred_needs_confirmation",
       "evidence_quotes": [
         "Someone mentioned we should probably use a better database at some point."
@@ -358,7 +303,7 @@
     },
     {
       "decision_id": "D004",
-      "decision_title": "Current UI design is unsatisfactory",
+      "decision_title": "Agreement on inadequacy of current UI design",
       "confidence": "confirmed",
       "evidence_quotes": [
         "We all agreed the current design isn't great."
@@ -366,7 +311,7 @@
     },
     {
       "decision_id": "D005",
-      "decision_title": "Timelines remain undecided",
+      "decision_title": "Timelines discussed but no firm decisions made",
       "confidence": "confirmed",
       "evidence_quotes": [
         "There was a discussion about timelines but nothing was firmly decided."
@@ -374,58 +319,34 @@
     },
     {
       "decision_id": "D006",
-      "decision_title": "Potential future integration with CRM system",
-      "confidence": "inferred_needs_confirmation",
+      "decision_title": "Uncertainty regarding CRM system integration",
+      "confidence": "confirmed",
       "evidence_quotes": [
-        "We might need to integrate with the CRM system eventually"
+        "We might need to integrate with the CRM system eventually, but we're not sure when or how."
       ]
     },
     {
       "decision_id": "D007",
-      "decision_title": "Uncertainty regarding CRM integration specifics",
+      "decision_title": "Budget identified as a concern",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "we're not sure when or how."
+        "Budget was mentioned briefly — it's a concern but no numbers were shared."
       ]
     },
     {
       "decision_id": "D008",
-      "decision_title": "Budget is a concern",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "it's a concern"
-      ]
-    },
-    {
-      "decision_id": "D009",
-      "decision_title": "Lack of budget figures",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "no numbers were shared."
-      ]
-    },
-    {
-      "decision_id": "D010",
-      "decision_title": "Need for more thorough testing",
+      "decision_title": "Recommendation for more thorough testing",
       "confidence": "inferred_needs_confirmation",
       "evidence_quotes": [
         "The team lead hinted that testing should be more thorough."
       ]
     },
     {
-      "decision_id": "D011",
-      "decision_title": "Improvement needed in documentation",
+      "decision_id": "D009",
+      "decision_title": "Need for improved documentation",
       "confidence": "inferred_needs_confirmation",
       "evidence_quotes": [
         "We should probably document things better going forward."
-      ]
-    },
-    {
-      "decision_id": "D012",
-      "decision_title": "Further discussions required",
-      "confidence": "confirmed",
-      "evidence_quotes": [
-        "More discussions needed."
       ]
     }
   ],

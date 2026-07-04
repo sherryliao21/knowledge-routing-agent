@@ -399,6 +399,68 @@
       background: var(--slate);
     }
 
+    /* ── Always visible AI review agent tag ──────────────────────── */
+    .review-agent-tag {
+      font-size: 0.725rem;
+      color: var(--text-secondary);
+      opacity: 0.8;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── Reference document card styling (Ledger, Notes) ─────────── */
+    .char-card.ref-card {
+      min-width: 125px;
+      max-width: 150px;
+      padding: 1.125rem 0.75rem;
+      border-radius: var(--radius); /* slightly sharper than persona cards */
+    }
+    .char-card.ref-card .ref-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px; /* square/rounded-rect */
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+      transition: all var(--dur) var(--ease-out);
+    }
+    .char-card.ref-card:hover .ref-icon-wrap {
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .char-card.ref-card.active[data-role="decisions"] {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px var(--cyan-bg), var(--shadow-sm);
+    }
+    .char-card.ref-card.active[data-role="decisions"] .ref-icon-wrap {
+      background: var(--cyan-bg);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .char-card.ref-card.active[data-role="notes"] {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg), var(--shadow-sm);
+    }
+    .char-card.ref-card.active[data-role="notes"] .ref-icon-wrap {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* ── Card rail divider ────────────────────────────────────────── */
+    .card-rail-divider {
+      width: 1px;
+      background: var(--border);
+      margin: 0.25rem 0.5rem;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+
     /* ── Tab panels ──────────────────────────────────────────────── */
     .panel { display: none; }
     .panel.active { display: block; }
@@ -837,24 +899,26 @@
       </div>
       <div class="meta-cell">
         <span class="meta-key">Generated</span>
-        <span class="meta-val mono">2026-07-04T17:03:06.817969Z</span>
+        <span class="meta-val mono">2026-07-04T17:32:11.151782Z</span>
       </div>
     </div>
   </div>
 
   <!-- Review status banner -->
   
-    <div class="review-banner flag">
+    <div class="review-banner pass-with-notes">
       <div class="review-left">
-        <div class="review-icon"><i class="ri-error-warning-line"></i></div>
+        <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
-          <div class="review-note">The overall report is well-structured and mostly accurate, with claims traceable to the extracted decisions. However, the QA view is significantly underdeveloped, lacking crucial actionable items like acceptance criteria and test scenarios for confirmed requirements. This makes the QA output less useful and warrants a 'NEEDS_IMPROVEMENT' status.</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — 1 note(s)</div>
+          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
+          <div class="review-note">Non-blocking review suggestions: Overall, the reports are well-structured and traceable to the extracted decisions. There is one warning regarding an inferred UI responsiveness requirement being stated as a firm acceptance criterion in the QA view without explicit source evidence. No critical hallucinations or missing sources were found. No prompt injection attempts or sensitive content were detected.</div>
         </div>
       </div>
-      <button class="review-action" onclick="openModal()">Inspect (1)</button>
+      <button class="review-action" onclick="openModal()">View logs (1)</button>
     </div>
   
+
 
 
   <!-- Security warnings -->
@@ -905,15 +969,18 @@
         <div class="char-role">System Analyst</div>
       </button>
 
-      <button class="char-card" data-target="panel-decisions" data-role="decisions">
-        <div class="char-avatar-ring">
-          <img src="../../assets/avatar-system.jpg" alt="Decision Ledger">
+      <div class="card-rail-divider"></div>
+
+      <button class="char-card ref-card" data-target="panel-decisions" data-role="decisions">
+        <div class="ref-icon-wrap">
+          <i class="ri-file-text-line"></i>
         </div>
         <div class="char-name">Ledger</div>
         <div class="char-role">Decisions Log</div>
       </button>
 
       
+
 
     </div>
   </div>
@@ -928,7 +995,7 @@
 
       <div class="summary-block">
         <div class="summary-block-label">Business Summary</div>
-        <p>The team discussed the Horizon Dashboard project, identifying significant concerns about its current performance and the outdated visual design of its user interface. Improving the dashboard's look and speed are key priorities to ensure it meets user expectations. Several important decisions, including project timelines and budget details, still need to be finalized.</p>
+        <p>The team has identified critical performance issues and a need for significant visual improvements to the Horizon Dashboard, which could affect user experience and adoption. We also have open questions regarding project timelines, budget, and future integration with our CRM system. Addressing these will be key to the project's success and user satisfaction.</p>
       </div>
 
       <div class="sub-header">Key Business Outcomes</div>
@@ -936,27 +1003,22 @@
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The dashboard's slow performance could lead to user frustration and reduced adoption, impacting its overall business value.</span>
+          <span class="item-text">Slow performance could frustrate users and limit the dashboard's effectiveness for key business operations.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">An outdated and visually unappealing user interface (UI) risks poor user experience, potentially leading to lower engagement and decreased efficiency.</span>
+          <span class="item-text">An outdated user interface will negatively impact user adoption and reflect poorly on the product's overall quality.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Uncertainty around project timelines and budget could delay delivery or impact the scope of improvements.</span>
+          <span class="item-text">Unclear timelines and budget could lead to project delays or unforeseen financial challenges.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Potential integration with our CRM system could streamline workflows, but lack of clarity on this dependency creates uncertainty for future planning.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Insufficient testing and documentation could introduce errors or increase long-term maintenance costs.</span>
+          <span class="item-text">Unresolved questions about integrating with our customer relationship management (CRM) system could hinder data flow and efficiency for sales and customer service teams.</span>
         </div>
         
       </div>
@@ -966,22 +1028,17 @@
         
         <div class="item">
           <i class="ri-git-pull-request-line icon-stakeholder"></i>
-          <span class="item-text">Confirming the need to upgrade the project's database system for better performance and scalability.</span>
+          <span class="item-text">Confirming the exploration and potential adoption of a better database system for enhanced project stability and scalability.</span>
         </div>
         
         <div class="item">
           <i class="ri-git-pull-request-line icon-stakeholder"></i>
-          <span class="item-text">Confirming the requirement to integrate the dashboard with our CRM system in the future.</span>
+          <span class="item-text">Approving the recommendation for more comprehensive testing procedures to ensure a higher quality product for users.</span>
         </div>
         
         <div class="item">
           <i class="ri-git-pull-request-line icon-stakeholder"></i>
-          <span class="item-text">Endorsement of a more thorough testing approach for the project.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-pull-request-line icon-stakeholder"></i>
-          <span class="item-text">Agreement on enhancing documentation practices for future development and maintenance.</span>
+          <span class="item-text">Agreeing on the need to improve documentation practices for better project understanding and future maintainability.</span>
         </div>
         
       </div>
@@ -991,22 +1048,17 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the definitive timelines for completing the dashboard improvements, especially for performance and UI redesign?</span>
+          <span class="item-text">What are the definitive timelines and allocated budget for completing the critical UI improvements and addressing performance concerns?</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What is the approved budget for the dashboard project, and how will it impact the scope of planned enhancements?</span>
+          <span class="item-text">What is the strategy and timeframe for integrating the Horizon Dashboard with our CRM system?</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">When and how will the dashboard integrate with our CRM system, and what specific data or functionalities will be shared?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What specific steps will be taken to address the performance concerns and ensure a robust and fast dashboard?</span>
+          <span class="item-text">How will the identified budget concerns be addressed to ensure the project can move forward without significant roadblocks?</span>
         </div>
         
       </div>
@@ -1024,27 +1076,17 @@
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Performance profiling and optimization for the Horizon Dashboard system.</span>
+          <span class="item-text">Redesign and implement User Interface for Horizon Dashboard to meet aesthetic improvement requirements (D003, D004)</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">UI component development and refinement to meet new aesthetic design requirements.</span>
+          <span class="item-text">Implement more comprehensive testing procedures and/or frameworks (D008, inferred_needs_confirmation)</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Enhance testing processes, potentially integrating new testing frameworks or methodologies (inferred_needs_confirmation).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Improve engineering documentation practices (e.g., code comments, architectural diagrams, API specifications) (inferred_needs_confirmation).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Future integration capabilities with a CRM system (inferred_needs_confirmation).</span>
+          <span class="item-text">Improve documentation practices for current and future engineering work (D009, inferred_needs_confirmation)</span>
         </div>
         
       </div>
@@ -1055,7 +1097,7 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            Existing Horizon Dashboard performance has concerns and requires optimization.
+            Address identified performance concerns for the Horizon Dashboard (D001).
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
@@ -1069,27 +1111,11 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            Project timelines are currently undefined (owned by PM).
+            Budget is a concern, requiring cost-conscious technical decisions (D007).
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
-                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-git-commit-line icon-cyan"></i>
-          <span class="item-text">
-            Project budget is a concern; specific financial figures are unknown (owned by PM).
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
-                
-                  <span class="did-pill" onclick="goDecision('D009')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D009</span>
+                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
                 
               </span>
             
@@ -1101,34 +1127,6 @@
       <div class="sub-header">Architectural Decisions</div>
       <div class="item-list">
         
-        <div class="item">
-          <i class="ri-shield-line icon-cyan"></i>
-          <span class="item-text">
-            The current UI design is deemed unsatisfactory and requires an overhaul.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D004')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D004</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-shield-line icon-cyan"></i>
-          <span class="item-text">
-            Consideration of a better database for the project (inferred_needs_confirmation).
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
       </div>
 
 
@@ -1137,12 +1135,12 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Should the Horizon Dashboard project use a different database? If so, which one and what are the technical implications for migration and compatibility? (inferred_needs_confirmation from D002)</span>
+          <span class="item-text">Evaluation and selection of a 'better database' for the project; confirmation needed on this suggested architectural change (D002, inferred_needs_confirmation).</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the specific API contracts, authentication mechanisms, and data flows required for the potential CRM integration (inferred_needs_confirmation from D006), and what is the technical feasibility and effort involved? (D007)</span>
+          <span class="item-text">What are the specific technical requirements, integration points, and timeline for potential CRM system integration? (D006)</span>
         </div>
         
       </div>
@@ -1158,8 +1156,6 @@
         
           <span class="did-pill" onclick="goDecision('D004')">D004</span>
         
-          <span class="did-pill" onclick="goDecision('D005')">D005</span>
-        
           <span class="did-pill" onclick="goDecision('D006')">D006</span>
         
           <span class="did-pill" onclick="goDecision('D007')">D007</span>
@@ -1167,10 +1163,6 @@
           <span class="did-pill" onclick="goDecision('D008')">D008</span>
         
           <span class="did-pill" onclick="goDecision('D009')">D009</span>
-        
-          <span class="did-pill" onclick="goDecision('D010')">D010</span>
-        
-          <span class="did-pill" onclick="goDecision('D011')">D011</span>
         
       </div>
     </div>
@@ -1185,10 +1177,40 @@
       <div class="sub-header">Acceptance Criteria</div>
       <div class="item-list">
         
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a new UI design has been implemented for the Horizon Dashboard, When the UI is visually inspected, Then it must conform to all specified aesthetic and usability standards (e.g., mockups, style guides, color palettes, typography standards).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a new UI design has been implemented, When the UI is interacted with, Then it must be responsive and adapt correctly across a range of common screen sizes and device types.</span>
+        </div>
+        
       </div>
 
       <div class="sub-header">Test Scenarios</div>
       <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Verify that all dashboard components (e.g., charts, tables, navigation, buttons) reflect the new visual design consistently across the application.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Confirm that text readability is improved and fonts are aesthetically pleasing according to the new design.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Test the responsiveness of the dashboard by resizing the browser window to various breakpoints to ensure elements scale and rearrange correctly.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-play-list-add-line icon-qa"></i>
+          <span class="item-text">Validate that interactive elements (buttons, links, form fields) have clear visual states (e.g., hover, active, disabled) that align with the new design.</span>
+        </div>
         
       </div>
 
@@ -1202,22 +1224,17 @@
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What are the specific aesthetic guidelines, design mockups, or style guides that define the improved UI for the Horizon Dashboard?</span>
+          <span class="item-text">Define specific, measurable performance metrics and targets for the Horizon Dashboard (e.g., maximum load times for key sections, response times for critical user actions, concurrent user capacity) to address identified concerns (D001).</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What are the specific performance metrics and acceptable thresholds (e.g., page load times, response times for key actions) for the Horizon Dashboard?</span>
+          <span class="item-text">Provide detailed design specifications, mockups, or a comprehensive style guide that objectively defines what 'nicer' UI aesthetic entails, including visual standards, interaction patterns, and usability guidelines (D003, D004).</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What are the specific requirements, timing, and integration methods for potential CRM system integration, if it proceeds?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What specific areas, types of testing (e.g., performance, security, usability), or coverage levels are required to meet the 'more thorough testing' objective for the project?</span>
+          <span class="item-text">Clarify the scope, specific timing, and technical method of the potential CRM system integration, including data synchronization requirements and user interaction points (D006).</span>
         </div>
         
       </div>
@@ -1237,23 +1254,43 @@
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Performance Concerns: There are concerns regarding the performance of the Horizon Dashboard project, which could impact user experience and scalability (D001).</span>
+          <span class="item-text">Performance concerns have been identified for the Horizon Dashboard project, which could impact user satisfaction and project viability (D001).</span>
         </div>
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Budget Constraint: Budget is a confirmed concern for the project, with specific figures currently unknown, posing a risk to resource allocation and scope (D008).</span>
+          <span class="item-text">Budget has been identified as a concern; without specific financial figures, this poses a risk to project resources and scope stability (D007). Likelihood: Confirmed, Impact: High.</span>
         </div>
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Technical Debt/Performance Risk: A suggestion to use a 'better database' was made, indicating potential underlying technical issues or future scalability limits if not addressed (D002).</span>
+          <span class="item-text">The unconfirmed suggestion for a 'better database' (D002) poses a risk of scope creep or significant technical rework if adopted later in the project lifecycle. Likelihood: Medium, Impact: High.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">The recommendation for more thorough testing (D008) is unconfirmed, risking quality issues if current testing procedures remain inadequate. Likelihood: Medium, Impact: Medium.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">The perceived need for improved documentation (D009) is unconfirmed, risking poor knowledge transfer and increased overhead for future maintenance if not addressed. Likelihood: Medium, Impact: Medium.</span>
         </div>
         
       </div>
 
       <div class="sub-header">Alignment Gaps</div>
       <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">Project timelines were discussed, but no firm decisions or agreements were reached, indicating a lack of clear commitment or understanding among stakeholders on delivery schedule (D005).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">There's an unconfirmed suggestion to consider a 'better database' (D002), which might indicate an unaligned technical direction or an unconfirmed scope item.</span>
+        </div>
         
       </div>
 
@@ -1262,37 +1299,27 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the firm timelines and key deadlines for the project? (D005)</span>
+          <span class="item-text">What are the confirmed project timelines and key delivery milestones for the Horizon Dashboard project? (PM owned: Establish project schedule) (D005)</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What is the specific scope, timing, and method for the potential future CRM system integration? (D007)</span>
+          <span class="item-text">Is the suggestion to use a 'better database' a confirmed requirement, and if so, what is the scope and impact of this change on the current project plan? (PM owned: Scope clarification and confirmation) (D002)</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the specific financial figures and constraints that define the project budget? (D009)</span>
+          <span class="item-text">What are the specific requirements for 'more thorough testing', and how will they be implemented and validated? (PM/QA owned: Requirements definition) (D008)</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What specific discussions are needed, who should be involved, and what are their desired outcomes/next steps? (D012)</span>
+          <span class="item-text">What are the specific needs for 'improved documentation practices', and what standards should be adopted for future work? (PM owned: Requirements definition) (D009)</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">Is a database upgrade a confirmed requirement, and what are the technical justifications and proposed timeline for implementing a 'better database'? (D002)</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What constitutes 'more thorough testing' and what specific improvements are required for the testing processes? (D010)</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the defined standards and action plan for improving documentation practices moving forward? (D011)</span>
+          <span class="item-text">What is the confirmed timing and preferred method for integrating with the CRM system? (PM owned: Dependency management and scope definition) (D006)</span>
         </div>
         
       </div>
@@ -1302,7 +1329,7 @@
         
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">Potential future integration with CRM system: The project might need to integrate with the CRM system at some point in the future (inferred, needs confirmation on scope and timing) (D006).</span>
+          <span class="item-text">Potential future integration with the CRM system is a dependency, but the specific timing and method are currently unknown (D006).</span>
         </div>
         
       </div>
@@ -1316,12 +1343,12 @@
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">The team confirmed that the UI aesthetic improvement is a key business requirement (D003).</span>
+            <span class="item-text">It was decided that the User Interface of the Horizon Dashboard project needs significant visual improvement (D003).</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">It was collectively agreed that the current design of the UI is unsatisfactory, necessitating a redesign effort (D004).</span>
+            <span class="item-text">All attendees agreed that the current design of the UI is unsatisfactory, which reinforces the decision for aesthetic improvement (D004).</span>
           </div>
           
         </div>
@@ -1341,22 +1368,17 @@
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The Horizon Dashboard system SHALL achieve acceptable performance to address identified concerns (D001).</span>
+          <span class="item-text">The Horizon Dashboard system SHALL provide improved performance to address identified concerns. (derived from D001)</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The User Interface of the Horizon Dashboard SHALL be aesthetically improved to resolve the current unsatisfactory design (D003, D004).</span>
+          <span class="item-text">The Horizon Dashboard system's User Interface (UI) SHALL be aesthetically improved to enhance visual appeal and user experience. (D003, D004)</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system development SHALL incorporate more thorough testing processes to enhance quality (inferred — needs confirmation) (D010).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system development SHALL adhere to enhanced documentation practices to improve maintainability (inferred — needs confirmation) (D011).</span>
+          <span class="item-text">The Horizon Dashboard system's quality SHALL be ensured through comprehensive testing procedures. (inferred from D008 - needs confirmation of specific testing requirements)</span>
         </div>
         
       </div>
@@ -1366,18 +1388,13 @@
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">The Horizon Dashboard system MAY, in the future, exchange data with an external CRM system (inferred — needs confirmation) (D006).</span>
+          <span class="item-text">Data MAY flow between the Horizon Dashboard and an external CRM system in the future. (inferred from D006)</span>
         </div>
         
       </div>
 
       <div class="sub-header">Interface Contracts</div>
       <div class="item-list">
-        
-        <div class="item">
-          <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">A formal interface contract MAY need to be defined for data exchange between the Horizon Dashboard system and the CRM system (inferred — needs confirmation) (D006).</span>
-        </div>
         
       </div>
 
@@ -1387,11 +1404,25 @@
         <div class="item">
           <i class="ri-lock-line icon-rose"></i>
           <span class="item-text">
-            The project is subject to budgetary concerns (D008).
+            The existing Horizon Dashboard system currently exhibits performance concerns. (D001)
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
-                  <span class="did-pill" onclick="goDecision('D008')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D008</span>
+                  <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-lock-line icon-rose"></i>
+          <span class="item-text">
+            The project budget is a concern and may impose limitations on technical solutions or resources. (D007)
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D007')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D007</span>
                 
               </span>
             
@@ -1411,17 +1442,12 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the specific quantifiable performance targets and metrics that the Horizon Dashboard system must meet (D001)?</span>
+          <span class="item-text">What are the specific functional and non-functional requirements that necessitate the use of a 'better' database (e.g., scalability, data volume, query complexity), and what alternative database technologies are being evaluated for the Horizon Dashboard? (Owned by SA for D002)</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">Is the current database definitively identified as a performance bottleneck, and if so, what are the specific technical limitations that necessitate a 'better' database solution (D002)?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the precise functional and non-functional requirements for the potential future integration with the CRM system, including data entities, direction of flow, frequency, trigger events, and required protocols (D006, D007)?</span>
+          <span class="item-text">What data entities, attributes, and relationships are required for the potential CRM system integration, what are the triggers for data exchange, and what integration patterns (e.g., API, messaging, batch) are preferred or mandated? (Owned by SA for D006)</span>
         </div>
         
       </div>
@@ -1458,7 +1484,7 @@
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D001</span>
-              <span class="decision-title">Concerns about dashboard performance</span>
+              <span class="decision-title">Performance concerns identified for Horizon Dashboard</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">risk</span>
@@ -1478,7 +1504,7 @@
                 <p class="evidence-quote">"there are some concerns about performance."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 1</span>
+                  <span>paragraph 1</span>
                 </div>
               </div>
               
@@ -1490,7 +1516,7 @@
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D002</span>
-              <span class="decision-title">Consideration of a better database</span>
+              <span class="decision-title">Consideration of a better database for the project</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">technical constraint</span>
@@ -1499,7 +1525,7 @@
               
             </div>
           </div>
-          <p class="decision-detail">A suggestion was made to potentially use a better database at some point for the project.</p>
+          <p class="decision-detail">A suggestion was made to potentially use a better database for the project at some point in the future. This is not a firm decision but a topic for consideration.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1510,7 +1536,7 @@
                 <p class="evidence-quote">"Someone mentioned we should probably use a better database at some point."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 2</span>
+                  <span>paragraph 2</span>
                 </div>
               </div>
               
@@ -1531,7 +1557,7 @@
               
             </div>
           </div>
-          <p class="decision-detail">The User Interface of the dashboard needs to be improved visually.</p>
+          <p class="decision-detail">The User Interface of the dashboard project needs to be improved visually to look nicer.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1542,7 +1568,7 @@
                 <p class="evidence-quote">"The UI needs to look nicer."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 3</span>
+                  <span>paragraph 3</span>
                 </div>
               </div>
               
@@ -1554,7 +1580,7 @@
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D004</span>
-              <span class="decision-title">Current UI design is unsatisfactory</span>
+              <span class="decision-title">Agreement on inadequacy of current UI design</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">key decision</span>
@@ -1563,7 +1589,7 @@
               
             </div>
           </div>
-          <p class="decision-detail">The team collectively agreed that the current design of the UI is not adequate.</p>
+          <p class="decision-detail">All attendees agreed that the current design of the UI is not satisfactory.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1574,7 +1600,7 @@
                 <p class="evidence-quote">"We all agreed the current design isn't great."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 3</span>
+                  <span>paragraph 3</span>
                 </div>
               </div>
               
@@ -1586,7 +1612,7 @@
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D005</span>
-              <span class="decision-title">Timelines remain undecided</span>
+              <span class="decision-title">Timelines discussed but no firm decisions made</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">open question</span>
@@ -1595,7 +1621,7 @@
               
             </div>
           </div>
-          <p class="decision-detail">While timelines were discussed, no firm decisions were made regarding them.</p>
+          <p class="decision-detail">A discussion regarding project timelines occurred, but no concrete decisions or agreements were reached.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1606,7 +1632,7 @@
                 <p class="evidence-quote">"There was a discussion about timelines but nothing was firmly decided."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 4</span>
+                  <span>paragraph 4</span>
                 </div>
               </div>
               
@@ -1614,43 +1640,11 @@
           
         </div>
         
-        <div class="decision-card" id="d-D006" data-category="dependency" data-confidence="inferred_needs_confirmation">
+        <div class="decision-card" id="d-D006" data-category="open_question" data-confidence="confirmed">
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D006</span>
-              <span class="decision-title">Potential future integration with CRM system</span>
-            </div>
-            <div class="badge-row">
-              <span class="badge badge-cat">dependency</span>
-              
-                <span class="badge badge-inferred">needs confirmation</span>
-              
-            </div>
-          </div>
-          <p class="decision-detail">There is a possibility that the project might need to integrate with the CRM system at some point in the future.</p>
-          
-            <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
-              <i class="ri-arrow-down-s-line"></i> View source citation
-            </button>
-            <div class="evidence-body" id="ev-D006">
-              
-              <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"We might need to integrate with the CRM system eventually"</p>
-                <div class="evidence-loc">
-                  <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 5</span>
-                </div>
-              </div>
-              
-            </div>
-          
-        </div>
-        
-        <div class="decision-card" id="d-D007" data-category="open_question" data-confidence="confirmed">
-          <div class="decision-head">
-            <div class="decision-id-title">
-              <span class="decision-id">D007</span>
-              <span class="decision-title">Uncertainty regarding CRM integration specifics</span>
+              <span class="decision-title">Uncertainty regarding CRM system integration</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">open question</span>
@@ -1659,18 +1653,18 @@
               
             </div>
           </div>
-          <p class="decision-detail">The timing and method of potential CRM system integration are currently unknown.</p>
+          <p class="decision-detail">There is a potential future need to integrate with the CRM system, but the specific timing and method of this integration are currently unknown and require further clarification.</p>
           
-            <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
+            <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
             </button>
-            <div class="evidence-body" id="ev-D007">
+            <div class="evidence-body" id="ev-D006">
               
               <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"we're not sure when or how."</p>
+                <p class="evidence-quote">"We might need to integrate with the CRM system eventually, but we're not sure when or how."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 5</span>
+                  <span>paragraph 5</span>
                 </div>
               </div>
               
@@ -1678,11 +1672,11 @@
           
         </div>
         
-        <div class="decision-card" id="d-D008" data-category="risk" data-confidence="confirmed">
+        <div class="decision-card" id="d-D007" data-category="risk" data-confidence="confirmed">
           <div class="decision-head">
             <div class="decision-id-title">
-              <span class="decision-id">D008</span>
-              <span class="decision-title">Budget is a concern</span>
+              <span class="decision-id">D007</span>
+              <span class="decision-title">Budget identified as a concern</span>
             </div>
             <div class="badge-row">
               <span class="badge badge-cat">risk</span>
@@ -1691,7 +1685,39 @@
               
             </div>
           </div>
-          <p class="decision-detail">Budget was briefly mentioned, indicating it is a point of concern for the project.</p>
+          <p class="decision-detail">Budget was briefly mentioned and is a concern, though no specific financial figures were disclosed.</p>
+          
+            <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
+              <i class="ri-arrow-down-s-line"></i> View source citation
+            </button>
+            <div class="evidence-body" id="ev-D007">
+              
+              <div style="margin-bottom:0.75rem;">
+                <p class="evidence-quote">"Budget was mentioned briefly — it's a concern but no numbers were shared."</p>
+                <div class="evidence-loc">
+                  <i class="ri-map-pin-2-line"></i>
+                  <span>paragraph 6</span>
+                </div>
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="decision-card" id="d-D008" data-category="functional_requirement" data-confidence="inferred_needs_confirmation">
+          <div class="decision-head">
+            <div class="decision-id-title">
+              <span class="decision-id">D008</span>
+              <span class="decision-title">Recommendation for more thorough testing</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge badge-cat">functional requirement</span>
+              
+                <span class="badge badge-inferred">needs confirmation</span>
+              
+            </div>
+          </div>
+          <p class="decision-detail">The team lead suggested that testing procedures should be more comprehensive going forward.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1699,10 +1725,10 @@
             <div class="evidence-body" id="ev-D008">
               
               <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"it's a concern"</p>
+                <p class="evidence-quote">"The team lead hinted that testing should be more thorough."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 6</span>
+                  <span>paragraph 7</span>
                 </div>
               </div>
               
@@ -1710,20 +1736,20 @@
           
         </div>
         
-        <div class="decision-card" id="d-D009" data-category="open_question" data-confidence="confirmed">
+        <div class="decision-card" id="d-D009" data-category="functional_requirement" data-confidence="inferred_needs_confirmation">
           <div class="decision-head">
             <div class="decision-id-title">
               <span class="decision-id">D009</span>
-              <span class="decision-title">Lack of budget figures</span>
+              <span class="decision-title">Need for improved documentation</span>
             </div>
             <div class="badge-row">
-              <span class="badge badge-cat">open question</span>
+              <span class="badge badge-cat">functional requirement</span>
               
-                <span class="badge badge-confirmed">confirmed</span>
+                <span class="badge badge-inferred">needs confirmation</span>
               
             </div>
           </div>
-          <p class="decision-detail">Specific financial figures related to the budget were not shared during the discussion.</p>
+          <p class="decision-detail">There is a perceived need to improve documentation practices for future work.</p>
           
             <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
               <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1731,106 +1757,10 @@
             <div class="evidence-body" id="ev-D009">
               
               <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"no numbers were shared."</p>
-                <div class="evidence-loc">
-                  <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 6</span>
-                </div>
-              </div>
-              
-            </div>
-          
-        </div>
-        
-        <div class="decision-card" id="d-D010" data-category="functional_requirement" data-confidence="inferred_needs_confirmation">
-          <div class="decision-head">
-            <div class="decision-id-title">
-              <span class="decision-id">D010</span>
-              <span class="decision-title">Need for more thorough testing</span>
-            </div>
-            <div class="badge-row">
-              <span class="badge badge-cat">functional requirement</span>
-              
-                <span class="badge badge-inferred">needs confirmation</span>
-              
-            </div>
-          </div>
-          <p class="decision-detail">The team lead indicated that testing processes should be improved to be more thorough.</p>
-          
-            <button class="evidence-toggle" onclick="toggleEvidence('D010', this)">
-              <i class="ri-arrow-down-s-line"></i> View source citation
-            </button>
-            <div class="evidence-body" id="ev-D010">
-              
-              <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"The team lead hinted that testing should be more thorough."</p>
-                <div class="evidence-loc">
-                  <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 7</span>
-                </div>
-              </div>
-              
-            </div>
-          
-        </div>
-        
-        <div class="decision-card" id="d-D011" data-category="functional_requirement" data-confidence="inferred_needs_confirmation">
-          <div class="decision-head">
-            <div class="decision-id-title">
-              <span class="decision-id">D011</span>
-              <span class="decision-title">Improvement needed in documentation</span>
-            </div>
-            <div class="badge-row">
-              <span class="badge badge-cat">functional requirement</span>
-              
-                <span class="badge badge-inferred">needs confirmation</span>
-              
-            </div>
-          </div>
-          <p class="decision-detail">It was suggested that documentation practices need to be enhanced moving forward.</p>
-          
-            <button class="evidence-toggle" onclick="toggleEvidence('D011', this)">
-              <i class="ri-arrow-down-s-line"></i> View source citation
-            </button>
-            <div class="evidence-body" id="ev-D011">
-              
-              <div style="margin-bottom:0.75rem;">
                 <p class="evidence-quote">"We should probably document things better going forward."</p>
                 <div class="evidence-loc">
                   <i class="ri-map-pin-2-line"></i>
-                  <span>Notes section, paragraph 8</span>
-                </div>
-              </div>
-              
-            </div>
-          
-        </div>
-        
-        <div class="decision-card" id="d-D012" data-category="open_question" data-confidence="confirmed">
-          <div class="decision-head">
-            <div class="decision-id-title">
-              <span class="decision-id">D012</span>
-              <span class="decision-title">Further discussions required</span>
-            </div>
-            <div class="badge-row">
-              <span class="badge badge-cat">open question</span>
-              
-                <span class="badge badge-confirmed">confirmed</span>
-              
-            </div>
-          </div>
-          <p class="decision-detail">More discussions are deemed necessary for the project.</p>
-          
-            <button class="evidence-toggle" onclick="toggleEvidence('D012', this)">
-              <i class="ri-arrow-down-s-line"></i> View source citation
-            </button>
-            <div class="evidence-body" id="ev-D012">
-              
-              <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"More discussions needed."</p>
-                <div class="evidence-loc">
-                  <i class="ri-map-pin-2-line"></i>
-                  <span>Vague Closing Statement section</span>
+                  <span>paragraph 8</span>
                 </div>
               </div>
               
@@ -1865,13 +1795,13 @@
       
       <div class="issue-item">
         <div class="issue-header">
-          <span class="issue-loc">QA View</span>
+          <span class="issue-loc">QA View: acceptance_criteria</span>
           <span class="issue-sev sev-warning">warning</span>
         </div>
-        <p class="issue-desc">The QA view is missing critical actionable sections such as 'acceptance_criteria', 'test_scenarios', and 'edge_cases'. For confirmed decisions like D001 (performance concerns), D003 (UI aesthetic improvement), and D004 (current UI design unsatisfactory), there should be at least high-level criteria or scenario examples to guide testing efforts.</p>
+        <p class="issue-desc">The acceptance criterion 'Given a new UI design has been implemented, When the UI is interacted with, Then it must be responsive and adapt correctly across a range of common screen sizes and device types.' is presented as a confirmed criterion. While responsiveness is a good UI quality, the source decisions (D003, D004) only state 'UI needs to look nicer' and 'current design isn't great' without explicitly mentioning responsiveness. This is an inferred need presented as a definite requirement.</p>
         <div class="issue-suggestion">
           <span class="suggestion-label">Suggested Fix</span>
-          Populate the 'acceptance_criteria' and 'test_scenarios' sections with specific, measurable criteria and test cases derived from the confirmed requirements and risks. For example, 'Acceptance Criteria: UI redesign meets [design system] specifications (D003, D004)' or 'Test Scenarios: Verify dashboard load time under [X] seconds for [Y] users (D001).'
+          Either explicitly mark this as an inferred criterion requiring confirmation or rephrase it to reflect it as a best practice or a derived requirement rather than a direct extraction from the source decisions.
         </div>
       </div>
       

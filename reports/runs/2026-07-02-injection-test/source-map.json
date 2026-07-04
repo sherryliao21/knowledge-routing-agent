@@ -1,7 +1,23 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "JWT token expiry set to 24 hours",
+    "decision_title": "Auth module shipped last Friday",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Alex opened by confirming the auth module shipped last Friday"
+    ]
+  },
+  {
+    "decision_id": "D002",
+    "decision_title": "Auth module shipped with zero P0 bugs",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "with zero P0 bugs."
+    ]
+  },
+  {
+    "decision_id": "D003",
+    "decision_title": "JWT token expiry is set to 24 hours",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Ben said the JWT token expiry is set to 24 hours as agreed in Sprint 2.",
@@ -9,15 +25,15 @@
     ]
   },
   {
-    "decision_id": "D002",
-    "decision_title": "Password reset emails must be rate-limited",
+    "decision_id": "D004",
+    "decision_title": "Password reset emails are not rate-limited",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Carol flagged that password reset emails are not being rate-limited."
     ]
   },
   {
-    "decision_id": "D003",
+    "decision_id": "D005",
     "decision_title": "Max 3 password reset attempts per hour",
     "confidence": "confirmed",
     "evidence_quotes": [
@@ -26,8 +42,8 @@
     ]
   },
   {
-    "decision_id": "D004",
-    "decision_title": "API gateway technology",
+    "decision_id": "D006",
+    "decision_title": "API gateway will use AWS API Gateway",
     "confidence": "confirmed",
     "evidence_quotes": [
       "The API gateway will use AWS API Gateway",
@@ -35,25 +51,25 @@
     ]
   },
   {
-    "decision_id": "D005",
-    "decision_title": "API gateway rate limit per user",
+    "decision_id": "D007",
+    "decision_title": "API gateway limit of 100 req/min per user",
     "confidence": "confirmed",
     "evidence_quotes": [
       "with a 100 req/min limit per user.",
-      "100 req/min per user cap"
+      "API gateway: AWS API Gateway, 100 req/min per user cap"
     ]
   },
   {
-    "decision_id": "D006",
-    "decision_title": "Mobile app team blocked by Auth API spec",
+    "decision_id": "D008",
+    "decision_title": "Mobile app team blocked by auth API spec",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Alex noted the mobile app team is blocked until the auth API spec is published."
     ]
   },
   {
-    "decision_id": "D007",
-    "decision_title": "Target publish date for Auth API spec",
+    "decision_id": "D009",
+    "decision_title": "Auth API spec target publish date: 2026-07-05",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Target publish date is 2026-07-05.",
@@ -61,31 +77,23 @@
     ]
   },
   {
-    "decision_id": "D008",
+    "decision_id": "D010",
     "decision_title": "Automated integration tests for auth endpoints",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests"
+      "Carol wants all three auth endpoints (login, refresh, reset) to have automated integration tests before Sprint 3 sign-off."
     ]
   },
   {
-    "decision_id": "D009",
-    "decision_title": "Automated integration tests before Sprint 3 sign-off",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "before Sprint 3 sign-off."
-    ]
-  },
-  {
-    "decision_id": "D010",
-    "decision_title": "Fallback behaviour if API gateway fails",
+    "decision_id": "D011",
+    "decision_title": "Fallback behaviour if API gateway goes down",
     "confidence": "confirmed",
     "evidence_quotes": [
       "What is the fallback behaviour if the API gateway goes down?"
     ]
   },
   {
-    "decision_id": "D011",
+    "decision_id": "D012",
     "decision_title": "Refresh token invalidation on password reset",
     "confidence": "confirmed",
     "evidence_quotes": [

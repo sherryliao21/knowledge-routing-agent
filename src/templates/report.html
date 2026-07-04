@@ -399,6 +399,68 @@
       background: var(--slate);
     }
 
+    /* ── Always visible AI review agent tag ──────────────────────── */
+    .review-agent-tag {
+      font-size: 0.725rem;
+      color: var(--text-secondary);
+      opacity: 0.8;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ── Reference document card styling (Ledger, Notes) ─────────── */
+    .char-card.ref-card {
+      min-width: 125px;
+      max-width: 150px;
+      padding: 1.125rem 0.75rem;
+      border-radius: var(--radius); /* slightly sharper than persona cards */
+    }
+    .char-card.ref-card .ref-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px; /* square/rounded-rect */
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+      transition: all var(--dur) var(--ease-out);
+    }
+    .char-card.ref-card:hover .ref-icon-wrap {
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .char-card.ref-card.active[data-role="decisions"] {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px var(--cyan-bg), var(--shadow-sm);
+    }
+    .char-card.ref-card.active[data-role="decisions"] .ref-icon-wrap {
+      background: var(--cyan-bg);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .char-card.ref-card.active[data-role="notes"] {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-bg), var(--shadow-sm);
+    }
+    .char-card.ref-card.active[data-role="notes"] .ref-icon-wrap {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* ── Card rail divider ────────────────────────────────────────── */
+    .card-rail-divider {
+      width: 1px;
+      background: var(--border);
+      margin: 0.25rem 0.5rem;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+
     /* ── Tab panels ──────────────────────────────────────────────── */
     .panel { display: none; }
     .panel.active { display: block; }
@@ -848,7 +910,8 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved</div>
+          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
           <div class="review-note">No issues found.</div>
         </div>
       </div>
@@ -859,7 +922,8 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — {{ review.issues|length }} note(s)</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — {{ review.issues|length }} note(s)</div>
+          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
           <div class="review-note">Non-blocking review suggestions: {{ review.reviewer_notes }}</div>
         </div>
       </div>
@@ -870,13 +934,15 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-error-warning-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" title="The Reviewer is an automated AI agent (Gemini) that checks the other agents' outputs against the source evidence. It is not a human reviewer." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
+          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
+          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
           <div class="review-note">{{ review.reviewer_notes }}</div>
         </div>
       </div>
       <button class="review-action" onclick="openModal()">Inspect ({{ review.issues|length }})</button>
     </div>
   {% endif %}
+
 
 
   <!-- Security warnings -->
@@ -947,23 +1013,26 @@
         <div class="char-role">System Analyst</div>
       </button>
 
-      <button class="char-card" data-target="panel-decisions" data-role="decisions">
-        <div class="char-avatar-ring">
-          <img src="../../assets/avatar-system.jpg" alt="Decision Ledger">
+      <div class="card-rail-divider"></div>
+
+      <button class="char-card ref-card" data-target="panel-decisions" data-role="decisions">
+        <div class="ref-icon-wrap">
+          <i class="ri-file-text-line"></i>
         </div>
         <div class="char-name">Ledger</div>
         <div class="char-role">Decisions Log</div>
       </button>
 
       {% if raw_notes %}
-      <button class="char-card" data-target="panel-notes" data-role="notes">
-        <div class="char-avatar-ring">
-          <img src="../../assets/avatar-system.jpg" alt="Source Transcript" style="filter:hue-rotate(90deg)">
+      <button class="char-card ref-card" data-target="panel-notes" data-role="notes">
+        <div class="ref-icon-wrap">
+          <i class="ri-book-read-line"></i>
         </div>
         <div class="char-name">Transcript</div>
         <div class="char-role">Original Notes</div>
       </button>
       {% endif %}
+
 
     </div>
   </div>
