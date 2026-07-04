@@ -1,7 +1,7 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "Concerns about performance",
+    "decision_title": "Performance concerns identified for dashboard project",
     "confidence": "confirmed",
     "evidence_quotes": [
       "there are some concerns about performance."
@@ -9,7 +9,7 @@
   },
   {
     "decision_id": "D002",
-    "decision_title": "Need for a better database",
+    "decision_title": "Recommendation to use a better database",
     "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "Someone mentioned we should probably use a better database at some point."
@@ -25,7 +25,7 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Current UI design deemed inadequate",
+    "decision_title": "Current UI design is not satisfactory",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We all agreed the current design isn't great."
@@ -33,7 +33,7 @@
   },
   {
     "decision_id": "D005",
-    "decision_title": "Timelines are undecided",
+    "decision_title": "Timelines for the project are undecided",
     "confidence": "confirmed",
     "evidence_quotes": [
       "There was a discussion about timelines but nothing was firmly decided."
@@ -41,7 +41,7 @@
   },
   {
     "decision_id": "D006",
-    "decision_title": "CRM system integration is uncertain",
+    "decision_title": "Uncertainty regarding CRM system integration",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We might need to integrate with the CRM system eventually, but we're not sure when or how."
@@ -49,7 +49,7 @@
   },
   {
     "decision_id": "D007",
-    "decision_title": "Budget is a concern",
+    "decision_title": "Budget identified as a concern",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Budget was mentioned briefly — it's a concern but no numbers were shared."
@@ -57,7 +57,7 @@
   },
   {
     "decision_id": "D008",
-    "decision_title": "Testing needs to be more thorough",
+    "decision_title": "Recommendation for more thorough testing",
     "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "The team lead hinted that testing should be more thorough."
@@ -65,7 +65,7 @@
   },
   {
     "decision_id": "D009",
-    "decision_title": "Improved documentation required",
+    "decision_title": "Need for improved documentation",
     "confidence": "inferred_needs_confirmation",
     "evidence_quotes": [
       "We should probably document things better going forward."
