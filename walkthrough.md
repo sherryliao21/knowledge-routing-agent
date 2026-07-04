@@ -1,6 +1,6 @@
-# Walkthrough: Knowledge Routing Agent MVP v1.0
+# Walkthrough: Knowledge Routing Agent v1.1
 
-We have successfully built, verified, and published the **Knowledge Routing Agent MVP v1.0** to the `main` branch. 
+We have successfully built, verified, and published **v1.1** to the `main` branch. 
 
 ---
 
@@ -11,74 +11,91 @@ We have successfully built, verified, and published the **Knowledge Routing Agen
 capstone/
 ├── .env.example          ← Template for API keys
 ├── .gitignore            ← Excludes local secrets (.env)
-├── README.md             ← Main project documentation
-├── pyproject.toml        ← Dependencies (google-adk, click, pydantic, jinja2)
+├── README.md             ← Main project documentation with security/flag usage
+├── pyproject.toml        ← Dependencies and CLI entrypoints
 ├── uv.lock               ← Locked dependency matrix
 ├── src/
 │   ├── agent.py          ← SequentialAgent core pipeline
 │   ├── cli/
-│   │   └── main.py       ← CLI Entrypoint (run command + validations)
+│   │   └── main.py       ← CLI Entrypoint (run command + validations + --include-transcript flag)
 │   ├── core/
 │   │   ├── parser.py     ← Input parser and security guards
-│   │   ├── decision_extractor.py ← Decision extraction agent
-│   │   ├── role_router.py   ← Parallel routing agent (4 roles)
-│   │   ├── reviewer.py       ← Hallucination and quality checks agent
+│   │   ├── decision_extractor.py ← Decision extraction agent (injection defense)
+│   │   ├── role_router.py   ← Parallel routing agent (5 roles: Engineer, QA, PM, SA, Stakeholder)
+│   │   ├── reviewer.py       ← Hallucination + Quality + Injection check agent
 │   │   └── report_builder.py ← Renders HTML and Hub page
-│   ├── prompts/          ← Markdown templates for the agents
+│   ├── prompts/          ← Markdown prompts (with pm_router and sa_router split)
+│   │   ├── decision_extractor.md
+│   │   ├── engineer_router.md
+│   │   ├── pm_router.md
+│   │   ├── sa_router.md   ← [NEW] System Analyst prompt focusing on system design
+│   │   ├── qa_router.md
+│   │   └── reviewer.md
 │   ├── schemas/
-│   │   └── models.py     ← Pydantic schemas enforcing output types
-│   └── templates/        ← HTML dashboards templates (Ethereal Glass style)
+│   │   └── models.py     ← Pydantic schemas (added SAView, milestones, injection warning fields)
+│   └── templates/        ← HTML dashboard templates (Soft Structuralism light mode)
 ├── samples/
-│   └── 2026-07-01-planning.md  ← Messy project kickoff sync sample
+│   ├── 2026-07-01-planning.md       ← Phoenix kickoff sample notes
+│   ├── 2026-07-02-injection-test.md ← [NEW] Injection test notes
+│   └── 2026-07-03-vague-notes.md     ← [NEW] Vague requirements notes
+├── scripts/
+│   └── run_tests.sh      ← [NEW] Automated test suite runner (T2/T3/T4)
 └── reports/              ← Git-tracked reports directory for GH Pages
-    ├── index.html        ← The central knowledge Hub listing all runs
+    ├── index.html        ← The central knowledge Hub (Soft Structuralism redesign)
+    ├── assets/           ← Stakeholder photos and emblem assets
     └── runs/
         └── 2026-07-01-project-phoenix-kickoff/
             ├── index.html       ← Interactive tabbed report
-            ├── output.json      ← Serialized structured data (privacy-safe)
+            ├── output.json      ← Serialized structured data (privacy-safe by default)
             └── source-map.json  ← Decision ID -> quote mappings
 ```
 
 ---
 
-## 🔒 Implemented Security Features (Kaggle Grade)
+## 🔒 Implemented Security & Privacy Hardening (v1.1)
 
-1. **Strict File Checks:** Input is restricted to `.md` files to prevent malicious scripts from execution.
-2. **Size Guardrails:** Capped raw text inputs to `50,000 characters` (~10 pages) to block buffer inflation or massive token bill spikes.
-3. **API Keys Isolation:** Excluded `.env` keys from source control using local variables.
-4. **Structural Privacy Enforcer:** The raw meeting notes text is processed **entirely in-memory** and **never** written to `output.json`, `source-map.json`, or the HTML templates. Only extracted, verified facts and verbatim citation snippets are persisted, protecting sensitive discussions.
-
----
-
-## 🎨 Premium Visual System (Ethereal Glass Vibe)
-
-Following the **High-End UI/UX design** patterns:
-- **Vibe:** Deep OLED black backgrounds (`#050505`) with custom glowing radial mesh gradients.
-- **Components:** Glassmorphic card layouts (`backdrop-filter`) with 1px light borders (`rgba(255,255,255,0.08)`) and soft highlights.
-- **Typography:** `Plus Jakarta Sans` for titles/UI, paired with `Geist Mono` for IDs and metadata.
-- **Interactions:** Fully interactive tabs to navigate role views, custom collapsible citation accordions, search indexing for decisions, and a clean verification modal window displaying reviewer flags.
+1. **Opt-in Transcript Isolation:** By default, the raw meeting notes are **never** written to the generated reports directory to prevent accidental leakage of sensitive conversations. To publish the transcript tab in the HTML report, users must explicitly supply the `--include-transcript` flag.
+2. **Prompt Injection Defenses:** The `decision_extractor` prompt treats incoming notes as untrusted data rather than instructions. If a user inserts instructions trying to bypass confirmation/grounding, they are ignored.
+3. **Automated Warning Flags:** The `reviewer` agent checks for injection patterns and sensitive information (credentials, PII). Flagged warning strings are stored in `prompt_injection_warnings` and `sensitive_content_warnings` fields and displayed as highlighted banners in the dashboard header.
 
 ---
 
-## 🚀 Live Demonstration Results
+## 📊 Split of PM (Project Manager) & SA (System Analyst) Roles
 
-Running the kickoff sync of `Project Phoenix`:
-```bash
-uv run knowledge-route run samples/2026-07-01-planning.md --title "Project Phoenix Kickoff" --date 2026-07-01
+Previously combined, we separated them into two distinct operational contexts:
+- **Project Manager (Sarah):** Focuses strictly on delivery timeline, cross-team dependencies, project risks, alignment gaps, and delivery milestones.
+- **System Analyst (Alex):** Focuses strictly on architectural system design, writing formal specifications ("SHALL/MUST NOT" requirements), data flows/integrations, and interface/API contracts.
+
+---
+
+## 🎨 Premium Light Mode (Soft Structuralism Vibe)
+
+Following the **High-End UI/UX design** guidelines:
+- **Palette:** Crisp Slate & Off-White (`#f5f5f5` / `#ffffff`) base theme with distinct color accents per role card.
+- **Navigation Row:** Horizontal navigation row displaying cards for the five roles plus decisions log, each complete with custom profile pictures (Dave, John, Emma, Sarah, Alex) and colored glowing rings.
+- **Responsive:** Fits nicely on 375px mobile screens with smooth horizontal scroll-snap buttons.
+
+---
+
+## 🚀 Live Test Verification
+
+We wrote an automated test runner `capstone/scripts/run_tests.sh` that validates:
+- **T2 (Injection Detection):** Confirms that prompt injection warnings are caught and populated.
+- **T3 (Vague Requirements):** Validates processing notes with incomplete details.
+- **T4 (Boundary Checks):** Verifies correct rejection of empty files, plain-text formats, and oversized uploads.
+
+All tests passed successfully:
 ```
-
-1. **Parser Gate:** Validated `3,053 characters` of raw discussion notes.
-2. **Extraction Stage:** `decision_extractor` extracted **28 confirmed architectural choices and milestones**.
-3. **Role Routing:** Routed specifications in parallel to **Engineer**, **QA**, **PM/SA**, and **Stakeholder** contexts.
-4. **Reviewer verification:** Executed a hallucination check. Returned **PASS (Approved)** for the kickoff sample.
-5. **Report Compilation:** Wrote the structured schema models and the static HTML brief. Updated the Hub Index.
-
----
-
-## 📈 Next Steps
-
-- **YouTube Video:** Record a 5-minute video demonstrating:
-  1. The CLI running on the kickoff markdown file.
-  2. The generated premium HTML pages in your browser.
-  3. A quick walk-through of `agent.py` and `models.py`.
-- **Kaggle Writeup:** You can copy details from `README.md` and this walkthrough for your Kaggle competition report.
+==================================================
+  Knowledge Route Agent — Test Suite
+==================================================
+✓ PASS — T2: Pipeline completed successfully
+✓ PASS — T2: output.json created
+✓ PASS — T2: prompt_injection_warnings field exists in output.json
+✓ PASS — T3: Pipeline completed successfully
+✓ PASS — T3: output.json created
+✓ PASS — T4: Empty file correctly rejected by parser
+✓ PASS — T4b: Non-markdown file correctly rejected
+✓ PASS — T4c: Oversized file correctly rejected
+==================================================
+```
