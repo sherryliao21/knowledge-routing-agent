@@ -399,66 +399,48 @@
       background: var(--slate);
     }
 
-    /* ── Always visible AI review agent tag ──────────────────────── */
-    .review-agent-tag {
-      font-size: 0.725rem;
-      color: var(--text-secondary);
-      opacity: 0.8;
-      margin-bottom: 0.25rem;
-      font-weight: 500;
-    }
-
-    /* ── Reference document card styling (Ledger, Notes) ─────────── */
-    .char-card.ref-card {
-      min-width: 125px;
-      max-width: 150px;
-      padding: 1.125rem 0.75rem;
-      border-radius: var(--radius); /* slightly sharper than persona cards */
-    }
-    .char-card.ref-card .ref-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px; /* square/rounded-rect */
-      background: var(--bg);
-      border: 1px solid var(--border);
+    /* ── Report utility links ────────────────────────────────────── */
+    .report-utility-links {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .utility-link {
+      font-size: 0.8125rem;
+      font-weight: 600;
       color: var(--text-secondary);
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.875rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       transition: all var(--dur) var(--ease-out);
+      font-family: inherit;
+      box-shadow: var(--shadow-sm);
     }
-    .char-card.ref-card:hover .ref-icon-wrap {
-      border-color: var(--border-strong);
+    .utility-link:hover {
       color: var(--text-primary);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
     }
-    .char-card.ref-card.active[data-role="decisions"] {
-      border-color: var(--cyan);
-      box-shadow: 0 0 0 3px var(--cyan-bg), var(--shadow-sm);
-    }
-    .char-card.ref-card.active[data-role="decisions"] .ref-icon-wrap {
-      background: var(--cyan-bg);
-      border-color: var(--cyan);
+    .utility-link.active[data-role="decisions"] {
       color: var(--cyan);
+      border-color: var(--cyan);
+      background: var(--cyan-bg);
+      box-shadow: 0 0 0 3px var(--cyan-bg);
     }
-    .char-card.ref-card.active[data-role="notes"] {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px var(--teal-bg), var(--shadow-sm);
-    }
-    .char-card.ref-card.active[data-role="notes"] .ref-icon-wrap {
-      background: var(--teal-bg);
-      border-color: var(--teal);
+    .utility-link.active[data-role="notes"] {
       color: var(--teal);
+      border-color: var(--teal);
+      background: var(--teal-bg);
+      box-shadow: 0 0 0 3px var(--teal-bg);
     }
 
-    /* ── Card rail divider ────────────────────────────────────────── */
-    .card-rail-divider {
-      width: 1px;
-      background: var(--border);
-      margin: 0.25rem 0.5rem;
-      align-self: stretch;
-      flex-shrink: 0;
-    }
 
 
     /* ── Tab panels ──────────────────────────────────────────────── */
@@ -910,8 +892,7 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved</div>
-          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
+          <div class="review-label">AI Reviewer Agent<i class="ri-information-line" title="Checks the other agents' outputs against the source evidence." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved</div>
           <div class="review-note">No issues found.</div>
         </div>
       </div>
@@ -922,8 +903,7 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-checkbox-circle-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — {{ review.issues|length }} note(s)</div>
-          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
+          <div class="review-label">AI Reviewer Agent<i class="ri-information-line" title="Checks the other agents' outputs against the source evidence." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Approved — {{ review.issues|length }} note(s)</div>
           <div class="review-note">Non-blocking review suggestions: {{ review.reviewer_notes }}</div>
         </div>
       </div>
@@ -934,14 +914,14 @@
       <div class="review-left">
         <div class="review-icon"><i class="ri-error-warning-line"></i></div>
         <div>
-          <div class="review-label">Reviewer<i class="ri-information-line" style="font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
-          <div class="review-agent-tag">AI Reviewer Agent — automated, not a human reviewer</div>
+          <div class="review-label">AI Reviewer Agent<i class="ri-information-line" title="Checks the other agents' outputs against the source evidence." style="cursor: help; font-size: 0.85rem; margin-left: 0.25rem; vertical-align: middle;"></i>: Flag Needed</div>
           <div class="review-note">{{ review.reviewer_notes }}</div>
         </div>
       </div>
       <button class="review-action" onclick="openModal()">Inspect ({{ review.issues|length }})</button>
     </div>
   {% endif %}
+
 
 
 
@@ -968,6 +948,17 @@
       </div>
     </div>
   {% endif %}
+  <!-- Reference document utility links -->
+  <div class="report-utility-links">
+    <button class="utility-link" data-target="panel-decisions" data-role="decisions">
+      <i class="ri-file-list-3-line"></i> View full decision ledger
+    </button>
+    {% if raw_notes %}
+    <button class="utility-link" data-target="panel-notes" data-role="notes">
+      <i class="ri-file-text-line"></i> View source transcript
+    </button>
+    {% endif %}
+  </div>
 
   <!-- Character card row — horizontal, vertical cards -->
   <div class="char-row-wrap">
@@ -1012,27 +1003,6 @@
         <div class="char-name">Alex</div>
         <div class="char-role">System Analyst</div>
       </button>
-
-      <div class="card-rail-divider"></div>
-
-      <button class="char-card ref-card" data-target="panel-decisions" data-role="decisions">
-        <div class="ref-icon-wrap">
-          <i class="ri-file-text-line"></i>
-        </div>
-        <div class="char-name">Ledger</div>
-        <div class="char-role">Decisions Log</div>
-      </button>
-
-      {% if raw_notes %}
-      <button class="char-card ref-card" data-target="panel-notes" data-role="notes">
-        <div class="ref-icon-wrap">
-          <i class="ri-book-read-line"></i>
-        </div>
-        <div class="char-name">Transcript</div>
-        <div class="char-role">Original Notes</div>
-      </button>
-      {% endif %}
-
 
     </div>
   </div>
@@ -1482,7 +1452,7 @@
 
 <script>
   // --- Tab switching ---
-  const cards = document.querySelectorAll('.char-card');
+  const cards = document.querySelectorAll('.char-card, .utility-link');
   const panels = document.querySelectorAll('.panel');
 
   cards.forEach(card => {
@@ -1504,7 +1474,8 @@
 
   // --- Jump to decision ---
   function goDecision(id) {
-    document.querySelector('.char-card[data-target="panel-decisions"]').click();
+    document.querySelector('[data-target="panel-decisions"]').click();
+
     setTimeout(() => {
       const el = document.getElementById('d-' + id);
       if (!el) return;

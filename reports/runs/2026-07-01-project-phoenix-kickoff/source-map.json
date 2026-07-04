@@ -1,23 +1,23 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "Phoenix Project V1 Main Goal: Working MVP",
+    "decision_title": "Main goal for V1 is a working MVP.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "The main goal for V1 is a working MVP by September 1st."
+      "The main goal for V1 is a working MVP"
     ]
   },
   {
     "decision_id": "D002",
-    "decision_title": "V1 MVP Deadline: September 1st",
+    "decision_title": "V1 MVP deadline: September 1st.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "The main goal for V1 is a working MVP by September 1st."
+      "a working MVP by September 1st"
     ]
   },
   {
     "decision_id": "D003",
-    "decision_title": "Hard Deadline Due to Marketing Campaign",
+    "decision_title": "Hard deadline for V1 MVP due to marketing campaign.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We have a hard constraint on the deadline because of the marketing campaign launch on Sept 5th."
@@ -25,439 +25,352 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Marketing Campaign Launch Date: September 5th",
+    "decision_title": "Marketing campaign launch date: September 5th.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "marketing campaign launch on Sept 5th."
+      "the marketing campaign launch on Sept 5th."
     ]
   },
   {
     "decision_id": "D005",
-    "decision_title": "Ads Already Booked",
+    "decision_title": "V1 must include user authentication.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Yes, we've already booked the ads."
+      "V1 must have user authentication"
     ]
   },
   {
     "decision_id": "D006",
-    "decision_title": "V1 Must Include User Authentication",
+    "decision_title": "V1 must include a working project dashboard.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "V1 must have user authentication and a working project dashboard."
+      "a working project dashboard."
     ]
   },
   {
     "decision_id": "D007",
-    "decision_title": "V1 Must Include a Working Project Dashboard",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "V1 must have user authentication and a working project dashboard."
-    ]
-  },
-  {
-    "decision_id": "D008",
-    "decision_title": "System Performance Must Be 'Super Fast'",
+    "decision_title": "System performance requirement: \"super fast\".",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Let's make sure it's super fast."
     ]
   },
   {
-    "decision_id": "D009",
-    "decision_title": "Frontend Technology: React",
+    "decision_id": "D008",
+    "decision_title": "Frontend technology: React.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "For the stack, I've decided: we are using React for the frontend and Python (FastAPI) for the backend service."
+      "we are using React for the frontend"
+    ]
+  },
+  {
+    "decision_id": "D009",
+    "decision_title": "Backend technology: Python (FastAPI).",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Python (FastAPI) for the backend service."
     ]
   },
   {
     "decision_id": "D010",
-    "decision_title": "Backend Technology: Python (FastAPI)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "we are using React for the frontend and Python (FastAPI) for the backend service."
-    ]
-  },
-  {
-    "decision_id": "D011",
-    "decision_title": "Python Chosen Due to Existing Libraries and Team Expertise",
+    "decision_title": "Python chosen due to existing team libraries.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "I think it makes the most sense for our team since we already have libraries built in Python."
     ]
   },
   {
+    "decision_id": "D011",
+    "decision_title": "Database technology: PostgreSQL.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "We'll use PostgreSQL."
+    ]
+  },
+  {
     "decision_id": "D012",
-    "decision_title": "Database Technology Open Question (Resolved)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "What about the database?"
-    ]
-  },
-  {
-    "decision_id": "D013",
-    "decision_title": "Database Will Be PostgreSQL",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "We'll use PostgreSQL. Standard relational model is fine."
-    ]
-  },
-  {
-    "decision_id": "D014",
-    "decision_title": "Standard Relational Model for Database",
+    "decision_title": "Database model: Standard relational.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Standard relational model is fine."
     ]
   },
   {
-    "decision_id": "D015",
-    "decision_title": "Session Management Technology Open Question (Resolved)",
+    "decision_id": "D013",
+    "decision_title": "Session management: Standard PostgreSQL sessions for V1.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "what about session management? Should we use Redis or just standard database sessions?"
+      "Let's stick to standard postgres sessions for now"
+    ]
+  },
+  {
+    "decision_id": "D014",
+    "decision_title": "Defer Redis for session management to V2.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Let's defer Redis to V2"
+    ]
+  },
+  {
+    "decision_id": "D015",
+    "decision_title": "Use standard PostgreSQL sessions to save budget.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "to save budget."
     ]
   },
   {
     "decision_id": "D016",
-    "decision_title": "Redis Deferred to V2",
+    "decision_title": "Redis may be considered for V2 if performance is a blocker.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Let's defer Redis to V2 unless it's a performance blocker."
+      "unless it's a performance blocker."
     ]
   },
   {
     "decision_id": "D017",
-    "decision_title": "Standard PostgreSQL Sessions for V1",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Let's stick to standard postgres sessions for now to save budget."
-    ]
-  },
-  {
-    "decision_id": "D018",
-    "decision_title": "Simplicity is a Guiding Principle for V1",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Keep it simple."
-    ]
-  },
-  {
-    "decision_id": "D019",
-    "decision_title": "Budget Saving as a Factor for Technology Choices",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Let's stick to standard postgres sessions for now to save budget."
-    ]
-  },
-  {
-    "decision_id": "D020",
-    "decision_title": "User Authentication Implementation Method Open Question (Resolved)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "How are we doing user auth?"
-    ]
-  },
-  {
-    "decision_id": "D021",
-    "decision_title": "Third-Party Authentication Solution Preferred",
+    "decision_title": "User authentication must not be built in-house.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We don't want to build it ourselves, right?"
     ]
   },
   {
-    "decision_id": "D022",
-    "decision_title": "Integrate Firebase Authentication for V1",
+    "decision_id": "D018",
+    "decision_title": "Integrate Firebase Authentication for V1.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "for V1, let's just integrate Firebase Authentication."
     ]
   },
   {
-    "decision_id": "D023",
-    "decision_title": "Firebase Auth Chosen for Quick Integration",
+    "decision_id": "D019",
+    "decision_title": "Firebase Auth chosen for quick integration, social logins, and pricing.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "It's quick, handles social logins easily, and matches our pricing requirements."
+    ]
+  },
+  {
+    "decision_id": "D020",
+    "decision_title": "Firebase Auth to support Google sign-in.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "We will configure it to allow Google sign-in"
+    ]
+  },
+  {
+    "decision_id": "D021",
+    "decision_title": "Firebase Auth to support email logins.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "and email logins."
+    ]
+  },
+  {
+    "decision_id": "D022",
+    "decision_title": "User registration to collect email.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Just email"
+    ]
+  },
+  {
+    "decision_id": "D023",
+    "decision_title": "User registration to collect full name.",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "full name"
     ]
   },
   {
     "decision_id": "D024",
-    "decision_title": "Firebase Auth Must Handle Social Logins Easily",
+    "decision_title": "User registration to collect role.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "It's quick, handles social logins easily, and matches our pricing requirements."
+      "and role."
     ]
   },
   {
     "decision_id": "D025",
-    "decision_title": "Firebase Auth Must Match Pricing Requirements",
+    "decision_title": "User registration must collect company name.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "It's quick, handles social logins easily, and matches our pricing requirements."
+      "we need to collect company name too!"
     ]
   },
   {
     "decision_id": "D026",
-    "decision_title": "Firebase Auth Must Support Google Sign-in",
+    "decision_title": "Company name is required during signup.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "We will configure it to allow Google sign-in and email logins."
+      "Company name is required during signup."
     ]
   },
   {
     "decision_id": "D027",
-    "decision_title": "Firebase Auth Must Support Email Logins",
+    "decision_title": "Address not required for user registration (for now).",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "We will configure it to allow Google sign-in and email logins."
+      "We don't need address"
     ]
   },
   {
     "decision_id": "D028",
-    "decision_title": "User Registration Acceptance Criteria Needed (Resolved)",
+    "decision_title": "Telephone number not required for user registration (for now).",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Do we have acceptance criteria for user registration?"
+      "or telephone number for now."
     ]
   },
   {
     "decision_id": "D029",
-    "decision_title": "Required Fields for User Registration Open Question (Resolved)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "What fields do we collect?"
-    ]
-  },
-  {
-    "decision_id": "D030",
-    "decision_title": "User Registration Must Collect Email",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Just email, full name, and role."
-    ]
-  },
-  {
-    "decision_id": "D031",
-    "decision_title": "User Registration Must Collect Full Name",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Just email, full name, and role."
-    ]
-  },
-  {
-    "decision_id": "D032",
-    "decision_title": "User Registration Must Collect Role",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Just email, full name, and role."
-    ]
-  },
-  {
-    "decision_id": "D033",
-    "decision_title": "Address and Telephone Number Not Required for V1 Registration",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "We don't need address or telephone number for now."
-    ]
-  },
-  {
-    "decision_id": "D034",
-    "decision_title": "User Registration Must Collect Company Name",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Wait, we need to collect company name too! We are B2B."
-    ]
-  },
-  {
-    "decision_id": "D035",
-    "decision_title": "Project is B2B Focused",
+    "decision_title": "Project targets B2B market.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We are B2B."
     ]
   },
   {
-    "decision_id": "D036",
-    "decision_title": "Deployment Strategy Open Question (Resolved)",
+    "decision_id": "D030",
+    "decision_title": "Frontend deployment: Vercel for React app.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "What about deployment?"
-    ]
-  },
-  {
-    "decision_id": "D037",
-    "decision_title": "Cloud Run Proposed for FastAPI App Deployment (Confirmed with Security Constraint)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "I was thinking Cloud Run for the FastAPI app and Vercel for the React app."
-    ]
-  },
-  {
-    "decision_id": "D038",
-    "decision_title": "Vercel Proposed for React App Deployment (Confirmed)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "I was thinking Cloud Run for the FastAPI app and Vercel for the React app."
-    ]
-  },
-  {
-    "decision_id": "D039",
-    "decision_title": "Vercel Accepted for Frontend Deployment",
-    "confidence": "confirmed",
-    "evidence_quotes": [
+      "Vercel for the React app.",
       "Vercel is fine"
     ]
   },
   {
-    "decision_id": "D040",
-    "decision_title": "Security of Cloud Run for Backend is a Concern (Resolved)",
+    "decision_id": "D031",
+    "decision_title": "Backend deployment: Cloud Run for FastAPI app.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "but for the backend, is Cloud Run secure?"
+      "Cloud Run for the FastAPI app"
     ]
   },
   {
-    "decision_id": "D041",
-    "decision_title": "Database Must Be in a Private VPC",
+    "decision_id": "D032",
+    "decision_title": "Database in a private VPC.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Yes, we will place the database in a private VPC and connect Cloud Run via Serverless VPC Access."
+      "we will place the database in a private VPC"
     ]
   },
   {
-    "decision_id": "D042",
-    "decision_title": "Cloud Run Connects to DB via Serverless VPC Access",
+    "decision_id": "D033",
+    "decision_title": "Cloud Run connects to DB via Serverless VPC Access.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "connect Cloud Run via Serverless VPC Access."
     ]
   },
   {
-    "decision_id": "D043",
-    "decision_title": "PostgreSQL Instance Not Exposed to Public Internet",
+    "decision_id": "D034",
+    "decision_title": "PostgreSQL instance must not be exposed to public internet.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "That way the postgres instance is not exposed to the public internet."
+      "the postgres instance is not exposed to the public internet."
     ]
   },
   {
-    "decision_id": "D044",
-    "decision_title": "Security is a Strict Technical Constraint",
+    "decision_id": "D035",
+    "decision_title": "Non-exposure of DB to public internet is a strict security constraint.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "This is a strict technical constraint for security."
     ]
   },
   {
-    "decision_id": "D045",
-    "decision_title": "Authentication Flow Needs Thorough Testing",
+    "decision_id": "D036",
+    "decision_title": "User authentication flow needs thorough testing.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We need to test the auth flow thoroughly."
     ]
   },
   {
-    "decision_id": "D046",
-    "decision_title": "Session Duration (Token Expiration) Open Question (Resolved)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "If a user logs in, how long does the session last?"
-    ]
-  },
-  {
-    "decision_id": "D047",
-    "decision_title": "Token Expiration Set to 24 Hours",
+    "decision_id": "D037",
+    "decision_title": "Token expiration set to 24 hours.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Let's set token expiration to 24 hours."
     ]
   },
   {
-    "decision_id": "D048",
-    "decision_title": "Token Expiration is Adjustable",
+    "decision_id": "D038",
+    "decision_title": "Token expiration can be adjusted later.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "We can adjust it later."
     ]
   },
   {
-    "decision_id": "D049",
-    "decision_title": "Dashboard Metrics Open Question (Resolved)",
+    "decision_id": "D039",
+    "decision_title": "Dashboard to display active user metrics.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "What metrics are we displaying?"
+      "We need active user metrics"
     ]
   },
   {
-    "decision_id": "D050",
-    "decision_title": "Dashboard Must Display Active User Metrics",
+    "decision_id": "D040",
+    "decision_title": "Dashboard to display system status.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "We need active user metrics, system status, and project lists."
+      "system status"
     ]
   },
   {
-    "decision_id": "D051",
-    "decision_title": "Dashboard Must Display System Status",
+    "decision_id": "D041",
+    "decision_title": "Dashboard to display project lists.",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "We need active user metrics, system status, and project lists."
+      "and project lists."
     ]
   },
   {
-    "decision_id": "D052",
-    "decision_title": "Dashboard Must Display Project Lists",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "We need active user metrics, system status, and project lists."
-    ]
-  },
-  {
-    "decision_id": "D053",
-    "decision_title": "Detailing Dashboard Features Deferred to Next Sync",
+    "decision_id": "D042",
+    "decision_title": "Detail dashboard features in the next sync.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Let's detail the dashboard features in the next sync."
     ]
   },
   {
-    "decision_id": "D054",
-    "decision_title": "Firebase Provisioning Responsibility Open Question (Resolved)",
+    "decision_id": "D043",
+    "decision_title": "Open question: Who is handling Firebase provisioning?",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "One open question: who is handling the Firebase provisioning?"
+      "who is handling the Firebase provisioning?"
     ]
   },
   {
-    "decision_id": "D055",
-    "decision_title": "Firebase Config Keys Needed by Next Week",
+    "decision_id": "D044",
+    "decision_title": "Firebase config keys needed by next week.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "I need the config keys by next week."
     ]
   },
   {
-    "decision_id": "D056",
-    "decision_title": "Mike Assigned Firebase Provisioning",
+    "decision_id": "D045",
+    "decision_title": "Mike assigned to Firebase provisioning.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "I'll assign that to Mike."
     ]
   },
   {
-    "decision_id": "D057",
-    "decision_title": "Firebase Config Keys Ready by July 8th",
+    "decision_id": "D046",
+    "decision_title": "Firebase provisioning by Mike by July 8th.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "He should have it ready by July 8th."
     ]
   },
   {
-    "decision_id": "D058",
-    "decision_title": "Sync with Marketing Team on Dashboard Design Next Wednesday",
+    "decision_id": "D047",
+    "decision_title": "Sync with marketing team on dashboard design next Wednesday.",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Let's make sure we sync with the marketing team on the dashboard design next Wednesday."
