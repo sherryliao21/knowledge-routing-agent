@@ -406,7 +406,7 @@
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
     }
-    .utility-link {
+    .utility-link, .ledger-link {
       font-size: 0.8125rem;
       font-weight: 600;
       color: var(--text-secondary);
@@ -421,18 +421,13 @@
       transition: all var(--dur) var(--ease-out);
       font-family: inherit;
       box-shadow: var(--shadow-sm);
+      text-decoration: none;
     }
-    .utility-link:hover {
+    .utility-link:hover, .ledger-link:hover {
       color: var(--text-primary);
       border-color: var(--border-strong);
       transform: translateY(-1px);
       box-shadow: var(--shadow-md);
-    }
-    .utility-link.active[data-role="decisions"] {
-      color: var(--cyan);
-      border-color: var(--cyan);
-      background: var(--cyan-bg);
-      box-shadow: 0 0 0 3px var(--cyan-bg);
     }
     .utility-link.active[data-role="notes"] {
       color: var(--teal);
@@ -440,6 +435,7 @@
       background: var(--teal-bg);
       box-shadow: 0 0 0 3px var(--teal-bg);
     }
+
 
 
 
@@ -864,8 +860,15 @@
 
   <!-- Header -->
   <div class="header">
-    <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
-    <h1 class="header-title">{{ metadata.title }}</h1>
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+      <div>
+        <div class="eyebrow"><i class="ri-radar-line"></i> Routed Report</div>
+        <h1 class="header-title" style="margin:0;">{{ metadata.title }}</h1>
+      </div>
+      <button class="ledger-link" onclick="openLedgerModal()" style="margin:0; flex-shrink:0;">
+        <i class="ri-file-list-3-line"></i> View full decision ledger
+      </button>
+    </div>
     <div class="meta-bar">
       <div class="meta-cell">
         <span class="meta-key">Date</span>
@@ -885,6 +888,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Review status banner -->
   {% if review.status == "PASS" and review.issues|length == 0 %}
@@ -949,16 +953,14 @@
     </div>
   {% endif %}
   <!-- Reference document utility links -->
+  {% if raw_notes %}
   <div class="report-utility-links">
-    <button class="utility-link" data-target="panel-decisions" data-role="decisions">
-      <i class="ri-file-list-3-line"></i> View full decision ledger
-    </button>
-    {% if raw_notes %}
     <button class="utility-link" data-target="panel-notes" data-role="notes">
       <i class="ri-file-text-line"></i> View source transcript
     </button>
-    {% endif %}
   </div>
+  {% endif %}
+
 
   <!-- Character card row — horizontal, vertical cards -->
   <div class="char-row-wrap">
@@ -1337,73 +1339,8 @@
     </div>
   </div>
 
-  <!-- DECISIONS LEDGER -->
-  <div class="panel" id="panel-decisions">
-    <div class="card">
-      <div class="panel-title"><i class="ri-node-tree icon-cyan"></i> Sourced Decision Ledger</div>
-      <p class="panel-desc">All extracted items with source citations. Filter by category or search by keyword.</p>
 
-      <div class="search-row">
-        <div class="search-wrap">
-          <i class="ri-search-line"></i>
-          <input id="searchInput" class="search-input" type="text" placeholder="Search decisions…" oninput="filterDecisions()">
-        </div>
-        <select id="catFilter" class="filter-select" onchange="filterDecisions()">
-          <option value="all">All categories</option>
-          <option value="key_decision">Key decisions</option>
-          <option value="business_requirement">Business requirements</option>
-          <option value="functional_requirement">Functional requirements</option>
-          <option value="technical_constraint">Technical constraints</option>
-          <option value="deadline_or_milestone">Deadlines &amp; milestones</option>
-          <option value="dependency">Dependencies</option>
-          <option value="risk">Risks</option>
-          <option value="open_question">Open questions</option>
-        </select>
-      </div>
 
-      <div id="decisionsList">
-        {% for decision in extraction.decisions %}
-        <div class="decision-card" id="d-{{ decision.id }}" data-category="{{ decision.category }}" data-confidence="{{ decision.confidence }}">
-          <div class="decision-head">
-            <div class="decision-id-title">
-              <span class="decision-id">{{ decision.id }}</span>
-              <span class="decision-title">{{ decision.title }}</span>
-            </div>
-            <div class="badge-row">
-              <span class="badge badge-cat">{{ decision.category|replace('_', ' ') }}</span>
-              {% if decision.confidence == "confirmed" %}
-                <span class="badge badge-confirmed">confirmed</span>
-              {% else %}
-                <span class="badge badge-inferred">needs confirmation</span>
-              {% endif %}
-            </div>
-          </div>
-          <p class="decision-detail">{{ decision.detail }}</p>
-          {% if decision.evidence %}
-            <button class="evidence-toggle" onclick="toggleEvidence('{{ decision.id }}', this)">
-              <i class="ri-arrow-down-s-line"></i> View source citation
-            </button>
-            <div class="evidence-body" id="ev-{{ decision.id }}">
-              {% for ev in decision.evidence %}
-              <div style="margin-bottom:0.75rem;">
-                <p class="evidence-quote">"{{ ev.quote }}"</p>
-                <div class="evidence-loc">
-                  <i class="ri-map-pin-2-line"></i>
-                  <span>{{ ev.approximate_location }}</span>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-          {% else %}
-            <span class="evidence-toggle" style="cursor:default;">
-              <i class="ri-close-circle-line"></i> No citation (inferred)
-            </span>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
 
   <!-- TRANSCRIPT (opt-in only) -->
   {% if raw_notes %}
@@ -1450,6 +1387,76 @@
   </div>
 </div>
 
+<!-- Ledger modal -->
+<div class="modal-backdrop" id="ledgerModal">
+  <div class="modal-box" style="max-width: 900px; max-height: 85vh; overflow-y: auto;">
+    <button class="modal-close" onclick="closeLedgerModal()"><i class="ri-close-line"></i></button>
+    <div class="modal-title"><i class="ri-node-tree icon-cyan"></i> Sourced Decision Ledger</div>
+    <p class="modal-subtitle">All extracted items with source citations. Filter by category or search by keyword.</p>
+
+    <div class="search-row">
+      <div class="search-wrap">
+        <i class="ri-search-line"></i>
+        <input id="searchInput" class="search-input" type="text" placeholder="Search decisions…" oninput="filterDecisions()">
+      </div>
+      <select id="catFilter" class="filter-select" onchange="filterDecisions()">
+        <option value="all">All categories</option>
+        <option value="key_decision">Key decisions</option>
+        <option value="business_requirement">Business requirements</option>
+        <option value="functional_requirement">Functional requirements</option>
+        <option value="technical_constraint">Technical constraints</option>
+        <option value="deadline_or_milestone">Deadlines &amp; milestones</option>
+        <option value="dependency">Dependencies</option>
+        <option value="risk">Risks</option>
+        <option value="open_question">Open questions</option>
+      </select>
+    </div>
+
+    <div id="decisionsList">
+      {% for decision in extraction.decisions %}
+      <div class="decision-card" id="d-{{ decision.id }}" data-category="{{ decision.category }}" data-confidence="{{ decision.confidence }}">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">{{ decision.id }}</span>
+            <span class="decision-title">{{ decision.title }}</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">{{ decision.category|replace('_', ' ') }}</span>
+            {% if decision.confidence == "confirmed" %}
+              <span class="badge badge-confirmed">confirmed</span>
+            {% else %}
+              <span class="badge badge-inferred">needs confirmation</span>
+            {% endif %}
+          </div>
+        </div>
+        <p class="decision-detail">{{ decision.detail }}</p>
+        {% if decision.evidence %}
+          <button class="evidence-toggle" onclick="toggleEvidence('{{ decision.id }}', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-{{ decision.id }}">
+            {% for ev in decision.evidence %}
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"{{ ev.quote }}"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>{{ ev.approximate_location }}</span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <span class="evidence-toggle" style="cursor:default;">
+            <i class="ri-close-circle-line"></i> No citation (inferred)
+          </span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
 <script>
   // --- Tab switching ---
   const cards = document.querySelectorAll('.char-card, .utility-link');
@@ -1474,7 +1481,7 @@
 
   // --- Jump to decision ---
   function goDecision(id) {
-    document.querySelector('[data-target="panel-decisions"]').click();
+    openLedgerModal();
 
     setTimeout(() => {
       const el = document.getElementById('d-' + id);
@@ -1502,6 +1509,14 @@
   document.getElementById('reviewModal').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
   });
+
+  // --- Ledger Modal ---
+  function openLedgerModal() { document.getElementById('ledgerModal').classList.add('open'); }
+  function closeLedgerModal() { document.getElementById('ledgerModal').classList.remove('open'); }
+  document.getElementById('ledgerModal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeLedgerModal();
+  });
+
 </script>
 </body>
 </html>
