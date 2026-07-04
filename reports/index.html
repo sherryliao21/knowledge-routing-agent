@@ -207,57 +207,8 @@
       display: inline-block;
     }
 
-    /* Hub lineup section */
-    .hub-lineup {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      margin-bottom: 3.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .lineup-avatar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      text-align: center;
-      min-width: 80px;
-    }
-    .lineup-avatar img {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-      padding: 2px;
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
-    }
-    .lineup-avatar span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-    
-    @media (max-width: 640px) {
-      .hub-lineup {
-        gap: 1rem;
-        padding: 1rem;
-      }
-      .lineup-avatar img {
-        width: 48px;
-        height: 48px;
-      }
-      .lineup-avatar span {
-        font-size: 0.6875rem;
-      }
-    }
+
+
 
     /* Footer */
     .hub-footer {
@@ -280,12 +231,8 @@
     <p class="hub-desc">Source-grounded, role-specific engineering briefs compiled from project discussions.</p>
   </header>
 
-  <section class="hub-lineup">
-    <div class="lineup-avatar"><img src="assets/avatar-stakeholder.jpg" alt="Stakeholder"><span>Stakeholder</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-engineer.jpg" alt="Engineer"><span>Engineer</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-qa.jpg" alt="QA"><span>QA</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-pm.jpg" alt="Project Manager"><span>PM</span></div>
-    <div class="lineup-avatar"><img src="assets/avatar-sa.jpg" alt="System Analyst"><span>SA</span></div>
+  <section class="hub-lineup" style="display:flex; justify-content:center; padding:1.5rem 0 2rem;">
+    <img src="assets/avatar-team.jpg" alt="The five report roles: Stakeholder, Engineer, QA, Project Manager, System Analyst" style="max-width:100%; width:640px; border-radius:var(--radius-lg); border:1px solid var(--border);">
   </section>
 
   <main>
@@ -335,6 +282,20 @@
           </div>
         </a>
         
+        <a href="runs/2026-05-04-illegal-excavation-ai-work-items/index.html" class="run-card">
+          <div class="run-date">2026-05-04</div>
+          <div class="run-title">Illegal Excavation AI - Work Items</div>
+          <p class="run-summary">This project is focused on developing an AI-powered system to identify and track illegal excavation using imagery. It involves building new AI interpretation features, enhancing our mapping and monitoring tools, and updating our existing record-keeping system for security compliance. The project is currently in the bidding phase and is expected to kick off in mid-May.</p>
+          <div class="run-footer">
+            <div class="run-stat">
+              <i class="ri-node-tree"></i> 44 decisions
+            </div>
+            
+              <span class="badge badge-pass">Verified</span>
+            
+          </div>
+        </a>
+        
         <a href="runs/2026-05-04-illegal-excavation-ai/index.html" class="run-card">
           <div class="run-date">2026-05-04</div>
           <div class="run-title">Illegal Excavation AI</div>
@@ -342,6 +303,20 @@
           <div class="run-footer">
             <div class="run-stat">
               <i class="ri-node-tree"></i> 42 decisions
+            </div>
+            
+              <span class="badge badge-pass">Verified</span>
+            
+          </div>
+        </a>
+        
+        <a href="runs/2026-03-27-engineer-meeting-v2-prototype-features/index.html" class="run-card">
+          <div class="run-date">2026-03-27</div>
+          <div class="run-title">Engineer Meeting - V2 Prototype Features</div>
+          <p class="run-summary">This update confirms the core features for the initial release, focusing on photo management and output modeling, and outlining how users will access the system. Key decisions include prioritizing essential functions for a quicker launch, while more advanced capabilities are planned for future versions. User login will be streamlined through existing company systems.</p>
+          <div class="run-footer">
+            <div class="run-stat">
+              <i class="ri-node-tree"></i> 14 decisions
             </div>
             
               <span class="badge badge-pass">Verified</span>
