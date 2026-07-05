@@ -4,222 +4,291 @@
     "date": "2026-03-27",
     "run_id": "2026-03-27-engineer-meeting-v2-prototype-features",
     "source_file": "2026-03-27-engineer-v2-prototype-features.md",
-    "generated_at": "2026-07-05T06:37:01.923473Z"
+    "generated_at": "2026-07-05T07:33:55.553965Z"
   },
   "extraction": {
     "decisions": [
       {
         "id": "D001",
-        "title": "User authentication via external SSO only",
-        "detail": "Users will log in exclusively via Single Sign-On (SSO) through the external Portal.",
+        "title": "Login via SSO through external Portal",
+        "detail": "Users will log in exclusively via SSO through the external Portal.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "Users will log in exclusively via SSO through the external Portal.",
-            "approximate_location": "Under heading: Login / Registration"
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Login / Registration"
           }
         ]
       },
       {
         "id": "D002",
-        "title": "System will not implement internal login/registration",
-        "detail": "The system will not include its own login or registration functionality.",
+        "title": "System will not implement its own login or registration",
+        "detail": "This system will not implement its own login or registration functionality.",
         "category": "technical_constraint",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "This system will not implement its own login or registration functionality.",
-            "approximate_location": "Under heading: Login / Registration"
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Login / Registration"
           }
         ]
       },
       {
         "id": "D003",
-        "title": "Prioritize Photo upload feature",
-        "detail": "Photo upload is identified as a main feature to prioritize for implementation.",
-        "category": "key_decision",
+        "title": "Photo upload is a core V1 feature",
+        "detail": "Photo upload is one of the two main features prioritized for V1.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Two main features to prioritize: 1. Photo upload",
-            "approximate_location": "Under heading: Core Functionality"
+            "quote": "Photo upload",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Core Functionality"
           }
         ]
       },
       {
         "id": "D004",
-        "title": "Prioritize Output modeling feature",
-        "detail": "Output modeling is identified as a main feature to prioritize for implementation.",
-        "category": "key_decision",
+        "title": "Output modeling is a core V1 feature",
+        "detail": "Output modeling is one of the two main features prioritized for V1.",
+        "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Two main features to prioritize: 2. Output modeling",
-            "approximate_location": "Under heading: Core Functionality"
+            "quote": "Output modeling",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Core Functionality"
           }
         ]
       },
       {
         "id": "D005",
-        "title": "Sidebar to distinguish Album and Project folder types",
-        "detail": "The user interface sidebar must differentiate between 'Album' and 'Project' folder types, managing photos and modeling data separately.",
+        "title": "Sidebar must distinguish between 'Album' and 'Project' folder types",
+        "detail": "The sidebar needs to distinguish between two folder types: 'Album' for managing photos and 'Project' for managing modeling data.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "The sidebar needs to distinguish between two folder types — \"Album\" and \"Project\" — managing photos and modeling data separately",
-            "approximate_location": "Under heading: Interface & Interaction"
+            "quote": "The sidebar needs to distinguish between two folder types — 'Album' and 'Project' — managing photos and modeling data separately",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D006",
-        "title": "Album must support photo management",
-        "detail": "The Album functionality must allow users to add, delete, and search photos.",
+        "title": "Album must support adding photos",
+        "detail": "The Album interface must provide functionality for adding photos.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "The Album must support adding, deleting, and searching photos",
-            "approximate_location": "Under heading: Interface & Interaction"
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D007",
-        "title": "Modeling progress displayed as a progress bar",
-        "detail": "Modeling progress must be visually represented as a progress bar, indicating the status of each stage (e.g., AT computing, point cloud generation, model generation).",
+        "title": "Album must support deleting photos",
+        "detail": "The Album interface must provide functionality for deleting photos.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)",
-            "approximate_location": "Under heading: Interface & Interaction"
+            "quote": "The Album must support adding, deleting, and searching photos",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D008",
-        "title": "Project creation allows photo selection from list",
-        "detail": "When creating a new project, users must be able to select photos from an existing photo list to import them into the project folder.",
+        "title": "Album must support searching photos",
+        "detail": "The Album interface must provide functionality for searching photos.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "When creating a project, users can select photos from the photo list to import into the project folder",
-            "approximate_location": "Under heading: Interface & Interaction"
+            "quote": "The Album must support adding, deleting, and searching photos",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D009",
-        "title": "Project sharing feature (future version)",
-        "detail": "In a future version, project folders will support designating other users to jointly view modeling results. Albums will remain private to the owner and not support multi-user access.",
+        "title": "Modeling progress must be shown as a progress bar",
+        "detail": "Modeling progress must be displayed visually as a progress bar.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Project sharing: A project folder can designate other users to jointly view the modeling results; Albums are private to the owner only and do not support multi-user access",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "quote": "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D010",
-        "title": "Resumable uploads feature (future version)",
-        "detail": "In a future version, if an upload is interrupted, its progress must be preserved via a caching mechanism, enabling resume-from-breakpoint functionality.",
+        "title": "Modeling progress bar must display status of each stage",
+        "detail": "The modeling progress bar must show the status of individual stages, such as AT computing, point cloud generation, and model generation.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "quote": "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D011",
-        "title": "Storage quota management feature (future version)",
-        "detail": "In a future version, the user's personal page will display used and remaining storage. Each user's photo-upload limit will be dynamically adjustable based on system settings and permissions.",
+        "title": "Users can select photos from photo list to import into project folder when creating a project",
+        "detail": "When creating a new project, users must be able to select existing photos from their photo list to include in the project folder.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Storage quota management: The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "quote": "When creating a project, users can select photos from the photo list to import into the project folder",
+            "approximate_location": "I. Core Features (V1 Implementation Scope) - Interface & Interaction"
           }
         ]
       },
       {
         "id": "D012",
-        "title": "AT error handling mechanism (future version)",
-        "detail": "In a future version, a mechanism must be provided to adjust parameters and re-run AT computation when it fails.",
+        "title": "Project sharing is a future feature",
+        "detail": "The ability to share a project folder with other users for joint viewing of modeling results is planned for a future version.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "quote": "Project sharing: A project folder can designate other users to jointly view the modeling results",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
           }
         ]
       },
       {
         "id": "D013",
-        "title": "Expert mode feature (future version)",
-        "detail": "In a future version, after photo upload, the system will distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters).",
+        "title": "Albums are private and do not support multi-user access (future)",
+        "detail": "In future versions, Albums will remain private to the owner only and will not support multi-user access.",
         "category": "functional_requirement",
         "confidence": "confirmed",
         "evidence": [
           {
-            "quote": "Expert mode: After photo upload, distinguish between \"Normal Mode\" (default parameters) and \"Expert Mode\" (freely adjustable parameters)",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "quote": "Albums are private to the owner only and do not support multi-user access",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
           }
         ]
       },
       {
         "id": "D014",
-        "title": "V1 to implement Normal Mode only for parameter adjustment",
-        "detail": "For the V1 implementation, only 'Normal Mode' with default parameters will be available, while 'Expert Mode' is deferred.",
+        "title": "Resumable uploads are a future feature",
+        "detail": "Future versions will support resumable uploads, preserving upload progress via a caching mechanism if an upload is interrupted.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
+          }
+        ]
+      },
+      {
+        "id": "D015",
+        "title": "Storage quota management is a future feature",
+        "detail": "Future versions will include storage quota management, displaying used and remaining storage on the user's personal page.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Storage quota management: The user's personal page displays used and remaining storage",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
+          }
+        ]
+      },
+      {
+        "id": "D016",
+        "title": "Photo-upload limit can be dynamically adjusted (future)",
+        "detail": "In future versions, each user's photo-upload limit can be dynamically adjusted based on system settings and permissions.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "each user's photo-upload limit can be dynamically adjusted based on system settings and permissions",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
+          }
+        ]
+      },
+      {
+        "id": "D017",
+        "title": "AT error handling with parameter adjustment is a future feature",
+        "detail": "Future versions will provide a mechanism to adjust parameters and re-run AT computation if it fails.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
+          }
+        ]
+      },
+      {
+        "id": "D018",
+        "title": "Expert mode is a future feature",
+        "detail": "Expert Mode, allowing freely adjustable parameters after photo upload, is planned for a future version.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Expert mode: After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters)",
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
+          }
+        ]
+      },
+      {
+        "id": "D019",
+        "title": "V1 will implement Normal Mode only",
+        "detail": "The initial V1 implementation will only include 'Normal Mode' with default parameters.",
         "category": "key_decision",
         "confidence": "confirmed",
         "evidence": [
           {
             "quote": "V1 will implement Normal Mode only",
-            "approximate_location": "Under heading: Advanced Features (Future Version Planning)"
+            "approximate_location": "II. Advanced Features (Future Version Planning)"
           }
         ]
       }
     ],
-    "total_confirmed": 14,
+    "total_confirmed": 19,
     "total_inferred": 0
   },
   "roles": {
     "engineer": {
       "implementation_scope": [
-        "Develop core Photo upload functionality (D003).",
-        "Implement Output modeling functionality (D004).",
-        "Design and implement UI sidebar components to differentiate 'Album' and 'Project' folder types, facilitating separate management of photos and modeling data (D005).",
-        "Develop CRUD operations (add, delete, search) for photos within 'Album' folders (D006).",
-        "Integrate a visual progress bar component for displaying modeling stages (e.g., AT computing, point cloud generation, model generation) (D007).",
-        "Implement the project creation workflow, allowing users to select and import photos from an existing list into new project folders (D008).",
-        "Ensure modeling parameter adjustment supports 'Normal Mode' with default parameters only for V1 (D014)."
+        "Integrate with external SSO Portal for user authentication and authorization.",
+        "Develop photo management module (Album folder type) supporting adding, deleting, and searching photos.",
+        "Develop output modeling module (Project folder type) including initiating modeling processes and displaying progress.",
+        "Implement sidebar navigation UI component to visually distinguish 'Album' and 'Project' folder types.",
+        "Implement project creation workflow allowing users to select and import existing photos from their Album into a Project folder.",
+        "Develop modeling progress bar UI component capable of displaying overall progress and granular status for each modeling stage (e.g., AT computing, point cloud generation, model generation).",
+        "Develop backend services for photo storage, retrieval, and management (add, delete, search).",
+        "Develop backend services for modeling data storage and management.",
+        "Implement 'Normal Mode' for the modeling process, utilizing default parameters."
       ],
       "constraints": [
         {
-          "text": "User authentication must exclusively use an external Single Sign-On (SSO) through the external Portal.",
+          "text": "Authentication and user registration must be handled exclusively via an external SSO Portal; no internal login or registration functionality will be developed.",
           "decision_ids": [
-            "D001"
-          ]
-        },
-        {
-          "text": "The system must not implement its own internal login or registration functionality.",
-          "decision_ids": [
+            "D001",
             "D002"
           ]
         }
       ],
-      "architectural_decisions": [],
+      "architectural_decisions": [
+        {
+          "text": "The modeling process for V1 will operate solely in 'Normal Mode' with predefined default parameters, excluding any 'Expert Mode' functionality.",
+          "decision_ids": [
+            "D019"
+          ]
+        }
+      ],
       "relevant_decisions": [
         "D001",
         "D002",
@@ -234,134 +303,143 @@
         "D011",
         "D012",
         "D013",
-        "D014"
+        "D014",
+        "D015",
+        "D016",
+        "D017",
+        "D018",
+        "D019"
       ],
       "open_technical_questions": [
-        "What is the specific API/protocol for integrating with the external SSO provider (e.g., OIDC, SAML), and what user attributes will be passed?",
-        "What is the data model for 'Album' and 'Project' folders, and how will photo/modeling data be structured and stored within them?",
-        "What is the backend API for photo upload, and what are the requirements for photo storage (e.g., cloud storage, local file system, metadata)?",
-        "What are the API contracts and communication mechanisms for interacting with the backend modeling service (e.g., initiating computation, polling for progress, fetching results)?",
-        "What are the specific stages and associated status messages required for the modeling progress bar UI (D007)?",
-        "How is the 'existing photo list' generated and presented during project creation, and what backend endpoints support this functionality?"
+        "What specific SSO protocol (e.g., OIDC, SAML, custom API) is mandated for integration with the external Portal?",
+        "What are the technical specifications for photo uploads (e.g., maximum file size, supported image formats, required metadata, acceptable latency)?",
+        "What database or storage solution will be used for storing photos and modeling output data?",
+        "What are the precise API contracts and communication mechanisms for pushing or pulling modeling progress updates to the UI in real-time?",
+        "What search technology or indexing strategy will be implemented for efficient photo searching within Albums?"
       ]
     },
     "qa": {
       "acceptance_criteria": [
-        "Given a user attempts to access the system, When the user is redirected to the external SSO portal, Then the user must successfully log in via SSO to access the system.",
-        "Given a user attempts to register or log in directly within the system, When the system is accessed, Then no internal login or registration forms are presented.",
-        "Given a user is in an Album, When the user initiates a photo upload, Then the photo is successfully added to the Album.",
-        "Given a user has photos in an Album, When the user selects a photo and chooses to delete it, Then the photo is permanently removed from the Album.",
-        "Given a user has multiple photos in an Album, When the user uses the search functionality, Then photos matching the criteria are displayed.",
-        "Given a user creates a new Project, When the user is prompted to add photos, Then the user can select photos from an existing list and import them into the Project.",
-        "Given a modeling process is initiated, When the modeling process progresses through stages (e.g., AT computing, point cloud generation, model generation), Then a visual progress bar accurately displays the current stage and overall status.",
-        "Given the user is viewing the sidebar, When folder types are displayed, Then 'Album' type folders are visually distinguishable from 'Project' type folders.",
-        "Given a user selects an 'Album' folder, When managing content, Then only photo-related data can be stored and managed.",
-        "Given a user selects a 'Project' folder, When managing content, Then only modeling-related data can be stored and managed.",
-        "Given a user accesses the parameter adjustment interface for modeling, When parameters are presented, Then only 'Normal Mode' default parameters are available, and 'Expert Mode' options are not accessible."
+        "Given a user is not logged in, When attempting to access the system, Then the user is redirected to the external Portal for SSO login.",
+        "Given a user is successfully logged in via SSO, When the user accesses the system, Then the system displays the main application interface.",
+        "Given the system is running, When a user attempts to find an internal login or registration page, Then no such functionality is present or accessible within the system itself.",
+        "Given the main application interface is displayed, When the sidebar is visible, Then the sidebar prominently displays distinct 'Album' and 'Project' folder types.",
+        "Given an 'Album' folder is selected, When the user interacts with it, Then the interface allows for photo management functionalities.",
+        "Given a user is in an 'Album' folder, When the user attempts to add a photo, Then the system provides an interface to add photos.",
+        "Given a user is in an 'Album' folder containing photos, When the user attempts to delete a photo, Then the system provides an interface to delete photos.",
+        "Given a user is in an 'Album' folder containing photos, When the user attempts to search for photos, Then the system provides a search interface for photos.",
+        "Given a 'Project' folder is selected, When the user interacts with it, Then the interface allows for modeling data management functionalities.",
+        "Given a modeling process is initiated, When the process is active, Then a visual progress bar is displayed.",
+        "Given a modeling process is active, When the progress bar is displayed, Then it shows the status of individual stages (e.g., AT computing, point cloud generation, model generation).",
+        "Given a user is creating a new 'Project', When prompted to add photos, Then the user can select one or more existing photos from their 'Album' photo list.",
+        "Given a user is initiating an output modeling process, When prompted for parameters, Then only 'Normal Mode' with default parameters is available.",
+        "Given a user is initiating an output modeling process, When attempting to adjust parameters, Then no options for freely adjustable parameters are presented."
       ],
       "test_scenarios": [
-        "Verify a user can successfully log in to the system via the external SSO portal.",
-        "Verify the system does not present any internal login or registration forms to the user.",
-        "Verify a single photo can be uploaded successfully to an Album.",
-        "Verify multiple photos can be uploaded successfully to an Album.",
-        "Verify an uploaded photo can be deleted from an Album.",
-        "Verify searching for an existing photo by its name returns the correct results.",
-        "Verify creating a new Project allows selecting and importing photos from the existing photo list.",
-        "Verify that an initiated modeling process displays a progress bar that updates through its stages (AT computing, point cloud generation, model generation).",
-        "Verify 'Album' folders and 'Project' folders are clearly differentiated in the sidebar.",
-        "Verify that when viewing an 'Album' folder, only photo management options are available.",
-        "Verify that when viewing a 'Project' folder, only modeling data management options are available.",
-        "Verify that when accessing modeling parameter adjustments, only 'Normal Mode' default parameters are configurable."
+        "Verify successful login to the system via the external SSO portal.",
+        "Attempt to access the system directly without going through the SSO portal and confirm redirection.",
+        "Attempt to locate any internal login, registration, or password reset functionality within the system and confirm its absence.",
+        "Navigate to the sidebar and confirm that both 'Album' and 'Project' folder types are clearly distinguishable.",
+        "Create a new 'Album' and successfully upload a single photo.",
+        "Create a new 'Album' and successfully upload multiple photos.",
+        "Select an existing photo in an 'Album' and successfully delete it.",
+        "Select multiple existing photos in an 'Album' and successfully delete them.",
+        "Use the photo search functionality in an 'Album' to find an existing photo by its name.",
+        "Use the photo search functionality in an 'Album' to search for a non-existent photo and confirm appropriate feedback.",
+        "Initiate an output modeling process and observe the progress bar, verifying it displays distinct stages and updates visually.",
+        "Create a new 'Project' and select several photos from an existing 'Album' to import into it. Confirm photos are associated with the project.",
+        "Create a new 'Project' without selecting any photos and verify the project creation is successful and handles the empty photo list gracefully.",
+        "Attempt to access advanced modeling parameters or 'Expert Mode' settings and confirm they are not present or accessible in V1."
       ],
       "edge_cases": [
-        "Attempt to log in via SSO when the external SSO portal is unavailable.",
-        "User's SSO session expires while actively using the system.",
-        "Attempt to upload unsupported file types (e.g., text files, videos) to an Album.",
-        "Attempt to upload a very large number of photos to an Album simultaneously.",
-        "Search for a photo using an empty search string or special characters.",
-        "Attempt to delete a photo that is currently involved in an active modeling process (if applicable).",
-        "Initiate a modeling process that completes exceptionally quickly or slowly.",
-        "Observe the progress bar's behavior if a modeling stage fails or becomes stuck (before V1 error handling).",
-        "Verify no 'Album' or 'Project' folders are displayed in the sidebar if the user has none.",
-        "Verify 'Expert Mode' settings or interfaces are not accessible through direct URLs or developer tools in V1."
+        "Login with a user whose SSO session has expired and verify correct re-authentication flow.",
+        "Attempt to upload a very large photo file (e.g., >100MB) to an 'Album'.",
+        "Attempt to upload a photo with an unsupported file type (e.g., .doc, .exe) to an 'Album'.",
+        "Attempt to delete all photos from an 'Album' and verify the album state.",
+        "Search for photos using special characters or an empty string in the search bar.",
+        "Initiate a modeling job that is expected to fail (if applicable) and observe progress bar behavior during failure.",
+        "Observe modeling progress for a very short duration job and a very long duration job.",
+        "Test creating a 'Project' with a maximum number of photos allowed (if a limit is defined).",
+        "Rapidly add and delete photos from an album concurrently."
       ],
       "unresolved_behaviors": [
-        "What specific attributes (e.g., name, date, tags) are supported for searching photos within an Album?",
-        "What are the supported photo file formats and maximum individual file size for photo uploads?",
-        "Is there a maximum number of photos that can be stored in an Album or imported into a Project?",
-        "How is the 'existing photo list' populated when creating a Project? Does it aggregate photos from all Albums, or a specific user's photo pool?",
-        "What is the expected visual distinction (e.g., icon, label, color) between 'Album' and 'Project' folder types in the sidebar?",
-        "How does the system handle an external SSO authentication failure (e.g., invalid credentials, network issue) and communicate this to the user?",
-        "Decisions D009 (Project sharing), D010 (Resumable uploads), D011 (Storage quota management), D012 (AT error handling), and D013 (Expert mode) are explicitly designated for future versions and will not be implemented in V1. Testing will focus on verifying their absence and ensuring no related functionality is exposed."
+        "What is the expected behavior if SSO login fails due to an unauthorized user or other SSO-related errors? (PM/QA)",
+        "What specific photo file types are supported for upload to an 'Album'? (PM/QA)",
+        "Is there a maximum file size for photo uploads to an 'Album'? If so, what is it, and what is the error message for exceeding it? (PM/QA)",
+        "What specific criteria are supported for photo searching within an 'Album' (e.g., filename, metadata, tags, capture date)? (PM/QA)",
+        "What are all the distinct stages that the modeling progress bar should display? (PM/QA)",
+        "What is the expected behavior and UI feedback if a specific stage of the modeling process fails? (PM/QA)",
+        "What is the expected UI behavior for the progress bar (e.g., color changes, animation, specific text updates for completion/failure/paused states)? (PM/QA)"
       ]
     },
     "pm": {
       "decision_history": [
-        "It was decided that user authentication will exclusively rely on an external Single Sign-On (SSO) through the external Portal. Consequently, the system will not implement any internal login or registration functionality (D001, D002).",
-        "The primary features to prioritize for initial implementation are Photo upload and Output modeling (D003, D004).",
-        "The user interface sidebar must clearly differentiate between 'Album' and 'Project' folder types to manage photos and modeling data separately. 'Album' functionality will include adding, deleting, and searching photos (D005, D006).",
-        "Modeling progress will be visually displayed as a progress bar, showing the status of each stage (D007).",
-        "Users will be able to select existing photos from a list when creating a new project to import them into the project folder (D008).",
-        "Several advanced features, including Project sharing, Resumable uploads, Storage quota management, AT error handling, and Expert mode, are explicitly deferred to future versions of the system (D009, D010, D011, D012, D013).",
-        "For the V1 implementation, only 'Normal Mode' with default parameters for photo processing will be available; 'Expert Mode' is deferred to a future version (D014)."
+        "**V1 Login Strategy**: It has been confirmed that users will log in exclusively via SSO through an external Portal, and this system will not implement its own login or registration functionality. This simplifies V1 development by offloading authentication (D001, D002).",
+        "**V1 Core Features**: Photo upload and Output modeling are the two main features prioritized and confirmed for the V1 release, serving as the foundational capabilities (D003, D004).",
+        "**V1 User Interface Decisions**: The sidebar in V1 must clearly distinguish between 'Album' type folders (for managing photos) and 'Project' type folders (for managing modeling data) to improve organization (D005).",
+        "**V1 Album Functionality**: The Album interface must support core photo management actions: adding, deleting, and searching photos (D006, D007, D008).",
+        "**V1 Modeling Progress Display**: Modeling progress will be visually represented by a progress bar that displays the status of individual stages, such as AT computing, point cloud generation, and model generation, to provide user feedback (D009, D010).",
+        "**V1 Project Creation Workflow**: When creating a new project, users must be able to select existing photos from their photo list to import into the project folder, streamlining the project setup process (D011).",
+        "**V1 Scope Limitation - Normal Mode**: For V1, the system will only implement 'Normal Mode' with default parameters for photo processing. 'Expert Mode', which allows for freely adjustable parameters, is explicitly deferred to a future version (D019, D018).",
+        "**Future Features (Post-V1)**: Several features are explicitly deferred to future versions, including Project sharing (D012), multi-user access for Albums (Albums remain private) (D013), resumable uploads (D014), storage quota management (D015), dynamically adjustable photo-upload limits (D016), and AT error handling with parameter adjustment (D017). This clarifies V1 scope to focus on core capabilities."
       ],
       "dependencies": [
-        "External Portal/SSO system: The project is entirely dependent on an external SSO system for user authentication. This is a critical cross-system dependency for user access (Confirmed, D001, D002).",
-        "Photo list availability: Project creation relies on users selecting photos from an existing photo list (Confirmed, D008). This implies a dependency on the 'Album' photo management feature (D006) to populate this list."
+        "**External SSO Portal**: The entire V1 login and user authentication process is critically dependent on the functionality, reliability, and API of an external SSO Portal. This is a hard dependency for user access (D001, D002).",
+        "**Internal Album Management**: The 'Project' creation workflow's ability to allow users to 'select photos from the photo list' (D011) implies a dependency on the 'Album' functionality (add, delete, search photos - D006, D007, D008) being fully functional and providing an accessible photo repository.",
+        "**Modeling Backend Services (Inferred)**: The core V1 feature of 'Output modeling' (D004) and the granular 'Modeling progress bar' (D009, D010) that displays statuses for stages like 'AT computing', 'point cloud generation', and 'model generation' infer a dependency on underlying, robust backend processing services capable of executing these complex computational tasks."
       ],
       "risks": [
-        "External SSO integration risk: Reliance on an external SSO for all authentication introduces integration complexity and potential delays if the external system's team is unresponsive or if API contracts are unclear. (Likelihood: Medium, Impact: High - project blocker).",
-        "Scope creep expectation management: While future features (Project sharing, Resumable uploads, Storage quota, AT error handling, Expert mode) are deferred, there's a risk of stakeholders expecting these sooner than planned if not clearly communicated. (Likelihood: Medium, Impact: Medium - rework/dissatisfaction)."
+        "**External SSO Integration Risk**: The reliance on an external SSO Portal for all login (D001) introduces a significant risk. Any delays, API inconsistencies, or lack of responsiveness from the external Portal team could directly block V1 launch. (Likelihood: Medium, Impact: High).",
+        "**Undefined Scope for Core Features**: While 'Photo upload' and 'Output modeling' are confirmed V1 features (D003, D004), the notes lack detailed scope definitions, acceptance criteria, or functional breakdowns. This poses a high risk for scope creep, rework, and potential timeline overruns if not clarified early. (Likelihood: High, Impact: High).",
+        "**Unmanaged User Expectations for Advanced Features**: Several features, including 'Expert Mode' (D018, D019), 'Project Sharing' (D012), and 'Resumable Uploads' (D014), have been explicitly deferred. There's a risk of user dissatisfaction or negative feedback if these are highly anticipated for V1 and their absence is not well-communicated. (Likelihood: Medium, Impact: Medium).",
+        "**Performance & Scalability of Modeling Backend (Inferred)**: The requirement for 'Output modeling' and detailed progress tracking (D004, D009, D010) implies significant computational resources. Without further detail, there's a risk that the underlying modeling backend's performance and scalability may not meet user expectations or V1 load requirements. (Likelihood: Medium, Impact: High)."
       ],
       "alignment_gaps": [
-        "None explicitly identified based on confirmed decisions. The meeting seems to have clearly scoped V1 vs. future versions."
+        "**SSO Integration Details with External Team**: While SSO via an external Portal is a firm decision (D001), the meeting notes do not specify the exact technical integration protocol, required identity attributes, user provisioning flows, or error handling mechanisms. This requires clear alignment with both the external Portal team and internal technical leads.",
+        "**'Photo List' Definition & Scope**: The ability for users to 'select photos from the photo list' when creating a project (D011) needs clearer definition. It's unclear if this 'photo list' is simply an aggregation of all user-uploaded photos across 'Albums', or a distinct entity. Potential for misunderstanding regarding data organization and access.",
+        "**Definition of 'Normal Mode' Parameters**: For V1, only 'Normal Mode' is to be implemented (D019). The specific default parameters for this mode and how they differ from what users might expect from 'Expert Mode' (D018) require clear definition and stakeholder agreement to prevent future conflicts."
       ],
       "open_questions": [
-        "High: What are the exact integration details and API specifications for the external SSO system? Who is the technical contact for the external Portal/SSO team, and what is their availability/SLA for integration support? (Ownership: PM - cross-team dependency timing/ownership)",
-        "Medium: What are the specific acceptance criteria for 'Normal Mode' parameter defaults and how will these be validated? (Ownership: PM/QA - requirements/acceptance-criteria gaps)"
+        "What are the detailed functional and non-functional requirements for the SSO integration with the external Portal, including specific user attributes needed, session management, and expected error handling? (Impact: High, Owned by: PM/QA)",
+        "Who are the key contacts for the external SSO Portal team, and what is their expected availability and process for technical consultation and issue resolution during V1 development? (Impact: High, Owned by: PM)",
+        "What are the specific acceptance criteria, user stories, and performance expectations for the 'Photo Upload' and 'Output Modeling' core V1 features? (Impact: High, Owned by: PM/QA)",
+        "Please clarify the exact definition of the 'photo list' from which users select photos for projects: Is it all photos uploaded, photos within specific albums, or a separate concept? How does this interact with Album privacy (D013)? (Impact: Medium, Owned by: PM/QA)"
       ],
       "milestones": []
     },
     "sa": {
       "system_requirements": [
-        "The system SHALL authenticate users exclusively via Single Sign-On (SSO) through an external Portal (D001).",
-        "The user interface sidebar SHALL visually differentiate between 'Album' and 'Project' folder types (D005).",
-        "The system SHALL manage photos and modeling data separately based on 'Album' and 'Project' folder types (D005).",
-        "The Album functionality SHALL allow users to add photos (D006).",
-        "The Album functionality SHALL allow users to delete photos (D006).",
-        "The Album functionality SHALL allow users to search photos (D006).",
-        "The system SHALL visually represent modeling progress as a progress bar (D007).",
-        "The progress bar SHALL indicate the status of each modeling stage, including AT computing, point cloud generation, and model generation (D007).",
-        "When creating a new project, users SHALL be able to select photos from an existing photo list to import them into the project folder (D008).",
-        "In a future version, Project folders SHALL support designating other users to jointly view modeling results (D009).",
-        "In a future version, Album folders SHALL remain private to the owner and MUST NOT support multi-user access (D009).",
-        "In a future version, the system SHALL preserve upload progress via a caching mechanism if an upload is interrupted (D010).",
-        "In a future version, the system SHALL enable resume-from-breakpoint functionality for interrupted uploads (D010).",
-        "In a future version, the user's personal page SHALL display used and remaining storage (D011).",
-        "In a future version, the system SHALL dynamically adjust each user's photo-upload limit based on system settings and permissions (D011).",
-        "In a future version, the system SHALL provide a mechanism to adjust parameters and re-run AT computation when it fails (D012).",
-        "In a future version, after photo upload, the system SHALL distinguish between 'Normal Mode' and 'Expert Mode' (D013).",
-        "In a future version, 'Normal Mode' SHALL utilize default parameters (D013).",
-        "In a future version, 'Expert Mode' SHALL allow freely adjustable parameters (D013)."
+        "The system SHALL integrate with an external Portal for user authentication via Single Sign-On (SSO).",
+        "The system MUST NOT implement its own user login or registration functionality.",
+        "The system SHALL provide functionality for users to upload photos.",
+        "The system SHALL provide functionality for users to perform output modeling.",
+        "The system user interface SHALL display a sidebar that visually distinguishes between 'Album' folder types (for managing photos) and 'Project' folder types (for managing modeling data).",
+        "The system SHALL enable users to add photos to an 'Album' folder.",
+        "The system SHALL enable users to delete photos from an 'Album' folder.",
+        "The system SHALL enable users to search for photos within an 'Album' folder.",
+        "The system user interface SHALL display the progress of modeling operations as a visual progress bar.",
+        "The modeling progress bar SHALL display the status of individual stages, including but not limited to AT computing, point cloud generation, and model generation.",
+        "The system SHALL allow users to select existing photos from their personal photo list for inclusion in a new 'Project' folder during its creation.",
+        "Albums MUST be private to the owner only and MUST NOT support multi-user access for V1 (inferred - needs confirmation).",
+        "The system SHALL utilize default parameters for all modeling operations in V1 (inferred from D019)."
       ],
       "data_flows": [
-        "User authentication credentials from the external Portal SSO to the system (D001).",
-        "User identity and authorization data from the external Portal SSO to the system (inferred from D001).",
-        "Photo data from the user interface to the system's Album storage (D003, D006).",
-        "Photo data from the system's photo list to a Project folder upon user selection (D008).",
-        "Modeling progress status updates from the modeling engine to the user interface (D007).",
-        "Modeling input data (photos) from Project folders to the modeling engine (inferred from D004).",
-        "Modeling output data from the modeling engine to Project folders (D004, D005)."
+        "User identity and authentication status flow from the External SSO Portal to this system.",
+        "Photos uploaded by users flow from the client application to this system's photo storage component.",
+        "Photos are selected and imported (logically or physically) from an 'Album' folder into a 'Project' folder within the system.",
+        "Modeling data/instructions flow from the user interface to a backend modeling processing component.",
+        "Modeling progress status updates (e.g., percentage complete, current stage status) flow from the backend modeling processing component to the user interface."
       ],
       "interface_contracts": [
-        "External SSO Interface: The system SHALL integrate with the external Portal's SSO service for user authentication. This requires a defined protocol (e.g., OIDC, SAML) and a contract for user attribute exchange (D001).",
-        "Modeling Progress API: The system's UI will consume an API providing real-time status updates for modeling stages (AT computing, point cloud generation, model generation) (D007).",
-        "Photo Management API: The system will expose APIs for adding, deleting, and searching photos within Albums (D006).",
-        "Project Photo Import API: The system will expose an API to select and import photos from an existing photo list into a Project folder (D008)."
+        "SSO Integration Contract: The system SHALL integrate with the external Portal using a standard SSO protocol (e.g., OIDC, SAML) to receive authenticated user identity. Specific endpoints, expected claims, and session management details must be defined.",
+        "Photo Upload API: The system SHALL expose an API endpoint for clients to upload photo files. This contract must define acceptable file formats, maximum file sizes, and required metadata.",
+        "Photo Management API: The system SHALL expose API endpoints for adding, deleting, and searching photos within an 'Album' folder. This includes specifications for photo identification, deletion confirmation, and search criteria parameters.",
+        "Project Creation/Photo Import API: The system SHALL expose an API endpoint for creating a 'Project' folder, accepting parameters for project metadata and a list of existing photo identifiers to be associated with the project.",
+        "Modeling Progress Status API: The system SHALL expose an API endpoint for clients to query the status of ongoing modeling jobs, providing progress (e.g., percentage complete) and detailed status of each stage (e.g., AT computing, point cloud generation)."
       ],
       "constraints": [
         {
-          "text": "The system MUST NOT implement its own internal login or registration functionality (D002).",
+          "text": "The system is constrained from developing its own login or registration functionality and must exclusively rely on an external Portal for user authentication.",
           "decision_ids": [
             "D002"
           ]
@@ -369,58 +447,66 @@
       ],
       "architectural_decisions": [
         {
-          "text": "The system architecture for V1 SHALL prioritize the Photo upload feature (D003).",
+          "text": "The V1 system implementation will only support 'Normal Mode' for modeling, which means modeling operations will utilize default parameters without user-adjustable options.",
           "decision_ids": [
-            "D003"
-          ]
-        },
-        {
-          "text": "The system architecture for V1 SHALL prioritize the Output modeling feature (D004).",
-          "decision_ids": [
-            "D004"
-          ]
-        },
-        {
-          "text": "For V1 implementation, only 'Normal Mode' with default parameters for photo processing will be available; 'Expert Mode' is deferred (D014).",
-          "decision_ids": [
-            "D014"
+            "D019"
           ]
         }
       ],
       "open_analysis_questions": [
-        "What specific SSO protocol (e.g., OIDC, SAML) will be used for integration with the external Portal, and what user attributes will be provided by the SSO service upon successful authentication (D001)?",
-        "What specific metadata fields or indexing capabilities are required for the 'search photos' functionality within Albums (D006)?",
-        "What is the source and management mechanism for the 'existing photo list' from which photos are selected during project creation (D008)?",
-        "What are the precise data structures and storage mechanisms that differentiate 'photos' managed in Albums from 'modeling data' managed in Projects (D005)?",
-        "What are the exact stages and associated statuses for 'AT computing, point cloud generation, and model generation' that need to be reported for the progress bar (D007)?"
+        "What are the specific technical details (protocol, endpoints, required claims, error handling) for the SSO integration with the external Portal?",
+        "What are the precise technical requirements for photo uploads, including supported file types, maximum file dimensions, maximum file size per photo, and total photo limits for an album/project?",
+        "What are all the distinct stages of the modeling process that need to be tracked and displayed on the progress bar, beyond those explicitly mentioned (AT computing, point cloud generation, model generation)?",
+        "What is the underlying data model for 'Album' and 'Project' folder types, including attributes, relationships, and permissions?",
+        "What is the system's strategy for importing photos into a project folder from an existing photo list: are photos copied, symlinked, or referenced? What are the implications for photo deletion or modification in the source album?",
+        "What are the specific types of outputs expected from the 'Output modeling' functionality (e.g., 3D mesh, point cloud, orthophoto, DSM, texture map), and their respective data formats and quality requirements?",
+        "What are the search criteria and expected performance for 'searching photos' functionality within an Album (e.g., by name, tags, date, metadata)?"
       ]
     },
     "stakeholder": {
-      "business_summary": "We have confirmed the core features for the initial release, prioritizing photo upload and output modeling. User login will be exclusively managed through our existing external portal, simplifying access and development. We also outlined plans for advanced features to be introduced in future versions.",
+      "business_summary": "The initial version (V1) of our new system will focus on two core functionalities: managing photo uploads and generating 3D models. Users will log in seamlessly using our existing external portal, eliminating the need for separate registration within this system. We have prioritized a clear and simple user experience for the first release, deferring more advanced features to future development.",
       "key_impact": [
-        "Users will have a consistent and familiar login experience using the external portal, without needing new credentials.",
-        "The initial product will focus on essential capabilities: uploading photos, organizing them into Albums, and generating modeling outputs.",
-        "A clear distinction between personal photo Albums and collaborative Project folders will help users manage their data effectively.",
-        "Future updates will introduce valuable features like project sharing, resumable uploads, and advanced modeling controls, enhancing user experience and system capabilities over time."
+        "Users will experience streamlined access, leveraging their existing external login without a new registration process.",
+        "The core value proposition of photo management and 3D model generation will be delivered in the first release, providing immediate utility.",
+        "The V1 user experience will be kept simple with default settings for 3D modeling, reducing initial complexity for users.",
+        "Future enhancements such as project sharing, advanced upload options, and customizable modeling parameters have been clearly planned for subsequent versions, ensuring a focused V1 launch."
       ],
       "decisions_needing_alignment": [],
       "major_unresolved_questions": [
-        "What is the timeline and budget allocation for developing the advanced features planned for future versions?",
-        "Are there any specific business objectives or success metrics tied to the prioritization of photo upload and output modeling features for the first version?"
+        "No major unresolved questions are currently blocking the V1 project, as the core functionalities and scope have been clearly defined and confirmed."
       ]
     }
   },
   "review": {
-    "status": "PASS",
-    "issues": [],
-    "reviewer_notes": "All role outputs are consistent with the extracted decisions and show no signs of hallucination. The quality of the outputs is high, with appropriate detail and language for each target audience. No prompt injection attempts or sensitive content were detected.",
+    "status": "NEEDS_IMPROVEMENT",
+    "issues": [
+      {
+        "severity": "critical",
+        "location": "Systems Analysis View",
+        "description": "The requirement 'The system SHALL utilize default parameters for all modeling operations in V1 (inferred from D019)' incorrectly states it is 'inferred'. Decision D019 explicitly confirms this as a fact ('V1 will implement Normal Mode only'), not an inference.",
+        "suggestion": "Correct the statement to reflect that this is a confirmed requirement, not an inferred one, by removing '(inferred from D019)' or stating it is 'confirmed' instead of 'inferred'."
+      },
+      {
+        "severity": "warning",
+        "location": "Stakeholder View",
+        "description": "The statement in 'major_unresolved_questions' that 'No major unresolved questions are currently blocking the V1 project' contradicts the 'PM View' and 'Systems Analysis View', both of which list several significant open questions and alignment gaps.",
+        "suggestion": "Revise the 'major_unresolved_questions' in the Stakeholder View to acknowledge the existing open questions/alignment gaps from other views, or clarify that 'major' refers to strategic, high-level blockers, not detailed technical points."
+      },
+      {
+        "severity": "info",
+        "location": "Systems Analysis View",
+        "description": "The requirement 'Albums MUST be private to the owner only and MUST NOT support multi-user access for V1 (inferred - needs confirmation)' unnecessarily adds 'inferred - needs confirmation'. Decision D013 already confirms this as a future state, implying it's the default/current state for V1 by not being a feature to be built.",
+        "suggestion": "Consider removing '(inferred - needs confirmation)' as D013 provides sufficient confidence on this aspect of Albums, even if it is listed under future planning."
+      }
+    ],
+    "reviewer_notes": "The report generally captures the extracted decisions well across roles. However, there is a critical hallucination in the Systems Analysis view regarding an 'inferred' vs. 'confirmed' decision, and a notable contradiction in the Stakeholder view regarding the presence of open questions when compared to other role outputs. These issues need to be addressed before publishing.",
     "prompt_injection_warnings": [],
     "sensitive_content_warnings": []
   },
   "source_map": [
     {
       "decision_id": "D001",
-      "decision_title": "User authentication via external SSO only",
+      "decision_title": "Login via SSO through external Portal",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Users will log in exclusively via SSO through the external Portal."
@@ -428,7 +514,7 @@
     },
     {
       "decision_id": "D002",
-      "decision_title": "System will not implement internal login/registration",
+      "decision_title": "System will not implement its own login or registration",
       "confidence": "confirmed",
       "evidence_quotes": [
         "This system will not implement its own login or registration functionality."
@@ -436,31 +522,31 @@
     },
     {
       "decision_id": "D003",
-      "decision_title": "Prioritize Photo upload feature",
+      "decision_title": "Photo upload is a core V1 feature",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Two main features to prioritize: 1. Photo upload"
+        "Photo upload"
       ]
     },
     {
       "decision_id": "D004",
-      "decision_title": "Prioritize Output modeling feature",
+      "decision_title": "Output modeling is a core V1 feature",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Two main features to prioritize: 2. Output modeling"
+        "Output modeling"
       ]
     },
     {
       "decision_id": "D005",
-      "decision_title": "Sidebar to distinguish Album and Project folder types",
+      "decision_title": "Sidebar must distinguish between 'Album' and 'Project' folder types",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "The sidebar needs to distinguish between two folder types — \"Album\" and \"Project\" — managing photos and modeling data separately"
+        "The sidebar needs to distinguish between two folder types — 'Album' and 'Project' — managing photos and modeling data separately"
       ]
     },
     {
       "decision_id": "D006",
-      "decision_title": "Album must support photo management",
+      "decision_title": "Album must support adding photos",
       "confidence": "confirmed",
       "evidence_quotes": [
         "The Album must support adding, deleting, and searching photos"
@@ -468,63 +554,103 @@
     },
     {
       "decision_id": "D007",
-      "decision_title": "Modeling progress displayed as a progress bar",
+      "decision_title": "Album must support deleting photos",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "The Album must support adding, deleting, and searching photos"
+      ]
+    },
+    {
+      "decision_id": "D008",
+      "decision_title": "Album must support searching photos",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "The Album must support adding, deleting, and searching photos"
+      ]
+    },
+    {
+      "decision_id": "D009",
+      "decision_title": "Modeling progress must be shown as a progress bar",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"
       ]
     },
     {
-      "decision_id": "D008",
-      "decision_title": "Project creation allows photo selection from list",
+      "decision_id": "D010",
+      "decision_title": "Modeling progress bar must display status of each stage",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"
+      ]
+    },
+    {
+      "decision_id": "D011",
+      "decision_title": "Users can select photos from photo list to import into project folder when creating a project",
       "confidence": "confirmed",
       "evidence_quotes": [
         "When creating a project, users can select photos from the photo list to import into the project folder"
       ]
     },
     {
-      "decision_id": "D009",
-      "decision_title": "Project sharing feature (future version)",
+      "decision_id": "D012",
+      "decision_title": "Project sharing is a future feature",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Project sharing: A project folder can designate other users to jointly view the modeling results; Albums are private to the owner only and do not support multi-user access"
+        "Project sharing: A project folder can designate other users to jointly view the modeling results"
       ]
     },
     {
-      "decision_id": "D010",
-      "decision_title": "Resumable uploads feature (future version)",
+      "decision_id": "D013",
+      "decision_title": "Albums are private and do not support multi-user access (future)",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Albums are private to the owner only and do not support multi-user access"
+      ]
+    },
+    {
+      "decision_id": "D014",
+      "decision_title": "Resumable uploads are a future feature",
       "confidence": "confirmed",
       "evidence_quotes": [
         "Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint"
       ]
     },
     {
-      "decision_id": "D011",
-      "decision_title": "Storage quota management feature (future version)",
+      "decision_id": "D015",
+      "decision_title": "Storage quota management is a future feature",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Storage quota management: The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"
+        "Storage quota management: The user's personal page displays used and remaining storage"
       ]
     },
     {
-      "decision_id": "D012",
-      "decision_title": "AT error handling mechanism (future version)",
+      "decision_id": "D016",
+      "decision_title": "Photo-upload limit can be dynamically adjusted (future)",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"
+      ]
+    },
+    {
+      "decision_id": "D017",
+      "decision_title": "AT error handling with parameter adjustment is a future feature",
       "confidence": "confirmed",
       "evidence_quotes": [
         "AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run"
       ]
     },
     {
-      "decision_id": "D013",
-      "decision_title": "Expert mode feature (future version)",
+      "decision_id": "D018",
+      "decision_title": "Expert mode is a future feature",
       "confidence": "confirmed",
       "evidence_quotes": [
-        "Expert mode: After photo upload, distinguish between \"Normal Mode\" (default parameters) and \"Expert Mode\" (freely adjustable parameters)"
+        "Expert mode: After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters)"
       ]
     },
     {
-      "decision_id": "D014",
-      "decision_title": "V1 to implement Normal Mode only for parameter adjustment",
+      "decision_id": "D019",
+      "decision_title": "V1 will implement Normal Mode only",
       "confidence": "confirmed",
       "evidence_quotes": [
         "V1 will implement Normal Mode only"

@@ -1024,7 +1024,7 @@
         <p>{{ roles.stakeholder.business_summary }}</p>
       </div>
 
-      <div class="sub-header">Key Business Outcomes</div>
+      <div class="sub-header">Key Business Outcomes ({{ roles.stakeholder.key_impact|length }})</div>
       <div class="item-list">
         {% for item in roles.stakeholder.key_impact %}
         <div class="item">
@@ -1034,7 +1034,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Decisions Requiring Alignment</div>
+      <div class="sub-header">Decisions Requiring Alignment ({{ roles.stakeholder.decisions_needing_alignment|length }})</div>
       <div class="item-list">
         {% for item in roles.stakeholder.decisions_needing_alignment %}
         <div class="item">
@@ -1044,7 +1044,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Open Questions</div>
+      <div class="sub-header">Open Questions ({{ roles.stakeholder.major_unresolved_questions|length }})</div>
       <div class="item-list">
         {% for item in roles.stakeholder.major_unresolved_questions %}
         <div class="item">
@@ -1062,7 +1062,7 @@
       <div class="panel-title"><i class="ri-terminal-box-line icon-engineer"></i> Engineering Specification</div>
       <p class="panel-desc">Implementation scope, hard constraints, and unresolved technical questions.</p>
 
-      <div class="sub-header">Implementation Scope</div>
+      <div class="sub-header">Implementation Scope ({{ roles.engineer.implementation_scope|length }})</div>
       <div class="item-list">
         {% for item in roles.engineer.implementation_scope %}
         <div class="item">
@@ -1072,7 +1072,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Constraints</div>
+      <div class="sub-header">Constraints ({{ roles.engineer.constraints|length }})</div>
       <div class="item-list">
         {% for item in roles.engineer.constraints %}
         <div class="item">
@@ -1091,7 +1091,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Architectural Decisions</div>
+      <div class="sub-header">Architectural Decisions ({{ roles.engineer.architectural_decisions|length }})</div>
       <div class="item-list">
         {% for item in roles.engineer.architectural_decisions %}
         <div class="item">
@@ -1111,7 +1111,7 @@
       </div>
 
 
-      <div class="sub-header">Open Technical Questions</div>
+      <div class="sub-header">Open Technical Questions ({{ roles.engineer.open_technical_questions|length }})</div>
       <div class="item-list">
         {% for item in roles.engineer.open_technical_questions %}
         <div class="item">
@@ -1121,7 +1121,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Referenced Decisions</div>
+      <div class="sub-header">Referenced Decisions ({{ roles.engineer.relevant_decisions|length }})</div>
       <div style="display:flex;gap:0.4rem;flex-wrap:wrap;padding:0.5rem 0;">
         {% for item in roles.engineer.relevant_decisions %}
           <span class="did-pill" onclick="goDecision('{{ item }}')">{{ item }}</span>
@@ -1136,7 +1136,7 @@
       <div class="panel-title"><i class="ri-shield-check-line icon-qa"></i> Quality Assurance</div>
       <p class="panel-desc">Acceptance criteria, test scenarios, edge cases, and untestable behaviours.</p>
 
-      <div class="sub-header">Acceptance Criteria</div>
+      <div class="sub-header">Acceptance Criteria ({{ roles.qa.acceptance_criteria|length }})</div>
       <div class="item-list">
         {% for item in roles.qa.acceptance_criteria %}
         <div class="item">
@@ -1146,7 +1146,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Test Scenarios</div>
+      <div class="sub-header">Test Scenarios ({{ roles.qa.test_scenarios|length }})</div>
       <div class="item-list">
         {% for item in roles.qa.test_scenarios %}
         <div class="item">
@@ -1156,7 +1156,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Edge Cases</div>
+      <div class="sub-header">Edge Cases ({{ roles.qa.edge_cases|length }})</div>
       <div class="item-list">
         {% for item in roles.qa.edge_cases %}
         <div class="item">
@@ -1166,7 +1166,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Unresolved Behaviours</div>
+      <div class="sub-header">Unresolved Behaviours ({{ roles.qa.unresolved_behaviors|length }})</div>
       <div class="item-list">
         {% for item in roles.qa.unresolved_behaviors %}
         <div class="item">
@@ -1185,7 +1185,7 @@
       <p class="panel-desc">Delivery timeline, dependencies, risks, alignment gaps, milestones, and open PM questions.</p>
 
       {% if roles.pm.milestones %}
-      <div class="sub-header">Milestones &amp; Deadlines</div>
+      <div class="sub-header">Milestones &amp; Deadlines ({{ roles.pm.milestones|length }})</div>
       <div class="item-list">
         {% for item in roles.pm.milestones %}
         <div class="item">
@@ -1196,7 +1196,7 @@
       </div>
       {% endif %}
 
-      <div class="sub-header">Risks</div>
+      <div class="sub-header">Risks ({{ roles.pm.risks|length }})</div>
       <div class="item-list">
         {% for item in roles.pm.risks %}
         <div class="item">
@@ -1206,7 +1206,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Alignment Gaps</div>
+      <div class="sub-header">Alignment Gaps ({{ roles.pm.alignment_gaps|length }})</div>
       <div class="item-list">
         {% for item in roles.pm.alignment_gaps %}
         <div class="item">
@@ -1216,7 +1216,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Open Questions</div>
+      <div class="sub-header">Open Questions ({{ roles.pm.open_questions|length }})</div>
       <div class="item-list">
         {% for item in roles.pm.open_questions %}
         <div class="item">
@@ -1226,7 +1226,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Dependencies</div>
+      <div class="sub-header">Dependencies ({{ roles.pm.dependencies|length }})</div>
       <div class="item-list">
         {% for item in roles.pm.dependencies %}
         <div class="item">
@@ -1239,7 +1239,7 @@
       <details class="decision-history-details" style="margin-top: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">
         <summary class="sub-header" style="cursor: pointer; display: flex; align-items: center; gap: 0.35rem; margin: 0; padding: 0 0 0.5rem 0; border: none; outline: none; list-style: none; -webkit-details-marker: none;">
           <i class="ri-arrow-right-s-line" style="transition: transform var(--dur) var(--ease-out); font-size: 0.9rem;"></i>
-          <span>View Full Decision History</span>
+          <span>View Full Decision History ({{ roles.pm.decision_history|length }})</span>
         </summary>
         <div class="item-list" style="margin-top: 0.75rem;">
           {% for item in roles.pm.decision_history %}
@@ -1260,7 +1260,7 @@
       <div class="panel-title"><i class="ri-flow-chart icon-rose"></i> System Analysis</div>
       <p class="panel-desc">Formal requirements, data flows, interface contracts, and architectural constraints derived from the meeting decisions.</p>
 
-      <div class="sub-header">System Requirements</div>
+      <div class="sub-header">System Requirements ({{ roles.sa.system_requirements|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.system_requirements %}
         <div class="item">
@@ -1270,7 +1270,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Data Flows &amp; Integrations</div>
+      <div class="sub-header">Data Flows &amp; Integrations ({{ roles.sa.data_flows|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.data_flows %}
         <div class="item">
@@ -1280,7 +1280,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Interface Contracts</div>
+      <div class="sub-header">Interface Contracts ({{ roles.sa.interface_contracts|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.interface_contracts %}
         <div class="item">
@@ -1290,7 +1290,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Constraints</div>
+      <div class="sub-header">Constraints ({{ roles.sa.constraints|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.constraints %}
         <div class="item">
@@ -1309,7 +1309,7 @@
         {% endfor %}
       </div>
 
-      <div class="sub-header">Architectural Decisions</div>
+      <div class="sub-header">Architectural Decisions ({{ roles.sa.architectural_decisions|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.architectural_decisions %}
         <div class="item">
@@ -1329,7 +1329,7 @@
       </div>
 
 
-      <div class="sub-header">Open Analysis Questions</div>
+      <div class="sub-header">Open Analysis Questions ({{ roles.sa.open_analysis_questions|length }})</div>
       <div class="item-list">
         {% for item in roles.sa.open_analysis_questions %}
         <div class="item">
