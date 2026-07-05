@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # T2/T3/T4 Test Runner — Knowledge Routing Agent v1.1
-# Usage: bash capstone/scripts/run_tests.sh
+# Usage: bash scripts/run_tests.sh
 # Run from repository root.
+
 
 CAPSTONE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$CAPSTONE_DIR"

@@ -8,7 +8,7 @@ We have successfully built, verified, and published **v1.5** to the `main` branc
 
 ### 📂 File Structure
 ```
-capstone/
+.
 ├── .env.example          ← Template for API keys
 ├── .gitignore            ← Excludes local secrets (.env)
 ├── README.md             ← Main project documentation with security/flag usage
@@ -49,6 +49,7 @@ capstone/
             ├── output.json      ← Serialized structured data (with CitedItem structures)
             └── source-map.json  ← Decision ID -> quote mappings
 ```
+
 
 ---
 
