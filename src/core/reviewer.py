@@ -1,11 +1,12 @@
 """
 Reviewer Agent.
 
-Performs two checks on the pipeline output before the report is published:
+Performs three checks on the pipeline output before the report is published:
   1. Hallucination check — every claim must trace back to an extracted decision
   2. Quality check — outputs must be useful and ready to share
+  3. Injection & Sensitive Content check — detects prompt injections and sensitive terms
 
-Input state keys: "extraction", "engineer_view", "qa_view", "pm_view", "stakeholder_view"
+Input state keys: "extraction", "engineer_view", "qa_view", "pm_view", "sa_view", "stakeholder_view"
 Output state key: "review"  (ReviewOutput JSON)
 """
 
