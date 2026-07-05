@@ -888,7 +888,7 @@
       </div>
       <div class="meta-cell">
         <span class="meta-key">Generated</span>
-        <span class="meta-val mono">2026-07-04T20:22:11.898705Z</span>
+        <span class="meta-val mono">2026-07-05T06:16:21.385462Z</span>
       </div>
     </div>
   </div>
@@ -975,7 +975,7 @@
 
       <div class="summary-block">
         <div class="summary-block-label">Business Summary</div>
-        <p>Our initial product launch (V1) will focus on two core features: allowing users to upload photos and then process those photos into 3D models. Users will access the system seamlessly through our existing external login portal, ensuring a consistent and secure experience without needing a new account or password. We've also outlined several advanced features for future releases to enhance collaboration and user control.</p>
+        <p>Our new system's initial version (V1) will focus on two core capabilities: managing user photos and enabling 3D model creation from those photos. Users will log in exclusively through our existing external portal, streamlining access and avoiding the need for a separate login system. We are prioritizing these essential features for a faster first release, with more advanced functionalities planned for future updates.</p>
       </div>
 
       <div class="sub-header">Key Business Outcomes</div>
@@ -983,27 +983,27 @@
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Users will have a simple, secure login experience by using our existing company portal.</span>
+          <span class="item-text">Users will experience a simple and secure login process by using our established external portal.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The product will deliver immediate value by enabling users to upload photos and generate 3D models, addressing key business needs.</span>
+          <span class="item-text">The initial product provides immediate value by allowing users to upload, manage, and process photos into 3D models.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">The system is designed for future growth, with plans to introduce collaboration tools and advanced user controls in later versions.</span>
+          <span class="item-text">User workflows are streamlined by clearly separating personal photo collections ('Albums') from modeling projects ('Projects').</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">User progress during modeling will be clearly visible, improving satisfaction and transparency.</span>
+          <span class="item-text">Users will be kept informed with detailed progress updates as their 3D models are being generated.</span>
         </div>
         
         <div class="item">
           <i class="ri-focus-3-line icon-stakeholder"></i>
-          <span class="item-text">Initial focus on a 'Normal Mode' ensures ease of use for the majority of users, with advanced customization (Expert Mode) planned for later.</span>
+          <span class="item-text">By focusing on core features for V1, we can launch sooner and gather valuable user feedback to guide future enhancements.</span>
         </div>
         
       </div>
@@ -1015,6 +1015,21 @@
 
       <div class="sub-header">Open Questions</div>
       <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">What is the planned timeline and prioritization for introducing advanced features like project sharing, resumable uploads, and specialized 'Expert Mode' modeling options?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">How will we ensure the initial 'Normal Mode' for modeling in V1 fully meets user expectations without the more flexible 'Expert Mode' that allows for parameter adjustments?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Are there any outstanding dependencies or integration challenges with the external login portal, which our new system will rely on exclusively for user access?</span>
+        </div>
         
       </div>
     </div>
@@ -1031,47 +1046,52 @@
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Integrate with external Single Sign-On (SSO) Portal for user authentication and authorization (D001).</span>
+          <span class="item-text">Implement user authentication exclusively via external SSO portal, without internal login/registration components.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Develop photo upload system, including client-side and server-side components (D004).</span>
+          <span class="item-text">Develop photo upload functionality, including API endpoints and storage integration.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Develop output modeling system, including backend processing for AT computing, point cloud generation, and model generation (D005).</span>
+          <span class="item-text">Implement output modeling feature.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement user interface sidebar to differentiate and manage 'Album' and 'Project' folder types, handling photos and modeling data separately (D006).</span>
+          <span class="item-text">Design and implement a sidebar UI component to visually distinguish between 'Album' and 'Project' folder types.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement Album functionality to add, delete, and search photos (D007).</span>
+          <span class="item-text">Develop backend and frontend logic for separate management of photos within 'Albums' and modeling data within 'Projects'.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement UI component for a modeling progress bar, displaying status for each stage of the modeling process (D008).</span>
+          <span class="item-text">Implement 'Album' functionality to add, delete, and search photos, ensuring owner-only privacy and no multi-user access.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Develop functionality for creating a project, allowing users to select and import photos from their photo list into the project folder (D009).</span>
+          <span class="item-text">Develop and integrate a visual progress bar for modeling processes.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Implement 'Normal Mode' for output modeling using default parameters (D016).</span>
+          <span class="item-text">Implement detailed modeling progress display, showing status for AT computing, point cloud generation, and model generation stages.</span>
         </div>
         
         <div class="item">
           <i class="ri-code-line icon-engineer"></i>
-          <span class="item-text">Enforce album privacy: restrict access to the owner only (D011).</span>
+          <span class="item-text">Enable users to select and import existing photos into new project folders.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-code-line icon-engineer"></i>
+          <span class="item-text">Implement 'Normal Mode' for modeling, utilizing predefined default parameters after photo upload.</span>
         </div>
         
       </div>
@@ -1082,13 +1102,11 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            User authentication and registration must be handled exclusively by an external SSO Portal; no internal login/registration system is to be built.
+            All user authentication and registration must be handled externally via an existing Single Sign-On (SSO) Portal.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
-                
-                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
                 
               </span>
             
@@ -1098,11 +1116,11 @@
         <div class="item">
           <i class="ri-git-commit-line icon-cyan"></i>
           <span class="item-text">
-            Album access must be restricted to the owner only; multi-user access for albums is not permitted.
+            The system must not implement any internal login or registration functionality.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
-                  <span class="did-pill" onclick="goDecision('D011')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D011</span>
+                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
                 
               </span>
             
@@ -1117,27 +1135,13 @@
         <div class="item">
           <i class="ri-shield-line icon-cyan"></i>
           <span class="item-text">
-            Adopt an external Single Sign-On (SSO) system as the sole authentication mechanism, precluding any internal user credential management.
+            Authentication will be fully delegated to an external SSO provider; no internal identity management system will be built.
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
                 
                   <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
-                
-              </span>
-            
-          </span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-shield-line icon-cyan"></i>
-          <span class="item-text">
-            For V1, restrict output modeling functionality to 'Normal Mode' with default parameters only, deferring 'Expert Mode' to future versions.
-            
-              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
-                
-                  <span class="did-pill" onclick="goDecision('D016')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D016</span>
                 
               </span>
             
@@ -1152,42 +1156,37 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the specific API/protocol for integrating with the external SSO Portal (e.g., OAuth2, OpenID Connect) and what user data will be provided?</span>
+          <span class="item-text">What are the specific integration protocols (e.g., OAuth2, OpenID Connect) and token handling mechanisms required for the external SSO Portal?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the technical requirements for photo upload (e.g., max file size, supported formats, client-side preprocessing, storage solution, direct upload vs. proxied)?</span>
+          <span class="item-text">What are the detailed API contracts for photo upload (including metadata handling), deletion, and search functionalities?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the detailed backend architecture for output modeling (e.g., microservices, job queueing, specific libraries/algorithms for AT computing, point cloud generation, model generation)?</span>
+          <span class="item-text">What is the precise data model and schema for 'Album' and 'Project' folders, photos, and modeling data?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">How will modeling progress status (AT computing, point cloud generation, model generation) be communicated from the backend services to the frontend in real-time?</span>
+          <span class="item-text">What are the specific default parameters for 'Normal Mode' modeling, and how should they be applied or configured?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the precise 'default parameters' for 'Normal Mode' modeling, and how will they be configured and applied?</span>
+          <span class="item-text">What are the API endpoints and expected payload structures for initiating modeling processes and receiving/polling for progress updates?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What data structures and database schema design are needed to differentiate and manage 'Album' and 'Project' folder types and their associated data (photos vs. modeling data)?</span>
+          <span class="item-text">How will the external modeling service be integrated (e.g., synchronous calls, asynchronous job queues, webhooks) and what is its interface specification?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the chosen technical approach for 'searching photos' within an Album (e.g., metadata indexing, full-text search engine integration, database query optimization)?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">How will user identity from the external SSO be mapped to an internal user representation for managing ownership and access control of Albums and Projects?</span>
+          <span class="item-text">Are there additional modeling progress stages beyond AT computing, point cloud generation, and model generation, and how will their status be communicated?</span>
         </div>
         
       </div>
@@ -1213,9 +1212,29 @@
         
           <span class="did-pill" onclick="goDecision('D009')">D009</span>
         
+          <span class="did-pill" onclick="goDecision('D010')">D010</span>
+        
           <span class="did-pill" onclick="goDecision('D011')">D011</span>
         
+          <span class="did-pill" onclick="goDecision('D012')">D012</span>
+        
+          <span class="did-pill" onclick="goDecision('D013')">D013</span>
+        
+          <span class="did-pill" onclick="goDecision('D014')">D014</span>
+        
+          <span class="did-pill" onclick="goDecision('D015')">D015</span>
+        
           <span class="did-pill" onclick="goDecision('D016')">D016</span>
+        
+          <span class="did-pill" onclick="goDecision('D017')">D017</span>
+        
+          <span class="did-pill" onclick="goDecision('D018')">D018</span>
+        
+          <span class="did-pill" onclick="goDecision('D019')">D019</span>
+        
+          <span class="did-pill" onclick="goDecision('D020')">D020</span>
+        
+          <span class="did-pill" onclick="goDecision('D021')">D021</span>
         
       </div>
     </div>
@@ -1232,72 +1251,87 @@
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user attempts to log in, When they are redirected to the external SSO Portal, Then successful authentication on the external Portal grants access to the system.</span>
+          <span class="item-text">Given a user attempts to log in, When they initiate the login process, Then they are redirected to the external SSO Portal for authentication (D001).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The system's user interface must not contain any internal login forms or registration links.</span>
+          <span class="item-text">Given a user attempts to log in, When authentication is successful via the external SSO Portal, Then they are successfully logged into the system (D001).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The system must allow users to upload photos.</span>
+          <span class="item-text">Given a user attempts to register or log in using internal credentials, When they interact with the system's interface, Then no internal login or registration functionality is presented (D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The system must allow users to initiate output modeling.</span>
+          <span class="item-text">Given a user views the sidebar, Then 'Album' folders and 'Project' folders are visually distinct from each other (D005).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The sidebar interface must visually distinguish between 'Album' and 'Project' folder types.</span>
+          <span class="item-text">Given a user views an 'Album' folder, Then its content area is dedicated to managing photos (D006).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The sidebar interface must allow separate management of photos within 'Album' folders and modeling data within 'Project' folders.</span>
+          <span class="item-text">Given a user views a 'Project' folder, Then its content area is dedicated to managing modeling data (D006).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user is in an 'Album' folder, When they select photos to add, Then the selected photos are successfully added to the 'Album'.</span>
+          <span class="item-text">Given a user is in an 'Album', When they attempt to add one or more photos, Then the photos are successfully added to the album (D007).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user is in an 'Album' folder, When they select one or more photos and choose to delete them, Then the selected photos are successfully removed from the 'Album'.</span>
+          <span class="item-text">Given a user is in an 'Album' containing photos, When they select a photo and initiate deletion, Then the photo is successfully removed from the album (D008).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user is in an 'Album' folder, When they use the search functionality for photos, Then the system displays photos matching the search criteria.</span>
+          <span class="item-text">Given a user is in an 'Album' containing photos, When they use the search functionality with a valid query, Then only photos matching the search criteria are displayed (D009).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a modeling process is initiated, When the modeling process starts, Then a progress bar is displayed showing the status of each stage (e.g., AT computing, point cloud generation, model generation).</span>
+          <span class="item-text">Given an output modeling process is initiated, When the process is active, Then a visual progress bar is displayed to the user (D010).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user is creating a new 'Project', When they access the photo selection interface, Then they can view and select photos from their available photo list.</span>
+          <span class="item-text">Given an output modeling process is active, When the progress bar is displayed, Then it shows distinct sub-stages: AT computing, point cloud generation, and model generation (D011).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given a user has selected photos during 'Project' creation, When they confirm the selection, Then the chosen photos are successfully imported into the new 'Project' folder.</span>
+          <span class="item-text">Given a user is creating a new project, When they are prompted to add photos, Then they can browse and select photos from their existing 'Album' photo list (D012).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">Given an 'Album' is created by a specific user, When another user attempts to view or access that 'Album', Then access is denied.</span>
+          <span class="item-text">Given a user selects photos from an 'Album' during project creation, When they confirm the selection, Then the selected photos are imported into the new project folder (D012).</span>
         </div>
         
         <div class="item">
           <i class="ri-task-line icon-qa"></i>
-          <span class="item-text">The system must only present options for 'Normal Mode' modeling (default parameters) and not display any 'Expert Mode' adjustable parameters for V1.</span>
+          <span class="item-text">Given a user owns an 'Album', When another user attempts to access that 'Album', Then the other user is denied access (D014).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user attempts to share an 'Album' with other users, Then no multi-user access or sharing options are available for 'Album' folders (D015).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user initiates a modeling process in V1, When the system prepares for computation, Then it automatically uses default parameters without requiring user adjustment (D020).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-task-line icon-qa"></i>
+          <span class="item-text">Given a user has uploaded photos for modeling in V1, When they look for advanced parameter settings, Then no 'Expert Mode' or adjustable modeling parameters are available (D020).</span>
         </div>
         
       </div>
@@ -1307,72 +1341,52 @@
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify a user can successfully log in to the system via the external SSO Portal.</span>
+          <span class="item-text">**Successful SSO Login:** Navigate to the system, verify redirection to the external SSO portal, successfully log in, and confirm landing on the expected system dashboard.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Attempt to navigate to any URL or UI element that might suggest an internal login or registration process and confirm none exist.</span>
+          <span class="item-text">**Attempt Internal Login/Registration:** Verify that no login or registration forms/buttons exist within the application interface itself, confirming exclusive reliance on SSO.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Upload a single photo to an 'Album' folder and verify its successful display.</span>
+          <span class="item-text">**Create New Album and Add Photos:** Create a new 'Album' folder. Upload a single photo successfully. Upload multiple photos simultaneously and verify all are added.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Upload multiple photos to an 'Album' folder and verify their successful display.</span>
+          <span class="item-text">**Delete Photos from Album:** Add several photos to an album. Select and delete a single photo. Select multiple photos and delete them at once. Verify photos are removed.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Create a new 'Album' folder and verify it appears correctly in the sidebar.</span>
+          <span class="item-text">**Search Photos in Album:** Add photos with distinct names/tags to an album. Perform a search using a full name, a partial name, and a non-existent name. Verify accurate search results.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Create a new 'Project' folder and verify it appears correctly in the sidebar, distinct from 'Album' folders.</span>
+          <span class="item-text">**Verify Album Privacy:** Create an album as User A. Attempt to access User A's album (e.g., via direct link if available, or through shared UI elements) while logged in as User B. Confirm access is denied.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Delete a single photo from an 'Album' and verify it is removed.</span>
+          <span class="item-text">**Initiate Modeling with Progress Bar:** Create a 'Project' and import photos. Initiate a modeling job. Observe the visual progress bar, verifying it appears and displays distinct stages (AT computing, point cloud generation, model generation) updating correctly.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Delete multiple photos from an 'Album' and verify they are all removed.</span>
+          <span class="item-text">**Create New Project and Import Existing Photos:** Create a new 'Project'. During project creation, select 5 photos from an existing 'Album' to import. Verify all 5 selected photos are successfully imported and displayed within the new 'Project' folder.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Search for an existing photo within an 'Album' by its filename or metadata.</span>
+          <span class="item-text">**Differentiating Folder Types in Sidebar:** Navigate through the sidebar, visually confirming clear distinction between 'Album' and 'Project' folder types (e.g., by different icons, labels, or styling). Verify that selecting an 'Album' displays photo management UI, and selecting a 'Project' displays modeling data UI.</span>
         </div>
         
         <div class="item">
           <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Search for a non-existent photo within an 'Album' and verify no results are returned.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Start a modeling process for a 'Project' and observe the progress bar updating through its various stages.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Create a new 'Project', select several photos from an existing 'Album', and confirm they are imported into the 'Project'.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Log in as User A, create an 'Album'. Log in as User B, attempt to access User A's album and confirm access is denied.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-play-list-add-line icon-qa"></i>
-          <span class="item-text">Verify that after photo upload and initiating modeling, there are no options presented for 'Expert Mode' parameter adjustments.</span>
+          <span class="item-text">**Normal Mode Operation:** Upload photos into a new project and initiate the modeling process. Confirm that the process proceeds automatically with default parameters, without any prompts for user parameter adjustment, and completes successfully.</span>
         </div>
         
       </div>
@@ -1382,52 +1396,42 @@
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Attempt to log in via SSO with invalid credentials on the external Portal and observe system behavior (e.g., error message, redirect).</span>
+          <span class="item-text">**SSO Portal Unavailability:** Test system behavior if the external SSO portal is unreachable or returns an error during login attempt.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Attempt to upload a photo with an unsupported file type.</span>
+          <span class="item-text">**Unsupported Photo File Types:** Attempt to upload a file type not typically recognized as a photo (e.g., a document, video, or executable) into an 'Album'.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Attempt to upload a photo that exceeds the maximum allowed file size.</span>
+          <span class="item-text">**Large Number of Photos:** Attempt to upload a very large number of photos (e.g., 1000+) into an 'Album' or import into a 'Project'. Observe performance and system stability.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Attempt to upload a very large number of photos in a single batch (e.g., 1000+).</span>
+          <span class="item-text">**Extremely Large Photo File Size:** Upload individual photo files that are exceptionally large (e.g., several hundred MBs or GBs). Monitor upload success, processing time, and potential timeouts.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Attempt to delete photos from an 'Album' while they are currently being used in an active 'Project' modeling process (if applicable).</span>
+          <span class="item-text">**Searching in an Empty Album:** Perform a search query within an 'Album' that contains no photos.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Search for photos using special characters or an empty search query.</span>
+          <span class="item-text">**Deleting All Photos from an Album:** Verify the ability to delete every photo from an 'Album', leaving it empty.</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Initiate modeling for a 'Project' with a minimal number of photos (e.g., 1-2).</span>
+          <span class="item-text">**Modeling Process Interruption:** Initiate a modeling process and then simulate a network disconnection or browser closure. Observe the system's state upon reconnection/reopening (understanding resumable uploads are future).</span>
         </div>
         
         <div class="item">
           <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Initiate modeling for a 'Project' with a very large number of photos.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">Observe progress bar behavior if a modeling stage completes unusually quickly or slowly.</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-alert-line icon-qa"></i>
-          <span class="item-text">As a non-owner user, attempt to find a direct link or path to another user's private 'Album' and verify access is blocked.</span>
+          <span class="item-text">**Creating Project with No Available Photos:** Attempt to create a 'Project' when the user has no photos uploaded in any 'Album' to import.</span>
         </div>
         
       </div>
@@ -1437,32 +1441,37 @@
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the expected system behavior when SSO authentication fails or the external Portal is unavailable? (Owner: PM/QA)</span>
+          <span class="item-text">**Photo Upload Details (D007):** What specific file formats (e.g., JPG, PNG, HEIC) are officially supported for photo upload? What is the maximum allowed file size per photo?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What are the supported image file types for photo uploads? (Owner: PM/QA)</span>
+          <span class="item-text">**Photo Deletion Confirmation (D008):** Is there a confirmation dialog before photos are permanently deleted from an Album? Is there an 'undo' option for accidental deletions?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the maximum file size limit for a single photo upload? (Owner: PM/QA)</span>
+          <span class="item-text">**Photo Search Criteria (D009):** What specific metadata or attributes are searchable within an Album (e.g., filename, upload date, camera model)? Is the search case-sensitive or does it support partial matches/fuzzy logic?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the maximum number of photos that can be uploaded in a single batch? (Owner: PM/QA)</span>
+          <span class="item-text">**Modeling Progress Failure States (D010, D011):** What are the expected visual cues or explicit error messages displayed to the user if a specific modeling stage (AT computing, point cloud generation, or model generation) fails or stalls?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What are the specific stages to be displayed in the modeling progress bar for V1 (e.g., beyond 'AT computing, point cloud generation, model generation')? (Owner: PM/QA)</span>
+          <span class="item-text">**Photo Import Behavior (D012):** When photos are imported from an 'Album' into a 'Project', are they copied (creating a duplicate) or referenced (sharing the same underlying file)? What happens if a user attempts to import photos that are already present in the target project?</span>
         </div>
         
         <div class="item">
           <i class="ri-bubble-chart-line icon-danger"></i>
-          <span class="item-text">What is the expected behavior and UI feedback if a modeling process fails during V1 (before the 'AT error handling' feature is implemented)? (Owner: PM/QA)</span>
+          <span class="item-text">**Sidebar Distinction UI (D005):** What are the exact visual design specifications (e.g., specific icons, color coding, labels, or layout) that will differentiate 'Album' and 'Project' folder types in the sidebar?</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-bubble-chart-line icon-danger"></i>
+          <span class="item-text">**Performance Benchmarks:** What are the defined performance benchmarks or acceptable response times for key user actions such as photo upload completion, photo search result display, and initiation of modeling jobs?</span>
         </div>
         
       </div>
@@ -1476,24 +1485,54 @@
       <p class="panel-desc">Delivery timeline, dependencies, risks, alignment gaps, milestones, and open PM questions.</p>
 
       
+      <div class="sub-header">Milestones &amp; Deadlines</div>
+      <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">V1: Deliver Photo Upload feature.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">V1: Deliver Output Modeling feature in 'Normal Mode' (default parameters).</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-flag-line icon-pm"></i>
+          <span class="item-text">V1: Implement sidebar distinction and separate management for 'Album' and 'Project' folders.</span>
+        </div>
+        
+      </div>
+      
 
       <div class="sub-header">Risks</div>
       <div class="item-list">
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">High: Critical dependency on external SSO Portal for all user logins (D001, D002). Any issues or delays with the external Portal's SSO service will directly block user access to our system. (Impact: High, Likelihood: Medium - inherent risk of external dependency)</span>
+          <span class="item-text">High: Reliance on External SSO Portal: Any outages, performance issues, or unforeseen API changes in the external SSO Portal could critically block user access and impact project timelines and user experience for V1. This dependency is fundamental.</span>
         </div>
         
         <div class="item">
           <i class="ri-temp-cold-line icon-danger"></i>
-          <span class="item-text">Medium: Scope creep risk from 'future features' (D010, D012, D013, D014, D015). While explicitly out of V1, these could create stakeholder expectation management challenges or pressure to include them prematurely.</span>
+          <span class="item-text">Medium: User Frustration with V1 Modeling Limitations: V1 includes 'Output Modeling' but defers 'Expert Mode' (adjustable parameters) and 'AT computation error handling' to future versions. If initial modeling results in 'Normal Mode' frequently require manual adjustment or fail without clear recovery options, users may experience significant frustration, impacting V1 adoption and perceived quality.</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-temp-cold-line icon-danger"></i>
+          <span class="item-text">Medium: Potential Scope Pressure/Creep for Future Features: A substantial list of advanced features is explicitly deferred to future versions (e.g., project sharing, resumable uploads, advanced storage management, expert mode, AT error handling). While planned, there's a risk of pressure to pull these features into V1 or early iterations if user feedback is strong, potentially impacting V1 delivery focus and quality.</span>
         </div>
         
       </div>
 
       <div class="sub-header">Alignment Gaps</div>
       <div class="item-list">
+        
+        <div class="item">
+          <i class="ri-user-voice-line icon-stakeholder"></i>
+          <span class="item-text">There is a potential expectation gap regarding the 'Output Modeling' feature in V1. While it is a core priority, the deferral of 'Expert Mode' (adjustable parameters) and 'AT computation error handling' might lead stakeholders to expect a more robust or customizable modeling experience than V1's 'Normal Mode' will offer. Clarification on the expected success rate and robustness of 'Normal Mode' output without manual parameter tuning or error recovery is needed.</span>
+        </div>
         
       </div>
 
@@ -1502,12 +1541,27 @@
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the specific API contracts, integration points, and security protocols required for integrating with the external SSO Portal? (Owned by PM, blocked by External Portal team/Engineer)</span>
+          <span class="item-text">High Impact: What are the specific acceptance criteria and quality metrics for 'Normal Mode' output modeling, especially given that 'Expert Mode' and AT error handling are deferred to future versions? (Owned by PM/QA)</span>
         </div>
         
         <div class="item">
           <i class="ri-questionnaire-line icon-danger"></i>
-          <span class="item-text">What are the acceptance criteria for 'Normal Mode' modeling (D016) and what are the expected default parameters? (Owned by PM/QA)</span>
+          <span class="item-text">High Impact: What is the expected minimum success rate or quality standard for AT computation within V1's 'Normal Mode', considering explicit error handling mechanisms are not implemented yet? (Owned by PM/QA)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Medium Impact: What is the detailed scope for 'Photo Upload' beyond add/delete/search (e.g., batch upload, image resizing, metadata handling) and for 'Output Modeling' (e.g., types of models supported, output formats) for V1? (Owned by PM/QA)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Medium Impact: Are there any specific Service Level Agreements (SLAs) or non-functional requirements (e.g., uptime, response time, security standards) that need to be met by the external SSO Portal for V1? What are the contingency plans if the SSO Portal becomes unavailable? (Owned by PM)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-questionnaire-line icon-danger"></i>
+          <span class="item-text">Low Impact: What is the projected timeline or target versioning strategy for the 'future version' features, such as Project Sharing, Resumable Uploads, Storage Quota Display, Dynamic Photo Upload Limits, Expert Mode, and AT Error Handling? (Owned by PM)</span>
         </div>
         
       </div>
@@ -1517,7 +1571,12 @@
         
         <div class="item">
           <i class="ri-git-merge-line icon-pm"></i>
-          <span class="item-text">External Portal for Single Sign-On (SSO) integration (Confirmed). The system relies entirely on this external component for user authentication and login.</span>
+          <span class="item-text">External System Dependency: The project is entirely dependent on the external SSO Portal for all user authentication and login processes. (Confirmed)</span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-git-merge-line icon-pm"></i>
+          <span class="item-text">Internal Feature Dependency: The 'Output Modeling' core feature (V1) depends on the successful implementation and stability of underlying AT computing, point cloud generation, and model generation processes. (Inferred)</span>
         </div>
         
       </div>
@@ -1531,47 +1590,37 @@
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D001: Users will log in exclusively via Single Sign-On (SSO) through the external Portal, thus D002: The system will not implement its own login or registration functionality.</span>
+            <span class="item-text">D001, D002: It was decided that user authentication will exclusively use an external Single Sign-On (SSO) Portal, and no internal login or registration functionality will be implemented. This streamlines user access and reduces development overhead for authentication.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D003: The two main features prioritized for V1 are photo upload (D004) and output modeling (D005).</span>
+            <span class="item-text">D003, D004, D020: The core features prioritized for the V1 implementation are Photo Upload and Output Modeling. V1 will specifically implement 'Normal Mode' for modeling, which uses default parameters after photo upload. 'Expert Mode' and advanced AT computation error handling are explicitly deferred to future versions.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D006: The sidebar interface in V1 will distinguish between 'Album' and 'Project' folder types, managing photos and modeling data separately.</span>
+            <span class="item-text">D005, D006: The user interface sidebar must visually distinguish between 'Album' and 'Project' folder types, specifically designed for separate management of photos and modeling data respectively.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D007: Album functionality for V1 must support adding, deleting, and searching photos.</span>
+            <span class="item-text">D007, D008, D009, D014, D015: The 'Album' functionality in V1 will support adding, deleting, and searching photos. Albums are designated as private, accessible only by their owner, and do not support multi-user access.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D011: Albums in V1 will be private to the owner only and will not support multi-user access.</span>
+            <span class="item-text">D010, D011: The system must display modeling progress using a visual progress bar, detailing individual stages such as AT computing, point cloud generation, and model generation.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D009: When creating a project, users must be able to select photos from their photo list to import into the project folder.</span>
+            <span class="item-text">D012: When creating a new project, users must be able to select photos from their existing photo list to import into the project folder.</span>
           </div>
           
           <div class="item">
             <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D008: Modeling progress for V1 must be shown as a progress bar, displaying the status of each stage (e.g., AT computing, point cloud generation, model generation).</span>
-          </div>
-          
-          <div class="item">
-            <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D016: For V1, only 'Normal Mode' (default parameters) for photo modeling will be implemented, with 'Expert Mode' (freely adjustable parameters) deferred to a future version (D015).</span>
-          </div>
-          
-          <div class="item">
-            <i class="ri-history-line icon-pm"></i>
-            <span class="item-text">Decision D010: Project sharing, D012: Resumable uploads, D013: Storage quota management, and D014: AT error handling are confirmed as future features beyond V1 scope.</span>
+            <span class="item-text">D013, D016, D017, D018, D019, D021: Several advanced features including project sharing, resumable uploads, storage quota display, dynamic photo upload limits, and 'Expert Mode' for modeling with adjustable parameters and AT error handling are confirmed for future versions beyond V1.</span>
           </div>
           
         </div>
@@ -1591,107 +1640,82 @@
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL authenticate users exclusively via Single Sign-On (SSO) through the external Portal (D001).</span>
+          <span class="item-text">The system SHALL rely exclusively on an external Single Sign-On (SSO) Portal for user authentication (D001).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system MUST NOT implement its own user login or registration functionality (D002).</span>
+          <span class="item-text">The system SHALL NOT implement internal user login or registration functionality (D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support the upload of user photos (D004).</span>
+          <span class="item-text">The system SHALL provide functionality for users to upload photos (D003).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support the generation of output models (D005).</span>
+          <span class="item-text">The system SHALL provide functionality for output modeling (D004).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The user interface sidebar SHALL visually distinguish between 'Album' and 'Project' folder types (D006).</span>
+          <span class="item-text">The system SHALL visually distinguish between 'Album' and 'Project' folder types within the user interface sidebar (D005).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL manage photos within 'Album' folders (D006).</span>
+          <span class="item-text">The system SHALL support the separate management of photos within 'Album' folders and modeling data within 'Project' folders (D006).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL manage modeling data within 'Project' folders (D006).</span>
+          <span class="item-text">The system SHALL enable users to add photos to an 'Album' (D007).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL allow users to add photos to an Album (D007).</span>
+          <span class="item-text">The system SHALL enable users to delete photos from an 'Album' (D008).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL allow users to delete photos from an Album (D007).</span>
+          <span class="item-text">The system SHALL enable users to search for photos within an 'Album' (D009).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL allow users to search for photos within an Album (D007).</span>
+          <span class="item-text">The system SHALL display modeling progress using a visual progress bar (D010).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL display the progress of modeling tasks via a progress bar (D008).</span>
+          <span class="item-text">The system SHALL display the status of individual modeling stages, including AT computing, point cloud generation, and model generation, within the modeling progress bar (D011).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The modeling progress bar SHALL display the status of each stage of the modeling process, including AT computing, point cloud generation, and model generation (D008).</span>
+          <span class="item-text">The system SHALL enable users to select existing photos from their personal photo list for import into a newly created 'Project' folder (D012).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL allow users to select existing photos from their photo list for import into a Project folder during project creation (D009).</span>
+          <span class="item-text">An 'Album' SHALL be private and accessible only by its owner (D014).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">Albums SHALL be private to their owner only (D011).</span>
+          <span class="item-text">An 'Album' SHALL NOT support multi-user access (D015).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system MUST NOT support multi-user access to Albums (D011).</span>
+          <span class="item-text">The V1 system SHALL implement 'Normal Mode' for modeling, which processes photos using default parameters after upload (D020).</span>
         </div>
         
         <div class="item">
           <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">For V1, the system SHALL only process output modeling using 'Normal Mode' (default parameters) (D016).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support future functionality to allow designating other users to jointly view modeling results in a project folder (D010).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support future functionality for resumable uploads where upload progress is preserved via a caching mechanism if an upload is interrupted (D012).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support future functionality to display used and remaining storage on the user's personal page, and dynamically adjust user photo-upload limits based on system settings and permissions (D013).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support future functionality to provide a mechanism to adjust parameters and re-run AT computation when it fails (D014).</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-list-check-3 icon-rose"></i>
-          <span class="item-text">The system SHALL support future functionality to distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters) for modeling after photo upload (D015).</span>
+          <span class="item-text">The V1 system SHALL NOT implement 'Expert Mode' functionality for adjustable modeling parameters (D021).</span>
         </div>
         
       </div>
@@ -1701,32 +1725,32 @@
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">User authentication requests SHALL be redirected from this system to the external Portal's SSO system, which SHALL return an authentication token/session to this system (D001).</span>
+          <span class="item-text">User authentication data flow from [User Client] through [This System] to [External SSO Portal] and back to [This System] for session establishment (inferred from D001, D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">User-uploaded photo data SHALL flow from the client application to the system's storage component (D004).</span>
+          <span class="item-text">Photo upload data flow from [User Client] to [This System - Album Storage] (inferred from D003, D007).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Selected photo metadata or references from 'Album' storage SHALL be associated with or copied into 'Project' folders during project creation (D009).</span>
+          <span class="item-text">Photo data selection and import flow from [This System - Album Storage] to [This System - Project Storage] upon project creation (inferred from D012).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Project photo data SHALL flow from storage to a modeling processing component for output modeling (D005).</span>
+          <span class="item-text">Modeling input data flow from [This System - Project Storage (Photos)] to [Modeling Service/Component] (inferred from D004, D020).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Modeling progress updates (e.g., AT computing status, point cloud generation status, model generation status) SHALL flow from the modeling processing component to the system's user interface (D008).</span>
+          <span class="item-text">Modeling output data flow from [Modeling Service/Component] to [This System - Project Storage (Output Models, Point Clouds)] (inferred from D004).</span>
         </div>
         
         <div class="item">
           <i class="ri-arrow-left-right-line icon-rose"></i>
-          <span class="item-text">Generated model output data SHALL flow from the modeling processing component to 'Project' storage (D005).</span>
+          <span class="item-text">Modeling progress update flow from [Modeling Service/Component] to [This System] and then to [User Client] (inferred from D010, D011).</span>
         </div>
         
       </div>
@@ -1736,32 +1760,32 @@
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">SSO Integration (D001): The system SHALL integrate with the external Portal's SSO service. This implies an authentication redirect/callback mechanism. Expected input: Authentication token or session identifier from the SSO provider. Expected output: An authenticated user session within this system.</span>
+          <span class="item-text">External SSO Portal Authentication Contract: Formal definition required for integration with the external SSO Portal, specifying authentication protocol (e.g., OIDC, SAML), expected token format (e.g., JWT), required scopes, and redirect/callback mechanisms (inferred from D001, D002).</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Photo Upload API (D004, D007): The system SHALL expose an endpoint for uploading photo files, likely supporting multipart/form-data. This API SHALL accept parameters for associating photos with an 'Album' (e.g., POST /api/albums/{albumId}/photos).</span>
+          <span class="item-text">Photo Upload API: Specification of endpoint(s) for photo file upload, including expected payload format (e.g., multipart/form-data for file, JSON for metadata), authentication token requirements, and expected response structure (status, photo ID, metadata) (inferred from D003, D007).</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Photo Management API (D007): The system SHALL expose APIs for deleting photos (e.g., DELETE /api/albums/{albumId}/photos/{photoId}) and searching photos within an Album (e.g., GET /api/albums/{albumId}/photos?search={query}).</span>
+          <span class="item-text">Album Management API: Endpoints and payload specifications for adding, deleting, and searching photos within an Album (inferred from D007, D008, D009).</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Project Creation API (D009): The system SHALL expose an API for creating new projects, allowing users to specify project details and provide a list of existing photo identifiers from their Albums to be imported (e.g., POST /api/projects, with payload including photo_ids).</span>
+          <span class="item-text">Project Creation/Import API: Endpoint and payload specification for creating a new project, including the mechanism for selecting and importing photos from the existing photo list (inferred from D004, D012).</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Modeling Process API (D005, D008, D016): The system SHALL expose an API to initiate the modeling process for a given project (e.g., POST /api/projects/{projectId}/model/start). The system SHALL also expose an API to query the status of an ongoing modeling process, returning current stage and progress (e.g., GET /api/projects/{projectId}/model/status).</span>
+          <span class="item-text">Modeling Progress API: Endpoint(s) for clients to query real-time modeling progress, including current stage, completion percentage, and potential error states (inferred from D010, D011).</span>
         </div>
         
         <div class="item">
           <i class="ri-plug-line icon-cyan"></i>
-          <span class="item-text">Folder Management API (D006): The system SHALL expose an API to retrieve a list of user's 'Album' and 'Project' folders (e.g., GET /api/folders).</span>
+          <span class="item-text">Internal Modeling Service Interface: Contract for initiating modeling processes with photo data and receiving progress updates and final results (inferred from D004, D010, D011, D020).</span>
         </div>
         
       </div>
@@ -1772,11 +1796,13 @@
         <div class="item">
           <i class="ri-lock-line icon-rose"></i>
           <span class="item-text">
-            User authentication MUST be handled exclusively by the external Portal's Single Sign-On (SSO) system.
+            All user authentication MUST be handled exclusively by an external Single Sign-On (SSO) Portal; the system is prohibited from implementing its own login or registration (D001, D002).
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
                   <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
+                
+                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
                 
               </span>
             
@@ -1791,7 +1817,23 @@
         <div class="item">
           <i class="ri-shield-line icon-rose"></i>
           <span class="item-text">
-            The system will not implement its own user login or registration functionality, relying entirely on an external SSO provider.
+            The system will implement user authentication via integration with an external Single Sign-On (SSO) Portal (D001, D002).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D001')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D001</span>
+                
+                  <span class="did-pill" onclick="goDecision('D002')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D002</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            The system will delegate all user registration and login functionality to an external SSO Portal (D002).
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
@@ -1805,11 +1847,45 @@
         <div class="item">
           <i class="ri-shield-line icon-rose"></i>
           <span class="item-text">
-            For V1, output modeling functionality will be restricted to 'Normal Mode' using default parameters, with 'Expert Mode' deferred to a future version.
+            The V1 system's core functional scope includes Photo Upload and Output Modeling (D003, D004).
             
               <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
                 
-                  <span class="did-pill" onclick="goDecision('D016')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D016</span>
+                  <span class="did-pill" onclick="goDecision('D003')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D003</span>
+                
+                  <span class="did-pill" onclick="goDecision('D004')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D004</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            The system will logically and visually segregate user-managed content into 'Album' (for photos) and 'Project' (for modeling data) folder types (D005, D006).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D005')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D005</span>
+                
+                  <span class="did-pill" onclick="goDecision('D006')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D006</span>
+                
+              </span>
+            
+          </span>
+        </div>
+        
+        <div class="item">
+          <i class="ri-shield-line icon-rose"></i>
+          <span class="item-text">
+            For V1, all modeling processes will operate solely in 'Normal Mode' using predefined default parameters (D020, D021).
+            
+              <span style="display: inline-flex; gap: 0.25rem; margin-left: 0.4rem; vertical-align: middle;">
+                
+                  <span class="did-pill" onclick="goDecision('D020')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D020</span>
+                
+                  <span class="did-pill" onclick="goDecision('D021')" style="margin: 0; padding: 0.05rem 0.3rem; font-size: 0.65rem; line-height: 1;">D021</span>
                 
               </span>
             
@@ -1824,37 +1900,27 @@
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the detailed technical specifications (e.g., specific protocol like OAuth2/OpenID Connect version, endpoint URLs, required scopes, token format) for integrating with the external Portal's SSO service?</span>
+          <span class="item-text">What is the specific protocol (e.g., OIDC, SAML, custom API) and version for integration with the external SSO Portal, including details on token exchange, user profile data expected, and session management?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the required metadata fields for uploaded photos (e.g., EXIF data extraction, user-defined tags) and how should they be stored and indexed?</span>
+          <span class="item-text">What is the detailed data model for 'Album' and 'Project' entities, including attributes, relationships, and how photos are referenced/stored within each?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What is the exact technical mechanism for 'importing' photos from an Album into a Project? Specifically, will photos be physically copied, symlinked, or will only their metadata/references be associated?</span>
+          <span class="item-text">What metadata fields are required for a photo upon upload, and what are the specific criteria and parameters for searching photos within an 'Album'?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the functional and non-functional requirements for the modeling processing component, including specific algorithms, infrastructure requirements, and expected processing times (SLAs)?</span>
+          <span class="item-text">What are the default parameters for 'Normal Mode' modeling, and are these parameters static or configurable via administrative settings?</span>
         </div>
         
         <div class="item">
           <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the expected output data formats for the generated models (e.g., 3D mesh formats, point cloud formats)?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the maximum file size limits for photo uploads, and what are the performance expectations for upload speed and concurrency?</span>
-        </div>
-        
-        <div class="item">
-          <i class="ri-question-line icon-danger"></i>
-          <span class="item-text">What are the specific data retention policies and backup strategies required for photos and modeling data?</span>
+          <span class="item-text">Clarify the mechanism for 'importing' photos from an 'Album' to a 'Project': are photos copied, moved, or are references/links created? What are the implications for storage and data consistency?</span>
         </div>
         
       </div>
@@ -1869,11 +1935,12 @@
 
   <!-- Footer -->
   <footer class="report-footer">
-    <span>Knowledge Routing Agent v0.1.0</span>
-    <a href="https://github.com/sherryliao21/sherry-lab" target="_blank">
+    <span>Knowledge Routing Agent v0.1.0 · Developed by Sherry (Fang-Ying) Liao</span>
+    <a href="https://github.com/sherryliao21/knowledge-routing-agent" target="_blank">
       <i class="ri-github-line"></i> GitHub
     </a>
   </footer>
+
 
 </div><!-- /page -->
 
@@ -1916,20 +1983,20 @@
 
     <div id="decisionsList">
       
-      <div class="decision-card" id="d-D001" data-category="functional_requirement" data-confidence="confirmed">
+      <div class="decision-card" id="d-D001" data-category="key_decision" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D001</span>
-            <span class="decision-title">Login and Registration via SSO</span>
+            <span class="decision-title">Exclusive SSO Login</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">functional requirement</span>
+            <span class="badge badge-cat">key decision</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">Users will log in exclusively via Single Sign-On (SSO) through the external Portal.</p>
+        <p class="decision-detail">Users will log in exclusively via Single Sign-On (SSO) through an external Portal. This is a key decision regarding authentication and a technical constraint.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D001', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1948,20 +2015,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D002" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D002" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D002</span>
-            <span class="decision-title">No Internal Login/Registration</span>
+            <span class="decision-title">No Internal Login or Registration Functionality</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The system will not implement its own login or registration functionality.</p>
+        <p class="decision-detail">The system will not implement its own login or registration functionality, relying entirely on the external SSO Portal.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D002', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -1980,20 +2047,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D003" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D003" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D003</span>
-            <span class="decision-title">Prioritize Photo Upload and Output Modeling</span>
+            <span class="decision-title">Prioritize Photo Upload Feature for V1</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">The two main features to prioritize for V1 are photo upload and output modeling.</p>
+        <p class="decision-detail">Photo upload is identified as one of the two main core features to prioritize for the V1 implementation.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D003', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2001,7 +2068,7 @@
           <div class="evidence-body" id="ev-D003">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Two main features to prioritize:1. Photo upload2. Output modeling"</p>
+              <p class="evidence-quote">"Two main features to prioritize: 1. Photo upload"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>I. Core Features (V1 Implementation Scope) - Core Functionality</span>
@@ -2016,7 +2083,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D004</span>
-            <span class="decision-title">System to Support Photo Upload</span>
+            <span class="decision-title">Prioritize Output Modeling Feature for V1</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2025,7 +2092,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The system must support photo upload as a core functionality.</p>
+        <p class="decision-detail">Output modeling is identified as one of the two main core features to prioritize for the V1 implementation.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D004', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2033,7 +2100,7 @@
           <div class="evidence-body" id="ev-D004">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"1. Photo upload"</p>
+              <p class="evidence-quote">"Two main features to prioritize: 2. Output modeling"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>I. Core Features (V1 Implementation Scope) - Core Functionality</span>
@@ -2048,7 +2115,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D005</span>
-            <span class="decision-title">System to Support Output Modeling</span>
+            <span class="decision-title">Sidebar to Distinguish Album and Project Folder Types</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2057,7 +2124,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The system must support output modeling as a core functionality.</p>
+        <p class="decision-detail">The sidebar interface needs to visually distinguish between two distinct folder types: 'Album' and 'Project'.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D005', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2065,10 +2132,10 @@
           <div class="evidence-body" id="ev-D005">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"2. Output modeling"</p>
+              <p class="evidence-quote">"The sidebar needs to distinguish between two folder types — 'Album' and 'Project'"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>I. Core Features (V1 Implementation Scope) - Core Functionality</span>
+                <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
               </div>
             </div>
             
@@ -2080,7 +2147,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D006</span>
-            <span class="decision-title">Sidebar to Distinguish Folder Types</span>
+            <span class="decision-title">Separate Management of Photos and Modeling Data</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2089,7 +2156,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The sidebar interface needs to distinguish between 'Album' and 'Project' folder types, managing photos and modeling data separately.</p>
+        <p class="decision-detail">The 'Album' and 'Project' folder types in the sidebar are intended for managing photos and modeling data separately.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D006', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2097,7 +2164,7 @@
           <div class="evidence-body" id="ev-D006">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"The sidebar needs to distinguish between two folder types — "Album" and "Project" — managing photos and modeling data separately"</p>
+              <p class="evidence-quote">"managing photos and modeling data separately"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
@@ -2112,7 +2179,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D007</span>
-            <span class="decision-title">Album Functionality: Add, Delete, Search Photos</span>
+            <span class="decision-title">Album - Support Adding Photos</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2121,7 +2188,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">The Album functionality must support adding, deleting, and searching photos.</p>
+        <p class="decision-detail">The 'Album' functionality must support adding photos.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D007', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2144,7 +2211,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D008</span>
-            <span class="decision-title">Modeling Progress Bar Display</span>
+            <span class="decision-title">Album - Support Deleting Photos</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2153,7 +2220,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">Modeling progress must be shown as a progress bar, displaying the status of each stage (e.g., AT computing, point cloud generation, model generation).</p>
+        <p class="decision-detail">The 'Album' functionality must support deleting photos.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D008', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2161,7 +2228,7 @@
           <div class="evidence-body" id="ev-D008">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"</p>
+              <p class="evidence-quote">"The Album must support adding, deleting, and searching photos"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
@@ -2176,7 +2243,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D009</span>
-            <span class="decision-title">Project Creation Photo Selection</span>
+            <span class="decision-title">Album - Support Searching Photos</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2185,7 +2252,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">When creating a project, users must be able to select photos from their photo list to import into the project folder.</p>
+        <p class="decision-detail">The 'Album' functionality must support searching for photos.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D009', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2193,7 +2260,7 @@
           <div class="evidence-body" id="ev-D009">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"When creating a project, users can select photos from the photo list to import into the project folder"</p>
+              <p class="evidence-quote">"The Album must support adding, deleting, and searching photos"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
@@ -2208,7 +2275,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D010</span>
-            <span class="decision-title">Future Feature: Project Sharing</span>
+            <span class="decision-title">Modeling Progress Bar Display</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2217,7 +2284,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">A project folder should allow designating other users to jointly view modeling results in a future version.</p>
+        <p class="decision-detail">The system must display modeling progress using a visual progress bar.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D010', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2225,10 +2292,10 @@
           <div class="evidence-body" id="ev-D010">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Project sharing: A project folder can designate other users to jointly view the modeling results"</p>
+              <p class="evidence-quote">"Modeling progress must be shown as a progress bar"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>II. Advanced Features (Future Version Planning)</span>
+                <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
               </div>
             </div>
             
@@ -2240,7 +2307,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D011</span>
-            <span class="decision-title">Album Privacy (Owner Only)</span>
+            <span class="decision-title">Detailed Modeling Progress Stages</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2249,7 +2316,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">Albums are private to the owner only and will not support multi-user access.</p>
+        <p class="decision-detail">The modeling progress bar must display the status of each individual stage, including AT computing, point cloud generation, and model generation.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D011', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2257,10 +2324,10 @@
           <div class="evidence-body" id="ev-D011">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Albums are private to the owner only and do not support multi-user access"</p>
+              <p class="evidence-quote">"displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>II. Advanced Features (Future Version Planning)</span>
+                <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
               </div>
             </div>
             
@@ -2272,7 +2339,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D012</span>
-            <span class="decision-title">Future Feature: Resumable Uploads</span>
+            <span class="decision-title">Photo Selection for Project Import</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2281,7 +2348,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">In a future version, the system should support resumable uploads where upload progress is preserved via a caching mechanism if an upload is interrupted.</p>
+        <p class="decision-detail">When creating a new project, users must be able to select photos from their existing photo list to import into the project folder.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D012', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2289,10 +2356,10 @@
           <div class="evidence-body" id="ev-D012">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint"</p>
+              <p class="evidence-quote">"When creating a project, users can select photos from the photo list to import into the project folder"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
-                <span>II. Advanced Features (Future Version Planning)</span>
+                <span>I. Core Features (V1 Implementation Scope) - Interface & Interaction</span>
               </div>
             </div>
             
@@ -2304,7 +2371,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D013</span>
-            <span class="decision-title">Future Feature: Storage Quota Management</span>
+            <span class="decision-title">Project Sharing Capability (Future Version)</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2313,7 +2380,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">In a future version, the user's personal page should display used and remaining storage, and each user's photo-upload limit can be dynamically adjusted based on system settings and permissions.</p>
+        <p class="decision-detail">A future version of the system will allow project folders to designate other users for jointly viewing modeling results.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D013', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2321,7 +2388,7 @@
           <div class="evidence-body" id="ev-D013">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Storage quota management: The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"</p>
+              <p class="evidence-quote">"Project sharing: A project folder can designate other users to jointly view the modeling results"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>II. Advanced Features (Future Version Planning)</span>
@@ -2336,7 +2403,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D014</span>
-            <span class="decision-title">Future Feature: AT Error Handling</span>
+            <span class="decision-title">Album Privacy Restricted to Owner Only</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2345,7 +2412,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">In a future version, when AT computation fails, the system should provide a mechanism to adjust parameters and re-run.</p>
+        <p class="decision-detail">Albums are designated as private, accessible only by their owner.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D014', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2353,7 +2420,7 @@
           <div class="evidence-body" id="ev-D014">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run"</p>
+              <p class="evidence-quote">"Albums are private to the owner only"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>II. Advanced Features (Future Version Planning)</span>
@@ -2368,7 +2435,7 @@
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D015</span>
-            <span class="decision-title">Future Feature: Expert Mode</span>
+            <span class="decision-title">Albums Do Not Support Multi-User Access</span>
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">functional requirement</span>
@@ -2377,7 +2444,7 @@
             
           </div>
         </div>
-        <p class="decision-detail">In a future version, after photo upload, the system should distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters).</p>
+        <p class="decision-detail">Albums explicitly do not support multi-user access.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D015', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2385,7 +2452,7 @@
           <div class="evidence-body" id="ev-D015">
             
             <div style="margin-bottom:0.75rem;">
-              <p class="evidence-quote">"Expert mode: After photo upload, distinguish between "Normal Mode" (default parameters) and "Expert Mode" (freely adjustable parameters)"</p>
+              <p class="evidence-quote">"Albums are private to the owner only and do not support multi-user access"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>II. Advanced Features (Future Version Planning)</span>
@@ -2396,20 +2463,20 @@
         
       </div>
       
-      <div class="decision-card" id="d-D016" data-category="key_decision" data-confidence="confirmed">
+      <div class="decision-card" id="d-D016" data-category="functional_requirement" data-confidence="confirmed">
         <div class="decision-head">
           <div class="decision-id-title">
             <span class="decision-id">D016</span>
-            <span class="decision-title">V1 Scope: Normal Mode Only</span>
+            <span class="decision-title">Resumable Uploads (Future Version)</span>
           </div>
           <div class="badge-row">
-            <span class="badge badge-cat">key decision</span>
+            <span class="badge badge-cat">functional requirement</span>
             
               <span class="badge badge-confirmed">confirmed</span>
             
           </div>
         </div>
-        <p class="decision-detail">For V1, only 'Normal Mode' (default parameters) will be implemented.</p>
+        <p class="decision-detail">A future version will implement resumable uploads, preserving upload progress via a caching mechanism if an upload is interrupted, enabling resume-from-breakpoint.</p>
         
           <button class="evidence-toggle" onclick="toggleEvidence('D016', this)">
             <i class="ri-arrow-down-s-line"></i> View source citation
@@ -2417,7 +2484,167 @@
           <div class="evidence-body" id="ev-D016">
             
             <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>II. Advanced Features (Future Version Planning)</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D017" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D017</span>
+            <span class="decision-title">Storage Quota Display on Personal Page (Future Version)</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">A future version will display used and remaining storage on the user's personal page.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D017', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D017">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"Storage quota management: The user's personal page displays used and remaining storage"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>II. Advanced Features (Future Version Planning)</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D018" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D018</span>
+            <span class="decision-title">Dynamic Photo Upload Limit Adjustment (Future Version)</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">In a future version, each user's photo-upload limit can be dynamically adjusted based on system settings and permissions.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D018', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D018">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>II. Advanced Features (Future Version Planning)</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D019" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D019</span>
+            <span class="decision-title">AT Computation Error Handling with Parameter Adjustment (Future Version)</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">For a future version, when AT computation fails, the system will provide a mechanism for users to adjust parameters and re-run the process.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D019', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D019">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>II. Advanced Features (Future Version Planning)</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D020" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D020</span>
+            <span class="decision-title">V1 Implementation of Normal Mode Only</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">V1 of the system will implement 'Normal Mode' only, which uses default parameters after photo upload.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D020', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D020">
+            
+            <div style="margin-bottom:0.75rem;">
               <p class="evidence-quote">"V1 will implement Normal Mode only"</p>
+              <div class="evidence-loc">
+                <i class="ri-map-pin-2-line"></i>
+                <span>II. Advanced Features (Future Version Planning)</span>
+              </div>
+            </div>
+            
+          </div>
+        
+      </div>
+      
+      <div class="decision-card" id="d-D021" data-category="functional_requirement" data-confidence="confirmed">
+        <div class="decision-head">
+          <div class="decision-id-title">
+            <span class="decision-id">D021</span>
+            <span class="decision-title">Expert Mode with Adjustable Parameters (Future Version)</span>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">functional requirement</span>
+            
+              <span class="badge badge-confirmed">confirmed</span>
+            
+          </div>
+        </div>
+        <p class="decision-detail">After photo upload, the system will eventually distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters). Expert Mode is planned for a future version.</p>
+        
+          <button class="evidence-toggle" onclick="toggleEvidence('D021', this)">
+            <i class="ri-arrow-down-s-line"></i> View source citation
+          </button>
+          <div class="evidence-body" id="ev-D021">
+            
+            <div style="margin-bottom:0.75rem;">
+              <p class="evidence-quote">"After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters)"</p>
               <div class="evidence-loc">
                 <i class="ri-map-pin-2-line"></i>
                 <span>II. Advanced Features (Future Version Planning)</span>
