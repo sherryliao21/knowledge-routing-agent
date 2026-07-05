@@ -1,7 +1,7 @@
 [
   {
     "decision_id": "D001",
-    "decision_title": "Exclusive SSO Login",
+    "decision_title": "User authentication via external SSO only",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Users will log in exclusively via SSO through the external Portal."
@@ -9,7 +9,7 @@
   },
   {
     "decision_id": "D002",
-    "decision_title": "No Internal Login or Registration Functionality",
+    "decision_title": "System will not implement internal login/registration",
     "confidence": "confirmed",
     "evidence_quotes": [
       "This system will not implement its own login or registration functionality."
@@ -17,7 +17,7 @@
   },
   {
     "decision_id": "D003",
-    "decision_title": "Prioritize Photo Upload Feature for V1",
+    "decision_title": "Prioritize Photo upload feature",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Two main features to prioritize: 1. Photo upload"
@@ -25,7 +25,7 @@
   },
   {
     "decision_id": "D004",
-    "decision_title": "Prioritize Output Modeling Feature for V1",
+    "decision_title": "Prioritize Output modeling feature",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Two main features to prioritize: 2. Output modeling"
@@ -33,138 +33,82 @@
   },
   {
     "decision_id": "D005",
-    "decision_title": "Sidebar to Distinguish Album and Project Folder Types",
+    "decision_title": "Sidebar to distinguish Album and Project folder types",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "The sidebar needs to distinguish between two folder types — 'Album' and 'Project'"
+      "The sidebar needs to distinguish between two folder types — \"Album\" and \"Project\" — managing photos and modeling data separately"
     ]
   },
   {
     "decision_id": "D006",
-    "decision_title": "Separate Management of Photos and Modeling Data",
+    "decision_title": "Album must support photo management",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "managing photos and modeling data separately"
+      "The Album must support adding, deleting, and searching photos"
     ]
   },
   {
     "decision_id": "D007",
-    "decision_title": "Album - Support Adding Photos",
+    "decision_title": "Modeling progress displayed as a progress bar",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "The Album must support adding, deleting, and searching photos"
+      "Modeling progress must be shown as a progress bar, displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"
     ]
   },
   {
     "decision_id": "D008",
-    "decision_title": "Album - Support Deleting Photos",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "The Album must support adding, deleting, and searching photos"
-    ]
-  },
-  {
-    "decision_id": "D009",
-    "decision_title": "Album - Support Searching Photos",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "The Album must support adding, deleting, and searching photos"
-    ]
-  },
-  {
-    "decision_id": "D010",
-    "decision_title": "Modeling Progress Bar Display",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Modeling progress must be shown as a progress bar"
-    ]
-  },
-  {
-    "decision_id": "D011",
-    "decision_title": "Detailed Modeling Progress Stages",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "displaying the status of each stage (AT computing, point cloud generation, model generation, etc.)"
-    ]
-  },
-  {
-    "decision_id": "D012",
-    "decision_title": "Photo Selection for Project Import",
+    "decision_title": "Project creation allows photo selection from list",
     "confidence": "confirmed",
     "evidence_quotes": [
       "When creating a project, users can select photos from the photo list to import into the project folder"
     ]
   },
   {
-    "decision_id": "D013",
-    "decision_title": "Project Sharing Capability (Future Version)",
+    "decision_id": "D009",
+    "decision_title": "Project sharing feature (future version)",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Project sharing: A project folder can designate other users to jointly view the modeling results"
+      "Project sharing: A project folder can designate other users to jointly view the modeling results; Albums are private to the owner only and do not support multi-user access"
     ]
   },
   {
-    "decision_id": "D014",
-    "decision_title": "Album Privacy Restricted to Owner Only",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Albums are private to the owner only"
-    ]
-  },
-  {
-    "decision_id": "D015",
-    "decision_title": "Albums Do Not Support Multi-User Access",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "Albums are private to the owner only and do not support multi-user access"
-    ]
-  },
-  {
-    "decision_id": "D016",
-    "decision_title": "Resumable Uploads (Future Version)",
+    "decision_id": "D010",
+    "decision_title": "Resumable uploads feature (future version)",
     "confidence": "confirmed",
     "evidence_quotes": [
       "Resumable uploads: If an upload is interrupted, upload progress is preserved via a caching mechanism, supporting resume-from-breakpoint"
     ]
   },
   {
-    "decision_id": "D017",
-    "decision_title": "Storage Quota Display on Personal Page (Future Version)",
+    "decision_id": "D011",
+    "decision_title": "Storage quota management feature (future version)",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "Storage quota management: The user's personal page displays used and remaining storage"
+      "Storage quota management: The user's personal page displays used and remaining storage; each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"
     ]
   },
   {
-    "decision_id": "D018",
-    "decision_title": "Dynamic Photo Upload Limit Adjustment (Future Version)",
-    "confidence": "confirmed",
-    "evidence_quotes": [
-      "each user's photo-upload limit can be dynamically adjusted based on system settings and permissions"
-    ]
-  },
-  {
-    "decision_id": "D019",
-    "decision_title": "AT Computation Error Handling with Parameter Adjustment (Future Version)",
+    "decision_id": "D012",
+    "decision_title": "AT error handling mechanism (future version)",
     "confidence": "confirmed",
     "evidence_quotes": [
       "AT error handling: When AT computation fails, provide a mechanism to adjust parameters and re-run"
     ]
   },
   {
-    "decision_id": "D020",
-    "decision_title": "V1 Implementation of Normal Mode Only",
+    "decision_id": "D013",
+    "decision_title": "Expert mode feature (future version)",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "V1 will implement Normal Mode only"
+      "Expert mode: After photo upload, distinguish between \"Normal Mode\" (default parameters) and \"Expert Mode\" (freely adjustable parameters)"
     ]
   },
   {
-    "decision_id": "D021",
-    "decision_title": "Expert Mode with Adjustable Parameters (Future Version)",
+    "decision_id": "D014",
+    "decision_title": "V1 to implement Normal Mode only for parameter adjustment",
     "confidence": "confirmed",
     "evidence_quotes": [
-      "After photo upload, distinguish between 'Normal Mode' (default parameters) and 'Expert Mode' (freely adjustable parameters)"
+      "V1 will implement Normal Mode only"
     ]
   }
 ]

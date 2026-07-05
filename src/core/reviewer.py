@@ -33,8 +33,11 @@ def _build_instruction() -> str:
         + "\n\n"
         + "## PM View\n\n{pm_view}"
         + "\n\n"
+        + "## Systems Analysis View\n\n{sa_view}"
+        + "\n\n"
         + "## Stakeholder View\n\n{stakeholder_view}"
     )
+
 
 
 reviewer = LlmAgent(

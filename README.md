@@ -21,13 +21,14 @@ Every extracted decision includes the source quote it came from. If no clear sou
 
 ## Role Outputs
 
-From a single meeting notes file, the agent generates four role-specific views:
+From a single meeting notes file, the agent generates five role-specific views:
 
 | Role | Gets |
 |---|---|
 | **Engineer** | Implementation scope, technical constraints, relevant decisions, open technical questions |
 | **QA** | Acceptance criteria, test scenarios, edge cases, unresolved behavior |
-| **PM / SA** | Decision history, dependencies, risks, alignment gaps, open questions |
+| **PM** | Milestones, risks, alignment gaps, open questions, dependencies, decision history |
+| **System Analyst** | System requirements, data flows, interface contracts, constraints & architectural decisions, open analysis questions |
 | **Stakeholder** | Concise business summary, impact, decisions needing alignment, major unresolved questions |
 
 ## Architecture
@@ -38,11 +39,13 @@ SequentialAgent (knowledge_routing_pipeline)
 ├── ParallelAgent
 │   ├── engineer_router    LlmAgent  → engineer view
 │   ├── qa_router          LlmAgent  → QA view
-│   ├── pm_router          LlmAgent  → PM/SA view
+│   ├── pm_router          LlmAgent  → PM view
+│   ├── sa_router          LlmAgent  → System Analyst view
 │   └── stakeholder_router LlmAgent  → stakeholder view
 └── reviewer               LlmAgent  → quality + hallucination check
    (report_builder runs after pipeline — pure Python, Jinja2)
 ```
+
 
 ## Setup
 
