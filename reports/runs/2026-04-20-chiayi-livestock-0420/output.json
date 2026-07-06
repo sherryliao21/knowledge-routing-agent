@@ -1,0 +1,1084 @@
+{
+  "metadata": {
+    "title": "Chiayi Livestock 0420",
+    "date": "2026-04-20",
+    "run_id": "2026-04-20-chiayi-livestock-0420",
+    "source_file": "2026-04-20-Chiayi_Livestock_Requirements_Interview_Minutes.md",
+    "generated_at": "2026-07-06T13:07:13.550546Z"
+  },
+  "extraction": {
+    "decisions": [
+      {
+        "id": "D001",
+        "title": "Confirm coverage of illegal chicken farm inspections",
+        "detail": "It needs to be confirmed whether inspections of illegal chicken farms will be covered by the platform's scope.",
+        "category": "open_question",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Confirm whether inspections of illegal chicken farms will be covered.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D002",
+        "title": "Incorporate Petition Data from LDCC",
+        "detail": "The platform must incorporate petition data from the Livestock Disease Control Center (LDCC), Agriculture Department.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Incorporate data from the \"Livestock Disease Control Center (LDCC), Agriculture Department\"",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D003",
+        "title": "Discuss data provision with LDCC",
+        "detail": "Follow-up discussions must be held with the LDCC to determine the specific data they can provide.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Follow-up discussions will be held with the LDCC regarding the data they can provide.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D004",
+        "title": "Epidemic Geographical Query function",
+        "detail": "In the event of an outbreak, the system must allow queries within a 3–5 km radius and display epidemic prevention details such as livestock types and quantities for each farm.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "In the event of an outbreak, the system should allow queries within a 3–5 km radius, displaying epidemic prevention details such as the livestock types and quantities of each farm.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D005",
+        "title": "On-site staff responsible for data entry (2 years)",
+        "detail": "On-site staff will be responsible for data entry for the first two years of the system's operation.",
+        "category": "business_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "On-site staff will be responsible for data entry for two years.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D006",
+        "title": "System handover to business unit for self-maintenance",
+        "detail": "After two years, the system will be handed over to the business unit for self-maintenance.",
+        "category": "business_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Afterwards, the system will be handed over to the business unit for self-maintenance.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D007",
+        "title": "Data Cross-Referencing capabilities",
+        "detail": "The system must enable cross-referencing capabilities among the geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Enable cross-referencing capabilities among the geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D008",
+        "title": "LDCC requirements can be integrated",
+        "detail": "Requirements from the LDCC, including violations, disinfection, and drug administration management, can be integrated into this platform.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Requirements from the LDCC (including violations, disinfection, and drug administration management) can be integrated into this platform.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D009",
+        "title": "Read-only access for township office personnel",
+        "detail": "The system must provide read-only access to township office personnel.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Open read-only access to township office personnel",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D010",
+        "title": "Appeal channel for data errors",
+        "detail": "The system must provide an appeal channel for reporting data errors.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "provide an appeal channel for reporting data errors.",
+            "approximate_location": "Under heading: Future Scope Expansion (Functions / Specifications)"
+          }
+        ]
+      },
+      {
+        "id": "D011",
+        "title": "Download User Operations Log records",
+        "detail": "A feature must be added to the system to allow users to download log records of their operations.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Add a feature to download log records.",
+            "approximate_location": "Under heading: Prototype Feedback"
+          }
+        ]
+      },
+      {
+        "id": "D012",
+        "title": "Paginate multiple penalty records by date",
+        "detail": "When multiple penalty records exist, the detailed view must paginate them by date.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "When multiple penalty records exist, the detailed view must paginate them by date.",
+            "approximate_location": "Under heading: Prototype Feedback"
+          }
+        ]
+      },
+      {
+        "id": "D013",
+        "title": "Case Officer to provide homepage layout design",
+        "detail": "The Case Officer will be responsible for providing the layout design for the homepage.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "The Case Officer will provide the layout design.",
+            "approximate_location": "Under heading: Prototype Feedback"
+          }
+        ]
+      },
+      {
+        "id": "D014",
+        "title": "Homepage content must fit without scrolling",
+        "detail": "The homepage content must fit within a single page without requiring the user to scroll.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "The content must fit within a single page without requiring the user to scroll.",
+            "approximate_location": "Under heading: Prototype Feedback"
+          }
+        ]
+      },
+      {
+        "id": "D015",
+        "title": "Begin UI design",
+        "detail": "UI design work should commence.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Begin UI design",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D016",
+        "title": "Provide 2 to 3 UI design drafts for client confirmation",
+        "detail": "The UI design process requires providing 2 to 3 drafts for the client's confirmation.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Provide 2 to 3 drafts for the client's confirmation",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D017",
+        "title": "Frontend development dependent on UI approval",
+        "detail": "Frontend development will commence only after the client's approval of the UI design drafts.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "frontend development will commence only after approval",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D018",
+        "title": "Deadline for UI design TBD",
+        "detail": "The deadline for commencing UI design and providing drafts is yet to be determined.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Deadline | TBD",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D019",
+        "title": "Begin API development ahead of schedule",
+        "detail": "API development should begin ahead of its originally planned schedule.",
+        "category": "key_decision",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Begin API development ahead of schedule.",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D020",
+        "title": "Deadline for API development TBD",
+        "detail": "The deadline for beginning API development is yet to be determined.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Deadline | TBD",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D021",
+        "title": "Discuss requirements integration with LDCC",
+        "detail": "The Lead Analyst and Account Manager need to discuss requirements for integrating violations, disinfection, and drug administration management with the LDCC.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Discuss requirements integration (violations, disinfection, drug administration management) with the LDCC.",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D022",
+        "title": "Deadline for LDCC integration discussion TBD",
+        "detail": "The deadline for discussing requirements integration with the LDCC is yet to be determined.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Deadline | TBD",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D023",
+        "title": "Case Officer to provide homepage layout and content planning",
+        "detail": "The Case Officer is responsible for providing the homepage layout and content planning.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Provide the homepage layout and content planning.",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D024",
+        "title": "Deadline for homepage layout/content TBD",
+        "detail": "The deadline for the Case Officer to provide the homepage layout and content planning is yet to be determined.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Deadline | TBD",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D025",
+        "title": "Supplement and complete Contract Veterinarian Data",
+        "detail": "The Account Manager is tasked with supplementing and completing the 'Contract Veterinarian Data' as referenced on page 9 of the briefing.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Supplement and complete the \"Contract Veterinarian Data\" (as referenced on page 9 of the briefing).",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D026",
+        "title": "Deadline for Contract Veterinarian Data TBD",
+        "detail": "The deadline for supplementing and completing the 'Contract Veterinarian Data' is yet to be determined.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Deadline | TBD",
+            "approximate_location": "Under heading: Action Items"
+          }
+        ]
+      },
+      {
+        "id": "D027",
+        "title": "Submit UI design drafts for client confirmation (Date TBD)",
+        "detail": "UI design drafts must be submitted for client confirmation once completed, with the exact date for submission TBD.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Submit UI design drafts for client confirmation once completed (Date TBD).",
+            "approximate_location": "Under heading: Next Meeting / Milestones"
+          }
+        ]
+      },
+      {
+        "id": "D028",
+        "title": "Convene project kickoff meeting after April 22",
+        "detail": "The project kickoff meeting is anticipated to be convened after April 22, once the engineer roster is finalized.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Convene the project kickoff meeting once the engineer roster is finalized (Anticipated after April 22).",
+            "approximate_location": "Under heading: Next Meeting / Milestones"
+          }
+        ]
+      },
+      {
+        "id": "D029",
+        "title": "Project kickoff meeting dependent on engineer roster finalization",
+        "detail": "The project kickoff meeting can only be convened once the engineer roster is finalized.",
+        "category": "dependency",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "once the engineer roster is finalized",
+            "approximate_location": "Under heading: Next Meeting / Milestones"
+          }
+        ]
+      },
+      {
+        "id": "D030",
+        "title": "Complete Data Editing, Maintenance, and Read-Only functions by July 7",
+        "detail": "The Data Editing, Maintenance, and Read-Only functions must be completed before the Mid-term Report on July 7.",
+        "category": "deadline_or_milestone",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Complete the Data Editing, Maintenance, and Read-Only functions before the Mid-term Report (July 7).",
+            "approximate_location": "Under heading: Next Meeting / Milestones"
+          }
+        ]
+      },
+      {
+        "id": "D031",
+        "title": "Implement Data Editing, Maintenance, and Read-Only functions",
+        "detail": "The system must include functions for Data Editing, Maintenance, and Read-Only access.",
+        "category": "functional_requirement",
+        "confidence": "confirmed",
+        "evidence": [
+          {
+            "quote": "Data Editing, Maintenance, and Read-Only functions",
+            "approximate_location": "Under heading: Next Meeting / Milestones"
+          }
+        ]
+      }
+    ],
+    "total_confirmed": 31,
+    "total_inferred": 0
+  },
+  "roles": {
+    "engineer": {
+      "implementation_scope": [
+        "Integrate petition data from Livestock Disease Control Center (LDCC), Agriculture Department (D002)",
+        "Develop Epidemic Geographical Query function: allow queries within 3-5km radius, display epidemic prevention details (livestock types, quantities) (D004)",
+        "Implement data entry user interface and backend logic for on-site staff for initial 2 years (D005)",
+        "Develop data cross-referencing capabilities among geographic distribution of petition numbers, non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data (D007)",
+        "Integrate LDCC requirements including violations, disinfection, and drug administration management (D008)",
+        "Implement read-only access for township office personnel (D009)",
+        "Develop an appeal channel for reporting data errors (D010)",
+        "Add feature to download user operations log records (D011)",
+        "Implement pagination by date for multiple penalty records in detailed views (D012)",
+        "Implement Data Editing functions (D031)",
+        "Implement Data Maintenance functions (D031)",
+        "Implement Read-Only functions (D031)"
+      ],
+      "constraints": [
+        {
+          "text": "Frontend development is dependent on client approval of UI design drafts (D017)",
+          "decision_ids": [
+            "D017"
+          ]
+        },
+        {
+          "text": "Homepage content must fit within a single page without requiring scrolling (D014)",
+          "decision_ids": [
+            "D014"
+          ]
+        },
+        {
+          "text": "The Case Officer is responsible for providing the homepage layout design (D013, D023). This is a blocking dependency for UI implementation.",
+          "decision_ids": [
+            "D013",
+            "D023"
+          ]
+        },
+        {
+          "text": "LDCC data provision specifics must be discussed and confirmed before full integration (D003, D021). This is a blocking dependency for LDCC integration implementation.",
+          "decision_ids": [
+            "D003",
+            "D021"
+          ]
+        },
+        {
+          "text": "Data Editing, Maintenance, and Read-Only functions must be completed by July 7 (Mid-term Report) (D030)",
+          "decision_ids": [
+            "D030"
+          ]
+        },
+        {
+          "text": "The 'Contract Veterinarian Data' needs to be supplemented and completed by the Account Manager (D025). This is a blocking dependency for relevant data modeling/integration.",
+          "decision_ids": [
+            "D025"
+          ]
+        },
+        {
+          "text": "Deadline for UI design commencement and draft provision is TBD (D018)",
+          "decision_ids": [
+            "D018"
+          ]
+        },
+        {
+          "text": "Deadline for API development commencement is TBD (D020)",
+          "decision_ids": [
+            "D020"
+          ]
+        },
+        {
+          "text": "Deadline for LDCC integration discussion is TBD (D022)",
+          "decision_ids": [
+            "D022"
+          ]
+        },
+        {
+          "text": "Deadline for homepage layout and content planning from Case Officer is TBD (D024)",
+          "decision_ids": [
+            "D024"
+          ]
+        },
+        {
+          "text": "Deadline for supplementing Contract Veterinarian Data is TBD (D026)",
+          "decision_ids": [
+            "D026"
+          ]
+        },
+        {
+          "text": "UI design drafts submission for client confirmation has a TBD date (D027)",
+          "decision_ids": [
+            "D027"
+          ]
+        }
+      ],
+      "architectural_decisions": [
+        {
+          "text": "Requirements from LDCC (violations, disinfection, drug administration management) *can* be integrated into this platform, implying architectural flexibility for such integration (D008)",
+          "decision_ids": [
+            "D008"
+          ]
+        },
+        {
+          "text": "API development should begin ahead of its originally planned schedule (D019)",
+          "decision_ids": [
+            "D019"
+          ]
+        }
+      ],
+      "relevant_decisions": [
+        "D001",
+        "D002",
+        "D003",
+        "D004",
+        "D005",
+        "D006",
+        "D007",
+        "D008",
+        "D009",
+        "D010",
+        "D011",
+        "D012",
+        "D013",
+        "D014",
+        "D015",
+        "D016",
+        "D017",
+        "D018",
+        "D019",
+        "D020",
+        "D021",
+        "D022",
+        "D023",
+        "D024",
+        "D025",
+        "D026",
+        "D027",
+        "D030",
+        "D031"
+      ],
+      "open_technical_questions": [
+        "What are the specific technical specifications (e.g., API endpoints, data schemas, authentication methods, integration protocols) for incorporating petition data and other requirements from LDCC (D002, D003, D008, D021)?",
+        "What are the precise geographical data sources and APIs for implementing 3-5 km radius queries and cross-referencing capabilities (D004, D007)?"
+      ]
+    },
+    "qa": {
+      "acceptance_criteria": [
+        "Given petition data from the Livestock Disease Control Center (LDCC) is available, When the system attempts to incorporate this data, Then the data shall be successfully integrated and made available for display and processing.",
+        "Given an outbreak location and a user-specified radius of 3km, When an epidemic geographical query is performed, Then the system shall display all farms within the 3km radius, along with their livestock types and quantities.",
+        "Given an outbreak location and a user-specified radius of 5km, When an epidemic geographical query is performed, Then the system shall display all farms within the 5km radius, along with their livestock types and quantities.",
+        "Given a user is identified as 'on-site staff', When they attempt data entry operations, Then they shall be able to successfully perform data entry for the first two years of system operation.",
+        "Given the system has relevant data loaded (geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, pig/chicken livestock farm data), When a user requests cross-referencing capabilities, Then the system shall display accurate and logically consistent combined data views.",
+        "Given a user is identified as 'Township Office Personnel', When they attempt to access any system data or function, Then they shall only have read-only access and be prevented from making any modifications.",
+        "Given an error is identified in system data by a user, When the user utilizes the designated appeal channel, Then the system shall successfully record the data error appeal.",
+        "Given an authenticated user performs operational activities within the system, When they request to download their operation log records, Then the system shall provide a downloadable file containing an accurate record of their activities.",
+        "Given a detailed view displays multiple penalty records exceeding the predefined page limit, When the page is loaded, Then the system shall paginate these records by date in descending order (newest first).",
+        "Given the homepage is loaded on a supported device and browser, When the page renders, Then all homepage content shall fit within a single screen without requiring vertical or horizontal scrolling.",
+        "The system shall provide functions allowing authorized users to create and edit data records.",
+        "The system shall provide functions allowing authorized users to perform maintenance operations on data records (e.g., archiving, soft deletion).",
+        "The system shall provide functions allowing authorized users to view data records."
+      ],
+      "test_scenarios": [
+        "Verify successful incorporation of valid petition data from LDCC, ensuring data integrity and accessibility.",
+        "Perform an epidemic geographical query with an outbreak location and a 3km radius, confirming all relevant farms and their details are displayed.",
+        "Perform an epidemic geographical query with an outbreak location and a 5km radius, confirming all relevant farms and their details are displayed.",
+        "Verify that a user with 'on-site staff' permissions can successfully create and modify data records.",
+        "Verify that a user without 'on-site staff' permissions cannot create or modify data records.",
+        "Execute a cross-reference query combining geographic distribution of petition numbers and locations of non-open type livestock sheds, and validate the results.",
+        "Execute a cross-reference query combining river basin distributions and pig/chicken livestock farm data, and validate the results.",
+        "Log in as a 'Township Office Personnel' user and verify that all attempted data modifications are rejected.",
+        "Log in as a 'Township Office Personnel' user and verify that all attempted data viewing operations are successful.",
+        "Submit a data error appeal via the designated channel and verify its successful submission and system acknowledgment.",
+        "As an administrator, verify that submitted data error appeals are accessible and contain the necessary information.",
+        "Perform several actions as a standard user, then download the user operations log and verify its contents accurately reflect the performed actions.",
+        "Access a detailed view with multiple penalty records (e.g., 10+ records if page limit is 5), and verify that pagination controls are displayed and records are ordered by date.",
+        "Navigate through paginated penalty records, ensuring correct order and display of data on each page.",
+        "Access a detailed view with fewer penalty records than the page limit (e.g., 3 records if page limit is 5), and verify that no pagination controls are displayed.",
+        "Load the homepage on a standard desktop browser (e.g., 1920x1080) and confirm no vertical or horizontal scrollbars appear.",
+        "Load the homepage on the minimum supported resolution/device and confirm no vertical or horizontal scrollbars appear.",
+        "Create a new data record using the editing function and verify it is successfully saved and can be viewed.",
+        "Edit an existing data record using the editing function and verify the changes are accurately reflected after saving.",
+        "Use the maintenance function to change the status of a data record (e.g., archive), and verify the status is updated correctly.",
+        "View various data records to confirm the read-only functionality works as expected for authorized users."
+      ],
+      "edge_cases": [
+        "Attempt to import LDCC petition data with malformed entries or an unsupported format.",
+        "Attempt an epidemic geographical query with an outbreak location that has no farms within the 3-5 km radius.",
+        "Attempt an epidemic geographical query where the radius crosses multiple administrative boundaries or large bodies of water.",
+        "Attempt a cross-referencing query where one or more of the required data categories are empty or contain minimal data.",
+        "Test the data error appeal channel with extremely long inputs or special characters in text fields.",
+        "Attempt to download user operations logs for a user who has performed no actions.",
+        "Attempt to download user operations logs for a user who has performed a very large number of actions (e.g., thousands).",
+        "Test penalty record pagination with exactly the page limit number of records.",
+        "Test penalty record pagination with multiple records sharing the same date, ensuring consistent ordering.",
+        "Load the homepage on a browser with maximum supported zoom level to confirm content still fits without scrolling.",
+        "Attempt to create/edit data records with invalid data formats or values (e.g., negative numbers where positive are expected, incorrect date formats).",
+        "Test concurrent editing of the same data record by multiple authorized users to assess conflict resolution or locking mechanisms.",
+        "Test data entry with maximum allowed field lengths for all editable fields."
+      ],
+      "unresolved_behaviors": [
+        "PM/QA: Is the platform's scope intended to cover inspections of illegal chicken farms? If so, what are the specific functional requirements related to this?",
+        "PM/QA: What is the specific data the LDCC will provide for petition data, including its exact format (e.g., CSV schema, API spec), frequency of updates, and specific data points?",
+        "PM/QA: What mechanism defines 'on-site staff' within the system (e.g., a specific user role, group membership, or attribute) for controlling data entry permissions?",
+        "PM/QA: What specific information is required when a user submits a data error appeal (e.g., error type, description, affected record ID)? What is the workflow for processing and resolving these appeals, and how will users be notified of status updates?",
+        "PM/QA: What file format will the user operations log be downloaded in (e.g., CSV, JSON, PDF)? What specific operational activities are captured and included in the log records?",
+        "PM/QA: What is the predefined page limit for displaying multiple penalty records on the detailed view?",
+        "PM/QA: What are the specific functional requirements for integrating LDCC data related to violations, disinfection, and drug administration management, as this decision only states it *can* be integrated?",
+        "PM/QA: What specific data entities (e.g., farms, livestock, inspections, personnel) are subject to the Data Editing, Maintenance, and Read-Only functions? What are the detailed permission rules for each action (creating, editing, maintaining, viewing) across all defined user roles?"
+      ]
+    },
+    "pm": {
+      "decision_history": [
+        "It was decided that requirements from the Livestock Disease Control Center (LDCC), including violations, disinfection, and drug administration management, can be integrated into this platform.",
+        "UI design work should commence.",
+        "API development should begin ahead of its originally planned schedule.",
+        "On-site staff will be responsible for data entry for the first two years of the system's operation. Afterwards, the system will be handed over to the business unit for self-maintenance."
+      ],
+      "dependencies": [
+        "Follow-up discussions must be held with the Livestock Disease Control Center (LDCC) to determine the specific data they can provide.",
+        "The Case Officer will be responsible for providing the layout design for the homepage.",
+        "Frontend development will commence only after the client's approval of the UI design drafts.",
+        "The Lead Analyst and Account Manager need to discuss requirements for integrating violations, disinfection, and drug administration management with the LDCC.",
+        "The Case Officer is responsible for providing the homepage layout and content planning.",
+        "The Account Manager is tasked with supplementing and completing the 'Contract Veterinarian Data' (as referenced on page 9 of the briefing).",
+        "The project kickoff meeting can only be convened once the engineer roster is finalized."
+      ],
+      "risks": [
+        "Scope Risk: Coverage of illegal chicken farm inspections is unconfirmed (D001). This could lead to scope creep or rework if not clarified early (Likelihood: Medium, Impact: High).",
+        "Schedule Risk: Multiple key activity deadlines (UI design commencement, API development, LDCC integration discussions, homepage content provision, Contract Veterinarian Data completion, UI draft submission) are currently TBD. This poses a significant risk to project scheduling and overall timeline (Likelihood: High, Impact: High).",
+        "External Stakeholder Delay Risk: Delay in follow-up discussions with LDCC regarding data provision (D003) or integration requirements (D021) could block critical data integration work (Likelihood: Medium, Impact: High).",
+        "Client Delay Risk: Delay from the Case Officer in providing homepage layout and content planning (D013, D023) could block UI design and subsequent frontend development (Likelihood: Medium, Impact: Medium).",
+        "Resource Availability Risk: Project kickoff is blocked until the engineer roster is finalized (D029); delays here will push out the entire project start (Likelihood: Medium, Impact: High).",
+        "Data Availability Risk: Delay from the Account Manager in supplementing and completing 'Contract Veterinarian Data' (D025) could impact features relying on this data (Likelihood: Medium, Impact: Medium)."
+      ],
+      "alignment_gaps": [
+        "Potential for differing expectations regarding the platform's scope concerning inspections of illegal chicken farms (D001)."
+      ],
+      "open_questions": [
+        "What are the confirmed acceptance criteria or scope boundaries for inspections of illegal chicken farms? (Owned by PM)",
+        "What are the firm deadlines for: (Owned by PM)",
+        "- Commencing UI design and providing 2-3 drafts for client confirmation?",
+        "- Beginning API development?",
+        "- Discussing requirements integration with the LDCC (violations, disinfection, drug administration management)?",
+        "- The Case Officer providing the homepage layout and content planning?",
+        "- The Account Manager supplementing and completing the 'Contract Veterinarian Data'?",
+        "When will the engineer roster be finalized to allow the project kickoff meeting to be convened? (Owned by PM)"
+      ],
+      "milestones": [
+        "Convene project kickoff meeting after April 22, once the engineer roster is finalized.",
+        "Submit 2 to 3 UI design drafts for client confirmation (date TBD).",
+        "Complete Data Editing, Maintenance, and Read-Only functions by July 7, before the Mid-term Report."
+      ]
+    },
+    "sa": {
+      "system_requirements": [
+        "The system SHALL incorporate petition data from the Livestock Disease Control Center (LDCC).",
+        "In the event of an outbreak, the system SHALL allow users to query epidemic prevention details within a 3-5 km radius.",
+        "The system SHALL display livestock types and quantities for each farm within the queried epidemic prevention radius.",
+        "The system SHALL enable cross-referencing capabilities among geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data.",
+        "The system SHALL provide read-only access to township office personnel.",
+        "The system SHALL provide an appeal channel for users to report data errors.",
+        "The system SHALL allow users to download records of their operations.",
+        "When multiple penalty records exist, the system's detailed view SHALL paginate them by date.",
+        "The system's homepage content MUST fit within a single view without requiring horizontal or vertical scrolling.",
+        "The system SHALL provide Data Editing functionality.",
+        "The system SHALL provide Data Maintenance functionality.",
+        "The system SHALL provide Data Read-Only access functionality.",
+        "The system SHALL provide functionality for on-site staff to perform data entry. (inferred — needs confirmation)",
+        "The system SHALL support the management of violations, disinfection records, and drug administration for livestock, utilizing data from/to LDCC. (inferred — needs confirmation)",
+        "The system SHALL implement a role-based access control mechanism to enforce read-only access for township office personnel. (inferred — needs confirmation)",
+        "The system SHALL be designed to facilitate self-maintenance by the business unit after two years of operation. (inferred — needs confirmation)"
+      ],
+      "data_flows": [
+        "Petition data SHALL flow from the Livestock Disease Control Center (LDCC) to the platform.",
+        "The system SHALL internally correlate and integrate geographic petition data, livestock shed location data, river basin distribution data, and pig/chicken livestock farm data for cross-referencing capabilities. (inferred — needs confirmation)",
+        "Violations, disinfection, and drug administration management data SHALL be exchanged between the platform and LDCC. (inferred — needs confirmation)"
+      ],
+      "interface_contracts": [
+        "An interface contract MUST be defined for receiving petition data from the Livestock Disease Control Center (LDCC), Agriculture Department. (inferred — needs confirmation)",
+        "Interface contracts MUST be defined for exchanging violations, disinfection, and drug administration management data with the Livestock Disease Control Center (LDCC). (inferred — needs confirmation)"
+      ],
+      "constraints": [
+        {
+          "text": "For the first two years of operation, on-site staff SHALL be responsible for data entry into the system.",
+          "decision_ids": [
+            "D005"
+          ]
+        },
+        {
+          "text": "The system SHALL be designed for handover to the business unit for self-maintenance after two years of operation.",
+          "decision_ids": [
+            "D006"
+          ]
+        },
+        {
+          "text": "The UI design process MUST deliver 2 to 3 drafts for client confirmation.",
+          "decision_ids": [
+            "D016"
+          ]
+        },
+        {
+          "text": "The deadline for commencing UI design and providing drafts is TBD.",
+          "decision_ids": [
+            "D018",
+            "D027"
+          ]
+        },
+        {
+          "text": "The deadline for beginning API development is TBD.",
+          "decision_ids": [
+            "D020"
+          ]
+        },
+        {
+          "text": "The deadline for discussing requirements integration with the LDCC is TBD.",
+          "decision_ids": [
+            "D022"
+          ]
+        },
+        {
+          "text": "The deadline for the Case Officer to provide homepage layout and content planning is TBD.",
+          "decision_ids": [
+            "D024"
+          ]
+        },
+        {
+          "text": "The deadline for supplementing and completing 'Contract Veterinarian Data' is TBD.",
+          "decision_ids": [
+            "D026"
+          ]
+        },
+        {
+          "text": "The Data Editing, Maintenance, and Read-Only functions MUST be completed by July 7 for the Mid-term Report.",
+          "decision_ids": [
+            "D030"
+          ]
+        }
+      ],
+      "architectural_decisions": [
+        {
+          "text": "The platform SHALL integrate LDCC requirements for violations, disinfection, and drug administration management into its scope.",
+          "decision_ids": [
+            "D008"
+          ]
+        },
+        {
+          "text": "UI design work SHALL commence immediately.",
+          "decision_ids": [
+            "D015"
+          ]
+        },
+        {
+          "text": "API development SHALL commence ahead of its originally planned schedule.",
+          "decision_ids": [
+            "D019"
+          ]
+        }
+      ],
+      "open_analysis_questions": [
+        "Clarify whether inspections of illegal chicken farms are within the platform's scope to define relevant data models and functional requirements (D001).",
+        "What are the specific data points, formats, and protocols required for the petition data from LDCC? (inferred from D002, D003)",
+        "What are the specific data points, formats, and protocols required for LDCC's violations, disinfection, and drug administration management data? (inferred from D008, D021)",
+        "What are the specific data models and attributes for livestock types, quantities, farms, petition numbers, non-open type livestock sheds, river basin distributions, and pig/chicken livestock farms to support cross-referencing? (inferred from D004, D007)",
+        "What are the detailed requirements for the \"appeal channel\" for data errors, including data capture, workflow, and resolution tracking? (inferred from D010)",
+        "What specific user operations should be logged, and what data attributes should be captured for log records? (inferred from D011)",
+        "What defines a \"penalty record\" and what data elements does it contain for pagination? (inferred from D012)",
+        "What are the detailed user roles and their associated permissions for Data Editing, Maintenance, and Read-Only access, beyond just \"township office personnel\"? (inferred from D009, D031)",
+        "What specific functionalities, data structures, and APIs are needed to support the self-maintenance by the business unit after two years? (inferred from D006)"
+      ]
+    },
+    "stakeholder": {
+      "business_summary": "We're moving forward with developing a new platform aimed at enhancing livestock disease prevention and management. Key decisions include integrating data from the Livestock Disease Control Center (LDCC) and planning for the system's long-term maintenance by our business unit after an initial two-year period of on-site data entry. This project will significantly improve our ability to respond to outbreaks and manage livestock data more effectively.",
+      "key_impact": [
+        "Enhanced ability to quickly identify and respond to livestock disease outbreaks within specific geographical areas.",
+        "Streamlined data sharing and analysis across different livestock-related datasets and external departments, improving overall operational efficiency.",
+        "Increased transparency and accountability through system logs and a clear process for reporting data errors.",
+        "Long-term cost savings as the business unit will take over system maintenance after an initial operational period, reducing reliance on external teams.",
+        "Empowers local township offices with essential read-only access to relevant livestock information."
+      ],
+      "decisions_needing_alignment": [
+        "Confirm the final scope for the platform, specifically if inspections of illegal chicken farms will be included.",
+        "The Case Officer needs to provide the finalized homepage design and content plan.",
+        "The Account Manager must complete the 'Contract Veterinarian Data'.",
+        "We need client approval on the proposed user interface designs before frontend development can fully proceed."
+      ],
+      "major_unresolved_questions": [
+        "What are the confirmed start dates and deadlines for user interface design, core system development, and the project kickoff meeting? Delays in these decisions will impact the project timeline.",
+        "What specific data and management requirements (e.g., violations, disinfection) will be integrated from the Livestock Disease Control Center (LDCC)? A clear understanding is needed to proceed.",
+        "Who is responsible for the final approval of the overall system scope, especially regarding new functionalities or external data integrations?"
+      ]
+    }
+  },
+  "review": {
+    "status": "NEEDS_IMPROVEMENT",
+    "issues": [
+      {
+        "severity": "critical",
+        "location": "Systems Analysis View - system_requirements",
+        "description": "A confirmed business requirement (D005) is incorrectly marked as 'inferred — needs confirmation'. The decision explicitly states 'On-site staff will be responsible for data entry for the first two years of the system's operation.'",
+        "suggestion": "Remove '(inferred — needs confirmation)' from 'The system SHALL provide functionality for on-site staff to perform data entry.' as it is a confirmed requirement based on D005."
+      },
+      {
+        "severity": "critical",
+        "location": "Systems Analysis View - system_requirements",
+        "description": "A confirmed business requirement (D006) is incorrectly marked as 'inferred — needs confirmation'. The decision explicitly states 'After two years, the system will be handed over to the business unit for self-maintenance.' This implies the system SHALL be designed for it.",
+        "suggestion": "Remove '(inferred — needs confirmation)' from 'The system SHALL be designed to facilitate self-maintenance by the business unit after two years of operation.' as it is a confirmed requirement based on D006."
+      },
+      {
+        "severity": "critical",
+        "location": "Systems Analysis View - data_flows",
+        "description": "A confirmed functional requirement (D007) is incorrectly marked as 'inferred — needs confirmation'. The decision explicitly states 'The system must enable cross-referencing capabilities among...' which directly implies internal correlation and integration of this data.",
+        "suggestion": "Remove '(inferred — needs confirmation)' from 'The system SHALL internally correlate and integrate geographic petition data, livestock shed location data, river basin distribution data, and pig/chicken livestock farm data for cross-referencing capabilities.' as it is a direct consequence of D007."
+      }
+    ],
+    "reviewer_notes": "The overall quality of the role outputs is good, with clear separation of concerns and appropriate detail for each audience. However, the Systems Analysis view contains critical inaccuracies where several confirmed decisions are mistakenly labeled as 'inferred — needs confirmation', which overstates uncertainty and presents facts as unconfirmed. These issues need to be corrected before the report is published.",
+    "prompt_injection_warnings": [],
+    "sensitive_content_warnings": []
+  },
+  "source_map": [
+    {
+      "decision_id": "D001",
+      "decision_title": "Confirm coverage of illegal chicken farm inspections",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Confirm whether inspections of illegal chicken farms will be covered."
+      ]
+    },
+    {
+      "decision_id": "D002",
+      "decision_title": "Incorporate Petition Data from LDCC",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Incorporate data from the \"Livestock Disease Control Center (LDCC), Agriculture Department\""
+      ]
+    },
+    {
+      "decision_id": "D003",
+      "decision_title": "Discuss data provision with LDCC",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Follow-up discussions will be held with the LDCC regarding the data they can provide."
+      ]
+    },
+    {
+      "decision_id": "D004",
+      "decision_title": "Epidemic Geographical Query function",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "In the event of an outbreak, the system should allow queries within a 3–5 km radius, displaying epidemic prevention details such as the livestock types and quantities of each farm."
+      ]
+    },
+    {
+      "decision_id": "D005",
+      "decision_title": "On-site staff responsible for data entry (2 years)",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "On-site staff will be responsible for data entry for two years."
+      ]
+    },
+    {
+      "decision_id": "D006",
+      "decision_title": "System handover to business unit for self-maintenance",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Afterwards, the system will be handed over to the business unit for self-maintenance."
+      ]
+    },
+    {
+      "decision_id": "D007",
+      "decision_title": "Data Cross-Referencing capabilities",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Enable cross-referencing capabilities among the geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data."
+      ]
+    },
+    {
+      "decision_id": "D008",
+      "decision_title": "LDCC requirements can be integrated",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Requirements from the LDCC (including violations, disinfection, and drug administration management) can be integrated into this platform."
+      ]
+    },
+    {
+      "decision_id": "D009",
+      "decision_title": "Read-only access for township office personnel",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Open read-only access to township office personnel"
+      ]
+    },
+    {
+      "decision_id": "D010",
+      "decision_title": "Appeal channel for data errors",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "provide an appeal channel for reporting data errors."
+      ]
+    },
+    {
+      "decision_id": "D011",
+      "decision_title": "Download User Operations Log records",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Add a feature to download log records."
+      ]
+    },
+    {
+      "decision_id": "D012",
+      "decision_title": "Paginate multiple penalty records by date",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "When multiple penalty records exist, the detailed view must paginate them by date."
+      ]
+    },
+    {
+      "decision_id": "D013",
+      "decision_title": "Case Officer to provide homepage layout design",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "The Case Officer will provide the layout design."
+      ]
+    },
+    {
+      "decision_id": "D014",
+      "decision_title": "Homepage content must fit without scrolling",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "The content must fit within a single page without requiring the user to scroll."
+      ]
+    },
+    {
+      "decision_id": "D015",
+      "decision_title": "Begin UI design",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Begin UI design"
+      ]
+    },
+    {
+      "decision_id": "D016",
+      "decision_title": "Provide 2 to 3 UI design drafts for client confirmation",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Provide 2 to 3 drafts for the client's confirmation"
+      ]
+    },
+    {
+      "decision_id": "D017",
+      "decision_title": "Frontend development dependent on UI approval",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "frontend development will commence only after approval"
+      ]
+    },
+    {
+      "decision_id": "D018",
+      "decision_title": "Deadline for UI design TBD",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Deadline | TBD"
+      ]
+    },
+    {
+      "decision_id": "D019",
+      "decision_title": "Begin API development ahead of schedule",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Begin API development ahead of schedule."
+      ]
+    },
+    {
+      "decision_id": "D020",
+      "decision_title": "Deadline for API development TBD",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Deadline | TBD"
+      ]
+    },
+    {
+      "decision_id": "D021",
+      "decision_title": "Discuss requirements integration with LDCC",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Discuss requirements integration (violations, disinfection, drug administration management) with the LDCC."
+      ]
+    },
+    {
+      "decision_id": "D022",
+      "decision_title": "Deadline for LDCC integration discussion TBD",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Deadline | TBD"
+      ]
+    },
+    {
+      "decision_id": "D023",
+      "decision_title": "Case Officer to provide homepage layout and content planning",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Provide the homepage layout and content planning."
+      ]
+    },
+    {
+      "decision_id": "D024",
+      "decision_title": "Deadline for homepage layout/content TBD",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Deadline | TBD"
+      ]
+    },
+    {
+      "decision_id": "D025",
+      "decision_title": "Supplement and complete Contract Veterinarian Data",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Supplement and complete the \"Contract Veterinarian Data\" (as referenced on page 9 of the briefing)."
+      ]
+    },
+    {
+      "decision_id": "D026",
+      "decision_title": "Deadline for Contract Veterinarian Data TBD",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Deadline | TBD"
+      ]
+    },
+    {
+      "decision_id": "D027",
+      "decision_title": "Submit UI design drafts for client confirmation (Date TBD)",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Submit UI design drafts for client confirmation once completed (Date TBD)."
+      ]
+    },
+    {
+      "decision_id": "D028",
+      "decision_title": "Convene project kickoff meeting after April 22",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Convene the project kickoff meeting once the engineer roster is finalized (Anticipated after April 22)."
+      ]
+    },
+    {
+      "decision_id": "D029",
+      "decision_title": "Project kickoff meeting dependent on engineer roster finalization",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "once the engineer roster is finalized"
+      ]
+    },
+    {
+      "decision_id": "D030",
+      "decision_title": "Complete Data Editing, Maintenance, and Read-Only functions by July 7",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Complete the Data Editing, Maintenance, and Read-Only functions before the Mid-term Report (July 7)."
+      ]
+    },
+    {
+      "decision_id": "D031",
+      "decision_title": "Implement Data Editing, Maintenance, and Read-Only functions",
+      "confidence": "confirmed",
+      "evidence_quotes": [
+        "Data Editing, Maintenance, and Read-Only functions"
+      ]
+    }
+  ],
+  "raw_notes": ""
+}

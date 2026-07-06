@@ -1,0 +1,250 @@
+[
+  {
+    "decision_id": "D001",
+    "decision_title": "Confirm coverage of illegal chicken farm inspections",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Confirm whether inspections of illegal chicken farms will be covered."
+    ]
+  },
+  {
+    "decision_id": "D002",
+    "decision_title": "Incorporate Petition Data from LDCC",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Incorporate data from the \"Livestock Disease Control Center (LDCC), Agriculture Department\""
+    ]
+  },
+  {
+    "decision_id": "D003",
+    "decision_title": "Discuss data provision with LDCC",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Follow-up discussions will be held with the LDCC regarding the data they can provide."
+    ]
+  },
+  {
+    "decision_id": "D004",
+    "decision_title": "Epidemic Geographical Query function",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "In the event of an outbreak, the system should allow queries within a 3–5 km radius, displaying epidemic prevention details such as the livestock types and quantities of each farm."
+    ]
+  },
+  {
+    "decision_id": "D005",
+    "decision_title": "On-site staff responsible for data entry (2 years)",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "On-site staff will be responsible for data entry for two years."
+    ]
+  },
+  {
+    "decision_id": "D006",
+    "decision_title": "System handover to business unit for self-maintenance",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Afterwards, the system will be handed over to the business unit for self-maintenance."
+    ]
+  },
+  {
+    "decision_id": "D007",
+    "decision_title": "Data Cross-Referencing capabilities",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Enable cross-referencing capabilities among the geographic distribution of petition numbers, locations of non-open type livestock sheds, river basin distributions, and pig/chicken livestock farm data."
+    ]
+  },
+  {
+    "decision_id": "D008",
+    "decision_title": "LDCC requirements can be integrated",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Requirements from the LDCC (including violations, disinfection, and drug administration management) can be integrated into this platform."
+    ]
+  },
+  {
+    "decision_id": "D009",
+    "decision_title": "Read-only access for township office personnel",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Open read-only access to township office personnel"
+    ]
+  },
+  {
+    "decision_id": "D010",
+    "decision_title": "Appeal channel for data errors",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "provide an appeal channel for reporting data errors."
+    ]
+  },
+  {
+    "decision_id": "D011",
+    "decision_title": "Download User Operations Log records",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Add a feature to download log records."
+    ]
+  },
+  {
+    "decision_id": "D012",
+    "decision_title": "Paginate multiple penalty records by date",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "When multiple penalty records exist, the detailed view must paginate them by date."
+    ]
+  },
+  {
+    "decision_id": "D013",
+    "decision_title": "Case Officer to provide homepage layout design",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "The Case Officer will provide the layout design."
+    ]
+  },
+  {
+    "decision_id": "D014",
+    "decision_title": "Homepage content must fit without scrolling",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "The content must fit within a single page without requiring the user to scroll."
+    ]
+  },
+  {
+    "decision_id": "D015",
+    "decision_title": "Begin UI design",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Begin UI design"
+    ]
+  },
+  {
+    "decision_id": "D016",
+    "decision_title": "Provide 2 to 3 UI design drafts for client confirmation",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Provide 2 to 3 drafts for the client's confirmation"
+    ]
+  },
+  {
+    "decision_id": "D017",
+    "decision_title": "Frontend development dependent on UI approval",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "frontend development will commence only after approval"
+    ]
+  },
+  {
+    "decision_id": "D018",
+    "decision_title": "Deadline for UI design TBD",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Deadline | TBD"
+    ]
+  },
+  {
+    "decision_id": "D019",
+    "decision_title": "Begin API development ahead of schedule",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Begin API development ahead of schedule."
+    ]
+  },
+  {
+    "decision_id": "D020",
+    "decision_title": "Deadline for API development TBD",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Deadline | TBD"
+    ]
+  },
+  {
+    "decision_id": "D021",
+    "decision_title": "Discuss requirements integration with LDCC",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Discuss requirements integration (violations, disinfection, drug administration management) with the LDCC."
+    ]
+  },
+  {
+    "decision_id": "D022",
+    "decision_title": "Deadline for LDCC integration discussion TBD",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Deadline | TBD"
+    ]
+  },
+  {
+    "decision_id": "D023",
+    "decision_title": "Case Officer to provide homepage layout and content planning",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Provide the homepage layout and content planning."
+    ]
+  },
+  {
+    "decision_id": "D024",
+    "decision_title": "Deadline for homepage layout/content TBD",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Deadline | TBD"
+    ]
+  },
+  {
+    "decision_id": "D025",
+    "decision_title": "Supplement and complete Contract Veterinarian Data",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Supplement and complete the \"Contract Veterinarian Data\" (as referenced on page 9 of the briefing)."
+    ]
+  },
+  {
+    "decision_id": "D026",
+    "decision_title": "Deadline for Contract Veterinarian Data TBD",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Deadline | TBD"
+    ]
+  },
+  {
+    "decision_id": "D027",
+    "decision_title": "Submit UI design drafts for client confirmation (Date TBD)",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Submit UI design drafts for client confirmation once completed (Date TBD)."
+    ]
+  },
+  {
+    "decision_id": "D028",
+    "decision_title": "Convene project kickoff meeting after April 22",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Convene the project kickoff meeting once the engineer roster is finalized (Anticipated after April 22)."
+    ]
+  },
+  {
+    "decision_id": "D029",
+    "decision_title": "Project kickoff meeting dependent on engineer roster finalization",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "once the engineer roster is finalized"
+    ]
+  },
+  {
+    "decision_id": "D030",
+    "decision_title": "Complete Data Editing, Maintenance, and Read-Only functions by July 7",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Complete the Data Editing, Maintenance, and Read-Only functions before the Mid-term Report (July 7)."
+    ]
+  },
+  {
+    "decision_id": "D031",
+    "decision_title": "Implement Data Editing, Maintenance, and Read-Only functions",
+    "confidence": "confirmed",
+    "evidence_quotes": [
+      "Data Editing, Maintenance, and Read-Only functions"
+    ]
+  }
+]
